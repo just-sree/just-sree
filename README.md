@@ -105,5 +105,3 @@ Interactive real-time object detection app.
 [![](https://visitcount.itsvg.in/api?id=just-sree&icon=2&color=4)](https://visitcount.itsvg.in)
 
 ---
-
-*Proudly created with GitHub Profile Readme Maker (GPRM)*
