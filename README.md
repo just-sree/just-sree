@@ -2,52 +2,52 @@
 
 👋 **Hi, I'm Sree Sankaran Chackoth**
 
-Welcome to my GitHub! I'm an **AI & Data Science professional** based in Ottawa, Canada, focused on building impactful solutions at the intersection of **machine learning**, **business intelligence**, and **data engineering**. My passion lies in transforming raw data into actionable insights and deploying intelligent systems that solve real-world problems.
+Welcome to my GitHub! I'm an **AI & Data Science specialist** based in Ottawa, Canada, focused on building scalable solutions at the intersection of **machine learning**, **business intelligence**, and **data engineering**. I’m passionate about transforming data into real-world impact through end-to-end modeling, automation, and deployment.
 
 ---
 
 ## 🚀 What I Do
 
-- 📊 **Data Pipelines & Analytics**: Build robust pipelines, dashboards, and analytical models with Python, SQL, and Power BI.
-- 🤖 **Machine Learning**: Develop ML/DL models for classification, prediction, NLP, anomaly detection, and computer vision.
-- 🛠️ **Deployment**: Deploy interactive ML apps using platforms like Hugging Face Spaces, Gradio, and Streamlit.
-- 💡 **Real-World Applications**: Solve impactful problems in immigration forecasting, retail analytics, finance, and cybersecurity.
+- 📊 **Analytics & Data Engineering**: Build ETL pipelines, dimensional models, and dashboards with Python, SQL, and Power BI.
+- 🤖 **Machine Learning & NLP**: Train models for classification, forecasting, anomaly detection, and natural language processing.
+- 🧠 **AI Applications**: Deliver ML-powered tools using Streamlit, Gradio, and Hugging Face for web and CLI environments.
+- 🧩 **Domain Focus**: Immigration forecasting, cybersecurity, retail intelligence, and financial modeling.
 
 ---
 
 ## 🔍 Featured Projects
 
 ### 🌐 [IRCC Immigration Forecasting](https://github.com/noob-noob1/IRCC_Project)
-Forecasting immigration trends in Canada to aid policy planning.
-- **Stack**: Python, ARIMA, Prophet, Pandas, Plotly
+Time series models (Prophet, ARIMA) to forecast Temporary and Permanent Resident inflows in Canada.
+- **Stack**: Python, Pandas, Prophet, Plotly
 
 ### 🎓 [UCLA Admission Predictor](https://github.com/just-sree/Neural-Network-Predicting-Chances-of-Admission-at-UCLA-)
-Predicting university admission probabilities using academic metrics.
+Predicts university admission likelihood using academic features and deep learning.
 - **Stack**: TensorFlow, NumPy, Scikit-learn
 
-### 💬 [Customer Churn Forecasting (NLP)](https://github.com/just-sree/Customer-Churn-Forecasting-NLP)
-Analyzing customer interactions to predict churn using advanced NLP techniques.
-- **Stack**: LangChain, Mistral-7B, NLP
+### 💬 [Customer Churn Forecasting with NLP](https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A)
+Combines ML and NLP to predict churn and suggest personalized retention strategies.
+- **Stack**: XGBoost, PyCaret, LangChain, Mistral
 
 ### 🛡️ [Malware Binary Classification CLI](https://github.com/just-sree/Malware-Binary-Classifier)
-CLI tool classifying software binaries as benign or malicious.
-- **Stack**: Scikit-learn, Python CLI
+Command-line app to classify Windows executables as benign or malicious.
+- **Stack**: Scikit-learn, Pandas, CLI interface
 
-### 🏬 [Retail Intelligence (Walmart Canada)](https://github.com/just-sree/Walmart-DataModel)
-Designed data models and BI visualizations for optimized inventory tracking.
-- **Stack**: Power BI, SQL, Snowflake
+### 🏬 [Retail Intelligence Framework](https://github.com/just-sree/Retail-Intelligence-Architecture--A-Data-Modeling-Framework-for-Walmart-Canada)
+Dimensional data modeling framework for Walmart Canada's retail analytics.
+- **Stack**: SQL, Star Schema, Power BI
 
-### 📦 [Object Detection (Hugging Face)](https://github.com/just-sree/Object-Detection-using-HF)
-Interactive real-time object detection app.
-- **Stack**: PyTorch, Transformers, Gradio
+### 📦 [Real-Time Object Detection](https://github.com/just-sree/Object-Detection-using-HF)
+Live object detection web app using Hugging Face Transformers and PyTorch.
+- **Stack**: PyTorch, Gradio, Transformers
 
 ---
 
 ## 📈 Current Focus
 
-- 🚀 Scaling ML pipelines and LLM-powered applications
-- 🧠 Advancing skills in Generative AI, Data-centric ML, and BI automation
-- 🤝 Seeking collaborations in AI research, product development, and public sector analytics
+- Scaling end-to-end ML and BI pipelines
+- Building explainable and production-ready AI tools
+- Exploring LLMs, time series automation, and real-time anomaly detection
 
 ---
 
@@ -77,31 +77,15 @@ Interactive real-time object detection app.
 ## 📊 GitHub Stats
 
 ![](https://github-readme-stats.vercel.app/api?username=just-sree&theme=tokyonight&count_private=false)
-
 ![](https://github-readme-streak-stats.herokuapp.com/?user=just-sree&theme=tokyonight)
-
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=just-sree&theme=tokyonight&layout=compact)
 
 ---
 
-## 🏆 GitHub Trophies
-
-![](https://github-profile-trophy.vercel.app/?username=just-sree&theme=tokyonight)
-
----
-
-## ✍️ Random Dev Quote
+## ✍️ Dev Quote
 
 ![](https://quotes-github-readme.vercel.app/api?type=vertical&theme=tokyonight)
 
 ---
 
-## 🔝 Top Contributions
-
-![](https://github-contributor-stats.vercel.app/api?username=just-sree&limit=5&theme=dark)
-
----
-
 [![](https://visitcount.itsvg.in/api?id=just-sree&icon=2&color=4)](https://visitcount.itsvg.in)
-
----
