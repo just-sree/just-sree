@@ -1,91 +1,90 @@
-# 💫 About Me
+<p align="center">
+  <img src="./assets/profile-header.svg" alt="Sree Sankaran Chackoth — From hard problems to working AI." width="100%" />
+</p>
 
-👋 **Hi, I'm Sree Sankaran Chackoth**
+<p align="center">
+  <strong>AI engineering &nbsp; / &nbsp; Agentic architecture &nbsp; / &nbsp; Forward-deployed problem solving</strong>
+</p>
 
-Welcome to my GitHub! I'm an **AI & Data Science specialist** based in Ottawa, Canada, focused on building scalable solutions at the intersection of **machine learning**, **business intelligence**, and **data engineering**. I’m passionate about transforming data into real-world impact through end-to-end modeling, automation, and deployment.
-
----
-
-## 🚀 What I Do
-
-- 📊 **Analytics & Data Engineering**: Build ETL pipelines, dimensional models, and dashboards with Python, SQL, and Power BI.
-- 🤖 **Machine Learning & NLP**: Train models for classification, forecasting, anomaly detection, and natural language processing.
-- 🧠 **AI Applications**: Deliver ML-powered tools using Streamlit, Gradio, and Hugging Face for web and CLI environments.
-- 🧩 **Domain Focus**: Immigration forecasting, cybersecurity, retail intelligence, and financial modeling.
-
----
-
-## 🔍 Featured Projects
-
-### 🌐 [IRCC Immigration Forecasting](https://github.com/noob-noob1/IRCC_Project)
-Time series models (Prophet, ARIMA) to forecast Temporary and Permanent Resident inflows in Canada.
-- **Stack**: Python, Pandas, Prophet, Plotly
-
-### 🎓 [UCLA Admission Predictor](https://github.com/just-sree/Neural-Network-Predicting-Chances-of-Admission-at-UCLA-)
-Predicts university admission likelihood using academic features and deep learning.
-- **Stack**: TensorFlow, NumPy, Scikit-learn
-
-### 💬 [Customer Churn Forecasting with NLP](https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A)
-Combines ML and NLP to predict churn and suggest personalized retention strategies.
-- **Stack**: XGBoost, PyCaret, LangChain, Mistral
-
-### 🛡️ [Malware Binary Classification CLI](https://github.com/just-sree/Malware-Binary-Classifier)
-Command-line app to classify Windows executables as benign or malicious.
-- **Stack**: Scikit-learn, Pandas, CLI interface
-
-### 🏬 [Retail Intelligence Framework](https://github.com/just-sree/Retail-Intelligence-Architecture--A-Data-Modeling-Framework-for-Walmart-Canada)
-Dimensional data modeling framework for Walmart Canada's retail analytics.
-- **Stack**: SQL, Star Schema, Power BI
-
-### 📦 [Real-Time Object Detection](https://github.com/just-sree/Object-Detection-using-HF)
-Live object detection web app using Hugging Face Transformers and PyTorch.
-- **Stack**: PyTorch, Gradio, Transformers
+<p align="center">
+  <a href="https://linkedin.com/in/sreesankaranc">LinkedIn ↗</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="mailto:sreechackoth@gmail.com">Let’s build something ↗</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="#selected-work">Explore the work ↓</a>
+</p>
 
 ---
 
-## 📈 Current Focus
+I'm **Sree Sankaran Chackoth**, an AI engineer based in Canada. I build tools and workflows that connect models, data, and software to a useful outcome.
 
-- Scaling end-to-end ML and BI pipelines
-- Building explainable and production-ready AI tools
-- Exploring LLMs, time series automation, and real-time anomaly detection
+My focus is the whole system: understanding the problem, defining what an agent can do, connecting the right tools, and checking whether the result holds up. I bring a foundation in machine learning, data engineering, and analytics to that work.
+
+## Selected work
+
+### 01 / Give agents a checkpoint.
+
+**[agent-preflight ↗](https://github.com/just-sree/agent-preflight)** · Agent tooling · Early release
+
+A local Python package for validating structured agent actions **before execution**. It checks blocked actions and argument schemas, records decisions in JSONL or SQLite, and supports a dry-run execution wrapper.
+
+**Engineering focus:** explicit tool boundaries, inspectable decisions, and safe defaults. Deliberately scoped as a small validation layer.
+
+<sub>Python · Schema validation · Local audit trails</sub>
+
+### 02 / Read between the clauses.
+
+**[BogdAI ↗](https://github.com/anunjinb/bogdai-contract-risk-agent)** · Multi-agent workflow · Team hackathon prototype
+
+A six-agent pipeline exploring risk in **synthetic healthcare and pharma contracts**. Intake, extraction, grounding, analysis, verification, and reporting produce structured findings with citations and human-review flags.
+
+**Architecture focus:** separate responsibilities, grounded outputs, and a deterministic fallback for local demonstrations.
+
+<sub>Python · Microsoft Foundry · Pydantic</sub>
+
+### 03 / Make “ready” measurable.
+
+**[Hasten Quality ↗](https://github.com/just-sree/hasten-quality)** · Evaluation & delivery tooling
+
+A standalone quality suite for Hasten, a React Native / Expo productivity app. It combines contract tests, device checks, and performance testing with **explicit release gates and certification reports**.
+
+**Engineering focus:** turn observed behavior into a release decision. Hasten’s text engine is rule-based; this project showcases testing and delivery engineering.
+
+<sub>TypeScript · Contract testing · Device automation · CI</sub>
+
+## On the workbench
+
+| Project | What I’m exploring | Stage |
+| :--- | :--- | :--- |
+| **[OCR Proofkit](https://github.com/just-sree/ocr-proofkit)** | Assessing OCR quality, correcting text, and checking transcriptions. | Initial development |
+| **[Quota Journal](https://github.com/just-sree/quota-journal)** | Tracking API usage, request quotas, and rate limits. | Initial development |
+| **Portfolio + AI agent** | An interactive way to explore my work, inspect architectures, and find relevant projects through conversation. | Local prototype |
+
+## How I approach a build
+
+- **Start with the workflow.** Understand who needs the result, what makes the problem difficult, and where AI actually helps.
+- **Make the boundaries explicit.** Define context, tool permissions, output contracts, and when a person should review the result.
+- **Build the feedback loop.** Evaluate behavior, inspect failures, and improve the system using evidence.
+
+<details>
+<summary><strong>Tools I work with</strong></summary>
+
+<br />
+
+| Area | Tools |
+| :--- | :--- |
+| AI & machine learning | Python, PyTorch, TensorFlow, scikit-learn, Hugging Face, LangChain |
+| Applications & agent workflows | FastAPI, Pydantic, Microsoft Foundry, TypeScript, Streamlit, Gradio |
+| Data & analytics | SQL, Pandas, SQL Server, MySQL, Power BI |
+
+I choose the stack around the problem, the constraints, and the people who will maintain it.
+
+</details>
 
 ---
 
-## 🌐 Connect with Me
+### Have something worth building?
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/sreesankaranc)
-[![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:sreechackoth@gmail.com)
+If you’re hiring an AI engineer or exploring a product with a founder or engineering team, I’d like to hear about the problem.
 
----
-
-## 💻 Tech Stack
-
-![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?logo=microsoft%20sql%20server&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?logo=mysql&logoColor=white)
-![Power BI](https://img.shields.io/badge/power_bi-F2C811?logo=powerbi&logoColor=black)
-![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?logo=amazon-aws&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?logo=fastapi)
-![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?logo=streamlit&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?logo=TensorFlow&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?logo=scikit-learn&logoColor=white)
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?logo=pandas&logoColor=white)
-
----
-
-## 📊 GitHub Stats
-
-![](https://github-readme-stats.vercel.app/api?username=just-sree&theme=tokyonight&count_private=false)
-![](https://github-readme-streak-stats.herokuapp.com/?user=just-sree&theme=tokyonight)
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=just-sree&theme=tokyonight&layout=compact)
-
----
-
-## ✍️ Dev Quote
-
-![](https://quotes-github-readme.vercel.app/api?type=vertical&theme=tokyonight)
-
----
-
-[![](https://visitcount.itsvg.in/api?id=just-sree&icon=2&color=4)](https://visitcount.itsvg.in)
+**[Talk to me on LinkedIn ↗](https://linkedin.com/in/sreesankaranc)** &nbsp; or &nbsp; **[send me an email ↗](mailto:sreechackoth@gmail.com)**
