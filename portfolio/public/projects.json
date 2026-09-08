@@ -1,0 +1,35 @@
+{
+  "preflight": {
+    "name": "agent-preflight",
+    "title": "Give agents a checkpoint.",
+    "summary": "A small local Python package that validates structured agent actions before execution.",
+    "problem": "An agent can propose an action with missing arguments, an invalid type, or a name the workflow should never allow. A checkpoint makes those boundaries explicit before a handler runs.",
+    "architecture": ["Action payload", "Policy + schema", "Validation report", "Registered handler", "Local audit"],
+    "decision": "Keep the validation layer small, local, and inspectable. Required fields and simple schemas cover a focused use case; JSONL and SQLite audit backends make decisions available for inspection. The execution wrapper defaults to dry-run mode.",
+    "evidence": "The repository documents a Python API, CLI, configuration files, schema validation, audit records, and a dry-run execution wrapper.",
+    "limits": "Early release. This is not a complete policy engine or a production security boundary. No production adoption or performance claims have been verified for this portfolio.",
+    "url": "https://github.com/just-sree/agent-preflight"
+  },
+  "bogdai": {
+    "name": "BogdAI",
+    "title": "Read between the clauses.",
+    "summary": "A hackathon project exploring a six-agent pipeline for risk analysis on synthetic pharma and healthcare contracts.",
+    "problem": "Contract review needs more than a risk label. A useful finding has to point back to evidence, produce a structured report, and make human review explicit.",
+    "architecture": ["Intake", "Clause extraction", "Grounding", "Risk analysis", "Verification", "Report"],
+    "decision": "Separate intake, extraction, grounding, analysis, verification, and reporting. Microsoft Foundry supports grounding against synthetic policies; a deterministic local fallback supports demonstrations without Azure credentials. Pydantic provides report structure.",
+    "evidence": "The project README documents grounded citations, high-risk human-review flags, structured JSON reports, and an agent trace. This portfolio illustration is not running the contract pipeline.",
+    "limits": "Hackathon prototype using synthetic contracts and policies; not legal advice or a validated compliance product. This is a team repository. Sree’s precise individual contribution still needs to be documented.",
+    "url": "https://github.com/anunjinb/bogdai-contract-risk-agent"
+  },
+  "hasten": {
+    "name": "Hasten Quality",
+    "title": "Make ‘ready’ measurable.",
+    "summary": "A standalone quality suite for Hasten, a React Native / Expo productivity app.",
+    "problem": "Release decisions need observable evidence about behavior, stability, and failure modes. A quality suite can expose gaps that a polished demo does not reveal.",
+    "architecture": ["App source + device", "Contract tests", "Performance checks", "Quality gates", "Certification report"],
+    "decision": "Combine source-level contract tests with connected-device performance and stress tests. Generate a certification document that records whether release gates pass, with explicit blockers when they do not.",
+    "evidence": "The README documents contract, persistence, privacy, state-machine, and device checks. Its recorded run reports engine-quality blockers. Those historical results are not represented here as a current live status.",
+    "limits": "Hasten’s documented text engine is rule-based, not AI. This project demonstrates evaluation and delivery engineering. Device checks require a connected device or emulator.",
+    "url": "https://github.com/just-sree/hasten-quality"
+  }
+}

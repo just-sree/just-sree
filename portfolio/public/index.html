@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7ef">
+  <meta name="description" content="Sree Sankaran Chackoth — AI engineer building agentic systems, useful products, and the tooling that makes them reliable. Explore selected work and talk to his portfolio agent.">
+  <title>Sree — From hard problems to working AI.</title>
+  <link rel="icon" href="/bamboo-logo.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/scroll.css">
+  <script src="/bamboo.js" type="module"></script>
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header shell">
+    <a class="wordmark" href="#" aria-label="Sree, home"><img class="brand-icon" src="/bamboo-logo.png" width="48" height="48" alt="">sree<span class="wordmark-period">.</span></a>
+    <nav aria-label="Main navigation"><a href="#work">Selected work <span>03</span></a><a href="#approach">Approach</a><a href="/resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a><a href="#workbench">Workbench <i class="status-dot"></i></a></nav>
+    <button class="nav-agent" data-agent>Talk to my AI Agent <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" id="intro" aria-labelledby="hero-title">
+      <canvas class="bamboo-canvas hero-bamboo" aria-hidden="true"></canvas>
+      <div class="hero-topline"><span class="eyebrow"><i class="status-dot"></i> SREE SANKARAN CHACKOTH</span><span class="eyebrow location">AI ENGINEER / CANADA</span></div>
+      <div class="hero-copy">
+        <p class="role-label hero-enter">Complex problems. Clear intent.</p>
+        <h1 id="hero-title"><span class="hero-line hero-enter">From hard problems</span><span class="hero-line hero-enter">to <em>working AI</em><span class="orange-period">.</span></span></h1>
+        <div class="hero-bottom hero-enter"><p class="hero-description">I build agentic systems and the tools<br class="desktop-break"> that make them useful in the real world.</p><div class="hero-actions"><button class="button button-dark" data-agent>Talk to my AI Agent <span aria-hidden="true">↗</span></button><a class="text-link" href="#work">Explore my work <span aria-hidden="true">↓</span></a></div></div>
+      </div>
+      <a class="text-link hero-resume" href="/resume.pdf" target="_blank" rel="noreferrer">Read my resume <span aria-hidden="true">↗</span><small> PDF · 2 pages</small></a>
+      <div class="hero-footer"><p>AI ENGINEERING <span>/</span> FORWARD-DEPLOYED THINKING</p><a href="#work" class="scroll-cue"><span>SCROLL TO EXPLORE</span><span class="scroll-arrow" aria-hidden="true">↓</span></a></div>
+      <span class="hero-watermark" aria-hidden="true">GROW.</span>
+    </section>
+
+    <section class="work-section shell" id="work" aria-labelledby="work-title">
+      <div class="section-heading reveal"><div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-title">Less talk. More build.</h2></div><p>Three projects.<br> Three different kinds of problem.</p></div>
+      <div class="projects">
+        <article class="project-card reveal" id="project-preflight"><button class="project-open" data-project="preflight" aria-label="Explore agent-preflight">
+          <div class="project-art preflight-art"><div class="project-art-label"><span>ACTION VALIDATION</span><span>↗</span></div><div class="permission-card"><div class="permission-head"><span class="mini-logo">✳</span><span>agent-preflight</span><i>LOCAL CHECK</i></div><div class="code-row"><span>action</span><strong>delete_rows</strong></div><div class="code-row"><span>policy</span><strong>blocked_actions</strong></div><div class="policy-result"><span>⊘</span><div>Stopped before execution<small>A blocked action stays blocked.</small></div></div></div><div class="art-code">propose <span>→</span> validate <span>→</span> execute</div></div>
+          <div class="project-content"><div class="project-meta"><span>01 / AGENT TOOLING</span><span class="project-status">EARLY RELEASE</span></div><h3>Give agents a checkpoint.<span>↗</span></h3><p>agent-preflight validates structured actions before a tool gets to execute them.</p><div class="tags"><span>Python</span><span>Action validation</span><span>Audit trails</span></div>
+          <span class="project-cta">Explore the project <span aria-hidden="true">↗</span></span></div>
+        </button></article>
+        <article class="project-card reveal" id="project-bogdai"><button class="project-open" data-project="bogdai" aria-label="Explore BogdAI">
+          <div class="project-art bogdai-art"><div class="project-art-label"><span>CONTRACT INTELLIGENCE</span><span>↗</span></div><div class="contract-paper"><div class="paper-label">SUPPLY AGREEMENT <span>§ 04</span></div><div class="paper-rule"></div><div class="paper-rule short"></div><div class="highlight-clause">Liability shall remain unlimited…</div><div class="paper-rule"></div><div class="paper-rule short"></div><div class="risk-callout"><span>!</span><div>Human review required<small>Financial exposure · cited finding</small></div></div></div><div class="art-code">6 agents <span>·</span> structured findings <span>·</span> human review</div></div>
+          <div class="project-content"><div class="project-meta"><span>02 / MULTI-AGENT SYSTEMS</span><span class="project-status">HACKATHON</span></div><h3>Read between the clauses.<span>↗</span></h3><p>BogdAI explores contract risk through six agents, grounded citations, and human review.</p><div class="tags"><span>Microsoft Foundry</span><span>Python</span><span>Pydantic</span></div>
+          <span class="project-cta">Explore the project <span aria-hidden="true">↗</span></span></div>
+        </button></article>
+        <article class="project-card reveal" id="project-hasten"><button class="project-open" data-project="hasten" aria-label="Explore Hasten Quality">
+          <div class="project-art hasten-art"><div class="project-art-label"><span>RELEASE CONFIDENCE</span><span>↗</span></div><div class="quality-panel"><div class="quality-title">A release is a decision.<span>QUALITY GATES</span></div><div class="quality-row"><span>Contracts</span><i class="bar bar-one"></i><span>01</span></div><div class="quality-row"><span>Performance</span><i class="bar bar-two"></i><span>02</span></div><div class="quality-row"><span>Privacy</span><i class="bar bar-three"></i><span>03</span></div><div class="quality-footer"><span>≋</span> Evidence before a release.</div></div><div class="art-code">test <span>→</span> measure <span>→</span> certify</div></div>
+          <div class="project-content"><div class="project-meta"><span>03 / DELIVERY & RELIABILITY</span><span class="project-status">QUALITY TOOLING</span></div><h3>Make “ready” measurable.<span>↗</span></h3><p>A quality suite for Hasten: contract checks, device testing, and explicit release gates.</p><div class="tags"><span>TypeScript</span><span>Device testing</span><span>CI</span></div>
+          <span class="project-cta">Explore the project <span aria-hidden="true">↗</span></span></div>
+        </button></article>
+      </div>
+      <p class="work-caption">Interface illustrations explain the projects; they are not live project outputs. <a href="https://github.com/just-sree" target="_blank" rel="noreferrer">Explore GitHub ↗</a></p>
+    </section>
+
+    <section class="approach-section" id="approach" aria-labelledby="approach-title">
+      <div class="shell"><div class="section-heading reveal"><div><p class="eyebrow">02 / THE THINKING BEHIND THE BUILD</p><h2 id="approach-title">Every action.<br><em>A little more intentional.</em></h2></div><p>Follow the system, one decision at a time.</p></div>
+      <div class="architecture-scroll"><div class="architecture-story">
+        <article class="story-step" data-story-step="context"><span class="story-number">01</span><h3>Understand<br>before building.</h3><p>Start with the people, the workflow, and the constraints. Find the context that actually changes the answer.</p><span class="story-tag">CONTEXT & RETRIEVAL</span></article>
+        <article class="story-step" data-story-step="plan"><span class="story-number">02</span><h3>Give the system<br>a clear next move.</h3><p>Separate responsibilities. Route the request to a bounded workflow, with an explicit definition of a useful result.</p><span class="story-tag">PLANNING & ORCHESTRATION</span></article>
+        <article class="story-step" data-story-step="tools"><span class="story-number">03</span><h3>Make actions<br>accountable.</h3><p>Check inputs and permissions before a tool runs. Keep the decision inspectable, and involve a person where it matters.</p><span class="story-tag">TOOLS & VALIDATION</span></article>
+        <article class="story-step" data-story-step="verify"><span class="story-number">04</span><h3>Close the loop.<br>Keep improving.</h3><p>Evaluate the outcome. Surface the evidence, learn from the failure modes, and make the next version better.</p><span class="story-tag">EVALUATION & FEEDBACK</span></article>
+      </div><div class="architecture-sticky">        <div class="system-art" aria-label="Interactive agent architecture demonstration">
+          <div class="art-topline"><span class="eyebrow">A LOOK UNDER THE HOOD</span><span class="diagram-badge">INTERACTIVE</span></div>
+          <div class="network">
+            <svg class="network-svg" viewBox="0 0 480 410" aria-hidden="true">
+              <defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#aab6a0" opacity=".55"/></pattern></defs>
+              <rect width="480" height="410" fill="url(#dots)"/>
+              <circle class="orbit orbit-outer" cx="240" cy="207" r="168"/><circle class="orbit" cx="240" cy="207" r="120"/><circle class="orbit orbit-inner" cx="240" cy="207" r="74"/>
+              <path class="wire" d="M95 100 H174 Q192 100 192 119 V176 Q192 192 210 192 H240 M390 102 H317 Q296 102 296 121 V181 Q296 207 269 207 H240 M104 302 H179 Q194 302 194 281 V228 Q194 207 214 207 H240 M384 307 H307 Q284 307 284 284 V238 Q284 219 263 219 H240"/>
+              <path class="wire wire-light" d="M240 37 V377 M70 207 H410"/>
+              <circle cx="240" cy="37" r="4" fill="#244638"/><circle cx="408" cy="207" r="4" fill="#244638"/><circle cx="240" cy="375" r="4" fill="#244638"/><circle cx="72" cy="207" r="4" fill="#244638"/>
+              <g class="orbiting-dot"><circle cx="240" cy="87" r="6" fill="#83a242"/><circle cx="240" cy="87" r="11" fill="none" stroke="#83a242" opacity=".3"/></g>
+            </svg>
+            <div class="core" aria-hidden="true"><div class="core-star"><img src="/bamboo-logo.png" alt="" width="44" height="44"></div><span>ORCHESTRATOR</span></div>
+            <button class="map-node node-context" data-node="context"><span class="node-icon">⌕</span><span>01 / CONTEXT<strong>Understand</strong></span><span class="node-arrow">↗</span></button>
+            <button class="map-node node-plan" data-node="plan"><span class="node-icon">⌘</span><span>02 / PLANNING<strong>Decide</strong></span><span class="node-arrow">↗</span></button>
+            <button class="map-node node-tools" data-node="tools"><span class="node-icon">↗</span><span>03 / TOOLS<strong>Execute</strong></span><span class="node-arrow">↗</span></button>
+            <button class="map-node node-verify" data-node="verify"><span class="node-icon">✓</span><span>04 / EVALUATION<strong>Verify</strong></span><span class="node-arrow">↗</span></button>
+            <span class="art-coordinate coord-one">INPUT → INTENT</span><span class="art-coordinate coord-two">ACTION → OUTCOME</span>
+          </div>
+          <div class="trace-box"><div class="trace-copy" aria-live="polite"><span class="status-dot"></span><p id="trace-text">Good systems close the loop.<small>Explore a node, or run an illustrative trace.</small></p></div><button id="run-trace" aria-label="Run illustrative architecture trace">Run trace <span aria-hidden="true">↗</span></button></div>
+          <div class="art-footnote"><span>FIG. 01 — THE AGENT LOOP</span><span>DESIGNED TO BE INSPECTED</span></div>
+        </div><button class="text-link light-link" data-agent data-prompt="Walk me through the architecture and engineering tradeoffs.">Go deeper with my agent <span>↗</span></button></div></div></div>
+    </section>
+
+    <section class="workbench-section shell" id="workbench" aria-labelledby="workbench-title"><canvas class="bamboo-canvas bench-bamboo" aria-hidden="true"></canvas><div class="section-heading reveal"><div><p class="eyebrow">03 / STILL IN MOTION</p><h2 id="workbench-title">Next up.</h2></div><p>Early ideas, taking shape.<br> Small tools for the less glamorous parts of AI.</p></div><div class="bench-grid"><a class="bench-item reveal" href="https://github.com/just-sree/ocr-proofkit" target="_blank" rel="noreferrer"><span class="bench-icon" aria-hidden="true">Aa<span>✓</span></span><div><span class="eyebrow"><i class="status-dot amber"></i> IN DEVELOPMENT</span><h3>OCR Proofkit <span>↗</span></h3><p>Quality assessment and correction tools for the text that OCR gets almost right.</p><span class="bench-stage">Current stage: repository initialization</span></div></a><a class="bench-item reveal" href="https://github.com/just-sree/quota-journal" target="_blank" rel="noreferrer"><span class="bench-icon quota-icon" aria-hidden="true">▥</span><div><span class="eyebrow"><i class="status-dot amber"></i> IN DEVELOPMENT</span><h3>Quota Journal <span>↗</span></h3><p>A lightweight way to track API usage, rate limits, and request quotas.</p><span class="bench-stage">Current stage: repository initialization</span></div></a></div></section>
+
+    <section class="contact-section shell reveal" id="contact"><div class="contact-orb" aria-hidden="true"><img src="/bamboo-logo.png" width="88" height="88" alt=""></div><p class="eyebrow">HAVE SOMETHING WORTH BUILDING?</p><h2>Your next hard problem?</h2><p>A role. A tricky workflow. An idea that needs an engineer.</p><div class="contact-actions"><button class="button button-dark" data-agent>Talk to my AI Agent <span>↗</span></button><a class="text-link" href="mailto:sreechackoth@gmail.com">Or talk to the human <span>↗</span></a></div></section>
+  </main>
+  <footer class="site-footer shell"><a class="wordmark" href="#"><img class="brand-icon" src="/bamboo-logo.png" width="48" height="48" alt="">sree<span class="wordmark-period">.</span></a><p>Built with intent. Always in motion.</p><div><a href="https://github.com/just-sree" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">LinkedIn ↗</a><span>© <span id="year">2026</span> Sree</span></div></footer>
+
+  <dialog id="project-dialog" class="project-dialog" aria-labelledby="project-dialog-title"><div class="dialog-top"><span class="eyebrow">PROJECT NOTES</span><button class="icon-button" data-close="project-dialog" aria-label="Close project">×</button></div><div id="project-detail"></div></dialog>
+  <dialog id="agent-dialog" class="agent-dialog" aria-labelledby="agent-title"><div class="agent-header"><div class="agent-avatar" aria-hidden="true"><img src="/bamboo-logo.png" width="40" height="40" alt=""></div><div><h2 id="agent-title">Sree’s AI Agent</h2><p id="agent-mode">Connecting…</p></div><button class="icon-button" data-close="agent-dialog" aria-label="Close AI agent">×</button></div><div class="agent-body"><div class="agent-intro"><span class="eyebrow">A MORE USEFUL INTRODUCTION</span><h3>Big ideas?<br>Let’s dig in.</h3><p>I’m Sree’s agent. Bring your curiosity; I’ll bring the receipts. Explore a project, unpack the engineering, or draft something worth building.</p><div class="audience-tabs" role="group" aria-label="Your perspective"><button class="active" data-audience="hiring" aria-pressed="true">I’m hiring</button><button data-audience="founder" aria-pressed="false">I’m a founder</button><button data-audience="technical" aria-pressed="false">Just exploring</button></div><div id="suggestions" class="suggestions"></div></div><div id="messages" class="messages" role="log" aria-label="Conversation" aria-live="polite"></div></div><div class="agent-bottom"><p id="mode-disclosure">Local preview: curated answers, without a connected language model.</p><form id="agent-form"><label class="sr-only" for="agent-input">Ask about Sree’s work</label><textarea id="agent-input" placeholder="What would you like to know?" rows="1" maxlength="2000" required></textarea><button type="submit" aria-label="Send message">↑</button></form><div class="agent-bottom-note"><span>Grounded in projects and resume.</span><button id="clear-chat">Clear chat</button></div></div></dialog>
+</body>
+</html>
