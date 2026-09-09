@@ -36,23 +36,10 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 
 `Ctrl/Cmd + K` opens the agent. Native dialogs provide keyboard focus containment and Escape dismissal. The layout respects reduced motion. Google Fonts are optional; system font fallbacks are included.
 
-## Content provenance and review items
+## Content provenance
 
-Project content was drafted from local repository READMEs on September 8, 2026:
+The September 2026 content pass uses the owner's approved project list, public GitHub metadata and selected READMEs, the supplied resume for the IRCC capstone and career details, and the BogdAI README for the Microsoft Agents League Hackathon 2026 pipeline. The border-traffic anomaly study is a separate supporting project; it is not used as a source for the IRCC capstone.
 
-- `D:\Portfolio\just-sree\README.md`: name, public profile links, and email.
-- `D:\Portfolio\Personal Projects\public repos\agent-preflight\README.md`: local action validation and its limited scope.
-- `D:\Portfolio\Personal Projects\Hackathon\BogdAI\bogdai-contract-risk-agent\README.md`: synthetic contract pipeline and team repository. Sree's exact individual contribution is not confirmed.
-- `D:\Portfolio\Personal Projects\hasten-quality\README.md`: quality tooling and explicit distinction that the app's text engine is rule-based.
-- `D:\Portfolio\Personal Projects\public repos\ocr-proofkit\README.md` and `quota-journal\README.md`: initialization-stage projects.
+`public/narrative.css` and `public/narrative.js` implement native scroll storytelling: hero text, sticky case studies, progressive charts and agent nodes, career progress, chapter navigation, and source-backed counters. Mobile and reduced-motion modes show complete diagrams with normal document flow. `public/projects.json` is the approved catalogue shared with the agent. `scope.mjs` intercepts excluded topics before provider calls and checks responses; no excluded project details are part of the knowledge context.
 
-Review project selection, individual contributions, and current project stages with Sree before publishing. No commercial outcomes, customers, performance metrics, or employment history are invented. Project visuals and the hero trace are labelled illustrations, not current runtime evidence.
-
-## Validate
-
-```powershell
-npm run check
-npm test
-```
-
-Tests cover request validation, unknown-question handling, provider request/response contracts, provider failure behavior, static-file restrictions, origin checks, body limits, and rate limiting. Provider tests use mocks and do not consume API credit.
+Run `npm run check` and `npm test` before deployment. Changes to the profile README and portfolio are deployed from the same repository.

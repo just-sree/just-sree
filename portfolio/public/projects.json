@@ -1,35 +1,199 @@
 {
-  "preflight": {
-    "name": "agent-preflight",
-    "title": "Give agents a checkpoint.",
-    "summary": "A small local Python package that validates structured agent actions before execution.",
-    "problem": "An agent can propose an action with missing arguments, an invalid type, or a name the workflow should never allow. A checkpoint makes those boundaries explicit before a handler runs.",
-    "architecture": ["Action payload", "Policy + schema", "Validation report", "Registered handler", "Local audit"],
-    "decision": "Keep the validation layer small, local, and inspectable. Required fields and simple schemas cover a focused use case; JSONL and SQLite audit backends make decisions available for inspection. The execution wrapper defaults to dry-run mode.",
-    "evidence": "The repository documents a Python API, CLI, configuration files, schema validation, audit records, and a dry-run execution wrapper.",
-    "limits": "Early release. This is not a complete policy engine or a production security boundary. No production adoption or performance claims have been verified for this portfolio.",
-    "url": "https://github.com/just-sree/agent-preflight"
+  "ircc": {
+    "name": "IRCC · Forecasting What Comes Next",
+    "title": "Make the next decision clearer.",
+    "summary": "A capstone forecasting pipeline for Canadian immigration planning: Python ETL, time-series modelling, and evaluation across multiple horizons.",
+    "problem": "Planning across immigration categories means working with large datasets, changing trends, and different forecasting horizons.",
+    "architecture": [
+      "Source records",
+      "Python ETL",
+      "Category time series",
+      "Model comparison",
+      "Planning forecasts"
+    ],
+    "decision": "Compare Prophet, ARIMA, and Exponential Smoothing across multiple horizons. Treat data preparation and quality as part of the forecasting system.",
+    "evidence": "The supplied resume reports 2M+ records processed and 15+ immigration categories covered during the September 2024–April 2025 capstone.",
+    "limits": "Capstone project. Scale figures are reported in the supplied resume; the chart on this page is an illustrative explanation, not a live forecast. No public repository is linked for this capstone.",
+    "url": "/resume.pdf",
+    "sourceLabel": "Read the resume"
   },
   "bogdai": {
-    "name": "BogdAI",
-    "title": "Read between the clauses.",
-    "summary": "A hackathon project exploring a six-agent pipeline for risk analysis on synthetic pharma and healthcare contracts.",
-    "problem": "Contract review needs more than a risk label. A useful finding has to point back to evidence, produce a structured report, and make human review explicit.",
-    "architecture": ["Intake", "Clause extraction", "Grounding", "Risk analysis", "Verification", "Report"],
-    "decision": "Separate intake, extraction, grounding, analysis, verification, and reporting. Microsoft Foundry supports grounding against synthetic policies; a deterministic local fallback supports demonstrations without Azure credentials. Pydantic provides report structure.",
-    "evidence": "The project README documents grounded citations, high-risk human-review flags, structured JSON reports, and an agent trace. This portfolio illustration is not running the contract pipeline.",
-    "limits": "Hackathon prototype using synthetic contracts and policies; not legal advice or a validated compliance product. This is a team repository. Sree’s precise individual contribution still needs to be documented.",
-    "url": "https://github.com/anunjinb/bogdai-contract-risk-agent"
+    "name": "BogdAI · Contract Risk, With Receipts",
+    "title": "Six agents. One inspectable answer.",
+    "summary": "A Microsoft Agents League Hackathon 2026 team prototype that turns synthetic healthcare and pharma contracts into structured, cited risk reports.",
+    "problem": "A risk label is only useful if a reviewer can trace it back to the clause and the policy behind it.",
+    "architecture": [
+      "Intake",
+      "Clause extraction",
+      "Grounding",
+      "Risk reasoning",
+      "Verification",
+      "Report"
+    ],
+    "decision": "Give each agent a bounded responsibility. Microsoft Foundry supports policy grounding and reasoning; a deterministic local fallback keeps demonstrations usable without cloud credentials.",
+    "evidence": "The repository documents six agent roles, structured Pydantic reports, policy citations, human-review flags for high-risk findings, and a full agent trace.",
+    "limits": "Microsoft hackathon team prototype using synthetic contracts and policies. Sree’s individual contribution is not separately documented here. It is not a validated compliance product.",
+    "url": "https://github.com/anunjinb/bogdai-contract-risk-agent",
+    "sourceLabel": "Explore the repository"
   },
-  "hasten": {
-    "name": "Hasten Quality",
-    "title": "Make ‘ready’ measurable.",
-    "summary": "A standalone quality suite for Hasten, a React Native / Expo productivity app.",
-    "problem": "Release decisions need observable evidence about behavior, stability, and failure modes. A quality suite can expose gaps that a polished demo does not reveal.",
-    "architecture": ["App source + device", "Contract tests", "Performance checks", "Quality gates", "Certification report"],
-    "decision": "Combine source-level contract tests with connected-device performance and stress tests. Generate a certification document that records whether release gates pass, with explicit blockers when they do not.",
-    "evidence": "The README documents contract, persistence, privacy, state-machine, and device checks. Its recorded run reports engine-quality blockers. Those historical results are not represented here as a current live status.",
-    "limits": "Hasten’s documented text engine is rule-based, not AI. This project demonstrates evaluation and delivery engineering. Device checks require a connected device or emulator.",
-    "url": "https://github.com/just-sree/hasten-quality"
+  "vision": {
+    "name": "SceneSense · See It. Hear It.",
+    "title": "SceneSense · See It. Hear It.",
+    "summary": "Object detection, bounding boxes, scene descriptions, and optional multilingual audio in a Gradio app.",
+    "group": "AI tools",
+    "skills": [
+      "Hugging Face",
+      "DETR",
+      "Gradio"
+    ],
+    "url": "https://github.com/just-sree/Object-Detection-using-HF",
+    "sourceLabel": "Explore the repository"
+  },
+  "voice": {
+    "name": "Read Less. Listen More.",
+    "title": "Read Less. Listen More.",
+    "summary": "An LLM workflow that summarises raw text or documents and converts the summary into audio.",
+    "group": "AI tools",
+    "skills": [
+      "LLMs",
+      "Summarisation",
+      "Audio"
+    ],
+    "url": "https://github.com/just-sree/AI-text-to-voice-summary-converter",
+    "sourceLabel": "Explore the repository"
+  },
+  "docs": {
+    "name": "Code, Explained.",
+    "title": "Code, Explained.",
+    "summary": "An AI-powered code documentation generator exploring how language models can make source code easier to understand.",
+    "group": "AI tools",
+    "skills": [
+      "Python",
+      "LLMs",
+      "Developer tools"
+    ],
+    "url": "https://github.com/just-sree/ai-code-doc-generator",
+    "sourceLabel": "Explore the repository"
+  },
+  "churn": {
+    "name": "Retention Intelligence",
+    "title": "Retention Intelligence",
+    "summary": "A customer-churn study combining predictive analytics with a proposed retrieval-augmented workflow for personalised retention strategies.",
+    "group": "Predictive systems",
+    "skills": [
+      "XGBoost",
+      "NLP",
+      "RAG"
+    ],
+    "url": "https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A",
+    "sourceLabel": "Explore the repository"
+  },
+  "border": {
+    "name": "Border Traffic · Signals & Outliers",
+    "title": "Border Traffic · Signals & Outliers",
+    "summary": "Statistical and machine-learning approaches to detecting unusual traveller volumes at Canadian ports of entry.",
+    "group": "Predictive systems",
+    "skills": [
+      "Python",
+      "Anomaly detection"
+    ],
+    "url": "https://github.com/just-sree/Advanced-Anomaly-Detection-in-Canadian-Border-Traffic",
+    "sourceLabel": "Explore the repository"
+  },
+  "crypto": {
+    "name": "Crypto · Beyond the Price Chart",
+    "title": "Crypto · Beyond the Price Chart",
+    "summary": "An exploratory time-series project using Prophet and historical cryptocurrency data to study price trends.",
+    "group": "Predictive systems",
+    "skills": [
+      "Prophet",
+      "Time series"
+    ],
+    "url": "https://github.com/just-sree/CryptoForecasts",
+    "sourceLabel": "Explore the repository"
+  },
+  "property": {
+    "name": "Property Price Intelligence",
+    "title": "Property Price Intelligence",
+    "summary": "A random-forest regression study exploring the relationship between property features and real-estate prices.",
+    "group": "Predictive systems",
+    "skills": [
+      "Random Forest",
+      "Regression"
+    ],
+    "url": "https://github.com/just-sree/Real-Estate-Price-Prediction-using-Random-Forest",
+    "sourceLabel": "Explore the repository"
+  },
+  "admissions": {
+    "name": "Admissions · A Neural Perspective",
+    "title": "Admissions · A Neural Perspective",
+    "summary": "A neural-network modelling exercise estimating UCLA admission chances from applicant features.",
+    "group": "Predictive systems",
+    "skills": [
+      "Neural networks",
+      "Prediction"
+    ],
+    "url": "https://github.com/just-sree/Neural-Network-Predicting-Chances-of-Admission-at-UCLA-",
+    "sourceLabel": "Explore the repository"
+  },
+  "loan": {
+    "name": "Loan Eligibility · Model to Decision",
+    "title": "Loan Eligibility · Model to Decision",
+    "summary": "A machine-learning exercise exploring loan-eligibility classification from applicant data.",
+    "group": "Predictive systems",
+    "skills": [
+      "Classification",
+      "Python"
+    ],
+    "url": "https://github.com/just-sree/Loan-Eligibility-Model",
+    "sourceLabel": "Explore the repository"
+  },
+  "credit": {
+    "name": "Credit Eligibility · Applied ML",
+    "title": "Credit Eligibility · Applied ML",
+    "summary": "An application-oriented machine-learning exercise for credit-eligibility prediction.",
+    "group": "Predictive systems",
+    "skills": [
+      "Applied ML",
+      "Classification"
+    ],
+    "url": "https://github.com/just-sree/credit_eligibility_application",
+    "sourceLabel": "Explore the repository"
+  },
+  "retail": {
+    "name": "Retail Intelligence · The Data Blueprint",
+    "title": "Retail Intelligence · The Data Blueprint",
+    "summary": "A dimensional-modelling framework for a Walmart Canada retail case study, spanning sales, inventory, eCommerce, real estate, and employee benefits.",
+    "group": "Data intelligence",
+    "skills": [
+      "Data modelling",
+      "Retail analytics"
+    ],
+    "url": "https://github.com/just-sree/Retail-Intelligence-Architecture--A-Data-Modeling-Framework-for-Walmart-Canada",
+    "sourceLabel": "Explore the repository"
+  },
+  "segments": {
+    "name": "Customer Patterns · Uncovered",
+    "title": "Customer Patterns · Uncovered",
+    "summary": "A clustering study that groups mall customers by shared characteristics to explore customer segments.",
+    "group": "Data intelligence",
+    "skills": [
+      "Clustering",
+      "Segmentation"
+    ],
+    "url": "https://github.com/just-sree/Mall-Customer-Segmentation-Model-using-Clustering",
+    "sourceLabel": "Explore the repository"
+  },
+  "pistachio": {
+    "name": "Pistachio Quality · Finding the Odd One Out",
+    "title": "Pistachio Quality · Finding the Odd One Out",
+    "summary": "Anomaly-detection and classification experiments comparing differently processed pistachio datasets.",
+    "group": "Data intelligence",
+    "skills": [
+      "Classification",
+      "Preprocessing"
+    ],
+    "url": "https://github.com/just-sree/Anomaly_Detection_and_Classification_for_Pistachio_Datasets",
+    "sourceLabel": "Explore the repository"
   }
 }

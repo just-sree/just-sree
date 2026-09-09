@@ -35,7 +35,7 @@ test('rejects non-resource URLs and never falls back to a direct OpenAI key for 
 });
 
 test('Foundry requests use Azure key auth, deployment, structured schema and no redirects', async () => {
-  const reply = await generateReply('Explain agent-preflight', [], {
+  const reply = await generateReply('Explain BogdAI', [], {
     ...getAIConfig(azure),
     fetcher: async (url, options) => {
       assert.equal(url, 'https://portfolio.openai.azure.com/openai/v1/responses');
@@ -47,7 +47,7 @@ test('Foundry requests use Azure key auth, deployment, structured schema and no 
       assert.equal(body.store, false);
       assert.equal(body.text.format.strict, true);
       assert.match(body.instructions, /bold, playful/);
-      return { ok: true, json: async () => ({ status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify({ answer: 'A bounded action checkpoint.', project: 'preflight', contact: false }) }] }] }) };
+      return { ok: true, json: async () => ({ status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify({ answer: 'An inspectable contract pipeline.', project: 'bogdai', contact: false }) }] }] }) };
     },
   });
   assert.equal(reply.mode, 'live');

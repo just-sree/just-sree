@@ -14,49 +14,6 @@ const projectReady = fetch('/projects.json').then((response) => {
 }).then((data) => { projects = data; });
 projectReady.catch(() => {});
 
-const nodeInfo = {
-  context: ['Understand the request.', 'Retrieve relevant context and identify the constraints.'],
-  plan: ['Choose the next useful action.', 'Route the request to a bounded tool or workflow.'],
-  tools: ['Check, then execute.', 'Validate the proposed action before invoking a tool.'],
-  verify: ['Check the outcome.', 'Inspect the result; return evidence or ask for review.'],
-};
-let traceTimer;
-function inspectNode(name) {
-  $$('.map-node').forEach((node) => { node.classList.toggle('active', node.dataset.node === name); node.setAttribute('aria-pressed', String(node.dataset.node === name)); });
-  const text = $('#trace-text');
-  text.replaceChildren(document.createTextNode(nodeInfo[name][0]));
-  const small = document.createElement('small');
-  small.textContent = nodeInfo[name][1];
-  text.append(small);
-}
-$$('[data-node]').forEach((button) => button.addEventListener('click', () => {
-  clearTimeout(traceTimer);
-  $('#run-trace').disabled = false;
-  $('#run-trace').textContent = 'Run trace ↗';
-  inspectNode(button.dataset.node);
-}));
-$('#run-trace').addEventListener('click', () => {
-  const button = $('#run-trace');
-  button.disabled = true;
-  button.textContent = 'Tracing…';
-  const steps = Object.keys(nodeInfo);
-  let index = 0;
-  const step = () => {
-    if (index < steps.length) {
-      inspectNode(steps[index++]);
-      traceTimer = setTimeout(step, 1100);
-    } else {
-      button.disabled = false;
-      button.textContent = 'Replay ↗';
-      $('#trace-text').replaceChildren(document.createTextNode('Loop complete. Outcome checked.'));
-      const small = document.createElement('small');
-      small.textContent = 'Illustrative trace — no model or external tools were run.';
-      $('#trace-text').append(small);
-    }
-  };
-  step();
-});
-
 function closeDialog(dialog) {
   dialog.close();
 }
@@ -91,17 +48,18 @@ async function openProject(id) {
     detail.replaceChildren(title, textElement('p', project.summary, 'detail-lead'));
     const flow = document.createElement('div');
     flow.className = 'detail-flow';
-    project.architecture.forEach((name, index) => flow.append(textElement('span', `${index + 1}. ${name}`)));
+    (project.architecture || []).forEach((name, index) => flow.append(textElement('span', `${index + 1}. ${name}`)));
     detail.append(flow);
-    for (const [label, key] of [['The problem', 'problem'], ['The engineering decision', 'decision'], ['What the repository supports', 'evidence'], ['Scope & status', 'limits']]) {
+    for (const [label, key] of [['The problem', 'problem'], ['The engineering decision', 'decision'], ['Evidence & source', 'evidence'], ['Scope & status', 'limits']]) {
       const section = document.createElement('section');
       section.className = 'detail-section';
+      if (!project[key]) continue;
       section.append(textElement('h3', label), textElement('p', project[key]));
       detail.append(section);
     }
     const actions = document.createElement('div');
     actions.className = 'detail-actions';
-    const source = textElement('a', 'Explore the repository ↗', 'button button-dark');
+    const source = textElement('a', (project.sourceLabel || 'Explore the source') + ' ↗', 'button button-dark');
     source.href = project.url;
     source.target = '_blank';
     source.rel = 'noreferrer';
@@ -116,9 +74,9 @@ async function openProject(id) {
 $$('[data-project]').forEach((button) => button.addEventListener('click', () => openProject(button.dataset.project)));
 
 const prompts = {
-  hiring: ['Where is Sree strongest as an engineer?', 'Compare the three projects.', 'Is the latest resume available?'],
+  hiring: ['Where is Sree strongest as an engineer?', 'Compare IRCC and BogdAI.', 'Is the latest resume available?'],
   founder: ['What could Sree help a startup build?', 'Help me draft a collaboration brief.', 'What is currently in development?'],
-  technical: ['Walk me through agent-preflight.', 'Explain BogdAI’s six-agent pipeline.', 'What does Hasten Quality actually test?'],
+  technical: ['Walk me through the IRCC forecasting pipeline.', 'Explain BogdAI’s six-agent pipeline.', 'How does SceneSense turn images into audio?'],
 };
 function renderSuggestions(audience) {
   $('#suggestions').replaceChildren();
@@ -216,7 +174,7 @@ async function sendMessage(raw) {
     }
     for (const id of data.sources || []) {
       if (!Object.hasOwn(projects, id)) continue;
-      const source = textElement('a', projects[id].name + ' README ↗', 'message-source');
+      const source = textElement('a', projects[id].name + ' source ↗', 'message-source');
       source.href = projects[id].url; source.target = '_blank'; source.rel = 'noreferrer';
       reply.append(source);
     }
@@ -226,12 +184,12 @@ async function sendMessage(raw) {
       action.addEventListener('click', () => {
         agentDialog.close();
         const target = document.getElementById(`project-${data.project}`);
-        target.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' });
-        target.querySelector('button').focus({ preventScroll: true });
+        target?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' });
+        target?.querySelector('button')?.focus({ preventScroll: true });
         openProject(data.project);
       });
       reply.append(action);
-      const source = textElement('a', `Source: ${project.name} README ↗`, 'message-source');
+      const source = textElement('a', `Source: ${project.name} ↗`, 'message-source');
       source.href = project.url;
       source.target = '_blank';
       source.rel = 'noreferrer';
@@ -293,14 +251,4 @@ if ('IntersectionObserver' in window) {
   $$('.reveal').forEach((element) => revealObserver.observe(element));
   if (!reducedMotion.matches) document.body.classList.add('motion-ready');
 
-  const storyObserver = new IntersectionObserver((entries) => {
-    const visible = entries.filter((entry) => entry.isIntersecting);
-    if (!visible.length) return;
-    const current = visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0].target;
-    $$('.story-step').forEach((step) => step.classList.toggle('is-active', step === current));
-    if (!$('#run-trace').disabled) inspectNode(current.dataset.storyStep);
-    if (!reducedMotion.matches) $('.core-star').style.transform = `rotate(${Object.keys(nodeInfo).indexOf(current.dataset.storyStep) * 90}deg)`;
-  }, { rootMargin: '-25% 0px -35% 0px', threshold: [0, .25, .5] });
-  $$('[data-story-step]').forEach((step) => storyObserver.observe(step));
-  $('.story-step')?.classList.add('is-active');
 }

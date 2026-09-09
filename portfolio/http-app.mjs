@@ -7,6 +7,8 @@ const publicFiles = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
   ['/index.html', ['index.html', 'text/html; charset=utf-8']],
   ['/style.css', ['style.css', 'text/css; charset=utf-8']],
+  ['/narrative.css', ['narrative.css', 'text/css; charset=utf-8']],
+  ['/narrative.js', ['narrative.js', 'text/javascript; charset=utf-8']],
   ['/scroll.css', ['scroll.css', 'text/css; charset=utf-8']],
   ['/logo.png', ['logo.png', 'image/png']],
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],

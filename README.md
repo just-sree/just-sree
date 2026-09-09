@@ -1,90 +1,80 @@
-<p align="center">
-  <img src="./assets/profile-header.svg" alt="Sree Sankaran Chackoth — From hard problems to working AI." width="100%" />
-</p>
+<p align="center"><img src="./assets/profile-header.svg" alt="Sree Sankaran Chackoth — From hard problems to working AI." width="100%" /></p>
 
-<p align="center">
-  <strong>AI engineering &nbsp; / &nbsp; Agentic architecture &nbsp; / &nbsp; Forward-deployed problem solving</strong>
-</p>
+<p align="center"><strong>AI engineering · Agentic systems · Forward-deployed problem solving</strong></p>
+<p align="center"><a href="https://just-sree.vercel.app">Explore my portfolio ↗</a> &nbsp; · &nbsp; <a href="https://just-sree.vercel.app/#contact">Talk to my AI Agent ↗</a> &nbsp; · &nbsp; <a href="https://just-sree.vercel.app/resume.pdf">Resume ↗</a> &nbsp; · &nbsp; <a href="https://linkedin.com/in/sreesankaranc">LinkedIn ↗</a></p>
 
-<p align="center">
-  <a href="https://linkedin.com/in/sreesankaranc">LinkedIn ↗</a>
-  &nbsp;&nbsp;·&nbsp;&nbsp;
-  <a href="mailto:sreechackoth@gmail.com">Let’s build something ↗</a>
-  &nbsp;&nbsp;·&nbsp;&nbsp;
-  <a href="#selected-work">Explore the work ↓</a>
-</p>
+I'm **Sree Sankaran Chackoth**, an AI engineer based in Canada. I connect models, data, and software to useful outcomes—from forecasting pipelines to agent workflows with inspectable outputs.
 
----
+I care about the whole build: understanding the workflow, preparing the data, choosing the system boundaries, and checking what the result actually tells us.
 
-I'm **Sree Sankaran Chackoth**, an AI engineer based in Canada. I build tools and workflows that connect models, data, and software to a useful outcome.
+## IRCC · Forecasting What Comes Next
 
-My focus is the whole system: understanding the problem, defining what an agent can do, connecting the right tools, and checking whether the result holds up. I bring a foundation in machine learning, data engineering, and analytics to that work.
+**Capstone project · September 2024–April 2025**
 
-## Selected work
+A time-series forecasting pipeline for Canadian immigration planning. Python ETL prepares category-level data; **Prophet, ARIMA, and Exponential Smoothing** are evaluated across multiple forecasting horizons.
 
-### 01 / Give agents a checkpoint.
+The supplied resume reports **2M+ records processed** and **15+ immigration categories covered**. This was capstone work, with an emphasis on data quality, model comparison, and planning forecasts.
 
-**[agent-preflight ↗](https://github.com/just-sree/agent-preflight)** · Agent tooling · Early release
+[Read the case study ↗](https://just-sree.vercel.app/#ircc) · [Resume source ↗](https://just-sree.vercel.app/resume.pdf)
 
-A local Python package for validating structured agent actions **before execution**. It checks blocked actions and argument schemas, records decisions in JSONL or SQLite, and supports a dry-run execution wrapper.
+## BogdAI · Contract Risk, With Receipts
 
-**Engineering focus:** explicit tool boundaries, inspectable decisions, and safe defaults. Deliberately scoped as a small validation layer.
+**Microsoft Agents League Hackathon 2026 · Team prototype · Reasoning Agents Track**
 
-<sub>Python · Schema validation · Local audit trails</sub>
+A six-agent pipeline for **synthetic healthcare and pharma contracts**: intake → clause extraction → grounding → risk reasoning → verification → reporting.
 
-### 02 / Read between the clauses.
+Microsoft Foundry supports policy grounding and reasoning. Structured Pydantic reports bring together **citations, human-review flags, and an agent trace**. A deterministic fallback supports local demonstrations. This is a team prototype; individual contributions are not separately documented here.
 
-**[BogdAI ↗](https://github.com/anunjinb/bogdai-contract-risk-agent)** · Multi-agent workflow · Team hackathon prototype
+[Explore the repository ↗](https://github.com/anunjinb/bogdai-contract-risk-agent) · [Follow the architecture ↗](https://just-sree.vercel.app/#bogdai)
 
-A six-agent pipeline exploring risk in **synthetic healthcare and pharma contracts**. Intake, extraction, grounding, analysis, verification, and reporting produce structured findings with citations and human-review flags.
+## More work
 
-**Architecture focus:** separate responsibilities, grounded outputs, and a deterministic fallback for local demonstrations.
+Learning exercises, exploratory studies, and useful tools. Each repository gives the scope of the project.
 
-<sub>Python · Microsoft Foundry · Pydantic</sub>
+### AI tools
 
-### 03 / Make “ready” measurable.
-
-**[Hasten Quality ↗](https://github.com/just-sree/hasten-quality)** · Evaluation & delivery tooling
-
-A standalone quality suite for Hasten, a React Native / Expo productivity app. It combines contract tests, device checks, and performance testing with **explicit release gates and certification reports**.
-
-**Engineering focus:** turn observed behavior into a release decision. Hasten’s text engine is rule-based; this project showcases testing and delivery engineering.
-
-<sub>TypeScript · Contract testing · Device automation · CI</sub>
-
-## On the workbench
-
-| Project | What I’m exploring | Stage |
-| :--- | :--- | :--- |
-| **[OCR Proofkit](https://github.com/just-sree/ocr-proofkit)** | Assessing OCR quality, correcting text, and checking transcriptions. | Initial development |
-| **[Quota Journal](https://github.com/just-sree/quota-journal)** | Tracking API usage, request quotas, and rate limits. | Initial development |
-| **Portfolio + AI agent** | An interactive way to explore my work, inspect architectures, and find relevant projects through conversation. | Local prototype |
-
-## How I approach a build
-
-- **Start with the workflow.** Understand who needs the result, what makes the problem difficult, and where AI actually helps.
-- **Make the boundaries explicit.** Define context, tool permissions, output contracts, and when a person should review the result.
-- **Build the feedback loop.** Evaluate behavior, inspect failures, and improve the system using evidence.
-
-<details>
-<summary><strong>Tools I work with</strong></summary>
-
-<br />
-
-| Area | Tools |
+| Project | What it explores |
 | :--- | :--- |
-| AI & machine learning | Python, PyTorch, TensorFlow, scikit-learn, Hugging Face, LangChain |
-| Applications & agent workflows | FastAPI, Pydantic, Microsoft Foundry, TypeScript, Streamlit, Gradio |
-| Data & analytics | SQL, Pandas, SQL Server, MySQL, Power BI |
+| **[SceneSense · See It. Hear It.](https://github.com/just-sree/Object-Detection-using-HF)** | Object detection, bounding boxes, scene descriptions, and optional multilingual audio in a Gradio app. |
+| **[Read Less. Listen More.](https://github.com/just-sree/AI-text-to-voice-summary-converter)** | An LLM workflow that summarises raw text or documents and converts the summary into audio. |
+| **[Code, Explained.](https://github.com/just-sree/ai-code-doc-generator)** | An AI-powered code documentation generator exploring how language models can make source code easier to understand. |
 
-I choose the stack around the problem, the constraints, and the people who will maintain it.
+### Predictive systems
 
-</details>
+| Project | What it explores |
+| :--- | :--- |
+| **[Retention Intelligence](https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A)** | A customer-churn study combining predictive analytics with a proposed retrieval-augmented workflow for personalised retention strategies. |
+| **[Border Traffic · Signals & Outliers](https://github.com/just-sree/Advanced-Anomaly-Detection-in-Canadian-Border-Traffic)** | Statistical and machine-learning approaches to detecting unusual traveller volumes at Canadian ports of entry. |
+| **[Crypto · Beyond the Price Chart](https://github.com/just-sree/CryptoForecasts)** | An exploratory time-series project using Prophet and historical cryptocurrency data to study price trends. |
+| **[Property Price Intelligence](https://github.com/just-sree/Real-Estate-Price-Prediction-using-Random-Forest)** | A random-forest regression study exploring the relationship between property features and real-estate prices. |
+| **[Admissions · A Neural Perspective](https://github.com/just-sree/Neural-Network-Predicting-Chances-of-Admission-at-UCLA-)** | A neural-network modelling exercise estimating UCLA admission chances from applicant features. |
+| **[Loan Eligibility · Model to Decision](https://github.com/just-sree/Loan-Eligibility-Model)** | A machine-learning exercise exploring loan-eligibility classification from applicant data. |
+| **[Credit Eligibility · Applied ML](https://github.com/just-sree/credit_eligibility_application)** | An application-oriented machine-learning exercise for credit-eligibility prediction. |
+
+### Data intelligence
+
+| Project | What it explores |
+| :--- | :--- |
+| **[Retail Intelligence · The Data Blueprint](https://github.com/just-sree/Retail-Intelligence-Architecture--A-Data-Modeling-Framework-for-Walmart-Canada)** | A dimensional-modelling framework for a Walmart Canada retail case study, spanning sales, inventory, eCommerce, real estate, and employee benefits. |
+| **[Customer Patterns · Uncovered](https://github.com/just-sree/Mall-Customer-Segmentation-Model-using-Clustering)** | A clustering study that groups mall customers by shared characteristics to explore customer segments. |
+| **[Pistachio Quality · Finding the Odd One Out](https://github.com/just-sree/Anomaly_Detection_and_Classification_for_Pistachio_Datasets)** | Anomaly-detection and classification experiments comparing differently processed pistachio datasets. |
+
+## Work in progress
+
+| Project | Direction |
+| :--- | :--- |
+| **[OCR Proofkit](https://github.com/just-sree/ocr-proofkit)** | Quality assessment and correction for the text that OCR gets almost right. |
+| **[Quota Journal](https://github.com/just-sree/quota-journal)** | A small tool for understanding API usage, request quotas, and rate limits. |
+| **[Quantisation Demystified](https://github.com/just-sree/Quantization-Demystified)** | Exploring how smaller model representations trade precision for speed and memory. |
+
+## The thread through the work
+
+- **Algonquin College:** AI Software Development and BI Systems Infrastructure; forecasting and classification capstones.
+- **Algonquin Applied Research:** technical research, proposals, stakeholder coordination, and evaluation plans.
+- **Lambton College × EventLinx:** venue-map computer vision and OCR, synthetic data, benchmarking, and cloud inference.
+
+**Tools I work with:** Python · PyTorch · TensorFlow · scikit-learn · Hugging Face · SQL · LangChain · Microsoft Foundry · FastAPI · Docker
 
 ---
 
-### Have something worth building?
-
-If you’re hiring an AI engineer or exploring a product with a founder or engineering team, I’d like to hear about the problem.
-
-**[Talk to me on LinkedIn ↗](https://linkedin.com/in/sreesankaranc)** &nbsp; or &nbsp; **[send me an email ↗](mailto:sreechackoth@gmail.com)**
+Have a role, a workflow, or a product worth building? **[Talk to my AI Agent](https://just-sree.vercel.app/#contact)** or **[email me](mailto:sreechackoth@gmail.com)**.

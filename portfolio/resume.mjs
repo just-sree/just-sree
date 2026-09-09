@@ -13,9 +13,8 @@ export const resume = {
     'Python Application Developer, Infidata Technologies, Mar–Jun 2022: AWS Lambda/RDS ETL and CodeDeploy workflows.',
   ],
   additionalProjects: [
-    'Agents League reasoning-agent challenge prototype using Microsoft Foundry and Agent Framework.',
-    'Regulatory compliance: LangGraph multi-agent RAG, regulatory evidence retrieval, compliance gaps, and Jira actions.',
-    'Customer churn: transaction features, BERT sentiment, and LangChain/Mistral retention actions.',
+    'BogdAI: Microsoft Agents League Hackathon 2026 team prototype for synthetic contract risk analysis.',
+    'Customer churn: predictive analytics and a proposed RAG workflow for retention actions.',
   ],
   skills: ['Python', 'PyTorch', 'TensorFlow/Keras', 'OpenCV', 'YOLO', 'OCR', 'LangGraph', 'LangChain', 'Microsoft Foundry', 'Microsoft Agent Framework', 'RAG', 'MCP', 'AWS', 'Lightning AI', 'Docker', 'SQL', 'MLflow'],
   education: ['Algonquin College: BI Systems Infrastructure, 2025; AI Software Development, 2024.', 'Presidency University: B.Tech Electronics & Communication Engineering, 2022.'],

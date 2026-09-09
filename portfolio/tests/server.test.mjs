@@ -28,7 +28,7 @@ test('HTTP boundary: serves only public files, rejects bad requests, and limits 
   assert.equal((await post({ message: 'Hi' }, { Origin: 'https://unrelated.example' })).status, 403);
   assert.equal((await post({ message: '' })).status, 400);
   assert.equal((await post({ message: 'x'.repeat(100001) })).status, 413);
-  const result = await post({ message: 'Walk me through agent-preflight.' });
+  const result = await post({ message: 'Walk me through BogdAI.' });
   assert.equal(result.status, 200);
   assert.equal((await result.json()).mode, 'preview');
   let last;
