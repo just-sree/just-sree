@@ -54,54 +54,63 @@
     return { pts, series, noise, lines, band, history, split };
   }
 
-  // Venue map: stage, 6 rows × 12 seats, labels, detection boxes, OCR labels.
-  function buildVenue(svg, variant = 'pipeline') {
-    const r = rng(variant === 'before' ? 3 : 11);
+  // SceneSense sample: a synthetic street scene with detection boxes, labels, and an audio wave.
+  function buildScene(svg) {
     svg.replaceChildren();
+    svgEl('rect', { x: 0, y: 0, width: 320, height: 140, fill: '#e3f2fb' }, svg);
+    svgEl('rect', { x: 0, y: 140, width: 320, height: 80, fill: '#d9dce8' }, svg);
+    svgEl('rect', { x: 0, y: 150, width: 320, height: 3, fill: '#f7f7fb' }, svg);
+    for (let i = 0; i < 6; i++) svgEl('rect', { x: 10 + i * 56, y: 186, width: 28, height: 3, fill: '#f7f7fb' }, svg);
+    [[40, 92], [250, 84]].forEach(([x, y]) => { svgEl('rect', { x: x + 6, y: y + 30, width: 8, height: 40, fill: '#8a6a4a' }, svg); svgEl('circle', { cx: x + 10, cy: y + 20, r: 24, fill: '#7cc47f' }, svg); });
+    svgEl('rect', { x: 170, y: 118, width: 90, height: 30, rx: 5, fill: '#4c5fd6' }, svg);
+    svgEl('path', { d: 'M185 118 L200 100 H235 L248 118 Z', fill: '#6b7ce0' }, svg);
+    svgEl('circle', { cx: 190, cy: 150, r: 8, fill: '#0e1226' }, svg); svgEl('circle', { cx: 242, cy: 150, r: 8, fill: '#0e1226' }, svg);
+    svgEl('circle', { cx: 112, cy: 98, r: 8, fill: '#f0b8a0' }, svg);
+    svgEl('rect', { x: 104, y: 106, width: 16, height: 26, rx: 3, fill: '#e5187a' }, svg);
+    svgEl('rect', { x: 105, y: 132, width: 6, height: 24, fill: '#2b3150' }, svg); svgEl('rect', { x: 113, y: 132, width: 6, height: 24, fill: '#2b3150' }, svg);
+    svgEl('path', { d: 'M120 120 L142 146', stroke: '#2b3150', 'stroke-width': 1.5, fill: 'none' }, svg);
+    svgEl('rect', { x: 138, y: 140, width: 22, height: 12, rx: 4, fill: '#b98a5a' }, svg); svgEl('circle', { cx: 162, cy: 140, r: 5, fill: '#b98a5a' }, svg);
     for (let i = 0; i <= 8; i++) svgEl('line', { class: 'grid-line', x1: i * 40, y1: 0, x2: i * 40, y2: 220 }, svg);
     for (let i = 0; i <= 5; i++) svgEl('line', { class: 'grid-line', x1: 0, y1: i * 44, x2: 320, y2: i * 44 }, svg);
-    svgEl('rect', { class: 'stage-rect', x: 90, y: 14, width: 140, height: 26, rx: 2 }, svg);
-    svgEl('text', { class: 'label', x: 160, y: 31, 'text-anchor': 'middle' }, svg).textContent = 'STAGE';
-    const types = ['regular', 'regular', 'regular', 'regular', 'regular', 'wheelchair', 'reserved', 'hearing'];
-    const seats = [];
-    for (let row = 0; row < 6; row++) {
-      const y = 66 + row * 24;
-      svgEl('text', { class: 'label', x: 22, y: y + 2 }, svg).textContent = String.fromCharCode(65 + row);
-      for (let col = 0; col < 12; col++) {
-        const x = 46 + col * 21 + (row > 3 ? (col < 6 ? -4 : 4) : 0);
-        const type = types[Math.floor(r() * types.length)];
-        const miss = variant === 'before' && r() < .14;
-        const seat = svgEl('circle', { class: `seat t-${type}${miss ? ' miss' : ''}`, cx: x, cy: y, r: 5.5 }, svg);
-        seats.push({ seat, x, y, row, col, type });
-      }
-    }
-    // Detection boxes
-    if (variant === 'before') {
-      svgEl('rect', { class: 'box stage bad', x: 60, y: 6, width: 200, height: 52 }, svg);
-      svgEl('rect', { class: 'box bad', x: 240, y: 150, width: 46, height: 30 }, svg);
-      svgEl('text', { class: 'ocr', x: 262, y: 148 }, svg).textContent = 'stage?';
-    } else {
-      svgEl('rect', { class: 'box stage', x: 88, y: 12, width: 144, height: 30 }, svg);
-    }
-    for (let row = 0; row < 6; row++) {
-      const first = seats[row * 12], last = seats[row * 12 + 11];
-      svgEl('rect', { class: 'box', x: first.x - 8, y: first.y - 8, width: last.x - first.x + 16, height: 16 }, svg);
-    }
-    seats.filter(s => s.type !== 'regular').forEach(s => svgEl('rect', { class: 'box', x: s.x - 7, y: s.y - 7, width: 14, height: 14 }, svg));
-    seats.filter((s, i) => i % 9 === 0).forEach(s => {
-      svgEl('text', { class: 'ocr', x: s.x + 7, y: s.y - 6 }, svg).textContent = `${String.fromCharCode(65 + s.row)}${s.col + 1}`;
+    const boxes = [['person', '0.97', 98, 86, 28, 74, true], ['dog', '0.91', 134, 132, 36, 22, false], ['car', '0.98', 166, 96, 98, 62, false], ['tree', '0.88', 24, 64, 44, 100, false]];
+    boxes.forEach(([label, score, x, y, w, h, hi]) => {
+      svgEl('rect', { class: 'box' + (hi ? ' hi' : ''), x, y, width: w, height: h }, svg);
+      svgEl('rect', { class: 'tagbg', x, y: y - 12, width: 54, height: 12 }, svg);
+      svgEl('text', { class: 'tagtx', x: x + 3, y: y - 3 }, svg).textContent = `${label} ${score}`;
     });
-    return seats;
+    const wave = 'M20 190 ' + Array.from({ length: 28 }, (_, i) => `L${30 + i * 10} ${190 + Math.sin(i * 1.3) * (6 + (i % 5) * 4)}`).join(' ');
+    svgEl('path', { class: 'wave', d: wave }, svg);
   }
 
-  // Product seat grid for the code → product scene.
-  function buildSeatsUI(container) {
-    const r = rng(5);
-    for (let i = 0; i < 48; i++) {
-      const el = document.createElement('i');
-      const v = r();
-      el.className = v < .08 ? 'w' : v < .16 ? 'r' : v < .22 ? 'h' : '';
-      container.append(el);
+  // Infidata ETL: manual QA (before) versus event-driven Lambda pipeline (after).
+  function buildFlow(svg, variant) {
+    svg.replaceChildren();
+    const box = (x, y, w, h, title, sub, cls = '') => {
+      svgEl('rect', { class: 'fbox ' + cls, x, y, width: w, height: h, rx: 2 }, svg);
+      svgEl('text', { class: 'ft', x: x + w / 2, y: y + h / 2 - 2, 'text-anchor': 'middle' }, svg).textContent = title;
+      svgEl('text', { class: 'fs', x: x + w / 2, y: y + h / 2 + 14, 'text-anchor': 'middle' }, svg).textContent = sub;
+    };
+    const line = (d, cls = '') => svgEl('path', { class: 'fl ' + cls, d }, svg);
+    if (variant === 'before') {
+      box(30, 40, 120, 60, 'Source', 'DAILY EXPORT');
+      box(180, 40, 120, 60, 'Manual QA', 'SPREADSHEETS', 'warn');
+      box(330, 40, 120, 60, 'Database', 'STALE BY A DAY');
+      line('M150 70 H180', 'warn'); line('M300 70 H330', 'warn');
+      svgEl('text', { class: 'big bad', x: 30, y: 190 }, svg).textContent = '~40 hrs / month';
+      svgEl('text', { class: 'fs', x: 30, y: 212 }, svg).textContent = 'MANUAL CHECKS · DAILY FRESHNESS';
+      for (let i = 0; i < 24; i++) svgEl('rect', { class: 'tick' + (i === 0 ? '' : ' off'), x: 30 + i * 17, y: 240, width: 10, height: 18 }, svg);
+      svgEl('text', { class: 'fs', x: 30, y: 280 }, svg).textContent = 'ONE REFRESH PER DAY';
+    } else {
+      box(30, 40, 110, 60, 'Event', 'S3 · TRIGGER', 'on');
+      box(170, 40, 130, 60, 'AWS Lambda', 'PYTHON ETL', 'on');
+      box(330, 40, 120, 60, 'RDS', 'HOURLY FRESH', 'on');
+      line('M140 70 H170', 'on'); line('M300 70 H330', 'on');
+      box(170, 120, 130, 44, 'CodeDeploy', 'BLUE-GREEN', 'on');
+      line('M235 100 V120', 'on');
+      svgEl('text', { class: 'big good', x: 30, y: 210 }, svg).textContent = '0 hrs manual QA';
+      svgEl('text', { class: 'fs', x: 30, y: 232 }, svg).textContent = 'EVENT-DRIVEN · HOURLY FRESHNESS';
+      for (let i = 0; i < 24; i++) svgEl('rect', { class: 'tick', x: 30 + i * 17, y: 250, width: 10, height: 18 }, svg);
+      svgEl('text', { class: 'fs', x: 30, y: 288 }, svg).textContent = '24 REFRESHES PER DAY';
     }
   }
 
@@ -130,10 +139,9 @@
   }
 
   const forecast = buildForecast($('.forecast'));
-  buildVenue($('.traveller .venue-map'));
-  buildVenue($('.compare-side.before .venue-map'), 'before');
-  buildVenue($('.compare-side.after .venue-map'), 'after');
-  buildSeatsUI($('.ui-seats'));
+  buildScene($('.sample-scene'));
+  buildFlow($('.compare-side.before .flow-svg'), 'before');
+  buildFlow($('.compare-side.after .flow-svg'), 'after');
 
   const agentNodes = [
     { title: 'Intake', sub: 'VALIDATE INPUT', x: 100, y: 90, w: 150, h: 56 },
@@ -219,7 +227,7 @@
   // Constellation of projects and skills grouped into clusters; the camera zooms per cluster.
   function constellation(canvas, legend) {
     const clusters = [
-      { name: 'AI Research', color: '10,142,166', items: ['IRCC forecasting', 'CSE threat classification', 'Venue-map CV + OCR', 'Applied research', 'Border anomaly detection', 'Pistachio anomalies', 'Admissions NN', 'Prophet', 'YOLO', 'PyTorch'] },
+      { name: 'AI Research', color: '10,142,166', items: ['IRCC forecasting', 'CSE threat classification', 'Lambton applied AI', 'Applied research', 'Border anomaly detection', 'Pistachio anomalies', 'Admissions NN', 'Prophet', 'YOLO', 'PyTorch'] },
       { name: 'Agentic Systems', color: '229,24,122', items: ['BogdAI', 'Retention Intelligence', 'SceneSense', 'Read Less. Listen More.', 'Code, Explained.', 'LangGraph', 'LangChain', 'Microsoft Foundry', 'RAG', 'MCP'] },
       { name: 'Infrastructure', color: '108,76,241', items: ['AWS Lambda ETL', 'Docker', 'Lightning AI', 'MLflow', 'Retail data blueprint', 'OCR Proofkit', 'Quota Journal', 'Quantisation Demystified', 'SQL'] },
       { name: 'Startups', color: '47,212,143', items: ['Paresium'] },
@@ -246,7 +254,7 @@
       const cam = { x: A.x + (B.x - A.x) * f, y: A.y + (B.y - A.y) * f, z: A.z + (B.z - A.z) * f };
       const active = t < .5 ? -1 : Math.min(3, Math.round(t) - 1);
       if (active !== cluster) { cluster = active; legend.forEach((li, i) => li.classList.toggle('active', i === active)); }
-      const S = Math.min(w, h) * .42 * cam.z;
+      const S = Math.min(w, h) * (w < 600 ? .36 : .42) * cam.z;
       const P = n => ({ x: w / 2 + (n.x - cam.x) * S, y: h / 2 + (n.y - cam.y) * S });
       ctx.clearRect(0, 0, w, h);
       ctx.lineWidth = 1;
@@ -263,7 +271,7 @@
         ctx.beginPath(); ctx.arc(p.x, p.y, rad, 0, Math.PI * 2); ctx.fill();
         if (!dim) { ctx.strokeStyle = `rgba(${col},.25)`; ctx.beginPath(); ctx.arc(p.x, p.y, rad + 5, 0, Math.PI * 2); ctx.stroke(); }
         ctx.fillStyle = dim ? 'rgba(14,18,38,.25)' : 'rgba(14,18,38,.85)';
-        ctx.fillText(n.label, p.x + rad + 6, p.y + 4);
+        if (w > 600 || n.big || (active === n.c && cam.z > 1.8)) ctx.fillText(n.label, p.x + rad + 6, p.y + 4);
       });
       clusters.forEach((c, i) => {
         const p = P({ x: centers[i][0], y: centers[i][1] - .3 });
@@ -452,16 +460,14 @@
     gsap.fromTo($('.compare-stage'), { '--split': '100%' }, { '--split': '0%', ease: 'none', scrollTrigger: { trigger: '.compare', pin: '.compare .pin', start: 'top top', end: '+=100%', scrub: .3 } });
 
     /* 06 Code lines leave the editor and become interface. */
-    const codeLines = $$('.c-line'), uiEls = $$('.ui-el'), seatsUI = $('.ui-seats');
+    const codeLines = $$('.c-line'), uiEls = $$('.ui-el');
     gsap.set(uiEls, { autoAlpha: 0, scale: .92 });
-    gsap.set(seatsUI, { autoAlpha: .15 });
     const shipTl = gsap.timeline({ scrollTrigger: { trigger: '.ship', pin: '.ship .pin', start: 'top top', end: '+=200%', scrub: .5, invalidateOnRefresh: true } });
     codeLines.forEach((line, i) => {
       const target = document.getElementById(line.dataset.to);
       const delta = () => { const a = line.getBoundingClientRect(), b = target.getBoundingClientRect(); return { x: b.left - a.left, y: b.top - a.top }; };
       shipTl.to(line, { x: () => delta().x, y: () => delta().y, autoAlpha: 0, duration: 1, ease: 'power2.inOut' }, i)
         .to(target, { autoAlpha: 1, scale: 1, duration: .5, ease: 'back.out(1.6)' }, i + .6);
-      if (line.dataset.to === 'ui-regular') shipTl.to(seatsUI, { autoAlpha: 1, duration: .6 }, i + .6);
     });
 
     /* 07 Horizontal journey. */

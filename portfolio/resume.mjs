@@ -4,9 +4,9 @@ export const resume = {
   url: '/resume.pdf',
   title: 'Sree Sankaran Chackoth — Applied ML & Agentic AI Engineer',
   supplied: '2026-09-08',
-  summary: 'Applied ML, computer vision, OCR, agentic workflows, and cloud inference, with an industry-partnered venue-map understanding project.',
+  summary: 'Applied ML, computer vision, agentic workflows, and cloud inference, currently leading an industry-partnered applied AI project at Lambton College.',
   experience: [
-    'AI Research Technician / AI Specialist, Lambton College × EventLinx, Feb 2026–Present as stated in the supplied resume: end-to-end venue-map CV/OCR pipeline, synthetic training data, benchmarking, error analysis, and Lightning AI training/inference.',
+    'AI Research Technician / AI Specialist, Lambton College, Feb 2026–Present as stated in the supplied resume: industry-partnered applied AI project covering model development, synthetic training data, benchmarking, error analysis, and Lightning AI training/inference. Partner and product details are not discussed here.',
     'AI Research Assistant, Algonquin College Applied Research, Apr–Dec 2025: technical research, proposal development, stakeholder coordination, and evaluation plans.',
     'ML Engineer — Forecasting Systems, IRCC, Sep 2024–Apr 2025: capstone project, not a claim of government employment.',
     'AI/ML Engineer & Team Lead, CSE Canada, Sep 2024–Apr 2025: capstone threat-classification CLI, feature engineering, model evaluation and delivery.',

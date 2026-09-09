@@ -71,7 +71,7 @@ Learning exercises, exploratory studies, and useful tools. Each repository gives
 
 - **Algonquin College:** AI Software Development and BI Systems Infrastructure; forecasting and classification capstones.
 - **Algonquin Applied Research:** technical research, proposals, stakeholder coordination, and evaluation plans.
-- **Lambton College × EventLinx:** venue-map computer vision and OCR, synthetic data, benchmarking, and cloud inference.
+- **Lambton College:** industry-partnered applied AI research: model development, synthetic data, benchmarking, error analysis, and cloud inference.
 
 **Tools I work with:** Python · PyTorch · TensorFlow · scikit-learn · Hugging Face · SQL · LangChain · Microsoft Foundry · FastAPI · Docker
 
