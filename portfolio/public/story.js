@@ -411,8 +411,15 @@
       stopIndex = i;
       stops.forEach((s, j) => s.classList.toggle('active', j === i));
       railStops.forEach((s, j) => s.classList.toggle('active', j === i));
-      gsap.delayedCall(.45, () => absorb(i));
+      // Measure slots once the card has finished expanding (transition end, with a timed fallback).
+      pendingAbsorb = i;
+      gsap.delayedCall(.8, () => { if (pendingAbsorb === i) { pendingAbsorb = -1; absorb(i); } });
     };
+    let pendingAbsorb = -1;
+    $$('.stop-body').forEach(body => body.addEventListener('transitionend', () => {
+      const i = Number(body.closest('.stop').dataset.stop);
+      if (pendingAbsorb === i) { pendingAbsorb = -1; absorb(i); }
+    }));
     ScrollTrigger.create({
       trigger: '.journey', pin: '.journey .pin', start: 'top top', end: '+=220%', scrub: true,
       onUpdate: self => { railEl.style.setProperty('--p', clamp(self.progress * 1.02)); setStop(Math.min(stops.length - 1, Math.floor(self.progress * stops.length))); },

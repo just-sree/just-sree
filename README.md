@@ -69,9 +69,9 @@ Learning exercises, exploratory studies, and useful tools. Each repository gives
 
 ## The thread through the work
 
-- **Algonquin College:** AI Software Development and BI Systems Infrastructure; forecasting and classification capstones.
 - **Algonquin Applied Research:** technical research, proposals, stakeholder coordination, and evaluation plans.
 - **Lambton College:** industry-partnered applied AI research: model development, synthetic data, benchmarking, error analysis, and cloud inference.
+- **Education:** Algonquin College post-graduate certificates in AI Software Development and BI Systems Infrastructure, with forecasting and classification capstones; B.Tech in Electronics & Communication Engineering, Presidency University.
 
 **Tools I work with:** Python · PyTorch · TensorFlow · scikit-learn · Hugging Face · SQL · LangChain · Microsoft Foundry · FastAPI · Docker
 
