@@ -3,75 +3,359 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f7ef">
-  <meta name="description" content="Sree Sankaran Chackoth — AI engineer building agentic systems, useful products, and the tooling that makes them reliable. Explore selected work and talk to his portfolio agent.">
-  <title>Sree — From hard problems to working AI.</title>
-  <link rel="icon" href="/bamboo-logo.png" type="image/png">
+  <meta name="theme-color" content="#f4f6fb">
+  <meta name="description" content="Sree Sankaran Chackoth — applied ML and agentic AI engineer. Scroll through the work, then talk to his agent.">
+  <title>Sree — I build AI systems that ship.</title>
+  <link rel="icon" href="/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/scroll.css">
-  <link rel="stylesheet" href="/narrative.css">
-  <script src="/bamboo.js" type="module"></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/vendor/ScrambleTextPlugin.min.js" defer></script>
+  <script src="/vendor/DrawSVGPlugin.min.js" defer></script>
   <script src="/app.js" type="module"></script>
-  <script src="/narrative.js" type="module"></script>
+  <script src="/story.js" defer></script>
 </head>
 <body>
+  <div class="bg-tint" aria-hidden="true"></div>
+  <div class="grid-layer" aria-hidden="true"></div>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
   <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header shell">
-    <a class="wordmark" href="#" aria-label="Sree, home"><img class="brand-icon" src="/bamboo-logo.png" width="48" height="48" alt="">sree<span class="wordmark-period">.</span></a>
-    <nav aria-label="Main navigation"><a href="#ircc">IRCC</a><a href="#bogdai">BogdAI</a><a href="#work">More work</a><a href="/resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a></nav>
-    <button class="nav-agent" data-agent>Talk to my AI Agent <span aria-hidden="true">↗</span></button>
+    <a class="wordmark" href="#" aria-label="Sree, home"><img class="brand-icon" src="/mark.svg" width="34" height="34" alt="">sree<span class="wordmark-period">_</span></a>
+    <nav aria-label="Main navigation"><a href="#journey">Path</a><a href="#ircc">Work</a><a href="#bogdai">Agents</a><a href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a></nav>
+    <button class="button button-primary nav-agent" data-agent>Talk to my agent <span aria-hidden="true">›</span></button>
   </header>
 
-  <nav class="section-rail" aria-label="Scroll chapters"><a href="#intro" aria-label="Intro"><span>01</span><span class="rail-label">Intro</span></a><a href="#ircc" aria-label="IRCC"><span>02</span><span class="rail-label">IRCC</span></a><a href="#bogdai" aria-label="BogdAI"><span>03</span><span class="rail-label">BogdAI</span></a><a href="#work" aria-label="More work"><span>04</span><span class="rail-label">More work</span></a><a href="#journey" aria-label="Journey"><span>05</span><span class="rail-label">Journey</span></a><a href="#contact" aria-label="Contact"><span>06</span><span class="rail-label">Contact</span></a></nav>
+  <nav class="section-rail" aria-label="Chapters">
+    <a href="#intro" aria-label="Intro"><i></i><span>Intro</span></a>
+    <a href="#journey" aria-label="Path"><i></i><span>Path</span></a>
+    <a href="#ircc" aria-label="IRCC"><i></i><span>IRCC</span></a>
+    <a href="#venue" aria-label="Vision"><i></i><span>Vision</span></a>
+    <a href="#cse" aria-label="CSE"><i></i><span>CSE</span></a>
+    <a href="#bogdai" aria-label="Agents"><i></i><span>Agents</span></a>
+    <a href="#work" aria-label="Work"><i></i><span>Work</span></a>
+    <a href="#contact" aria-label="Contact"><i></i><span>Contact</span></a>
+  </nav>
+
   <main id="main">
- <section class="hero shell narrative-hero" id="intro" aria-labelledby="hero-title">
-  <canvas class="bamboo-canvas hero-bamboo" aria-hidden="true"></canvas>
-  <div class="hero-topline"><span class="eyebrow"><i class="status-dot"></i>SREE SANKARAN CHACKOTH</span><span class="eyebrow location">AI ENGINEER / CANADA</span></div>
-  <div class="hero-stage"><div class="hero-copy">
-   <p class="role-label">From hard problems to working AI.</p>
-   <h1 id="hero-title" aria-label="I build AI systems that reason, automate, deploy, and solve real problems."><span class="hero-intent" aria-hidden="true">I build AI systems that</span><span class="hero-changing" aria-hidden="true"><em id="hero-verb">reason</em><span class="hero-caret">.</span></span></h1>
-   <div class="verb-index" aria-hidden="true"><span class="active">01 REASON</span><span>02 AUTOMATE</span><span>03 DEPLOY</span><span>04 SOLVE</span></div>
-   <div class="hero-bottom"><p class="hero-description">Models, agents, and the engineering<br class="desktop-break"> that turns them into something useful.</p><div class="hero-actions"><button class="button button-dark" data-agent>Talk to my AI Agent <span aria-hidden="true">↗</span></button><a class="button button-outline" href="https://github.com/just-sree" target="_blank" rel="noreferrer">View GitHub <span aria-hidden="true">↗</span></a><a class="text-link" href="/resume.pdf" target="_blank" rel="noreferrer">Resume <span aria-hidden="true">↗</span></a></div></div>
-  </div><div class="hero-footer"><p>AI ENGINEERING <span>/</span> FORWARD-DEPLOYED THINKING</p><a href="#ircc" class="scroll-cue">FOLLOW THE BUILD <span class="scroll-arrow" aria-hidden="true">↓</span></a></div></div>
- </section>
 
- <section class="case-section ircc-section" id="ircc" aria-labelledby="ircc-title" data-chapter>
-  <div class="shell"><div class="case-heading"><p class="eyebrow">01 / IRCC · CAPSTONE PROJECT · 2024–2025</p><h2 id="ircc-title">Forecasting<br><em>what comes next.</em></h2><p>From millions of records to a more useful view of the future.</p></div>
-  <div class="chapter-layout"><div class="chapter-visual"><div class="forecast-panel visual-panel" data-stage="0">
-   <div class="visual-top"><span class="eyebrow">IMMIGRATION FORECASTING</span><span class="stage-indicator">01 / 04</span></div>
-   <div class="data-strips" aria-hidden="true"><span>source_records.csv</span><span>→</span><span>category_time_series</span></div><svg class="forecast-chart" viewBox="0 0 600 290" role="img" aria-label="Illustrative time series developing into a forecast; not measured project output"><g class="chart-grid"><path d="M30 50H570 M30 110H570 M30 170H570 M30 230H570"/></g><path class="chart-history" pathLength="1" d="M30 217L55 193L80 206L105 167L130 181L155 144L180 174L205 143L230 161L255 120L280 142L305 100L330 117L355 88"/><path class="chart-band" d="M355 88L400 49L455 33L510 15L565 8L565 144L510 136L455 127L400 124Z"/><path class="chart-future" pathLength="1" d="M355 88Q393 67 420 78T480 62T565 46"/><path class="chart-split" d="M355 30V246"/><text x="30" y="273">HISTORICAL PATTERN</text><text x="375" y="273">PLANNING HORIZON</text></svg>
-   <div class="model-chips"><span>Prophet</span><span>ARIMA</span><span>Exp. Smoothing</span></div>
-   <div class="visual-caption"><span class="stage-caption">01 — Understand the data</span><span>ILLUSTRATIVE</span></div>
-  </div><div class="evidence-strip"><div><strong><span data-count="2">2</span>M+</strong><span>records processed</span></div><div><strong><span data-count="15">15</span>+</strong><span>immigration categories</span></div></div><p class="source-note">Scale reported in the supplied resume. Capstone work.</p></div>
-  <div class="chapter-copy"><article class="chapter-step" data-chapter-step="0"><span class="eyebrow">01 / THE PROBLEM</span><h3>The future starts<br>with messy data.</h3><p>Immigration planning brings together large volumes of records across different categories. Before a forecast can help, the data needs a consistent shape.</p></article><article class="chapter-step" data-chapter-step="1"><span class="eyebrow">02 / WHAT I BUILT</span><h3>Build the foundation.<br>Then the forecast.</h3><p>A scalable Python ETL pipeline prepares category-level time series. Data quality becomes part of the workflow, rather than an afterthought.</p></article><article class="chapter-step" data-chapter-step="2"><span class="eyebrow">03 / THE ARCHITECTURE</span><h3>One question.<br>Three ways to model it.</h3><p>Prophet, ARIMA, and Exponential Smoothing are compared across multiple horizons to explore forecasts for planning scenarios.</p></article><article class="chapter-step" data-chapter-step="3"><span class="eyebrow">04 / THE RESULT</span><h3>A clearer view<br>of what comes next.</h3><p>The capstone connected data preparation, model evaluation, and planning forecasts across 15+ immigration categories. Explore the resume for the reported scope and outcomes.</p></article></div></div>
-  <div class="case-end" id="project-ircc"><span>Python ETL / Time series / Model evaluation</span><button class="text-link" data-project="ircc">Read the project notes <span>↗</span></button></div></div>
- </section>
+    <!-- 01 HERO: text that builds itself + subtle 3D network -->
+    <section class="hero scene" id="intro" data-tint="0" aria-labelledby="hero-title">
+      <div class="pin hero-pin">
+        <canvas class="net-canvas" aria-hidden="true"></canvas>
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><i class="status-dot"></i>SREE SANKARAN CHACKOTH · APPLIED ML & AGENTIC AI · OTTAWA</p>
+            <h1 id="hero-title" aria-label="I build AI systems that reason, automate, deploy, and solve real problems.">
+              <span class="hero-intent" aria-hidden="true">I build AI systems that</span>
+              <span class="hero-changing" aria-hidden="true"><em id="hero-verb">solve real problems</em><span class="hero-caret">_</span></span>
+            </h1>
+            <ol class="verb-index" aria-hidden="true"><li>reason</li><li>automate</li><li>deploy</li><li class="active">solve real problems</li></ol>
+            <div class="hero-actions">
+              <button class="button button-primary" data-agent>Talk to my agent <span aria-hidden="true">›</span></button>
+              <a class="button button-ghost" href="https://github.com/just-sree" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="text-link" href="/resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-footer shell"><span class="mono">[ SCROLL TO BUILD ]</span><span class="hero-progress mono" id="hero-progress">00%</span></div>
+      </div>
+    </section>
 
- <section class="case-section bogd-section" id="bogdai" aria-labelledby="bogdai-title" data-chapter>
-  <div class="shell"><div class="case-heading"><p class="eyebrow">02 / BOGDAI · MICROSOFT AGENTS LEAGUE HACKATHON 2026</p><h2 id="bogdai-title">Contract risk.<br><em>With receipts.</em></h2><p>Six agents. Grounded findings. A human in the loop.</p></div>
-  <div class="chapter-layout"><div class="chapter-visual"><div class="agent-flow visual-panel" data-stage="0">
-   <div class="visual-top"><span class="eyebrow">THE SIX-AGENT PIPELINE</span><span class="stage-indicator">01 / 04</span></div>
-   <div class="flow-input"><span>↳</span> synthetic_contract.txt <small>INPUT</small></div>
-   <div class="flow-grid"><div class="flow-node" data-flow-node="0"><span>01</span><strong>Intake</strong><small>Validate the input</small></div><div class="flow-node" data-flow-node="1"><span>02</span><strong>Extract</strong><small>Identify the clauses</small></div><div class="flow-node" data-flow-node="2"><span>03</span><strong>Ground</strong><small>Retrieve policy evidence</small></div><div class="flow-node" data-flow-node="3"><span>04</span><strong>Reason</strong><small>Analyse the risk</small></div><div class="flow-node" data-flow-node="4"><span>05</span><strong>Verify</strong><small>Flag human review</small></div><div class="flow-node" data-flow-node="5"><span>06</span><strong>Report</strong><small>Assemble the findings</small></div></div>
-   <div class="flow-output"><span>✓</span><div>Structured risk report<small>Citations · Review flags · Agent trace</small></div></div>
-   <div class="visual-caption"><span class="stage-caption">01 — Start with the contract</span><span>ILLUSTRATIVE</span></div>
-  </div><p class="source-note">Microsoft hackathon team prototype · Synthetic contracts & policies</p></div>
-  <div class="chapter-copy"><article class="chapter-step" data-chapter-step="0"><span class="eyebrow">01 / THE PROBLEM</span><h3>A risk score<br>isn’t the whole answer.</h3><p>A reviewer needs the clause, the supporting policy, and a reason to care. BogdAI starts with synthetic healthcare and pharma contracts.</p></article><article class="chapter-step" data-chapter-step="1"><span class="eyebrow">02 / WHAT WE BUILT</span><h3>Give each agent<br>a job it can finish.</h3><p>Intake validates the input. Extraction identifies clauses. Grounding connects them with synthetic policy evidence through Microsoft Foundry.</p></article><article class="chapter-step" data-chapter-step="2"><span class="eyebrow">03 / THE ARCHITECTURE</span><h3>Pass the evidence.<br>Keep the trail.</h3><p>Risk reasoning builds on grounded findings. Verification flags high-risk items for human review. A reporting agent assembles the structured output.</p></article><article class="chapter-step" data-chapter-step="3"><span class="eyebrow">04 / THE RESULT</span><h3>An answer you<br>can inspect.</h3><p>The output brings together cited findings, human-review flags, and an agent trace. A deterministic fallback also supports local demonstrations.</p></article></div></div>
-  <div class="case-end" id="project-bogdai"><span>Microsoft Foundry / Python / Pydantic</span><button class="text-link" data-project="bogdai">Read the project notes <span>↗</span></button></div></div>
- </section>
+    <!-- 02 TERMINAL -->
+    <section class="terminal-scene scene" id="terminal" data-tint="1" aria-label="Terminal introduction">
+      <div class="pin">
+        <div class="shell terminal-wrap">
+          <div class="terminal" role="group" aria-label="Terminal">
+            <div class="terminal-bar"><i></i><i></i><i></i><span class="mono">sree@portfolio — zsh</span></div>
+            <pre class="terminal-body"><code><span class="t-line" data-line="0"><span class="prompt">&gt;</span> <span class="cmd">whoami</span></span><span class="t-line out" data-line="1">Sree Chackoth · Applied ML &amp; Agentic AI engineer · Ottawa, ON</span><span class="t-line" data-line="2"><span class="prompt">&gt;</span> <span class="cmd">skills</span></span><span class="t-line out" data-line="3">Python • PyTorch • YOLO/OCR • LangGraph • LangChain • Microsoft Foundry • RAG • MCP • AWS • Docker</span><span class="t-line" data-line="4"><span class="prompt">&gt;</span> <span class="cmd">projects --top</span></span><span class="t-line out" data-line="5">venue-map-cv      Lambton × EventLinx     CV · OCR · Lightning AI</span><span class="t-line out" data-line="6">ircc-forecast     capstone                 Prophet · ARIMA · ETL</span><span class="t-line out" data-line="7">bogdai            hackathon 2026           6 agents · Foundry</span><span class="t-line" data-line="8"><span class="prompt">&gt;</span> <span class="cmd">talk --to agent</span> <span class="cursor">▍</span></span></code></pre>
+          </div>
+          <button class="button button-primary terminal-cta" data-agent data-prompt="What is Sree strongest at?">Run it <span aria-hidden="true">›</span></button>
+        </div>
+      </div>
+    </section>
 
- <section class="collection-section shell" id="work" aria-labelledby="work-title"><div class="section-heading reveal"><div><p class="eyebrow">03 / MORE WAYS TO SOLVE A PROBLEM</p><h2 id="work-title">The wider work.</h2></div><p>Small experiments. Useful tools.<br>A foundation built by doing.</p></div>
-<div class="project-collection"><div class="collection-heading"><span class="eyebrow">01 / AI TOOLS</span><h3>From input to something useful.</h3></div><div class="collection-list"><article class="collection-card reveal" id="project-vision"><button data-project="vision" class="collection-open"><span class="collection-title">SceneSense · See It. Hear It.<span aria-hidden="true">↗</span></span><span class="collection-description">Object detection, bounding boxes, scene descriptions, and optional multilingual audio in a Gradio app.</span><span class="skill-trail"><span>Hugging Face</span><span>DETR</span><span>Gradio</span></span></button></article><article class="collection-card reveal" id="project-voice"><button data-project="voice" class="collection-open"><span class="collection-title">Read Less. Listen More.<span aria-hidden="true">↗</span></span><span class="collection-description">An LLM workflow that summarises raw text or documents and converts the summary into audio.</span><span class="skill-trail"><span>LLMs</span><span>Summarisation</span><span>Audio</span></span></button></article><article class="collection-card reveal" id="project-docs"><button data-project="docs" class="collection-open"><span class="collection-title">Code, Explained.<span aria-hidden="true">↗</span></span><span class="collection-description">An AI-powered code documentation generator exploring how language models can make source code easier to understand.</span><span class="skill-trail"><span>Python</span><span>LLMs</span><span>Developer tools</span></span></button></article></div></div><div class="project-collection"><div class="collection-heading"><span class="eyebrow">02 / PREDICTIVE SYSTEMS</span><h3>Find the signal. Test the prediction.</h3></div><div class="collection-list"><article class="collection-card reveal" id="project-churn"><button data-project="churn" class="collection-open"><span class="collection-title">Retention Intelligence<span aria-hidden="true">↗</span></span><span class="collection-description">A customer-churn study combining predictive analytics with a proposed retrieval-augmented workflow for personalised retention strategies.</span><span class="skill-trail"><span>XGBoost</span><span>NLP</span><span>RAG</span></span></button></article><article class="collection-card reveal" id="project-border"><button data-project="border" class="collection-open"><span class="collection-title">Border Traffic · Signals &amp; Outliers<span aria-hidden="true">↗</span></span><span class="collection-description">Statistical and machine-learning approaches to detecting unusual traveller volumes at Canadian ports of entry.</span><span class="skill-trail"><span>Python</span><span>Anomaly detection</span></span></button></article><article class="collection-card reveal" id="project-crypto"><button data-project="crypto" class="collection-open"><span class="collection-title">Crypto · Beyond the Price Chart<span aria-hidden="true">↗</span></span><span class="collection-description">An exploratory time-series project using Prophet and historical cryptocurrency data to study price trends.</span><span class="skill-trail"><span>Prophet</span><span>Time series</span></span></button></article><article class="collection-card reveal" id="project-property"><button data-project="property" class="collection-open"><span class="collection-title">Property Price Intelligence<span aria-hidden="true">↗</span></span><span class="collection-description">A random-forest regression study exploring the relationship between property features and real-estate prices.</span><span class="skill-trail"><span>Random Forest</span><span>Regression</span></span></button></article><article class="collection-card reveal" id="project-admissions"><button data-project="admissions" class="collection-open"><span class="collection-title">Admissions · A Neural Perspective<span aria-hidden="true">↗</span></span><span class="collection-description">A neural-network modelling exercise estimating UCLA admission chances from applicant features.</span><span class="skill-trail"><span>Neural networks</span><span>Prediction</span></span></button></article><article class="collection-card reveal" id="project-loan"><button data-project="loan" class="collection-open"><span class="collection-title">Loan Eligibility · Model to Decision<span aria-hidden="true">↗</span></span><span class="collection-description">A machine-learning exercise exploring loan-eligibility classification from applicant data.</span><span class="skill-trail"><span>Classification</span><span>Python</span></span></button></article><article class="collection-card reveal" id="project-credit"><button data-project="credit" class="collection-open"><span class="collection-title">Credit Eligibility · Applied ML<span aria-hidden="true">↗</span></span><span class="collection-description">An application-oriented machine-learning exercise for credit-eligibility prediction.</span><span class="skill-trail"><span>Applied ML</span><span>Classification</span></span></button></article></div></div><div class="project-collection"><div class="collection-heading"><span class="eyebrow">03 / DATA INTELLIGENCE</span><h3>Give the data a useful shape.</h3></div><div class="collection-list"><article class="collection-card reveal" id="project-retail"><button data-project="retail" class="collection-open"><span class="collection-title">Retail Intelligence · The Data Blueprint<span aria-hidden="true">↗</span></span><span class="collection-description">A dimensional-modelling framework for a Walmart Canada retail case study, spanning sales, inventory, eCommerce, real estate, and employee benefits.</span><span class="skill-trail"><span>Data modelling</span><span>Retail analytics</span></span></button></article><article class="collection-card reveal" id="project-segments"><button data-project="segments" class="collection-open"><span class="collection-title">Customer Patterns · Uncovered<span aria-hidden="true">↗</span></span><span class="collection-description">A clustering study that groups mall customers by shared characteristics to explore customer segments.</span><span class="skill-trail"><span>Clustering</span><span>Segmentation</span></span></button></article><article class="collection-card reveal" id="project-pistachio"><button data-project="pistachio" class="collection-open"><span class="collection-title">Pistachio Quality · Finding the Odd One Out<span aria-hidden="true">↗</span></span><span class="collection-description">Anomaly-detection and classification experiments comparing differently processed pistachio datasets.</span><span class="skill-trail"><span>Classification</span><span>Preprocessing</span></span></button></article></div></div><p class="collection-note">These projects include learning exercises, exploratory studies, and prototypes. Linked sources provide the scope of each build.</p></section>
- <section class="journey-section shell" id="journey" aria-labelledby="journey-title"><div class="section-heading reveal"><div><p class="eyebrow">04 / THE THREAD THROUGH THE WORK</p><h2 id="journey-title">Learn. Research. Build.</h2></div><p>Getting closer to the real problem<br>with every next step.</p></div><div class="journey-layout"><nav class="journey-track" aria-label="Career journey"><span class="journey-line" aria-hidden="true"><i></i></span><a href="#journey-0">01 <strong>Algonquin</strong></a><a href="#journey-1">02 <strong>Applied research</strong></a><a href="#journey-2">03 <strong>Lambton × EventLinx</strong></a></nav><div class="journey-cards">
- <article id="journey-0" class="journey-card"><span class="eyebrow">2024–2025 / FOUNDATION & CAPSTONES</span><h3>Learn it.<br>Put it to work.</h3><p>AI Software Development and BI Systems Infrastructure at Algonquin College. Capstone work brought forecasting, feature engineering, and model evaluation into practical problem solving.</p><a class="text-link" href="#ircc">Follow the IRCC story ↓</a></article>
- <article id="journey-1" class="journey-card"><span class="eyebrow">2025 / ALGONQUIN APPLIED RESEARCH</span><h3>Ask better questions.</h3><p>Technical research, proposal development, stakeholder coordination, and evaluation plans. Work that starts by understanding the problem and the people around it.</p></article>
- <article id="journey-2" class="journey-card"><span class="eyebrow">2026–PRESENT / LAMBTON × EVENTLINX</span><h3>Make the messy<br>input useful.</h3><p>An industry-partnered venue-map understanding project: computer vision, OCR, synthetic training data, benchmarking, and cloud inference.</p><div class="journey-pipeline"><span>Venue map</span><span>CV + OCR</span><span>Structured data</span></div></article>
- </div></div></section>
- <section class="workbench-section shell" id="workbench" aria-labelledby="workbench-title"><canvas class="bamboo-canvas bench-bamboo" aria-hidden="true"></canvas><div class="section-heading reveal"><div><p class="eyebrow">05 / WORK IN PROGRESS</p><h2 id="workbench-title">Still growing.</h2></div><p>Questions worth spending<br>a little more time with.</p></div><div class="wip-grid"><a class="wip-card reveal" href="https://github.com/just-sree/ocr-proofkit" target="_blank" rel="noreferrer"><span class="eyebrow"><i class="status-dot"></i> IN DEVELOPMENT</span><h3>OCR Proofkit<span>↗</span></h3><p>Quality assessment and correction for the text that OCR gets almost right.</p><span class="wip-index">01 / ON THE WORKBENCH</span></a><a class="wip-card reveal" href="https://github.com/just-sree/quota-journal" target="_blank" rel="noreferrer"><span class="eyebrow"><i class="status-dot"></i> IN DEVELOPMENT</span><h3>Quota Journal<span>↗</span></h3><p>A small tool for understanding API usage, request quotas, and rate limits.</p><span class="wip-index">02 / ON THE WORKBENCH</span></a><a class="wip-card reveal" href="https://github.com/just-sree/Quantization-Demystified" target="_blank" rel="noreferrer"><span class="eyebrow"><i class="status-dot"></i> IN DEVELOPMENT</span><h3>Quantisation Demystified<span>↗</span></h3><p>Exploring how smaller model representations trade precision for speed and memory.</p><span class="wip-index">03 / ON THE WORKBENCH</span></a></div></section><section class="contact-section shell reveal" id="contact"><div class="contact-orb" aria-hidden="true"><img src="/bamboo-logo.png" width="88" height="88" alt=""></div><p class="eyebrow">HAVE SOMETHING WORTH BUILDING?</p><h2>Your next hard problem?</h2><p>A role. A tricky workflow. An idea that needs an engineer.</p><div class="contact-actions"><button class="button button-dark" data-agent>Talk to my AI Agent <span>↗</span></button><a class="text-link" href="mailto:sreechackoth@gmail.com">Or talk to the human <span>↗</span></a></div></section></main>
-  <footer class="site-footer shell"><a class="wordmark" href="#"><img class="brand-icon" src="/bamboo-logo.png" width="48" height="48" alt="">sree<span class="wordmark-period">.</span></a><p>Built with intent. Always in motion.</p><div><a href="https://github.com/just-sree" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">LinkedIn ↗</a><span>© <span id="year">2026</span> Sree</span></div></footer>
+    <!-- 03 TIMELINE that travels with you + skills absorbed into stops -->
+    <section class="journey scene" id="journey" data-tint="2" aria-labelledby="journey-title">
+      <div class="pin">
+        <div class="shell journey-grid">
+          <div class="journey-rail" aria-hidden="true">
+            <span class="rail-line"><i class="rail-fill"></i></span>
+            <span class="rail-node" id="rail-node"></span>
+            <ul class="rail-stops"><li>Algonquin</li><li>Research</li><li>Lambton</li><li>Paresium</li></ul>
+          </div>
+          <div class="journey-main">
+            <p class="eyebrow">01 / THE PATH</p>
+            <h2 id="journey-title">Learn. Research. Build. <em>Repeat.</em></h2>
+            <div class="stops">
+              <article class="stop" data-stop="0">
+                <span class="mono stop-date">2024 – 2025</span>
+                <h3>Algonquin College</h3>
+                <div class="stop-body"><div><p>AI Software Development, then BI Systems Infrastructure. Two capstones: forecasting for IRCC, threat classification for CSE.</p><div class="stop-skills" data-slots="6"></div></div></div>
+              </article>
+              <article class="stop" data-stop="1">
+                <span class="mono stop-date">APR – DEC 2025</span>
+                <h3>Applied Research · Algonquin</h3>
+                <div class="stop-body"><div><p>Research and proposals for Horizon Europe-aligned AI. 5+ stakeholders coordinated; an initial $150K funding commitment.</p><div class="stop-skills" data-slots="3"></div></div></div>
+              </article>
+              <article class="stop" data-stop="2">
+                <span class="mono stop-date">FEB 2026 – NOW</span>
+                <h3>Lambton College × EventLinx</h3>
+                <div class="stop-body"><div><p>Owning the venue-map understanding pipeline: seat detection, synthetic data, OCR, benchmarking, GPU inference on Lightning AI.</p><div class="stop-skills" data-slots="6"></div></div></div>
+              </article>
+              <article class="stop" data-stop="3">
+                <span class="mono stop-date">STARTUP</span>
+                <h3>Paresium</h3>
+                <div class="stop-body"><div><p>Early-stage build. Notes to follow.</p><div class="stop-skills" data-slots="0"></div></div></div>
+              </article>
+            </div>
+          </div>
+          <div class="skill-cloud" aria-label="Skills">
+            <span class="pill" data-stop="0">Python</span><span class="pill" data-stop="0">scikit-learn</span><span class="pill" data-stop="0">Prophet</span><span class="pill" data-stop="0">XGBoost</span><span class="pill" data-stop="0">SQL</span><span class="pill" data-stop="0">Power BI</span>
+            <span class="pill" data-stop="1">ML pilot architecture</span><span class="pill" data-stop="1">Evaluation plans</span><span class="pill" data-stop="1">Proposals</span>
+            <span class="pill" data-stop="2">PyTorch</span><span class="pill" data-stop="2">YOLO</span><span class="pill" data-stop="2">OpenCV</span><span class="pill" data-stop="2">OCR</span><span class="pill" data-stop="2">Lightning AI</span><span class="pill" data-stop="2">Synthetic data</span>
+            <span class="pill">LangGraph</span><span class="pill">LangChain</span><span class="pill">Microsoft Foundry</span><span class="pill">RAG</span><span class="pill">MCP</span><span class="pill">AWS</span><span class="pill">Docker</span><span class="pill">MLflow</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 IRCC sticky storytelling + counters -->
+    <section class="story scene" id="ircc" data-tint="0" aria-labelledby="ircc-title">
+      <div class="shell story-grid">
+        <div class="story-visual">
+          <div class="panel forecast-panel" data-stage="3">
+            <div class="panel-top"><span class="eyebrow">IRCC · FORECASTING · CAPSTONE</span><span class="mono stage-indicator">04 / 04</span></div>
+            <svg class="forecast" viewBox="0 0 600 320" role="img" aria-label="Illustrative chart: messy records become time series, three models, then a forecast band"></svg>
+            <div class="counters">
+              <div><strong><span data-count="2">2</span>M+</strong><span>records</span></div>
+              <div><strong><span data-count="15">15</span>+</strong><span>categories</span></div>
+              <div><strong><span data-count="99.5" data-decimals="1">99.5</span>%</strong><span>data quality</span></div>
+              <div><strong><span data-count="85">85</span>%+</strong><span>forecast accuracy</span></div>
+            </div>
+            <p class="mono note">Figures from the supplied resume · chart illustrative</p>
+          </div>
+        </div>
+        <div class="story-steps">
+          <p class="eyebrow">02 / FORECASTING WHAT COMES NEXT</p>
+          <h2 id="ircc-title">The future starts <em>with messy data.</em></h2>
+          <article class="step" data-step="0"><span class="mono">THE PROBLEM</span><h3>Planning across 15+ immigration categories begins with 2M+ raw records.</h3></article>
+          <article class="step" data-step="1"><span class="mono">WHAT I BUILT</span><h3>A scalable Python ETL that keeps 99.5% data quality on the way to clean time series.</h3></article>
+          <article class="step" data-step="2"><span class="mono">ARCHITECTURE</span><h3>Prophet, ARIMA and Exponential Smoothing, evaluated across multiple horizons.</h3></article>
+          <article class="step" data-step="3"><span class="mono">RESULT</span><h3>85%+ forecast accuracy for planning scenarios touching 400,000+ annual applicants.</h3><button class="text-link" data-project="ircc">Project notes ↗</button></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 ML PIPELINE scrollytelling: the same image travels through the stages -->
+    <section class="pipeline scene" id="venue" data-tint="1" aria-labelledby="venue-title">
+      <div class="pin">
+        <div class="shell">
+          <div class="section-head"><p class="eyebrow">03 / LAMBTON × EVENTLINX · VENUE-MAP UNDERSTANDING</p><h2 id="venue-title">One image. <em>Six transformations.</em></h2></div>
+          <div class="stations" role="list">
+            <div class="station" role="listitem" data-station="0"><span class="mono">01</span><strong>Image</strong><small>SVG · PDF · PNG</small></div>
+            <div class="station" role="listitem" data-station="1"><span class="mono">02</span><strong>Preprocess</strong><small>normalise · tile</small></div>
+            <div class="station" role="listitem" data-station="2"><span class="mono">03</span><strong>YOLO</strong><small>seats · stage · exits</small></div>
+            <div class="station" role="listitem" data-station="3"><span class="mono">04</span><strong>OCR</strong><small>seat numbers</small></div>
+            <div class="station" role="listitem" data-station="4"><span class="mono">05</span><strong>Parsed seats</strong><small>4 seat classes</small></div>
+            <div class="station" role="listitem" data-station="5"><span class="mono">06</span><strong>JSON / API</strong><small>output contract</small></div>
+          </div>
+          <div class="traveller-track">
+            <div class="traveller panel" data-stage="5">
+              <svg class="venue-map" viewBox="0 0 320 220" role="img" aria-label="Synthetic venue map moving through preprocessing, detection, OCR, and parsing"></svg>
+              <pre class="venue-json mono" aria-hidden="true">{ "seat": "B7", "type": "wheelchair", "bbox": [118, 96, 12, 12] }</pre>
+            </div>
+          </div>
+          <p class="mono note">Synthetic sample. Real inputs: SVG, PDF, PNG and JPG layouts → structured spatial data.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05b BEFORE / AFTER slider controlled by scroll -->
+    <section class="compare scene" id="compare" data-tint="1" aria-labelledby="compare-title">
+      <div class="pin">
+        <div class="shell compare-grid">
+          <div class="section-head"><p class="eyebrow">03.1 / ERROR ANALYSIS</p><h2 id="compare-title">Baseline → <em>improved.</em></h2><p class="lead">OCR-boundary handling and seat-number parsing cut stage over-prediction, tiny-object misses, and conflicts between boxes and embedded numbering.</p></div>
+          <div class="compare-stage panel" style="--split: 50%">
+            <div class="compare-side before"><svg class="venue-map" viewBox="0 0 320 220" aria-hidden="true"></svg><span class="tag mono">BASELINE</span></div>
+            <div class="compare-side after"><svg class="venue-map" viewBox="0 0 320 220" aria-hidden="true"></svg><span class="tag mono">IMPROVED</span></div>
+            <div class="compare-handle" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 CODE → PRODUCT -->
+    <section class="ship scene" id="ship" data-tint="2" aria-labelledby="ship-title">
+      <div class="pin">
+        <div class="shell ship-grid">
+          <div class="section-head"><p class="eyebrow">04 / RESEARCH THAT SHIPS</p><h2 id="ship-title">Code becomes <em>product.</em></h2><p class="lead">Testable inference components and structured output contracts, built for the app on the other side.</p></div>
+          <div class="editor panel" aria-label="Code editor">
+            <div class="terminal-bar"><i></i><i></i><i></i><span class="mono">seat_contract.py</span></div>
+            <pre class="code"><code><span class="c-line" data-to="ui-title"><span class="kw">class</span> <span class="ty">SeatMap</span>(BaseModel):</span>
+<span class="c-line" data-to="ui-venue">    venue: <span class="ty">str</span> = <span class="st">"Main Hall"</span></span>
+<span class="c-line" data-to="ui-stage">    stage: <span class="ty">BBox</span></span>
+<span class="c-line" data-to="ui-regular">    regular: <span class="ty">list</span>[Seat]</span>
+<span class="c-line" data-to="ui-wheelchair">    wheelchair: <span class="ty">list</span>[Seat]</span>
+<span class="c-line" data-to="ui-reserved">    reserved: <span class="ty">list</span>[Seat]</span>
+<span class="c-line" data-to="ui-hearing">    hearing_accessible: <span class="ty">list</span>[Seat]</span>
+<span class="c-line" data-to="ui-cta">    <span class="kw">def</span> <span class="fn">to_json</span>(self) -&gt; <span class="ty">str</span>: ...</span></code></pre>
+          </div>
+          <div class="product panel" aria-label="Product interface">
+            <div class="ui-head"><strong id="ui-title" class="ui-el">Seat map</strong><span id="ui-venue" class="ui-el mono">Main Hall</span></div>
+            <div id="ui-stage" class="ui-el ui-stage mono">STAGE</div>
+            <div class="ui-seats" aria-hidden="true"></div>
+            <ul class="ui-legend">
+              <li id="ui-regular" class="ui-el"><i class="s-regular"></i>Regular</li>
+              <li id="ui-wheelchair" class="ui-el"><i class="s-wheelchair"></i>Wheelchair</li>
+              <li id="ui-reserved" class="ui-el"><i class="s-reserved"></i>Reserved</li>
+              <li id="ui-hearing" class="ui-el"><i class="s-hearing"></i>Hearing-accessible</li>
+            </ul>
+            <button id="ui-cta" class="ui-el button button-primary" type="button" tabindex="-1">Export JSON ›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 HORIZONTAL journey: CSE threat classification capstone -->
+    <section class="horizontal scene" id="cse" data-tint="0" aria-labelledby="cse-title">
+      <div class="pin">
+        <div class="shell section-head"><p class="eyebrow">05 / CSE CANADA · THREAT CLASSIFICATION · CAPSTONE</p><h2 id="cse-title">From problem to <em>production.</em></h2></div>
+        <div class="h-track">
+          <article class="h-panel"><span class="mono">01 / PROBLEM</span><strong class="big">8M+</strong><p>records of malware telemetry, heavily imbalanced classes.</p></article>
+          <article class="h-panel"><span class="mono">02 / RESEARCH</span><strong class="big">4</strong><p>model families benchmarked: Logistic Regression, Random Forest, XGBoost, LightGBM.</p></article>
+          <article class="h-panel"><span class="mono">03 / PROTOTYPE</span><strong class="big">CLI</strong><p>Feature engineering and a training pipeline, owned end to end.</p></article>
+          <article class="h-panel fail"><span class="mono">04 / FAILURE</span><strong class="big">63%</strong><p>The imbalance punishes every model. The honest final number for LightGBM.</p></article>
+          <article class="h-panel"><span class="mono">05 / ITERATION</span><strong class="big">↻</strong><p>Evaluation loops, error analysis, and team delivery as lead.</p></article>
+          <article class="h-panel win"><span class="mono">06 / PRODUCTION</span><strong class="big">10k+</strong><p>files per hour through a production-ready Windows executable.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 AGENT WORKFLOW: BogdAI -->
+    <section class="agents scene" id="bogdai" data-tint="2" aria-labelledby="bogdai-title">
+      <div class="pin">
+        <div class="shell agents-grid">
+          <div class="section-head"><p class="eyebrow">06 / BOGDAI · MICROSOFT AGENTS LEAGUE HACKATHON 2026</p><h2 id="bogdai-title">Six agents. <em>One inspectable answer.</em></h2><p class="lead" id="agent-caption">Synthetic healthcare and pharma contracts go in. A cited, human-reviewable risk report comes out.</p><button class="text-link" data-project="bogdai">Project notes ↗</button></div>
+          <div class="agent-stage panel">
+            <svg class="agent-svg" viewBox="0 0 640 360" role="img" aria-label="Six agents handing work to each other: intake, extract, ground, reason, verify, report"></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 ARCHITECTURE assembling itself: this site's agent -->
+    <section class="arch scene" id="stack" data-tint="1" aria-labelledby="stack-title">
+      <div class="pin">
+        <div class="shell arch-grid">
+          <div class="section-head"><p class="eyebrow">07 / HOW THIS SITE'S AGENT WORKS</p><h2 id="stack-title">The stack behind <em>the button.</em></h2><p class="lead">Your question goes to a server-side agent with a persona, guardrails, and only approved project notes. Nothing else.</p><button class="button button-primary" data-agent>Talk to my agent <span aria-hidden="true">›</span></button></div>
+          <div class="arch-stage panel">
+            <svg class="arch-svg" viewBox="0 0 640 380" role="img" aria-label="Architecture: user, API, agent, model, tools, project notes"></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 WORK: cards expanding into case studies + cursor previews -->
+    <section class="work scene" id="work" data-tint="0" aria-labelledby="work-title">
+      <div class="shell section-head"><p class="eyebrow">08 / THE WIDER WORK</p><h2 id="work-title">Small builds. <em>Real tools.</em></h2></div>
+
+      <div class="expanders">
+        <div class="expander" data-expander>
+          <article class="case panel">
+            <header><span class="eyebrow">AI TOOLS</span><h3>SceneSense · See It. Hear It.</h3></header>
+            <div class="case-body">
+              <p>Object detection, bounding boxes, scene descriptions, and optional multilingual audio in a Gradio app.</p>
+              <div class="chips"><span>Hugging Face</span><span>DETR</span><span>Gradio</span></div>
+              <div class="case-actions"><button class="text-link" data-project="vision">Notes ↗</button><a class="text-link" href="https://github.com/just-sree/Object-Detection-using-HF" target="_blank" rel="noreferrer">Repository ↗</a></div>
+            </div>
+          </article>
+        </div>
+        <div class="expander" data-expander>
+          <article class="case panel">
+            <header><span class="eyebrow">PREDICTIVE SYSTEMS</span><h3>Retention Intelligence</h3></header>
+            <div class="case-body">
+              <p>A customer-churn study combining predictive analytics with a proposed retrieval-augmented workflow for personalised retention strategies.</p>
+              <div class="chips"><span>XGBoost</span><span>NLP</span><span>RAG</span></div>
+              <div class="case-actions"><button class="text-link" data-project="churn">Notes ↗</button><a class="text-link" href="https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A" target="_blank" rel="noreferrer">Repository ↗</a></div>
+            </div>
+          </article>
+        </div>
+        <div class="expander" data-expander>
+          <article class="case panel">
+            <header><span class="eyebrow">AI TOOLS</span><h3>Code, Explained.</h3></header>
+            <div class="case-body">
+              <p>An AI-powered code documentation generator exploring how language models can make source code easier to understand.</p>
+              <div class="chips"><span>Python</span><span>LLMs</span><span>Developer tools</span></div>
+              <div class="case-actions"><button class="text-link" data-project="docs">Notes ↗</button><a class="text-link" href="https://github.com/just-sree/ai-code-doc-generator" target="_blank" rel="noreferrer">Repository ↗</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="shell">
+        <ul class="work-grid" aria-label="More projects">
+          <li><button data-project="voice" data-preview="LLM → summary → audio"><span>Read Less. Listen More.</span><small>AI tools</small></button></li>
+          <li><button data-project="border" data-preview="traveller volume outliers"><span>Border Traffic · Signals &amp; Outliers</span><small>Predictive</small></button></li>
+          <li><button data-project="crypto" data-preview="Prophet on price history"><span>Crypto · Beyond the Price Chart</span><small>Predictive</small></button></li>
+          <li><button data-project="property" data-preview="random-forest regression"><span>Property Price Intelligence</span><small>Predictive</small></button></li>
+          <li><button data-project="admissions" data-preview="neural network estimate"><span>Admissions · A Neural Perspective</span><small>Predictive</small></button></li>
+          <li><button data-project="loan" data-preview="eligibility classifier"><span>Loan Eligibility · Model to Decision</span><small>Predictive</small></button></li>
+          <li><button data-project="credit" data-preview="applied classification"><span>Credit Eligibility · Applied ML</span><small>Predictive</small></button></li>
+          <li><button data-project="retail" data-preview="dimensional model · Walmart Canada"><span>Retail Intelligence · The Data Blueprint</span><small>Data</small></button></li>
+          <li><button data-project="segments" data-preview="k-means customer clusters"><span>Customer Patterns · Uncovered</span><small>Data</small></button></li>
+          <li><button data-project="pistachio" data-preview="anomaly + classification"><span>Pistachio Quality · Finding the Odd One Out</span><small>Data</small></button></li>
+        </ul>
+        <ul class="wip-row" aria-label="Work in progress">
+          <li><a href="https://github.com/just-sree/ocr-proofkit" target="_blank" rel="noreferrer"><i class="status-dot"></i>OCR Proofkit <small>in development</small></a></li>
+          <li><a href="https://github.com/just-sree/quota-journal" target="_blank" rel="noreferrer"><i class="status-dot"></i>Quota Journal <small>in development</small></a></li>
+          <li><a href="https://github.com/just-sree/Quantization-Demystified" target="_blank" rel="noreferrer"><i class="status-dot"></i>Quantisation Demystified <small>in development</small></a></li>
+        </ul>
+        <div class="cursor-preview mono" id="cursor-preview" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 11 CONSTELLATION -->
+    <section class="constellation scene" id="map" data-tint="2" aria-labelledby="map-title">
+      <div class="pin">
+        <div class="shell">
+          <div class="section-head"><p class="eyebrow">09 / THE MAP</p><h2 id="map-title">Everything, <em>connected.</em></h2></div>
+          <div class="map-stage panel">
+            <canvas class="map-canvas" aria-hidden="true"></canvas>
+            <ul class="map-legend mono" aria-label="Clusters"><li data-cluster="0">AI Research</li><li data-cluster="1">Agentic Systems</li><li data-cluster="2">Infrastructure</li><li data-cluster="3">Startups</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 CONTACT -->
+    <section class="contact scene shell" id="contact" data-tint="0" aria-labelledby="contact-title">
+      <img src="/mark.svg" width="72" height="72" alt="" class="contact-mark">
+      <p class="eyebrow">HAVE SOMETHING WORTH BUILDING?</p>
+      <h2 id="contact-title">Your next hard problem.</h2>
+      <p class="lead">A role. A workflow. An idea that needs an engineer.</p>
+      <div class="contact-actions"><button class="button button-primary button-lg" data-agent>Talk to my agent <span aria-hidden="true">›</span></button><a class="text-link" href="mailto:sreechackoth@gmail.com">Or email the human ↗</a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <a class="wordmark" href="#"><img class="brand-icon" src="/mark.svg" width="28" height="28" alt="">sree<span class="wordmark-period">_</span></a>
+    <div><a href="https://github.com/just-sree" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="/resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a><span>© <span id="year">2026</span> Sree</span></div>
+  </footer>
 
   <dialog id="project-dialog" class="project-dialog" aria-labelledby="project-dialog-title"><div class="dialog-top"><span class="eyebrow">PROJECT NOTES</span><button class="icon-button" data-close="project-dialog" aria-label="Close project">×</button></div><div id="project-detail"></div></dialog>
-  <dialog id="agent-dialog" class="agent-dialog" aria-labelledby="agent-title"><div class="agent-header"><div class="agent-avatar" aria-hidden="true"><img src="/bamboo-logo.png" width="40" height="40" alt=""></div><div><h2 id="agent-title">Sree’s AI Agent</h2><p id="agent-mode">Connecting…</p></div><button class="icon-button" data-close="agent-dialog" aria-label="Close AI agent">×</button></div><div class="agent-body"><div class="agent-intro"><span class="eyebrow">A MORE USEFUL INTRODUCTION</span><h3>Big ideas?<br>Let’s dig in.</h3><p>I’m Sree’s agent. Bring your curiosity; I’ll bring the receipts. Explore a project, unpack the engineering, or draft something worth building.</p><div class="audience-tabs" role="group" aria-label="Your perspective"><button class="active" data-audience="hiring" aria-pressed="true">I’m hiring</button><button data-audience="founder" aria-pressed="false">I’m a founder</button><button data-audience="technical" aria-pressed="false">Just exploring</button></div><div id="suggestions" class="suggestions"></div></div><div id="messages" class="messages" role="log" aria-label="Conversation" aria-live="polite"></div></div><div class="agent-bottom"><p id="mode-disclosure">Local preview: curated answers, without a connected language model.</p><form id="agent-form"><label class="sr-only" for="agent-input">Ask about Sree’s work</label><textarea id="agent-input" placeholder="What would you like to know?" rows="1" maxlength="2000" required></textarea><button type="submit" aria-label="Send message">↑</button></form><div class="agent-bottom-note"><span>Grounded in projects and resume.</span><button id="clear-chat">Clear chat</button></div></div></dialog>
+  <dialog id="agent-dialog" class="agent-dialog" aria-labelledby="agent-title">
+    <div class="agent-header"><div class="agent-avatar" aria-hidden="true"><img src="/mark.svg" width="36" height="36" alt=""></div><div><h2 id="agent-title">Sree’s agent</h2><p id="agent-mode" class="mono">Connecting…</p></div><button class="icon-button" data-close="agent-dialog" aria-label="Close agent">×</button></div>
+    <div class="agent-body">
+      <div class="agent-intro"><span class="eyebrow">ASK ANYTHING ABOUT THE WORK</span><h3>Bring a problem.<br>I bring the receipts.</h3>
+        <div class="audience-tabs" role="group" aria-label="Your perspective"><button class="active" data-audience="hiring" aria-pressed="true">I’m hiring</button><button data-audience="founder" aria-pressed="false">I’m a founder</button><button data-audience="technical" aria-pressed="false">Just exploring</button></div>
+        <div id="suggestions" class="suggestions"></div></div>
+      <div id="messages" class="messages" role="log" aria-label="Conversation" aria-live="polite"></div>
+    </div>
+    <div class="agent-bottom"><p id="mode-disclosure" class="mono">Local preview: curated answers, without a connected language model.</p>
+      <form id="agent-form"><label class="sr-only" for="agent-input">Ask about Sree’s work</label><textarea id="agent-input" placeholder="What would you like to know?" rows="1" maxlength="2000" required></textarea><button type="submit" aria-label="Send message">↑</button></form>
+      <div class="agent-bottom-note"><span>Grounded in projects and resume.</span><button id="clear-chat">Clear chat</button></div></div>
+  </dialog>
 </body>
 </html>

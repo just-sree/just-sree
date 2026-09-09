@@ -1,11 +1,11 @@
-<p align="center"><img src="./assets/profile-header.svg" alt="Sree Sankaran Chackoth — From hard problems to working AI." width="100%" /></p>
+<p align="center"><img src="./assets/profile-header.svg" alt="Sree Sankaran Chackoth — I build AI systems that ship." width="100%" /></p>
 
-<p align="center"><strong>AI engineering · Agentic systems · Forward-deployed problem solving</strong></p>
-<p align="center"><a href="https://just-sree.vercel.app">Explore my portfolio ↗</a> &nbsp; · &nbsp; <a href="https://just-sree.vercel.app/#contact">Talk to my AI Agent ↗</a> &nbsp; · &nbsp; <a href="https://just-sree.vercel.app/resume.pdf">Resume ↗</a> &nbsp; · &nbsp; <a href="https://linkedin.com/in/sreesankaranc">LinkedIn ↗</a></p>
+<p align="center"><strong>Applied ML · Agentic systems · Research that ships</strong></p>
+<p align="center"><a href="https://just-sree.vercel.app">Explore my portfolio ↗</a> &nbsp; · &nbsp; <a href="https://just-sree.vercel.app/#contact">Talk to my agent ↗</a> &nbsp; · &nbsp; <a href="https://just-sree.vercel.app/resume.pdf">Resume ↗</a> &nbsp; · &nbsp; <a href="https://linkedin.com/in/sreesankaranc">LinkedIn ↗</a></p>
 
-I'm **Sree Sankaran Chackoth**, an AI engineer based in Canada. I connect models, data, and software to useful outcomes—from forecasting pipelines to agent workflows with inspectable outputs.
+I'm **Sree Sankaran Chackoth**, an applied ML and agentic AI engineer in Ottawa. I build AI systems that reason, automate, deploy, and solve real problems: computer vision and OCR pipelines, forecasting systems, and multi-agent workflows with inspectable outputs.
 
-I care about the whole build: understanding the workflow, preparing the data, choosing the system boundaries, and checking what the result actually tells us.
+The portfolio tells the story as you scroll. The agent answers questions about it.
 
 ## IRCC · Forecasting What Comes Next
 
@@ -15,7 +15,7 @@ A time-series forecasting pipeline for Canadian immigration planning. Python ETL
 
 The supplied resume reports **2M+ records processed** and **15+ immigration categories covered**. This was capstone work, with an emphasis on data quality, model comparison, and planning forecasts.
 
-[Read the case study ↗](https://just-sree.vercel.app/#ircc) · [Resume source ↗](https://just-sree.vercel.app/resume.pdf)
+[Follow the story ↗](https://just-sree.vercel.app/#ircc) · [Resume source ↗](https://just-sree.vercel.app/resume.pdf)
 
 ## BogdAI · Contract Risk, With Receipts
 
@@ -77,4 +77,4 @@ Learning exercises, exploratory studies, and useful tools. Each repository gives
 
 ---
 
-Have a role, a workflow, or a product worth building? **[Talk to my AI Agent](https://just-sree.vercel.app/#contact)** or **[email me](mailto:sreechackoth@gmail.com)**.
+Have a role, a workflow, or a product worth building? **[Talk to my agent](https://just-sree.vercel.app/#contact)** or **[email me](mailto:sreechackoth@gmail.com)**.

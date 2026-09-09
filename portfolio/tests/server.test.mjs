@@ -19,6 +19,8 @@ test('HTTP boundary: serves only public files, rejects bad requests, and limits 
   assert.equal(resume.headers.get('Content-Type'), 'application/pdf');
   const pdf = Buffer.from(await resume.arrayBuffer());
   assert.equal(pdf.subarray(0, 5).toString(), '%PDF-');
+  for (const asset of ['/style.css', '/app.js', '/story.js', '/mark.svg', '/vendor/gsap.min.js', '/vendor/ScrollTrigger.min.js', '/projects.json']) assert.equal((await fetch(base + asset)).status, 200, asset);
+  assert.equal((await fetch(base + '/bamboo.js')).status, 404);
   assert.equal((await fetch(base + '/.env')).status, 404);
   assert.equal((await fetch(base + '/server.mjs')).status, 404);
   assert.equal((await fetch(base + '/%2e%2e/agent.mjs')).status, 404);

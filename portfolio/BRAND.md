@@ -1,17 +1,17 @@
-# Sree — bamboo canvas edition
+# Sree — light cyberpunk edition
 
-Warm paper (#F7F7EF), forest green (#173E31), and sage support a quiet botanical identity. The original bamboo S logo is used in the navigation, footer, contact section, agent avatar, architecture core, and favicon.
+Near-white paper (#F4F6FB), deep ink (#0E1226), and a cyan → magenta signal gradient (#00B8D4 → #E5187A) with violet (#6C4CF1) and lime (#2FD48F) as data accents. Chamfered corners, a faint grid with soft scanlines, monospace labels in brackets, and soft coloured glows instead of dark neon. The look stays light and readable; motion carries the story.
 
-Asset: public/bamboo-logo.png. Generated with the built-in image-generation tool and copied without modification. The previous orange/blue asset remains at public/logo.png for reference.
+## Mark
 
-## Final generation prompt
+`public/mark.svg`: an angular circuit-trace S inside a chamfered octagon, gradient stroke, magenta and cyan terminal dots. Used in the header, footer, contact block, agent avatar, and favicon. `assets/profile-header.svg` is the matching GitHub profile banner.
 
-Use case: logo-brand. Create a refined original logo mark for Sree, an AI engineer portfolio with a bamboo canvas identity. A single elegant abstract S built from two curved bamboo stems and two small pointed bamboo leaves, segmented stalk joints subtly visible. Flat solid very dark forest green #173f32 with a subtle sage green accent #91a87b. Transparent background. No text, no letters besides the abstract S shape, no mockup, no shadows, no gradients, no border or enclosing badge. Centered isolated symbol, balanced bold silhouette, readable at 32px, sophisticated Japanese ink-like botanical geometry, approximately square composition with generous clear margins. This is a finished website logo asset.
+## Type
+
+Space Grotesk for headings and UI, JetBrains Mono for labels, terminal, code, and counters. System fallbacks are declared; Google Fonts is optional.
 
 ## Motion
 
-Native scroll, staggered hero entrance, reading progress, section reveals, project hover transitions, and the scroll-linked architecture diagram remain. The hero and workbench use a procedural bamboo canvas with swaying stalks, drifting leaves, and a subtle pointer breeze.
+GSAP 3 with ScrollTrigger, ScrambleText, and DrawSVG, vendored under `public/vendor/` (Standard "no charge" license) so the strict `script-src 'self'` policy holds. Scenes are pinned and scrubbed on screens wider than 900px when reduced motion is not requested. Below that, or with reduced motion, every scene renders its final state in normal document flow. Canvases (hero network, constellation) render at a capped pixel density and only tick while on screen.
 
-Canvas rendering is capped at approximately 30 fps and device pixel density at 2. It pauses off screen and in hidden tabs. Reduced motion renders a static bamboo composition and disables decorative CSS motion. Mobile keeps a normal vertical architecture layout.
-
-The architecture trace is illustrative. The portfolio agent is explicitly in curated preview mode until a server-side model connection is configured.
+Background tint drifts between paper, a cyan wash, and a magenta wash as the story progresses. Nothing switches abruptly.

@@ -1,6 +1,6 @@
-# Sree — portfolio, first working version
+# Sree — portfolio, light cyberpunk edition
 
-A standalone, dependency-free Node 22 app with a minimal forest-green and warm-paper portfolio with animated bamboo, scroll-driven architecture storytelling, project notes, and a custom portfolio-agent interface. The original S emblem and full generation prompt are documented in `BRAND.md`.
+A standalone Node 22 app with no install step: a light cyberpunk portfolio driven by scroll storytelling (GSAP ScrollTrigger, vendored), project notes, and a custom portfolio-agent interface. The main call to action everywhere is **Talk to my agent**. Identity and motion rules are in `BRAND.md`.
 
 ## Run
 
@@ -23,11 +23,11 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 
 ## Edit content
 
-- `public/index.html`: page copy and project illustrations.
-- `public/style.css`: responsive design, motion, typography, and dialog styling.
-- `public/scroll.css`: forest-green identity, minimal layout, project chapters, and responsive scroll presentation.
-- `public/bamboo-logo.png`: original generated bamboo S emblem, also used as the favicon.
-- `public/bamboo.js`: decorative bamboo canvas with reduced-motion and offscreen handling.
+- `public/index.html`: page copy, scene markup, and dialogs. Every scene is complete without JavaScript motion.
+- `public/style.css`: theme tokens, layout, scene styling, dialogs, mobile and reduced-motion fallbacks.
+- `public/story.js`: scroll scenes — hero scramble and 3D network, terminal, career timeline with absorbed skills, IRCC sticky story with counters, venue-map pipeline and before/after slider, code → product, horizontal CSE journey, BogdAI agent hand-offs, the site's own architecture, expanding case cards, cursor previews, constellation, background tint.
+- `public/vendor/`: GSAP core, ScrollTrigger, ScrambleTextPlugin, DrawSVGPlugin (3.15, Standard license).
+- `public/mark.svg`: the S mark, also used as the favicon.
 - `ai-config.mjs`: server-only Foundry/OpenAI configuration.
 - `http-app.mjs`: shared local and Vercel request handler.
 - `public/projects.json`: curated project evidence shared by the UI and agent.
@@ -40,6 +40,6 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 
 The September 2026 content pass uses the owner's approved project list, public GitHub metadata and selected READMEs, the supplied resume for the IRCC capstone and career details, and the BogdAI README for the Microsoft Agents League Hackathon 2026 pipeline. The border-traffic anomaly study is a separate supporting project; it is not used as a source for the IRCC capstone.
 
-`public/narrative.css` and `public/narrative.js` implement native scroll storytelling: hero text, sticky case studies, progressive charts and agent nodes, career progress, chapter navigation, and source-backed counters. Mobile and reduced-motion modes show complete diagrams with normal document flow. `public/projects.json` is the approved catalogue shared with the agent. `scope.mjs` intercepts excluded topics before provider calls and checks responses; no excluded project details are part of the knowledge context.
+Mobile and reduced-motion modes show complete diagrams in normal document flow. All figures in the scenes come from the supplied resume and the approved project list; the venue map, chart, and diagrams are illustrative. `public/projects.json` is the approved catalogue shared with the agent. `scope.mjs` intercepts excluded topics before provider calls and checks responses; no excluded project details are part of the knowledge context.
 
 Run `npm run check` and `npm test` before deployment. Changes to the profile README and portfolio are deployed from the same repository.

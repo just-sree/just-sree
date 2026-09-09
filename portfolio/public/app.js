@@ -218,37 +218,3 @@ input.addEventListener('keydown', (event) => {
 input.addEventListener('input', () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 100) + 'px'; });
 $('#clear-chat').addEventListener('click', () => { if (!requestPending) { messages.replaceChildren(); history = []; input.focus(); } });
 $('#year').textContent = new Date().getFullYear();
-
-// Scroll-led presentation: native scrolling, one animation frame per paint,
-// and full content visibility when reduced motion is preferred.
-const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const progressBar = $('.reading-progress span');
-const watermark = $('.hero-watermark');
-let scrollFrame = 0;
-function paintScroll() {
-  scrollFrame = 0;
-  const distance = document.documentElement.scrollHeight - innerHeight;
-  if (progressBar) progressBar.style.transform = `scaleX(${distance > 0 ? Math.min(1, Math.max(0, scrollY / distance)) : 0})`;
-  if (watermark) watermark.style.transform = reducedMotion.matches ? '' : `translateY(${Math.min(scrollY * .12, 90)}px)`;
-}
-function scheduleScrollPaint() { if (!scrollFrame) scrollFrame = requestAnimationFrame(paintScroll); }
-window.addEventListener('scroll', scheduleScrollPaint, { passive: true });
-window.addEventListener('resize', scheduleScrollPaint, { passive: true });
-reducedMotion.addEventListener('change', () => {
-  document.body.classList.toggle('motion-ready', !reducedMotion.matches && 'IntersectionObserver' in window);
-  scheduleScrollPaint();
-});
-paintScroll();
-
-if ('IntersectionObserver' in window) {
-  const revealObserver = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      entry.target.classList.add('is-visible');
-      revealObserver.unobserve(entry.target);
-    }
-  }, { threshold: .06, rootMargin: '0px 0px -25px 0px' });
-  $$('.reveal').forEach((element) => revealObserver.observe(element));
-  if (!reducedMotion.matches) document.body.classList.add('motion-ready');
-
-}

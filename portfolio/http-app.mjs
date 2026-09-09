@@ -7,16 +7,15 @@ const publicFiles = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
   ['/index.html', ['index.html', 'text/html; charset=utf-8']],
   ['/style.css', ['style.css', 'text/css; charset=utf-8']],
-  ['/narrative.css', ['narrative.css', 'text/css; charset=utf-8']],
-  ['/narrative.js', ['narrative.js', 'text/javascript; charset=utf-8']],
-  ['/scroll.css', ['scroll.css', 'text/css; charset=utf-8']],
-  ['/logo.png', ['logo.png', 'image/png']],
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
-  ['/bamboo.js', ['bamboo.js', 'text/javascript; charset=utf-8']],
-  ['/bamboo-logo.png', ['bamboo-logo.png', 'image/png']],
+  ['/story.js', ['story.js', 'text/javascript; charset=utf-8']],
+  ['/mark.svg', ['mark.svg', 'image/svg+xml']],
+  ['/vendor/gsap.min.js', ['vendor/gsap.min.js', 'text/javascript; charset=utf-8']],
+  ['/vendor/ScrollTrigger.min.js', ['vendor/ScrollTrigger.min.js', 'text/javascript; charset=utf-8']],
+  ['/vendor/ScrambleTextPlugin.min.js', ['vendor/ScrambleTextPlugin.min.js', 'text/javascript; charset=utf-8']],
+  ['/vendor/DrawSVGPlugin.min.js', ['vendor/DrawSVGPlugin.min.js', 'text/javascript; charset=utf-8']],
   ['/resume.pdf', ['resume.pdf', 'application/pdf']],
   ['/projects.json', ['projects.json', 'application/json; charset=utf-8']],
-  ['/favicon.svg', ['favicon.svg', 'image/svg+xml']],
 ]);
 const limits = new Map();
 const windowMs = 60000;
