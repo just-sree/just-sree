@@ -285,3 +285,12 @@ input.addEventListener('input', () => { input.style.height = 'auto'; input.style
 $('#clear-chat').addEventListener('click', () => { if (!requestPending) { messages.replaceChildren(); history = []; $('#email-chat').disabled = true; setJobMode(false); } });
 $('#year').textContent = new Date().getFullYear();
 
+
+// Vercel Web Analytics: cookie-free page views, served from this site's own domain.
+// Loaded only on the deployed site; turn it on in the Vercel project's Analytics tab.
+if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
+  const insights = document.createElement('script');
+  insights.defer = true;
+  insights.src = '/_vercel/insights/script.js';
+  document.head.append(insights);
+}
