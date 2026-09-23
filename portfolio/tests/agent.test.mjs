@@ -75,3 +75,10 @@ test('rejects unsupported UI actions from a provider response', async () => {
     apiKey: 'test-only-key', fetcher: async () => ({ ok: true, json: async () => ({ status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify({ answer: 'Do something', project: 'execute_shell', contact: false }) }] }] }) }),
   }));
 });
+
+test('the EventLinx role is explained from resume facts without calling a provider', async () => {
+  const result = await generateReply('What do you do at EventLinx?', [], { fetcher: () => { throw new Error('Network must not be called'); } });
+  assert.equal(result.mode, 'preview');
+  assert.match(result.answer, /venue-map/);
+  assert.match(result.answer, /Lightning AI/);
+});
