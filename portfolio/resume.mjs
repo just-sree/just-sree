@@ -20,6 +20,8 @@ export const resume = {
     'Customer Churn Intelligence Agent: churn model combining transaction features with BERT sentiment signals (85% AUC), plus a LangChain agent with Mistral that generates targeted retention actions.',
   ],
   skills: ['Python', 'PyTorch', 'TensorFlow/Keras', 'scikit-learn', 'OpenCV', 'YOLO', 'OCR', 'LightGBM', 'XGBoost', 'LangGraph', 'LangChain', 'Microsoft Foundry', 'Microsoft Agent Framework', 'RAG', 'MCP', 'Hugging Face', 'Mistral', 'BERT', 'LLM fine-tuning/pre-training', 'guardrails', 'n8n automation', 'Lightning AI', 'AWS (EC2, Lambda, SageMaker, CodeDeploy)', 'Docker', 'Kubernetes', 'GitHub Actions', 'Terraform', 'MLflow', 'REST APIs', 'SQL', 'PySpark', 'Databricks', 'Airflow', 'Power BI'],
+  // Confirmed by Sree in Sep 2026 but not in the PDF. Not shown in any project on the site.
+  additionalSkills: ['OpenAI and Azure OpenAI APIs', 'vector databases', 'LLM quantization and model serving', 'LLM evaluation', 'Hugging Face Transformers', 'PEFT and LoRA', 'NumPy', 'Matplotlib', 'Seaborn', 'statsmodels', 'PostgreSQL', 'MySQL', 'Git', 'Linux', 'Bash', 'Streamlit', 'Weights & Biases', 'ONNX', 'TensorRT', 'Google Cloud', 'Snowflake', 'Kafka', 'FastAPI', 'Pydantic', 'Gradio'],
   community: [
     'Public AI/MLOps writing with 5,000+ monthly readers on multi-agent workflows, model quantization, and applied ML.',
     'Administrator of a 600+ member AI-careers Discord.',
