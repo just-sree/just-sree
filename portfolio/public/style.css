@@ -89,10 +89,14 @@ h3 { font-size: 15px; font-weight: 600; }
 .fold summary::-webkit-details-marker { display: none; }
 .fold summary .when { grid-row: span 2; }
 .fold summary h3::before { content: "[+] "; color: var(--green); font-weight: 400; }
+/* Wrapped titles line up after the [+] marker */
+.fold summary h3, .projects summary h3 { padding-left: 4ch; text-indent: -4ch; }
 .fold details[open] summary h3::before { content: "[-] "; }
 .fold summary:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
 .fold .gist { grid-column: 2; color: var(--dim); }
 .fold .more { margin: 6px 0 4px calc(170px + 16px); padding: 0 0 0 4ch; color: var(--dim); }
+.fold .org { color: var(--amber); }
+.fold .more p + p { margin-top: 2px; }
 
 .tools { display: grid; grid-template-columns: 170px 1fr; gap: 4px 16px; margin: 0; font-size: 13px; }
 .tools dt { color: var(--green); }
