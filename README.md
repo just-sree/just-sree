@@ -92,10 +92,10 @@ A Gradio app. Give it a photo and it finds the objects with DETR, writes a short
 
 ## Experience
 
-- **Lambton College**, applied AI (Feb 2026 to now): leading a project with an industry partner. Model development, synthetic training data, benchmarking, error analysis and GPU inference on Lightning AI.
-- **Algonquin College**, applied research (Apr to Dec 2025): research proposals for Horizon Europe-aligned AI work, which led to an initial $150K funding commitment.
+- **AI Research Technician / AI Specialist**, Lambton College (Feb 2026 to now): leading a project with an industry partner. Model development, synthetic training data, benchmarking, error analysis and GPU inference on Lightning AI.
+- **AI Research Assistant**, Algonquin College Applied Research (Apr to Dec 2025): research proposals for Horizon Europe-aligned AI work, which led to an initial $150K funding commitment.
 - **Paresium** (ongoing): a startup I'm building.
-- **Infidata**, Python developer (2022): an event-driven ETL on AWS Lambda and RDS that refreshed data hourly and saved an estimated 40 hours a month of manual QA.
+- **Python Application Developer**, Infidata Technologies (Mar to Jun 2022): an event-driven ETL on AWS Lambda and RDS that refreshed data hourly and saved an estimated 40 hours a month of manual QA.
 
 ## Education
 
