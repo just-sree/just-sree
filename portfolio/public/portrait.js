@@ -1,6 +1,6 @@
 // Draws the headshot as ASCII in the terminal palette. When it scrolls into view the
 // ASCII decodes from random characters, then a scanline wipes down to reveal the photo
-// once. Hover, focus or tap plays the same reveal.
+// and back. This replays each time it comes into view; hover, focus or tap plays the reveal.
 const figure = document.querySelector('.portrait');
 if (figure) {
   const img = figure.querySelector('img');
@@ -55,34 +55,37 @@ if (figure) {
   let finalText = '';
   const glyphs = '.:-=+*#%@/\\<>01';
   const blank = (text) => text.replace(/[^\n]/g, ' ');
+  // Each run gets a number; leaving the viewport bumps it so stale frames and timers stop.
+  let runId = 0;
   // Characters resolve from random glyphs, roughly top to bottom, like a terminal rendering.
-  const decode = () => {
+  const decode = (id) => {
     const cells = [...finalText];
     const row = (i) => Math.floor(i / (cols + 1));
     const at = cells.map((_, i) => (row(i) / rows) * 0.7 + Math.random() * 0.3);
     const start = performance.now();
     const duration = 1100;
     const step = (now) => {
+      if (id !== runId) return;
       const t = Math.min(1, (now - start) / duration);
       pre.textContent = cells.map((c, i) => (c === '\n' || c === ' ' || at[i] <= t ? c : glyphs[Math.floor(Math.random() * glyphs.length)])).join('');
       if (t < 1) requestAnimationFrame(step);
-      else { pre.textContent = finalText; setTimeout(peek, 500); }
+      else { pre.textContent = finalText; setTimeout(() => peek(id), 500); }
     };
     requestAnimationFrame(step);
   };
-  // Show the photo once so visitors see there is one, then scan back to ASCII.
-  const peek = () => {
-    if (figure.matches(':hover') || figure.classList.contains('show-photo')) return;
+  // Show the photo so visitors see there is one, then scan back to ASCII.
+  const peek = (id) => {
+    if (id !== runId || figure.matches(':hover') || figure.classList.contains('show-photo')) return;
     figure.classList.add('peek');
-    setTimeout(() => figure.classList.remove('peek'), 2800);
+    setTimeout(() => { if (id === runId) figure.classList.remove('peek'); }, 2800);
   };
+  // Replay the decode and reveal every time the portrait scrolls back into view.
   const watchForView = () => {
-    const observer = new IntersectionObserver((entries) => {
-      if (!entries.some((entry) => entry.isIntersecting)) return;
-      observer.disconnect();
-      decode();
-    }, { threshold: 0.5 });
-    observer.observe(figure);
+    new IntersectionObserver((entries) => {
+      const entry = entries[entries.length - 1];
+      if (entry.isIntersecting) decode(++runId);
+      else { runId++; figure.classList.remove('peek'); pre.textContent = blank(finalText); }
+    }, { threshold: 0.5 }).observe(figure);
   };
   // The glowing scanline only shows while the wipe is moving.
   figure.addEventListener('transitionrun', (event) => { if (event.propertyName === '--reveal') figure.classList.add('scanning'); });
