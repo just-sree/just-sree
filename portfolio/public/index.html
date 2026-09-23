@@ -40,45 +40,66 @@
       <h2 id="work-title" class="sr-only">Selected work</h2>
       <ul class="projects">
         <li id="project-ircc">
-          <div class="row"><h3><button type="button" data-project="ircc">ircc-forecasting/</button></h3><span class="dim">2024–25 · capstone</span></div>
-          <p>Immigration forecasting for IRCC. I wrote the Python ETL that took 2M+ raw records down to clean time series (99.5% data quality), then compared Prophet, ARIMA and exponential smoothing across 15+ categories. Best models got above 85% accuracy.</p>
-          <p class="stack">python prophet arima pandas</p>
+          <details>
+            <summary><h3>ircc-forecasting/</h3><span class="dim">2024–25 · capstone</span><span class="gist">Immigration forecasting for IRCC. 2M+ records, 85%+ accuracy.</span></summary>
+            <div class="more">
+              <p>I wrote the Python ETL that took the raw records down to clean time series (99.5% data quality), then compared Prophet, ARIMA and exponential smoothing across 15+ categories and several forecast horizons.</p>
+              <p class="stack">python prophet arima pandas</p>
+              <button class="notes" type="button" data-project="ircc">open notes</button>
+            </div>
+          </details>
         </li>
         <li id="project-bogdai">
-          <div class="row"><h3><button type="button" data-project="bogdai">bogdai/</button></h3><span class="dim">2026 · hackathon</span></div>
-          <p>Team entry for the Microsoft Agents League hackathon. Six agents each do one step of reviewing a contract and hand off to the next. The output is a typed report where every risk cites its clause, and high-risk items get flagged for a person to check. Synthetic contracts only.</p>
-          <p class="stack">microsoft-foundry pydantic python</p>
+          <details>
+            <summary><h3>bogdai/</h3><span class="dim">2026 · hackathon</span><span class="gist">Six agents that review a contract and write a cited risk report.</span></summary>
+            <div class="more">
+              <p>Team entry for the Microsoft Agents League hackathon. Each agent does one step (intake, clause extraction, grounding, risk reasoning, verification, reporting) and hands off to the next. Every risk in the report cites its clause, and high-risk items get flagged for a person to check. Synthetic contracts only.</p>
+              <p class="stack">microsoft-foundry pydantic python</p>
+              <button class="notes" type="button" data-project="bogdai">open notes</button>
+            </div>
+          </details>
         </li>
         <li>
-          <div class="row"><h3><span class="nolink">cse-threat-classifier/</span></h3><span class="dim">capstone · CSE Canada</span></div>
-          <p>Malware classification on 8M+ records with very uneven classes. We tried logistic regression, random forest, XGBoost and LightGBM. The imbalance held LightGBM to 63%, which is the number we reported. It ships as a Windows CLI that handles 10k+ files an hour.</p>
-          <p class="stack">lightgbm xgboost scikit-learn</p>
+          <details>
+            <summary><h3>cse-threat-classifier/</h3><span class="dim">capstone · CSE Canada</span><span class="gist">Malware classification on 8M+ records, shipped as a Windows CLI.</span></summary>
+            <div class="more">
+              <p>The classes were very uneven. We tried logistic regression, random forest, XGBoost and LightGBM, and the imbalance held LightGBM to 63%, which is the number we reported. The CLI handles 10k+ files an hour.</p>
+              <p class="stack">lightgbm xgboost scikit-learn</p>
+            </div>
+          </details>
         </li>
         <li id="project-vision">
-          <div class="row"><h3><button type="button" data-project="vision">scenesense/</button></h3><span class="dim">side project</span></div>
-          <p>Upload a photo and it finds the objects with DETR, writes a short description of the scene, and can read it aloud in more than one language. Runs as a Gradio app.</p>
-          <p class="stack">hugging-face detr gradio</p>
+          <details>
+            <summary><h3>scenesense/</h3><span class="dim">side project</span><span class="gist">Finds the objects in a photo, describes the scene, and can read it aloud.</span></summary>
+            <div class="more">
+              <p>Object detection with DETR and a short scene description, with optional audio in more than one language. Runs as a Gradio app.</p>
+              <p class="stack">hugging-face detr gradio</p>
+              <button class="notes" type="button" data-project="vision">open notes</button>
+            </div>
+          </details>
         </li>
       </ul>
     </section>
 
     <section aria-labelledby="more-title">
-      <p class="cmd">ls projects/ --other</p>
       <h2 id="more-title" class="sr-only">Other projects</h2>
-      <ul class="listing">
-        <li id="project-voice"><button type="button" data-project="voice">text-to-audio</button><span class="dim"># summarise a document, then read it aloud</span></li>
-        <li id="project-docs"><button type="button" data-project="docs">code-doc-generator</button><span class="dim"># LLM-written docs for source code</span></li>
-        <li id="project-churn"><button type="button" data-project="churn">churn-retention</button><span class="dim"># churn model plus a RAG idea for follow-up</span></li>
-        <li id="project-border"><button type="button" data-project="border">border-traffic</button><span class="dim"># unusual traveller volumes at ports of entry</span></li>
-        <li id="project-crypto"><button type="button" data-project="crypto">crypto-forecast</button><span class="dim"># Prophet on price history</span></li>
-        <li id="project-property"><button type="button" data-project="property">house-prices</button><span class="dim"># random forest regression</span></li>
-        <li id="project-admissions"><button type="button" data-project="admissions">ucla-admissions</button><span class="dim"># small neural net</span></li>
-        <li id="project-loan"><button type="button" data-project="loan">loan-eligibility</button><span class="dim"># classifier</span></li>
-        <li id="project-credit"><button type="button" data-project="credit">credit-eligibility</button><span class="dim"># classifier with an app around it</span></li>
-        <li id="project-retail"><button type="button" data-project="retail">walmart-data-model</button><span class="dim"># dimensional model for a retail case study</span></li>
-        <li id="project-segments"><button type="button" data-project="segments">mall-segments</button><span class="dim"># k-means customer clusters</span></li>
-        <li id="project-pistachio"><button type="button" data-project="pistachio">pistachio-anomalies</button><span class="dim"># anomaly detection and classification</span></li>
-      </ul>
+      <details class="group">
+        <summary class="cmd">ls projects/ --other <span class="toggle">12 more</span></summary>
+        <ul class="listing">
+          <li id="project-voice"><button type="button" data-project="voice">text-to-audio</button><span class="dim"># summarise a document, then read it aloud</span></li>
+          <li id="project-docs"><button type="button" data-project="docs">code-doc-generator</button><span class="dim"># LLM-written docs for source code</span></li>
+          <li id="project-churn"><button type="button" data-project="churn">churn-retention</button><span class="dim"># churn model plus a RAG idea for follow-up</span></li>
+          <li id="project-border"><button type="button" data-project="border">border-traffic</button><span class="dim"># unusual traveller volumes at ports of entry</span></li>
+          <li id="project-crypto"><button type="button" data-project="crypto">crypto-forecast</button><span class="dim"># Prophet on price history</span></li>
+          <li id="project-property"><button type="button" data-project="property">house-prices</button><span class="dim"># random forest regression</span></li>
+          <li id="project-admissions"><button type="button" data-project="admissions">ucla-admissions</button><span class="dim"># neural net for admission chances</span></li>
+          <li id="project-loan"><button type="button" data-project="loan">loan-eligibility</button><span class="dim"># classifier</span></li>
+          <li id="project-credit"><button type="button" data-project="credit">credit-eligibility</button><span class="dim"># classifier with an app around it</span></li>
+          <li id="project-retail"><button type="button" data-project="retail">walmart-data-model</button><span class="dim"># dimensional model for a retail case study</span></li>
+          <li id="project-segments"><button type="button" data-project="segments">mall-segments</button><span class="dim"># customer clusters</span></li>
+          <li id="project-pistachio"><button type="button" data-project="pistachio">pistachio-anomalies</button><span class="dim"># anomaly detection and classification</span></li>
+        </ul>
+      </details>
       <p class="cmd">ls projects/ --wip</p>
       <ul class="listing">
         <li><a href="https://github.com/just-sree/ocr-proofkit" target="_blank" rel="noreferrer">ocr-proofkit</a><span class="dim"># in progress</span></li>
@@ -102,7 +123,7 @@
         <li><span class="when">2022</span><div><h3>Presidency University</h3><p>B.Tech, Electronics and Communication Engineering.</p></div></li>
       </ol>
       <p class="cmd">echo $TOOLS</p>
-      <p class="stack">python pytorch scikit-learn xgboost prophet opencv langgraph langchain microsoft-foundry rag mcp aws docker mlflow sql power-bi</p>
+      <p class="stack">python pytorch tensorflow scikit-learn xgboost prophet hugging-face opencv langgraph langchain microsoft-foundry rag mcp fastapi aws docker mlflow sql power-bi</p>
     </section>
 
     <section id="contact" aria-labelledby="contact-title">
