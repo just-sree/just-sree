@@ -1,15 +1,19 @@
 # Sree — minimal edition
 
-One page, one narrow column, mostly text. Warm off-white paper (#FAFAF9) and near-black ink (#1C1C1A), with one blue accent (#2F5BD3) used only for hover and focus. A dark palette follows `prefers-color-scheme`.
+One page with editorial accents. Warm paper (#F7F5F0), near-black ink (#1B1A17), and one vermilion accent (#D9481C) for italic highlights, metrics, and the current-role marker. A dark palette follows `prefers-color-scheme`.
+
+## Elements
+
+A faint dot grid and two soft colour glows behind the hero; a pill status badge with a pulsing dot; a stats strip; numbered section heads; project cards with a headline metric, tech chips, and a hover lift; a vertical timeline for experience and education; an inverted contact card.
 
 ## Mark
 
-`public/mark.svg`: a plain S in a rounded ink square. It is used as the favicon.
+`public/mark.svg`: a plain S in a rounded ink square. Used in the header and as the favicon.
 
 ## Type
 
-The system UI font stack, with no web fonts. Section labels are small uppercase in the muted colour. Hierarchy comes from weight and spacing, not colour or decoration.
+Inter for text, Instrument Serif italic for accent words and numbers, JetBrains Mono for labels, loaded from Google Fonts with system fallbacks.
 
 ## Motion
 
-None beyond smooth anchor scrolling, which is turned off under reduced motion. No animation libraries are loaded.
+Sections fade up once as they enter the viewport, cards lift on hover, and the status dot pulses. All of it is off under reduced motion, and the page is complete without JavaScript.

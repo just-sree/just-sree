@@ -8,112 +8,147 @@
   <meta name="description" content="Sree Sankaran Chackoth — applied ML and agentic AI engineer in Ottawa.">
   <title>Sree Sankaran Chackoth</title>
   <link rel="icon" href="/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="backdrop" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="name" href="#top">Sree Chackoth</a>
-    <nav aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-inner">
+      <a class="name" href="#top"><img src="/mark.svg" width="26" height="26" alt="">Sree Chackoth</a>
+      <nav aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <button class="pill-button" type="button" data-agent>Ask my agent</button>
+      </nav>
+    </div>
   </header>
 
   <main id="main">
     <section class="intro" id="top" aria-labelledby="intro-title">
-      <h1 id="intro-title">Sree Sankaran Chackoth</h1>
-      <p class="role">Applied ML &amp; agentic AI engineer · Ottawa</p>
-      <p class="lead">I build AI systems that ship — forecasting pipelines, multi-agent workflows, and computer-vision tools, from messy data to something people can use.</p>
-      <p class="links">
-        <button class="link" type="button" data-agent>Ask my agent</button>
-        <a href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-        <a href="https://github.com/just-sree" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">LinkedIn</a>
-      </p>
+      <p class="status"><i class="dot"></i>Applied ML &amp; agentic AI engineer · Ottawa</p>
+      <h1 id="intro-title">Sree Sankaran Chackoth <span>builds AI systems that <em>ship.</em></span></h1>
+      <p class="lead">Forecasting pipelines, multi-agent workflows, and computer-vision tools — taken from messy data to something people can actually use.</p>
+      <div class="cta">
+        <button class="button" type="button" data-agent>Ask my agent <span aria-hidden="true">→</span></button>
+        <a class="button button-ghost" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        <a class="icon-link" href="https://github.com/just-sree" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a class="icon-link" href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+      <dl class="stats">
+        <div><dt>records processed</dt><dd>2M+</dd></div>
+        <div><dt>forecast accuracy</dt><dd>85%+</dd></div>
+        <div><dt>agents in one pipeline</dt><dd>6</dd></div>
+        <div><dt>files classified / hr</dt><dd>10k+</dd></div>
+      </dl>
     </section>
 
-    <section id="work" aria-labelledby="work-title">
-      <h2 id="work-title">Selected work</h2>
-      <ul class="entries">
-        <li class="entry" id="project-ircc">
-          <div class="entry-head"><h3><button type="button" data-project="ircc">IRCC · Forecasting what comes next</button></h3><span class="meta">Capstone · 2024–25</span></div>
-          <p>A Python ETL over 2M+ records keeping 99.5% data quality, feeding Prophet, ARIMA and exponential-smoothing models across 15+ immigration categories. 85%+ forecast accuracy.</p>
-        </li>
-        <li class="entry" id="project-bogdai">
-          <div class="entry-head"><h3><button type="button" data-project="bogdai">BogdAI · Contract risk, with receipts</button></h3><span class="meta">Hackathon · 2026</span></div>
-          <p>Six bounded agents turn synthetic healthcare contracts into typed, cited risk reports with human-review flags and a full trace. Microsoft Agents League team prototype.</p>
-        </li>
-        <li class="entry">
-          <div class="entry-head"><h3>CSE Canada · Threat classification</h3><span class="meta">Capstone</span></div>
-          <p>Benchmarked four model families on 8M+ imbalanced malware records, then shipped a Windows CLI that classifies 10k+ files an hour. Honest final LightGBM score: 63%.</p>
-        </li>
-        <li class="entry" id="project-vision">
-          <div class="entry-head"><h3><button type="button" data-project="vision">SceneSense · See it. Hear it.</button></h3><span class="meta">AI tool</span></div>
+    <section id="work" class="reveal" aria-labelledby="work-title">
+      <div class="section-head"><span class="index">01</span><h2 id="work-title">Selected <em>work</em></h2></div>
+      <div class="cards">
+        <article class="card" id="project-ircc">
+          <div class="card-top"><span class="tag">Capstone · 2024–25</span><span class="metric">85%+ <small>accuracy</small></span></div>
+          <h3><button type="button" data-project="ircc">IRCC · Forecasting what comes next</button></h3>
+          <p>A Python ETL over 2M+ records keeping 99.5% data quality, feeding Prophet, ARIMA and exponential-smoothing models across 15+ immigration categories.</p>
+          <ul class="chips"><li>Python</li><li>Prophet</li><li>ARIMA</li><li>ETL</li></ul>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </article>
+        <article class="card" id="project-bogdai">
+          <div class="card-top"><span class="tag">Hackathon · 2026</span><span class="metric">6 <small>agents</small></span></div>
+          <h3><button type="button" data-project="bogdai">BogdAI · Contract risk, with receipts</button></h3>
+          <p>Bounded agents turn synthetic healthcare contracts into typed, cited risk reports with human-review flags and a full trace. Microsoft Agents League team prototype.</p>
+          <ul class="chips"><li>Microsoft Foundry</li><li>Pydantic</li><li>Multi-agent</li></ul>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="tag">Capstone · CSE Canada</span><span class="metric">10k+ <small>files/hr</small></span></div>
+          <h3>Threat classification</h3>
+          <p>Benchmarked four model families on 8M+ imbalanced malware records, then shipped a Windows CLI. Honest final LightGBM score: 63%.</p>
+          <ul class="chips"><li>LightGBM</li><li>XGBoost</li><li>Feature engineering</li></ul>
+        </article>
+        <article class="card" id="project-vision">
+          <div class="card-top"><span class="tag">AI tool</span><span class="metric">EN · FR · HI</span></div>
+          <h3><button type="button" data-project="vision">SceneSense · See it. Hear it.</button></h3>
           <p>Object detection with DETR, scene descriptions, and optional multilingual audio in a Gradio app.</p>
-        </li>
-      </ul>
+          <ul class="chips"><li>Hugging Face</li><li>DETR</li><li>Gradio</li></ul>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </article>
+      </div>
     </section>
 
-    <section aria-labelledby="more-title">
-      <h2 id="more-title">Other projects</h2>
-      <ul class="compact">
-        <li id="project-voice"><button type="button" data-project="voice">Read Less. Listen More.</button><span class="meta">LLM summary → audio</span></li>
-        <li id="project-docs"><button type="button" data-project="docs">Code, Explained.</button><span class="meta">AI code docs</span></li>
-        <li id="project-churn"><button type="button" data-project="churn">Retention Intelligence</button><span class="meta">Churn + RAG</span></li>
-        <li id="project-border"><button type="button" data-project="border">Border Traffic · Signals &amp; Outliers</button><span class="meta">Anomaly detection</span></li>
-        <li id="project-crypto"><button type="button" data-project="crypto">Crypto · Beyond the Price Chart</button><span class="meta">Forecasting</span></li>
-        <li id="project-property"><button type="button" data-project="property">Property Price Intelligence</button><span class="meta">Regression</span></li>
-        <li id="project-admissions"><button type="button" data-project="admissions">Admissions · A Neural Perspective</button><span class="meta">Neural net</span></li>
-        <li id="project-loan"><button type="button" data-project="loan">Loan Eligibility · Model to Decision</button><span class="meta">Classification</span></li>
-        <li id="project-credit"><button type="button" data-project="credit">Credit Eligibility · Applied ML</button><span class="meta">Classification</span></li>
-        <li id="project-retail"><button type="button" data-project="retail">Retail Intelligence · The Data Blueprint</button><span class="meta">Data modelling</span></li>
-        <li id="project-segments"><button type="button" data-project="segments">Customer Patterns · Uncovered</button><span class="meta">Clustering</span></li>
-        <li id="project-pistachio"><button type="button" data-project="pistachio">Pistachio Quality · Finding the Odd One Out</button><span class="meta">Anomaly detection</span></li>
+    <section class="reveal" aria-labelledby="more-title">
+      <div class="section-head"><span class="index">02</span><h2 id="more-title">Other <em>projects</em></h2></div>
+      <ul class="project-grid">
+        <li id="project-voice"><button type="button" data-project="voice"><span>Read Less. Listen More.</span><small>LLM summary → audio</small></button></li>
+        <li id="project-docs"><button type="button" data-project="docs"><span>Code, Explained.</span><small>AI code docs</small></button></li>
+        <li id="project-churn"><button type="button" data-project="churn"><span>Retention Intelligence</span><small>Churn + RAG</small></button></li>
+        <li id="project-border"><button type="button" data-project="border"><span>Border Traffic · Signals &amp; Outliers</span><small>Anomaly detection</small></button></li>
+        <li id="project-crypto"><button type="button" data-project="crypto"><span>Crypto · Beyond the Price Chart</span><small>Forecasting</small></button></li>
+        <li id="project-property"><button type="button" data-project="property"><span>Property Price Intelligence</span><small>Regression</small></button></li>
+        <li id="project-admissions"><button type="button" data-project="admissions"><span>Admissions · A Neural Perspective</span><small>Neural net</small></button></li>
+        <li id="project-loan"><button type="button" data-project="loan"><span>Loan Eligibility · Model to Decision</span><small>Classification</small></button></li>
+        <li id="project-credit"><button type="button" data-project="credit"><span>Credit Eligibility · Applied ML</span><small>Classification</small></button></li>
+        <li id="project-retail"><button type="button" data-project="retail"><span>Retail Intelligence · The Data Blueprint</span><small>Data modelling</small></button></li>
+        <li id="project-segments"><button type="button" data-project="segments"><span>Customer Patterns · Uncovered</span><small>Clustering</small></button></li>
+        <li id="project-pistachio"><button type="button" data-project="pistachio"><span>Pistachio Quality · Finding the Odd One Out</span><small>Anomaly detection</small></button></li>
       </ul>
-      <p class="note">In development: <a href="https://github.com/just-sree/ocr-proofkit" target="_blank" rel="noreferrer">OCR Proofkit</a>, <a href="https://github.com/just-sree/quota-journal" target="_blank" rel="noreferrer">Quota Journal</a>, <a href="https://github.com/just-sree/Quantization-Demystified" target="_blank" rel="noreferrer">Quantisation Demystified</a>.</p>
+      <div class="wip"><span class="label"><i class="dot"></i>In development</span><a href="https://github.com/just-sree/ocr-proofkit" target="_blank" rel="noreferrer">OCR Proofkit</a><a href="https://github.com/just-sree/quota-journal" target="_blank" rel="noreferrer">Quota Journal</a><a href="https://github.com/just-sree/Quantization-Demystified" target="_blank" rel="noreferrer">Quantisation Demystified</a></div>
     </section>
 
-    <section id="experience" aria-labelledby="experience-title">
-      <h2 id="experience-title">Experience</h2>
-      <ul class="entries">
-        <li class="entry">
-          <div class="entry-head"><h3>Applied AI · Lambton College</h3><span class="meta">Feb 2026 – now</span></div>
+    <section id="experience" class="reveal" aria-labelledby="experience-title">
+      <div class="section-head"><span class="index">03</span><h2 id="experience-title">Experience &amp; <em>education</em></h2></div>
+      <ol class="timeline">
+        <li class="current">
+          <span class="when">Feb 2026 – now</span>
+          <h3>Applied AI · Lambton College</h3>
           <p>Leading an industry-partnered project: model development, synthetic training data, benchmarking, error analysis, and GPU inference on Lightning AI.</p>
         </li>
-        <li class="entry">
-          <div class="entry-head"><h3>Applied Research · Algonquin College</h3><span class="meta">Apr – Dec 2025</span></div>
+        <li>
+          <span class="when">Apr – Dec 2025</span>
+          <h3>Applied Research · Algonquin College</h3>
           <p>Research and proposals for Horizon Europe-aligned AI. Coordinated 5+ stakeholders toward an initial $150K funding commitment.</p>
         </li>
-        <li class="entry">
-          <div class="entry-head"><h3>Founder · Paresium</h3><span class="meta">Startup</span></div>
+        <li>
+          <span class="when">Startup</span>
+          <h3>Founder · Paresium</h3>
           <p>Early-stage build. Notes to follow.</p>
         </li>
-        <li class="entry">
-          <div class="entry-head"><h3>Python Application Developer · Infidata</h3><span class="meta">2022</span></div>
+        <li>
+          <span class="when">2022</span>
+          <h3>Python Application Developer · Infidata</h3>
           <p>Event-driven ETL on AWS Lambda and RDS: hourly data freshness, an estimated 40 hours a month of manual QA removed, blue-green deploys via CodeDeploy.</p>
         </li>
-      </ul>
-      <h2 class="sub">Education</h2>
-      <ul class="entries">
-        <li class="entry">
-          <div class="entry-head"><h3>Algonquin College</h3><span class="meta">2024 – 2025</span></div>
+        <li class="edu">
+          <span class="when">2024 – 2025</span>
+          <h3>Algonquin College</h3>
           <p>Post-graduate certificates in AI Software Development and BI Systems Infrastructure.</p>
         </li>
-        <li class="entry">
-          <div class="entry-head"><h3>Presidency University</h3><span class="meta">2022</span></div>
+        <li class="edu">
+          <span class="when">2022</span>
+          <h3>Presidency University</h3>
           <p>B.Tech, Electronics &amp; Communication Engineering.</p>
         </li>
-      </ul>
-      <p class="skills">Python · PyTorch · scikit-learn · XGBoost · Prophet · OpenCV · LangGraph · LangChain · Microsoft Foundry · RAG · MCP · AWS · Docker · MLflow · SQL · Power BI</p>
+      </ol>
+      <h3 class="toolkit-title">Toolkit</h3>
+      <ul class="chips toolkit"><li>Python</li><li>PyTorch</li><li>scikit-learn</li><li>XGBoost</li><li>Prophet</li><li>OpenCV</li><li>LangGraph</li><li>LangChain</li><li>Microsoft Foundry</li><li>RAG</li><li>MCP</li><li>AWS</li><li>Docker</li><li>MLflow</li><li>SQL</li><li>Power BI</li></ul>
     </section>
 
-    <section id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <p class="lead">Have a role, a workflow, or a hard problem that needs an engineer? <a href="mailto:sreechackoth@gmail.com">sreechackoth@gmail.com</a> — or <button class="link" type="button" data-agent>ask my agent</button> first.</p>
+    <section id="contact" class="reveal" aria-labelledby="contact-title">
+      <div class="contact-card">
+        <span class="index">04</span>
+        <h2 id="contact-title">Have a hard problem that needs <em>an engineer?</em></h2>
+        <p>A role, a workflow, or an idea — I’d like to hear about it.</p>
+        <div class="cta">
+          <a class="button" href="mailto:sreechackoth@gmail.com">sreechackoth@gmail.com</a>
+          <button class="button button-ghost" type="button" data-agent>Ask my agent first</button>
+        </div>
+      </div>
     </section>
   </main>
 
