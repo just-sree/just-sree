@@ -15,7 +15,7 @@ export function validateInput(body) {
   return { message: body.message.trim(), history: body.history || [], ...(body.task ? { task: body.task } : {}) };
 }
 
-export const persona = 'You are Sree’s AI agent, a sharp technical collaborator: bold, playful, joking, warm, and friendly. Be confident about evidence, curious about the visitor’s problem, and direct about limits. Use an occasional short dry joke, never a joke at the visitor’s expense. Avoid forced banter, hype, academic lectures, and pretending to be Sree. Lead with a useful answer, then offer one relevant next step.';
+export const persona = 'You are the agent on Sree Sankaran Chackoth’s portfolio. Write the way the site is written: plain, short sentences, the answer first, then the specifics. Refer to Sree in the third person. Say what was built, what the numbers were and what is not known. No hype, jokes, slogans, exclamation marks or em dashes. Offer at most one next step.';
 
 const projectIds = Object.keys(projects);
 const workbench = [
@@ -54,19 +54,19 @@ export const context = {
   resume,
   workbench,
 };
-export const scopeReply = { answer: 'I can help with the projects Sree has chosen to share here: IRCC forecasting, BogdAI, and the supporting portfolio. Which would you like to explore?', project: null, contact: false };
+export const scopeReply = { answer: 'I can only talk about the work shared on this site: the featured projects, the smaller ones, experience and contact details. Which would you like?', project: null, contact: false };
 
 export function previewReply(message, history = []) {
   const query = message.toLowerCase();
   if (containsExcludedTopic(message)) return { ...scopeReply };
-  if (/\b(resume|résumé|cv)\b/.test(query)) return { answer: 'Here’s Sree’s latest supplied resume: applied ML, computer vision, and agentic AI, with the experience behind the stories. Two pages. Plenty to dig into.', project: null, contact: false, resume: true };
+  if (/\b(resume|résumé|cv)\b/.test(query)) return { answer: 'Here is Sree’s latest supplied resume. It is two pages and covers his experience, projects and skills.', project: null, contact: false, resume: true };
   if (/eventlinx|venue.?map|seat (detection|map)/.test(query)) return { answer: 'At Lambton College, Sree works with EventLinx on automated venue-map understanding. He owns the ML pipeline that turns venue layouts (SVG, PDF, PNG, JPG) into structured data for seats, sections, stages, exits and accessibility features. That covers multi-class seat detection, a synthetic-data pipeline for regular, wheelchair, reserved and hearing-accessible seating, benchmarking classical CV, segmentation and YOLO, OCR-based seat-number parsing, and GPU training and inference on Lightning AI.', project: null, contact: false, resume: true };
   if (/\b(experience|background|education)\b/.test(query)) return { answer: 'Sree’s resume lists an applied AI project with EventLinx at Lambton College, applied research at Algonquin, and earlier Python development at Infidata. IRCC forecasting is capstone work. The resume gives you the full timeline.', project: null, contact: false, resume: true };
-  if (/\b(brief|scope a project)\b/.test(query)) return { answer: 'Let’s turn the idea into a useful starting point. Here’s an editable brief using your message verbatim. Fill in the blanks, then send it to Sree when you’re happy with it. Nothing has been sent.', project: null, contact: true, brief: 'COLLABORATION BRIEF\n\nVisitor’s request:\n' + message + '\n\nProblem / users: [add details]\nDesired outcome: [add details]\nExisting stack and data: [add details]\nConstraints: [add details]\nTimeline / budget: [add details]\nContact: [add details]\n\nDraft for discussion. Scope and availability to be agreed with Sree.' };
-  if (/\b(compare|comparison)\b/.test(query)) return { answer: 'Two useful angles on AI engineering.\n\nIRCC: a capstone that connects Python ETL, time-series modelling, and forecast evaluation for immigration planning.\n\nBogdAI: a Microsoft Agents League Hackathon team prototype with six agents analysing synthetic contracts, grounded citations, and human-review flags.\n\nOne turns historical data into planning forecasts; the other turns a document into an inspectable risk report.', project: null, contact: false, sources: ['ircc', 'bogdai'] };
-  if (/^(hi|hello|hey|what can you do)[!? .]*$/i.test(message)) return { answer: 'Hey! I’m Sree’s agent. I can unpack a project, compare approaches, point you to the resume, check a job description against the work, or draft a collaboration brief. Bring a real problem; I’ll bring the project notes. What are you building?', project: null, contact: false };
-  if (/contact|email|reach|availability|available|rates|salary/.test(query)) return { answer: 'Reach Sree at sreechackoth@gmail.com or through LinkedIn. Availability, compensation, and engagement details are best discussed directly with him.', project: null, contact: true };
-  if (/work in progress|develop|workbench|currently|what.?s next|working on|proofkit|quota|quanti[sz]/.test(query)) return { answer: workbench.join('\n\n') + '\n\nThese are works in progress; no shipping dates or production results are claimed.', project: null, contact: false };
+  if (/\b(brief|scope a project)\b/.test(query)) return { answer: 'Here is an editable brief that starts from your message. Fill in the blanks, then send it to Sree when it looks right. Nothing has been sent.', project: null, contact: true, brief: 'COLLABORATION BRIEF\n\nVisitor’s request:\n' + message + '\n\nProblem / users: [add details]\nDesired outcome: [add details]\nExisting stack and data: [add details]\nConstraints: [add details]\nTimeline / budget: [add details]\nContact: [add details]\n\nDraft for discussion. Scope and availability to be agreed with Sree.' };
+  if (/\b(compare|comparison)\b/.test(query)) return { answer: 'IRCC is a capstone forecasting pipeline: a Python ETL over 2M+ records, then Prophet, ARIMA and exponential smoothing compared across forecast horizons.\n\nBogdAI is a Microsoft Agents League hackathon team prototype: six agents review synthetic contracts and produce a report with citations and flags for a person to check.\n\nOne turns historical data into planning forecasts. The other turns a document into a risk report someone can verify.', project: null, contact: false, sources: ['ircc', 'bogdai'] };
+  if (/^(hi|hello|hey|what can you do)[!? .]*$/i.test(message)) return { answer: 'I’m the agent on Sree’s portfolio. I can explain a project, compare two, share the resume, check a job description against his work, or draft a collaboration brief. What would you like to know?', project: null, contact: false };
+  if (/contact|email|reach|availability|available|rates|salary/.test(query)) return { answer: 'Email is best: sreechackoth@gmail.com. He is also on LinkedIn. Availability and compensation are for him to discuss directly.', project: null, contact: true };
+  if (/work in progress|develop|workbench|currently|what.?s next|working on|proofkit|quota|quanti[sz]/.test(query)) return { answer: workbench.join('\n\n') + '\n\nThese are in progress. No release dates or results are claimed.', project: null, contact: false };
   let id = matchProject(message);
   if (!id && /^(what about|and |why|go deeper|tell me more|explain more)/.test(query)) {
     const previous = [...history].reverse().find(item => item.role === 'user' && !containsExcludedTopic(item.content) && matchProject(item.content));
@@ -76,8 +76,8 @@ export function previewReply(message, history = []) {
     const p = projects[id];
     return { answer: [p.summary, p.decision, p.limits].filter(Boolean).join('\n\n'), project: id, contact: false };
   }
-  if (/strong|engineer|skill|hire|hiring|startup|founder|build|team|fit/.test(query)) return { answer: 'Start with IRCC for data preparation, forecasting, and evaluation, or BogdAI for an inspectable multi-agent workflow. The supporting projects add computer vision, language-model tools, predictive analytics, and data modelling. That gives you concrete engineering decisions to discuss with Sree.', project: null, sources: ['ircc', 'bogdai'], contact: false };
-  return { answer: 'I’m a curated portfolio guide in preview mode. I can explain IRCC forecasting, BogdAI, the supporting projects, work in progress, or contact details. If a fact is missing from the project notes, I’ll leave it for Sree to answer.', project: null, contact: false };
+  if (/strong|engineer|skill|hire|hiring|startup|founder|build|team|fit/.test(query)) return { answer: 'Start with IRCC for data preparation, forecasting and evaluation, or BogdAI for a multi-agent workflow whose output can be checked. The compliance and churn agents show more agent and RAG work, and the smaller projects cover computer vision, LLM tools, predictive models and data modelling.', project: null, sources: ['ircc', 'bogdai'], contact: false };
+  return { answer: 'That is not in my notes. I can explain the projects, the work in progress, experience or contact details. Anything outside the notes is a question for Sree.', project: null, contact: false };
 }
 
 export async function generateReply(message, history, { apiKey, model = 'gpt-5', provider = 'openai', endpoint = 'https://api.openai.com/v1/responses', fetcher = fetch } = {}) {
