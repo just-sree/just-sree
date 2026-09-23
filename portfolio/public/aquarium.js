@@ -34,6 +34,15 @@ let running = false;
 let last = 0;
 let enabled = true;
 try { enabled = localStorage.getItem('aquarium') !== 'off'; } catch {}
+// A small corner hint that goes away once the visitor has fed the fish.
+let fed = false;
+try { fed = localStorage.getItem('aquarium-fed') === 'yes'; } catch {}
+const hint = document.createElement('p');
+hint.className = 'aquarium-hint';
+hint.setAttribute('aria-hidden', 'true');
+hint.textContent = '><> tap empty space to feed the fish';
+document.body.append(hint);
+const showHint = () => { hint.classList.toggle('visible', running && !fed); };
 
 const random = (min, max) => min + Math.random() * (max - min);
 function spawnFish(anywhere) {
@@ -148,10 +157,12 @@ function frame(now) {
 function start() {
   canvas.hidden = !enabled;
   running = false;
+  showHint();
   if (!enabled) return;
   resize();
   if (reduceMotion.matches) { draw(0); return; }
   running = true;
+  showHint();
   last = performance.now();
   requestAnimationFrame(frame);
 }
@@ -164,6 +175,7 @@ document.addEventListener('click', (event) => {
   if (!running || event.target.closest('a, button, summary, input, textarea, dialog, kbd')) return;
   if (!getSelection().isCollapsed) return;
   for (let i = 0; i < 3; i++) food.push({ x: event.clientX + random(-12, 12), y: event.clientY + random(-6, 6), age: 0 });
+  if (!fed) { fed = true; try { localStorage.setItem('aquarium-fed', 'yes'); } catch {} showHint(); }
 });
 reduceMotion.addEventListener('change', start);
 
