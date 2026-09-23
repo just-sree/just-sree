@@ -1,6 +1,6 @@
-# Sree — portfolio, light cyberpunk edition
+# Sree — portfolio, minimal edition
 
-A standalone Node 22 app with no install step: a light cyberpunk portfolio driven by scroll storytelling (GSAP ScrollTrigger, vendored), project notes, and a custom portfolio-agent interface. The main call to action everywhere is **Talk to my agent**. Identity and motion rules are in `BRAND.md`.
+A standalone Node 22 app with no install step: a minimal single-page portfolio (intro, selected work, other projects, experience, contact), project notes, and a custom portfolio-agent interface. No animation libraries or web fonts are loaded. Identity and motion rules are in `BRAND.md`.
 
 ## Run
 
@@ -23,23 +23,21 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 
 ## Edit content
 
-- `public/index.html`: page copy, scene markup, and dialogs. Every scene is complete without JavaScript motion.
-- `public/style.css`: theme tokens, layout, scene styling, dialogs, mobile and reduced-motion fallbacks.
-- `public/story.js`: scroll scenes — hero scramble and 3D network, terminal, career timeline with absorbed skills, IRCC sticky story with counters, SceneSense detection pipeline and an ETL before/after slider, code → product (BogdAI report contract), horizontal CSE journey, BogdAI agent hand-offs, the site's own architecture, expanding case cards, cursor previews, constellation, background tint.
-- `public/vendor/`: GSAP core, ScrollTrigger, ScrambleTextPlugin, DrawSVGPlugin (3.15, Standard license).
-- `public/mark.svg`: the S mark, also used as the favicon.
+- `public/index.html`: page copy and dialogs. The page is complete without JavaScript; scripts add only project notes and the agent.
+- `public/style.css`: light and dark theme tokens, single-column layout, dialogs, mobile layout.
+- `public/mark.svg`: the S mark, used as the favicon.
 - `ai-config.mjs`: server-only Foundry/OpenAI configuration.
 - `http-app.mjs`: shared local and Vercel request handler.
 - `public/projects.json`: curated project evidence shared by the UI and agent.
 - `public/app.js`: navigation, architecture trace, project notes, chat, and keyboard behavior.
 - `agent.mjs`: approved knowledge, preview responses, provider integration, and response validation.
 
-`Ctrl/Cmd + K` opens the agent. Native dialogs provide keyboard focus containment and Escape dismissal. The layout respects reduced motion. Google Fonts are optional; system font fallbacks are included.
+`Ctrl/Cmd + K` opens the agent. Native dialogs provide keyboard focus containment and Escape dismissal. The layout respects reduced motion and the system colour scheme.
 
 ## Content provenance
 
 The September 2026 content pass uses the owner's approved project list, public GitHub metadata and selected READMEs, the supplied resume for the IRCC capstone and career details, and the BogdAI README for the Microsoft Agents League Hackathon 2026 pipeline. The border-traffic anomaly study is a separate supporting project; it is not used as a source for the IRCC capstone.
 
-Mobile and reduced-motion modes show complete diagrams in normal document flow. All figures in the scenes come from the supplied resume and the approved project list; the chart, sample scene, and diagrams are illustrative. `public/projects.json` is the approved catalogue shared with the agent. `scope.mjs` intercepts excluded topics before provider calls and checks responses; no excluded project details are part of the knowledge context.
+All figures on the page come from the supplied resume and the approved project list. `public/projects.json` is the approved catalogue shared with the agent. `scope.mjs` intercepts excluded topics before provider calls and checks responses; no excluded project details are part of the knowledge context.
 
 Run `npm run check` and `npm test` before deployment. Changes to the profile README and portfolio are deployed from the same repository.

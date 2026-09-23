@@ -8,12 +8,7 @@ const publicFiles = new Map([
   ['/index.html', ['index.html', 'text/html; charset=utf-8']],
   ['/style.css', ['style.css', 'text/css; charset=utf-8']],
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
-  ['/story.js', ['story.js', 'text/javascript; charset=utf-8']],
   ['/mark.svg', ['mark.svg', 'image/svg+xml']],
-  ['/vendor/gsap.min.js', ['vendor/gsap.min.js', 'text/javascript; charset=utf-8']],
-  ['/vendor/ScrollTrigger.min.js', ['vendor/ScrollTrigger.min.js', 'text/javascript; charset=utf-8']],
-  ['/vendor/ScrambleTextPlugin.min.js', ['vendor/ScrambleTextPlugin.min.js', 'text/javascript; charset=utf-8']],
-  ['/vendor/DrawSVGPlugin.min.js', ['vendor/DrawSVGPlugin.min.js', 'text/javascript; charset=utf-8']],
   ['/resume.pdf', ['resume.pdf', 'application/pdf']],
   ['/projects.json', ['projects.json', 'application/json; charset=utf-8']],
 ]);
