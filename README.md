@@ -1,6 +1,6 @@
 <p align="center"><img src="./assets/profile-header.svg" alt="Terminal banner: $ whoami, Sree Sankaran Chackoth, applied AI and ML engineer, forward-deployed engineer, based in Ontario, Canada" width="100%" /></p>
 
-I'm Sree, an applied AI and ML engineer and forward-deployed engineer (FDE) based in Ontario, Canada. I work on forecasting, agent systems and computer vision, close to the people who'll use them. Right now I'm leading an applied AI project at Lambton College.
+I'm Sree, an applied AI and ML engineer and forward-deployed engineer (FDE) based in Ontario, Canada. Most of my work starts with a business problem and a pile of data: I work with the people who have the problem to pin down what they need, then clean the data, build the model or agent, check that it actually helps, and ship it. Right now I'm leading an applied AI project with an industry partner at Lambton College.
 
 [Portfolio](https://just-sree.vercel.app) · [Resume](https://just-sree.vercel.app/resume.pdf) · [LinkedIn](https://linkedin.com/in/sreesankaranc) · [Email](mailto:sreechackoth@gmail.com)
 
