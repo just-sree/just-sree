@@ -59,7 +59,7 @@ if (form && input && output) {
   const commands = {
     help: ['list commands', () => {
       for (const [name, [about]] of Object.entries(commands)) line({ text: name.padEnd(12), run: name }, about);
-      dim('Anything else is sent to my agent as a question.');
+      dim('Anything else is sent to my agent as a question. A few commands are hidden.');
     }],
     whoami: ['who I am', () => {
       line('Sree Sankaran Chackoth. Applied AI and ML engineer and forward-deployed engineer, based in Ontario, Canada.');
@@ -77,6 +77,11 @@ if (form && input && output) {
       if (!project) return dim(`cat: ${args}: no such project. Type ls to see names.`);
       line(`opening ${project.name}…`);
       project.open();
+    }],
+    status: ['am I open to work?', () => {
+      line('● open to applied AI, ML and FDE roles');
+      line('  remote, hybrid or on-site in Ontario, Canada');
+      line('  best first step: ', { text: 'email me', href: 'mailto:sreechackoth@gmail.com' }, ' or ', { text: 'check a job description', run: 'job' });
     }],
     experience: ['jump to experience', () => { scrollTo('#experience'); line('cat experience.log'); }],
     community: ['writing, community and certifications', () => {
@@ -106,7 +111,74 @@ if (form && input && output) {
     }],
     clear: ['clear this output', () => output.replaceChildren()],
   };
-  const aliases = { 'ls projects': 'ls', 'ls projects/': 'ls', 'cat experience.log': 'experience', 'cat stack.txt': 'stack', './contact': 'contact', email: 'contact', open: 'cat', ask: 'agent', '?': 'help', writing: 'community', 'ls community': 'community', 'ls community/': 'community', 'cat certifications.txt': 'community' };
+  // Hidden commands: not in help or Tab completion, just there to be found.
+  const started = performance.now();
+  const uptime = () => { const s = Math.round((performance.now() - started) / 1000); return s < 60 ? `${s}s` : `${Math.floor(s / 60)}m ${s % 60}s`; };
+  const fortunes = [
+    'Most model problems are data problems.',
+    'Check the baseline before you celebrate.',
+    'If it is not evaluated, it is not done.',
+    'The demo worked. Production has opinions.',
+    'Accuracy is a number. Ask what it costs to be wrong.',
+    'Clean the data once, properly, and write down how.',
+    'Ship the boring version first.',
+    'Talk to the people with the problem before you pick a model.',
+  ];
+  const fortune = () => fortunes[Math.floor(Math.random() * fortunes.length)];
+  const block = (text, className = '') => { const pre = document.createElement('pre'); pre.className = `shell-block ${className}`.trim(); pre.textContent = text; output.append(pre); return pre; };
+  const hidden = {
+    neofetch: () => {
+      const logo = ['', '     /`·.¸', '    /¸...¸`:·', '¸.·´  ¸   `·.¸.·´)', ': © ):´;      ¸  {', ' `·.¸ `·  ¸.·´\\`·¸)', '     `\\\\´´\\¸.·´', '', '', ''];
+      const info = [
+        'sree@just-sree',
+        '--------------',
+        `role      applied AI / ML engineer, FDE`,
+        `location  Ontario, Canada`,
+        `status    open to AI, ML and FDE roles`,
+        `stack     python pytorch langgraph azure aws`,
+        `projects  ${featured.length} featured, ${others.length} more, ${wip.length} in progress`,
+        `shell     just-sh`,
+        `uptime    ${uptime()}`,
+        `fish      ${document.getElementById('aquarium-toggle')?.getAttribute('aria-pressed') === 'false' ? 'asleep' : 'swimming'}`,
+      ];
+      block(info.map((row, i) => (logo[i] ?? '').padEnd(22) + row).join('\n'), 'neofetch');
+    },
+    sl: () => {
+      const train = [
+        '      ====        ________                ___________ ',
+        '  _D _|  |_______/        \\__I_I_____===__|_________| ',
+        '   |(_)---  |   H\\________/ |   |        =|___ ___|  ',
+        '   /     |  |   H  |  |     |   |         ||_| |_||  ',
+        '  |      |  |   H  |__--------------------| [___] |  ',
+        '  | ________|___H__/__|_____/[][]~\\_______|       |  ',
+        '  |/ |   |-----------I_____I [][] []  D   |=======|__',
+        '__/ =| o |=-~~\\  /~~\\  /~~\\  /~~\\ ____Y___________|__',
+        ' |/-=|___|=    ||    ||    ||    |_____/~\\___/       ',
+        '  \\_/      \\O=====O=====O=====O_/      \\_/            ',
+      ].join('\n');
+      const track = block('', 'sl');
+      const car = document.createElement('span');
+      car.textContent = train;
+      track.append(car);
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return dim('choo choo. (the train stays put when reduced motion is on)');
+      car.animate([{ transform: `translateX(${track.clientWidth}px)` }, { transform: 'translateX(-100%)' }], { duration: 4200, easing: 'linear' })
+        .finished.then(() => { track.remove(); dim('The train has left the station.'); }, () => {});
+    },
+    fortune: () => line(fortune()),
+    cowsay: (args) => {
+      const text = args || fortune();
+      const bar = '-'.repeat(text.length + 2);
+      block([` ${'_'.repeat(text.length + 2)}`, `< ${text} >`, ` ${bar}`, '        \\   ^__^', '         \\  (oo)\\_______', '            (__)\\       )\\/\\', '                ||----w |', '                ||     ||'].join('\n'));
+    },
+    uptime: () => line(`up ${uptime()}, 1 visitor, fish: ${document.getElementById('aquarium-toggle')?.getAttribute('aria-pressed') === 'false' ? 'asleep' : 'swimming'}`),
+    vim: () => dim('You are in vim now. Just kidding. :q'),
+    emacs: () => dim('No emacs here. Try vim. Also no vim here.'),
+    exit: () => dim('This is a web page. Close the tab to leave, or stay and feed the fish.'),
+    rm: () => dim('rm: permission denied. The fish live here.'),
+    hello: () => line('Hi. Type help to see what this does, or just ask a question.'),
+    coffee: () => line('  ( (\n   ) )\n ........\n |      |]\n \\      /\n  `----\''),
+  };
+  const aliases = { 'ls projects': 'ls', 'ls projects/': 'ls', 'cat experience.log': 'experience', 'cat stack.txt': 'stack', './contact': 'contact', email: 'contact', open: 'cat', ask: 'agent', '?': 'help', writing: 'community', 'ls community': 'community', 'ls community/': 'community', 'cat certifications.txt': 'community', 'open to work': 'status', available: 'status', hire: 'status', hi: 'hello', hey: 'hello', logout: 'exit', quit: 'exit', ':q': 'exit', nvim: 'vim', vi: 'vim' };
 
   function run(raw) {
     const text = raw.trim();
@@ -117,6 +189,7 @@ if (form && input && output) {
     const name = (aliases[word.toLowerCase()] ?? word).toLowerCase();
     const args = rest.join(' ');
     if (Object.hasOwn(commands, name)) commands[name][1](args);
+    else if (Object.hasOwn(hidden, name)) hidden[name](args);
     else if (name === 'sudo') dim('Nice try. No root on this page.');
     else {
       // Not a command: treat it as a question for the agent.
