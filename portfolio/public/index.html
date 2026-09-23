@@ -36,9 +36,10 @@
     </section>
 
     <section id="work" aria-labelledby="work-title">
-      <p class="cmd">ls projects/ --featured</p>
       <h2 id="work-title" class="sr-only">Selected work</h2>
-      <ul class="projects">
+      <details class="group" open>
+        <summary class="cmd">ls projects/ --featured <span class="toggle">4 projects</span></summary>
+        <ul class="projects">
         <li id="project-ircc">
           <details>
             <summary><h3>ircc-forecasting/</h3><span class="dim">2024–25 · capstone</span><span class="gist">Immigration forecasting for IRCC. 2M+ records, 85%+ accuracy.</span></summary>
@@ -78,7 +79,8 @@
             </div>
           </details>
         </li>
-      </ul>
+        </ul>
+      </details>
     </section>
 
     <section aria-labelledby="more-title">
@@ -100,30 +102,38 @@
           <li id="project-pistachio"><button type="button" data-project="pistachio">pistachio-anomalies</button><span class="dim"># anomaly detection and classification</span></li>
         </ul>
       </details>
-      <p class="cmd">ls projects/ --wip</p>
-      <ul class="listing">
+      <details class="group">
+        <summary class="cmd">ls projects/ --wip <span class="toggle">3 in progress</span></summary>
+        <ul class="listing">
         <li><a href="https://github.com/just-sree/ocr-proofkit" target="_blank" rel="noreferrer">ocr-proofkit</a><span class="dim"># in progress</span></li>
         <li><a href="https://github.com/just-sree/quota-journal" target="_blank" rel="noreferrer">quota-journal</a><span class="dim"># in progress</span></li>
         <li><a href="https://github.com/just-sree/Quantization-Demystified" target="_blank" rel="noreferrer">quantization-demystified</a><span class="dim"># in progress</span></li>
-      </ul>
+        </ul>
+      </details>
     </section>
 
     <section id="experience" aria-labelledby="experience-title">
       <p class="cmd">cat experience.log</p>
       <h2 id="experience-title" class="sr-only">Experience</h2>
-      <ol class="log jobs">
+      <ol class="log fold">
         <li><details><summary><span class="when">2026-02 → now</span><h3>Lambton College, applied AI</h3><span class="gist">Leading an applied AI project with an industry partner.</span></summary><p class="more">Model development, synthetic training data, benchmarking and error analysis, with GPU inference on Lightning AI.</p></details></li>
         <li><details><summary><span class="when">2025-04 → 2025-12</span><h3>Algonquin College, applied research</h3><span class="gist">Research proposals that led to an initial $150K funding commitment.</span></summary><p class="more">Horizon Europe-aligned AI work. I wrote the proposals and evaluation plans and worked with 5+ stakeholders.</p></details></li>
         <li><details><summary><span class="when">ongoing</span><h3>Paresium</h3><span class="gist">A startup I'm building.</span></summary><p class="more">More here when there's something to show.</p></details></li>
         <li><details><summary><span class="when">2022</span><h3>Infidata, Python developer</h3><span class="gist">Event-driven ETL on AWS Lambda and RDS.</span></summary><p class="more">Replaced a manual data check. Data refreshed hourly, and it saved an estimated 40 hours a month of manual QA.</p></details></li>
       </ol>
       <p class="cmd">cat education.log</p>
-      <ol class="log">
-        <li><span class="when">2024 → 2025</span><div><h3>Algonquin College</h3><p>Graduate certificates in AI Software Development and BI Systems Infrastructure.</p></div></li>
-        <li><span class="when">2022</span><div><h3>Presidency University</h3><p>B.Tech, Electronics and Communication Engineering.</p></div></li>
+      <ol class="log fold">
+        <li><details><summary><span class="when">2024 → 2025</span><h3>Algonquin College</h3><span class="gist">Graduate certificates in AI and BI.</span></summary><p class="more">AI Software Development (2024) and BI Systems Infrastructure (2025). The IRCC forecasting and CSE threat-classification capstones were part of these programs.</p></details></li>
+        <li><details><summary><span class="when">2022</span><h3>Presidency University</h3><span class="gist">B.Tech, Electronics and Communication Engineering.</span></summary><p class="more">Bachelor of Technology, completed in 2022.</p></details></li>
       </ol>
-      <p class="cmd">echo $TOOLS</p>
-      <p class="stack">python pytorch tensorflow scikit-learn xgboost prophet hugging-face opencv langgraph langchain microsoft-foundry rag mcp fastapi aws docker mlflow sql power-bi</p>
+      <p class="cmd">cat stack.txt</p>
+      <dl class="tools">
+        <dt>ml</dt><dd>pytorch tensorflow keras scikit-learn xgboost lightgbm prophet mlflow</dd>
+        <dt>llm &amp; agents</dt><dd>langgraph langchain microsoft-foundry microsoft-agent-framework rag mcp pydantic</dd>
+        <dt>vision</dt><dd>opencv yolo ocr hugging-face gradio</dd>
+        <dt>data</dt><dd>python pandas sql power-bi</dd>
+        <dt>cloud &amp; ops</dt><dd>aws azure docker lightning-ai fastapi</dd>
+      </dl>
     </section>
 
     <section id="contact" aria-labelledby="contact-title">
