@@ -1,6 +1,6 @@
-# Sree — portfolio, minimal edition
+# Sree — portfolio, terminal edition
 
-A standalone Node 22 app with no install step: a minimal single-page portfolio (intro, selected work, other projects, experience, contact), project notes, and a custom portfolio-agent interface. No animation libraries are loaded; fonts come from Google Fonts with system fallbacks. Identity and motion rules are in `BRAND.md`.
+A standalone Node 22 app with no install step: a single-page portfolio styled as a terminal session (intro, projects, experience, contact), project notes, and a custom portfolio-agent interface. No animation libraries are loaded; fonts come from Google Fonts with system fallbacks. Identity and motion rules are in `BRAND.md`.
 
 ## Run
 
@@ -24,7 +24,7 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 ## Edit content
 
 - `public/index.html`: page copy and dialogs. The page is complete without JavaScript; scripts add only project notes and the agent.
-- `public/style.css`: light and dark theme tokens, single-column layout, dialogs, mobile layout.
+- `public/style.css`: colour tokens, single-column monospace layout, terminal-style dialogs, mobile layout.
 - `public/mark.svg`: the S mark, used in the header and as the favicon.
 - `ai-config.mjs`: server-only Foundry/OpenAI configuration.
 - `http-app.mjs`: shared local and Vercel request handler.
@@ -32,7 +32,7 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 - `public/app.js`: navigation, architecture trace, project notes, chat, and keyboard behavior.
 - `agent.mjs`: approved knowledge, preview responses, provider integration, and response validation.
 
-`Ctrl/Cmd + K` opens the agent. Native dialogs provide keyboard focus containment and Escape dismissal. The layout respects reduced motion and the system colour scheme.
+`Ctrl/Cmd + K` opens the agent. Native dialogs provide keyboard focus containment and Escape dismissal. The cursor animation stops under reduced motion.
 
 ## Content provenance
 

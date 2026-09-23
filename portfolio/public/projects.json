@@ -1,7 +1,7 @@
 {
   "ircc": {
-    "name": "IRCC · Forecasting What Comes Next",
-    "title": "Make the next decision clearer.",
+    "name": "IRCC immigration forecasting",
+    "title": "IRCC immigration forecasting",
     "summary": "A capstone forecasting pipeline for Canadian immigration planning: Python ETL, time-series modelling, and evaluation across multiple horizons.",
     "problem": "Planning across immigration categories means working with large datasets, changing trends, and different forecasting horizons.",
     "architecture": [
@@ -13,13 +13,13 @@
     ],
     "decision": "Compare Prophet, ARIMA, and Exponential Smoothing across multiple horizons. Treat data preparation and quality as part of the forecasting system.",
     "evidence": "The supplied resume reports 2M+ records processed and 15+ immigration categories covered during the September 2024–April 2025 capstone.",
-    "limits": "Capstone project. Scale figures are reported in the supplied resume; the chart on this page is an illustrative explanation, not a live forecast. No public repository is linked for this capstone.",
+    "limits": "Capstone project. Scale figures are reported in the supplied resume. No public repository is linked for this capstone.",
     "url": "/resume.pdf",
     "sourceLabel": "Read the resume"
   },
   "bogdai": {
-    "name": "BogdAI · Contract Risk, With Receipts",
-    "title": "Six agents. One inspectable answer.",
+    "name": "BogdAI contract risk review",
+    "title": "BogdAI contract risk review",
     "summary": "A Microsoft Agents League Hackathon 2026 team prototype that turns synthetic healthcare and pharma contracts into structured, cited risk reports.",
     "problem": "A risk label is only useful if a reviewer can trace it back to the clause and the policy behind it.",
     "architecture": [
@@ -37,8 +37,8 @@
     "sourceLabel": "Explore the repository"
   },
   "vision": {
-    "name": "SceneSense · See It. Hear It.",
-    "title": "SceneSense · See It. Hear It.",
+    "name": "SceneSense",
+    "title": "SceneSense",
     "summary": "Object detection, bounding boxes, scene descriptions, and optional multilingual audio in a Gradio app.",
     "group": "AI tools",
     "skills": [
@@ -50,8 +50,8 @@
     "sourceLabel": "Explore the repository"
   },
   "voice": {
-    "name": "Read Less. Listen More.",
-    "title": "Read Less. Listen More.",
+    "name": "Text-to-audio summariser",
+    "title": "Text-to-audio summariser",
     "summary": "An LLM workflow that summarises raw text or documents and converts the summary into audio.",
     "group": "AI tools",
     "skills": [
@@ -63,9 +63,9 @@
     "sourceLabel": "Explore the repository"
   },
   "docs": {
-    "name": "Code, Explained.",
-    "title": "Code, Explained.",
-    "summary": "An AI-powered code documentation generator exploring how language models can make source code easier to understand.",
+    "name": "Code documentation generator",
+    "title": "Code documentation generator",
+    "summary": "A generator that uses a language model to write documentation for source code.",
     "group": "AI tools",
     "skills": [
       "Python",
@@ -76,8 +76,8 @@
     "sourceLabel": "Explore the repository"
   },
   "churn": {
-    "name": "Retention Intelligence",
-    "title": "Retention Intelligence",
+    "name": "Customer churn and retention",
+    "title": "Customer churn and retention",
     "summary": "A customer-churn study combining predictive analytics with a proposed retrieval-augmented workflow for personalised retention strategies.",
     "group": "Predictive systems",
     "skills": [
@@ -89,8 +89,8 @@
     "sourceLabel": "Explore the repository"
   },
   "border": {
-    "name": "Border Traffic · Signals & Outliers",
-    "title": "Border Traffic · Signals & Outliers",
+    "name": "Border traffic anomaly detection",
+    "title": "Border traffic anomaly detection",
     "summary": "Statistical and machine-learning approaches to detecting unusual traveller volumes at Canadian ports of entry.",
     "group": "Predictive systems",
     "skills": [
@@ -101,8 +101,8 @@
     "sourceLabel": "Explore the repository"
   },
   "crypto": {
-    "name": "Crypto · Beyond the Price Chart",
-    "title": "Crypto · Beyond the Price Chart",
+    "name": "Crypto price forecasting",
+    "title": "Crypto price forecasting",
     "summary": "An exploratory time-series project using Prophet and historical cryptocurrency data to study price trends.",
     "group": "Predictive systems",
     "skills": [
@@ -113,8 +113,8 @@
     "sourceLabel": "Explore the repository"
   },
   "property": {
-    "name": "Property Price Intelligence",
-    "title": "Property Price Intelligence",
+    "name": "Real estate price prediction",
+    "title": "Real estate price prediction",
     "summary": "A random-forest regression study exploring the relationship between property features and real-estate prices.",
     "group": "Predictive systems",
     "skills": [
@@ -125,8 +125,8 @@
     "sourceLabel": "Explore the repository"
   },
   "admissions": {
-    "name": "Admissions · A Neural Perspective",
-    "title": "Admissions · A Neural Perspective",
+    "name": "UCLA admission prediction",
+    "title": "UCLA admission prediction",
     "summary": "A neural-network modelling exercise estimating UCLA admission chances from applicant features.",
     "group": "Predictive systems",
     "skills": [
@@ -137,8 +137,8 @@
     "sourceLabel": "Explore the repository"
   },
   "loan": {
-    "name": "Loan Eligibility · Model to Decision",
-    "title": "Loan Eligibility · Model to Decision",
+    "name": "Loan eligibility model",
+    "title": "Loan eligibility model",
     "summary": "A machine-learning exercise exploring loan-eligibility classification from applicant data.",
     "group": "Predictive systems",
     "skills": [
@@ -149,8 +149,8 @@
     "sourceLabel": "Explore the repository"
   },
   "credit": {
-    "name": "Credit Eligibility · Applied ML",
-    "title": "Credit Eligibility · Applied ML",
+    "name": "Credit eligibility app",
+    "title": "Credit eligibility app",
     "summary": "An application-oriented machine-learning exercise for credit-eligibility prediction.",
     "group": "Predictive systems",
     "skills": [
@@ -161,8 +161,8 @@
     "sourceLabel": "Explore the repository"
   },
   "retail": {
-    "name": "Retail Intelligence · The Data Blueprint",
-    "title": "Retail Intelligence · The Data Blueprint",
+    "name": "Walmart Canada data model",
+    "title": "Walmart Canada data model",
     "summary": "A dimensional-modelling framework for a Walmart Canada retail case study, spanning sales, inventory, eCommerce, real estate, and employee benefits.",
     "group": "Data intelligence",
     "skills": [
@@ -173,8 +173,8 @@
     "sourceLabel": "Explore the repository"
   },
   "segments": {
-    "name": "Customer Patterns · Uncovered",
-    "title": "Customer Patterns · Uncovered",
+    "name": "Mall customer segmentation",
+    "title": "Mall customer segmentation",
     "summary": "A clustering study that groups mall customers by shared characteristics to explore customer segments.",
     "group": "Data intelligence",
     "skills": [
@@ -185,8 +185,8 @@
     "sourceLabel": "Explore the repository"
   },
   "pistachio": {
-    "name": "Pistachio Quality · Finding the Odd One Out",
-    "title": "Pistachio Quality · Finding the Odd One Out",
+    "name": "Pistachio anomaly detection",
+    "title": "Pistachio anomaly detection",
     "summary": "Anomaly-detection and classification experiments comparing differently processed pistachio datasets.",
     "group": "Data intelligence",
     "skills": [
