@@ -38,6 +38,10 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 
 `Ctrl/Cmd + K` opens the agent. Native dialogs provide keyboard focus containment and Escape dismissal. The cursor animation stops under reduced motion.
 
+## Analytics
+
+`public/app.js` loads Vercel Web Analytics on the deployed site only. It counts page views without cookies or personal data, from the site's own domain (`/_vercel/insights`), so the Content Security Policy is unchanged. It records nothing until Analytics is enabled in the Vercel project (Project → Analytics → Enable).
+
 ## Content provenance
 
 The September 2026 content pass uses the owner's approved project list, public GitHub metadata and selected READMEs, the supplied resume for the IRCC capstone and career details, and the BogdAI README for the Microsoft Agents League Hackathon 2026 pipeline. The border-traffic anomaly study is a separate supporting project; it is not used as a source for the IRCC capstone.
