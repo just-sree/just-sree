@@ -19,5 +19,12 @@ export const resume = {
     'Customer Churn Intelligence Agent: churn model combining transaction features with BERT sentiment signals (85% AUC), plus a LangChain agent with Mistral that generates targeted retention actions.',
   ],
   skills: ['Python', 'PyTorch', 'TensorFlow/Keras', 'scikit-learn', 'OpenCV', 'YOLO', 'OCR', 'LightGBM', 'XGBoost', 'LangGraph', 'LangChain', 'Microsoft Foundry', 'Microsoft Agent Framework', 'RAG', 'MCP', 'Hugging Face', 'Mistral', 'BERT', 'LLM fine-tuning/pre-training', 'guardrails', 'n8n automation', 'Lightning AI', 'AWS (EC2, Lambda, SageMaker, CodeDeploy)', 'Docker', 'Kubernetes', 'GitHub Actions', 'Terraform', 'MLflow', 'REST APIs', 'SQL', 'PySpark', 'Databricks', 'Airflow', 'Power BI'],
+  community: [
+    'Public AI/MLOps writing with 5,000+ monthly readers on multi-agent workflows, model quantization, and applied ML.',
+    'Administrator of a 600+ member AI-careers Discord.',
+    'Open-source contributor on GitHub and Hugging Face.',
+    'Member of the Google Cloud Developers Community, Ottawa.',
+  ],
+  certifications: ['AI Applications with Azure (LinkedIn Learning)', 'Generative AI with OpenAI (DeepLearning.AI)', 'DevOps Foundations Series (LinkedIn Learning)'],
   education: ['Algonquin College: BI Systems Infrastructure, 2025; AI Software Development, 2024.', 'Presidency University: B.Tech Electronics & Communication Engineering, 2022.'],
 };

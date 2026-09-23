@@ -79,6 +79,14 @@ if (form && input && output) {
       project.open();
     }],
     experience: ['jump to experience', () => { scrollTo('#experience'); line('cat experience.log'); }],
+    community: ['writing, community and certifications', () => {
+      for (const item of document.querySelectorAll('#community .listing li')) {
+        const name = item.firstElementChild;
+        const about = item.querySelector('.dim')?.textContent ?? '';
+        line(name.href ? { text: name.textContent.padEnd(20), href: name.href } : name.textContent.padEnd(20), about);
+      }
+      scrollTo('#community');
+    }],
     stack: ['show my stack', () => {
       for (const [dt, dd] of [...document.querySelectorAll('.tools dt')].map((term) => [term.textContent, term.nextElementSibling?.textContent])) line(`${dt.padEnd(15)}${dd}`);
     }],
@@ -98,7 +106,7 @@ if (form && input && output) {
     }],
     clear: ['clear this output', () => output.replaceChildren()],
   };
-  const aliases = { 'ls projects': 'ls', 'ls projects/': 'ls', 'cat experience.log': 'experience', 'cat stack.txt': 'stack', './contact': 'contact', email: 'contact', open: 'cat', ask: 'agent', '?': 'help' };
+  const aliases = { 'ls projects': 'ls', 'ls projects/': 'ls', 'cat experience.log': 'experience', 'cat stack.txt': 'stack', './contact': 'contact', email: 'contact', open: 'cat', ask: 'agent', '?': 'help', writing: 'community', 'ls community': 'community', 'ls community/': 'community', 'cat certifications.txt': 'community' };
 
   function run(raw) {
     const text = raw.trim();

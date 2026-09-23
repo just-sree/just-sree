@@ -102,6 +102,14 @@ A Gradio app. Give it a photo and it finds the objects with DETR, writes a short
 - **Algonquin College**: graduate certificates in AI Software Development (2024) and BI Systems Infrastructure (2025)
 - **Presidency University**: B.Tech in Electronics and Communication Engineering (2022)
 
+## Writing and community
+
+- AI and MLOps writing on multi-agent workflows, model quantization and applied ML, read by 5,000+ people a month
+- Admin of an AI-careers Discord with 600+ members
+- Open-source contributor on [GitHub](https://github.com/just-sree) and Hugging Face
+- Member of the Google Cloud Developers Community, Ottawa
+- Certifications: AI Applications with Azure (LinkedIn Learning), Generative AI with OpenAI (DeepLearning.AI), DevOps Foundations (LinkedIn Learning)
+
 ## Stack
 
 - **ML:** PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, Prophet

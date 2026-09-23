@@ -82,3 +82,9 @@ test('the EventLinx role is explained from resume facts without calling a provid
   assert.match(result.answer, /venue-map/);
   assert.match(result.answer, /Lightning AI/);
 });
+
+test('writing and community questions are answered from resume facts', async () => {
+  const result = await generateReply('Does Sree write or run any community?', [], { fetcher: () => { throw new Error('Network must not be called'); } });
+  assert.match(result.answer, /5,000\+/);
+  assert.match(result.answer, /Discord/);
+});

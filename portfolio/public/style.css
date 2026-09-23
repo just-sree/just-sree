@@ -94,7 +94,7 @@ h3 { font-size: 15px; font-weight: 600; }
 .group + .group { margin-top: 32px; }
 
 .listing li { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 3px 0; }
-.listing button, .listing a { text-align: left; color: var(--amber); }
+.listing button, .listing a, .listing .item { text-align: left; color: var(--amber); }
 .listing button:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .log li { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 8px 0; }
