@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { generateReply, validateInput } from '../agent.mjs';
+import { generateReply, previewReply, validateInput } from '../agent.mjs';
 
 test('supplied resume is linked and a collaboration draft never calls a provider', async () => {
   const opts = { apiKey: 'test-key', fetcher: () => { throw new Error('No network for local actions'); } };
@@ -87,4 +87,10 @@ test('writing and community questions are answered from resume facts', async () 
   const result = await generateReply('Does Sree write or run any community?', [], { fetcher: () => { throw new Error('Network must not be called'); } });
   assert.match(result.answer, /5,000\+/);
   assert.match(result.answer, /Discord/);
+});
+
+test('preview answers availability from the listed status', () => {
+  const reply = previewReply('Is Sree open to work or hiring right now?');
+  assert.match(reply.answer, /open to applied AI, ML and forward-deployed engineer/);
+  assert.equal(reply.contact, true);
 });

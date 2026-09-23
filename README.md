@@ -2,6 +2,8 @@
 
 I'm Sree, an applied AI and ML engineer and forward-deployed engineer (FDE) based in Ontario, Canada. Most of my work starts with a business problem and a pile of data: I work with the people who have the problem to pin down what they need, then clean the data, build the model or agent, check that it actually helps, and ship it. Right now I'm leading an applied AI project with an industry partner at Lambton College.
 
+**Open to applied AI, ML and FDE roles**: remote, hybrid or on-site in Ontario.
+
 [Portfolio](https://just-sree.vercel.app) · [Resume](https://just-sree.vercel.app/resume.pdf) · [LinkedIn](https://linkedin.com/in/sreesankaranc) · [Email](mailto:sreechackoth@gmail.com)
 
 The portfolio has a small agent that answers questions about my projects from my notes and resume.

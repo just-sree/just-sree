@@ -4,6 +4,7 @@ export const resume = {
   url: '/resume.pdf',
   title: 'Sree Sankaran Chackoth — Applied ML & Agentic AI Engineer',
   supplied: '2026-09-08',
+  availability: 'Open to applied AI, ML and forward-deployed engineer (FDE) roles: remote, hybrid, or on-site in Ontario, Canada. The best first step is email.',
   summary: 'Applied ML, computer vision, agentic workflows, and cloud inference, currently leading an industry-partnered applied AI project at Lambton College.',
   experience: [
     'AI Research Technician / AI Specialist, Lambton College × EventLinx (eventlinx.com), Feb 2026–Present: owns the end-to-end ML pipeline for automated venue-map understanding, turning SVG, PDF, PNG and JPG venue layouts into structured spatial data (seats, sections, stages, exits, tables, accessibility features) with computer vision, deep learning and OCR. Built multi-class seat detection and classification and a synthetic-data pipeline for regular, wheelchair, reserved and hearing-accessible seating; benchmarked classical CV, segmentation and YOLO approaches; added OCR-boundary handling and seat-number parsing; built testable inference components with structured output contracts, regression tests and error analysis; runs GPU training and inference on Lightning AI and works directly with the EventLinx team.',
