@@ -10,7 +10,10 @@ const css = getComputedStyle(document.documentElement);
 const palette = ['--green', '--green', '--amber', '--dim'].map((name) => css.getPropertyValue(name).trim());
 const font = 14;
 const line = 16;
-const charWidth = font * 0.6;
+// Fish are drawn larger than the bubbles and seaweed.
+const fishFont = 21;
+const fishLine = 23;
+const charWidth = fishFont * 0.6;
 
 // Each shape faces right (r) and left (l); multi-line shapes are arrays of rows.
 const shapes = [
@@ -66,7 +69,7 @@ function update(dt, time) {
     const rows = f.shape.r.length;
     const fw = Math.max(...f.shape.r.map((row) => row.length)) * charWidth;
     const cx = f.x + fw / 2;
-    const cy = f.y + (rows * line) / 2;
+    const cy = f.y + (rows * fishLine) / 2;
     let boost = 1;
     // Chase the nearest food pellet within reach.
     let target = null;
@@ -86,7 +89,7 @@ function update(dt, time) {
     }
     // Scatter from the cursor.
     const away = Math.hypot(pointer.x - cx, pointer.y - cy);
-    if (away < 90) {
+    if (away < 110) {
       f.dir = pointer.x > cx ? -1 : 1;
       f.vy += Math.sign(cy - pointer.y || 1) * 90 * dt;
       boost = 3.5;
@@ -123,11 +126,12 @@ function draw(time) {
   for (const b of bubbles) { ctx.fillStyle = palette[3]; ctx.fillText(b.vy > 26 ? 'o' : '°', b.x, b.y); }
   ctx.globalAlpha = 0.6;
   for (const p of food) { ctx.fillStyle = palette[2]; ctx.fillText('.', p.x, p.y); }
+  ctx.font = `${fishFont}px "JetBrains Mono", ui-monospace, monospace`;
   for (const f of fish) {
     ctx.fillStyle = f.color;
     const rows = f.dir > 0 ? f.shape.r : f.shape.l;
     ctx.globalAlpha = behindText(f.x, Math.max(...rows.map((row) => row.length)) * charWidth) ? 0.11 : 0.34;
-    rows.forEach((row, i) => ctx.fillText(row, f.x, f.y + i * line));
+    rows.forEach((row, i) => ctx.fillText(row, f.x, f.y + i * fishLine));
   }
   ctx.globalAlpha = 1;
 }
