@@ -14,6 +14,10 @@ JetBrains Mono for everything, from Google Fonts with system monospace fallbacks
 
 No cards, shadows, gradients or rounded pills. Hairline rules and left borders only. Each featured project collapses to one line with a `[+]` toggle, and the longer project list sits behind a single toggle, so the page stays short. The blinking cursor and an ASCII aquarium are the only animations. The aquarium (`public/aquarium.js`) draws fish such as `><>` and `<º)))><` in the palette colours behind the page: brighter in the side margins, faint behind the text column. Fish scatter from the cursor and chase food dropped by clicking empty space; bubbles rise and seaweed sways along the bottom. It runs at about 30 fps, pauses in hidden tabs, draws a still frame under reduced motion, and can be switched off from the footer (remembered per browser). The cursor also stops under reduced motion.
 
+## Portrait
+
+`public/headshot.jpg` sits in a small terminal window beside the intro. `public/portrait.js` draws it as ASCII in the palette green, cropped to head and shoulders inside a circle, with brightness spread evenly across the character ramp. Hover, keyboard focus or a tap fades to the photo with the same crop. Without the photo file the window is removed.
+
 ## Mark
 
 `public/mark.svg`: a green `>_` prompt on a dark square, used as the favicon. `assets/profile-header.svg` is the GitHub profile banner, drawn as the same terminal.
