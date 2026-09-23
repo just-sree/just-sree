@@ -1,3 +1,9 @@
+/* JetBrains Mono, self-hosted (SIL Open Font License, see /fonts/OFL.txt). */
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("/fonts/jbm-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("/fonts/jbm-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "JetBrains Mono"; font-style: italic; font-weight: 400 600; font-display: swap; src: url("/fonts/jbm-italic-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "JetBrains Mono"; font-style: italic; font-weight: 400 600; font-display: swap; src: url("/fonts/jbm-italic-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
 :root {
   --bg: #0d0f0d;
   --panel: #131613;
@@ -269,4 +275,32 @@ dialog::backdrop { background: rgba(0, 0, 0, .6); }
 
 @media (max-width: 640px) {
   .agent-dialog { inset: 0; width: 100%; max-width: 100%; height: 100dvh; border: 0; }
+}
+
+/* 404 page */
+.not-found main > section:first-child { padding-top: 64px; }
+.not-found h1 { margin-bottom: 12px; }
+.nf-tank { margin: 28px 0 8px; color: var(--green); font: inherit; font-size: 14px; line-height: 1.4; overflow-x: auto; }
+
+/* Print: a plain black-on-white summary. app.js opens every collapsed section before printing. */
+@media print {
+  :root { --bg: #fff; --panel: #fff; --text: #000; --dim: #444; --line: #bbb; --green: #000; --amber: #000; color-scheme: light; }
+  @page { margin: 16mm 14mm; }
+  html, body { background: #fff !important; color: #000; font-size: 10.5pt; line-height: 1.45; }
+  #aquarium, canvas, .aquarium-hint, .skip-link, .site-header nav, .portrait, .shell, .site-footer, dialog, .notes, button.inline, .pulse, .toggle, [data-agent] { display: none !important; }
+  .site-header { position: static; height: auto; padding-bottom: 6px; border-bottom: 1px solid #000; }
+  main, .site-header { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+  main > section, main > section:first-child { padding: 12px 0 0; }
+  .intro { display: block !important; }
+  .status { border-color: #000; }
+  a { color: #000; text-decoration: underline; }
+  .links a[href^="http"]::after, .links a[href^="mailto:"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #444; }
+  .links a[href^="mailto:"]::after { content: " (" "sreechackoth@gmail.com" ")"; }
+  a[href="/resume.pdf"]::after { content: " (just-sree.vercel.app/resume.pdf)"; font-size: 9pt; color: #444; }
+  .screen-only { display: none !important; }
+  .projects summary h3::before, .fold summary h3::before { content: none; }
+  .cmd::before { color: #000; }
+  summary { list-style: none; }
+  details, li, .log > li, dl.tools > * { break-inside: avoid; }
+  h1, h2, h3, .cmd { break-after: avoid; }
 }

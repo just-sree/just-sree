@@ -206,4 +206,4 @@ toggle?.addEventListener('click', () => {
   start();
 });
 renderToggle();
-start();
+requestAnimationFrame(start);
