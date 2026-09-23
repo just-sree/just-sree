@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" type="module"></script>
   <script src="/aquarium.js" type="module"></script>
+  <script src="/portrait.js" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -28,13 +29,19 @@
   </header>
 
   <main id="main">
-    <section id="top" aria-labelledby="intro-title">
-      <p class="cmd">whoami</p>
-      <h1 id="intro-title">Sree Sankaran Chackoth</h1>
-      <p>Applied AI and ML engineer and forward-deployed engineer (FDE), based in Ontario, Canada.</p>
-      <p>Most of my work starts with a business problem and a pile of data. I work with the people who have the problem to pin down what they need to decide or automate, then do the rest: clean the data, build the model or agent, check that it actually helps, and ship it in a form they can use.</p>
-      <p>So far that's meant immigration forecasts built from 2M+ records, a malware classifier that sorts 10k+ files an hour, and an ETL that saved an estimated 40 hours a month of manual QA. Right now I'm leading an applied AI project with an industry partner at Lambton College.</p>
-      <p class="links"><a href="/resume.pdf" target="_blank" rel="noreferrer">resume.pdf</a> <a href="https://github.com/just-sree" target="_blank" rel="noreferrer">github</a> <a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">linkedin</a> <a href="mailto:sreechackoth@gmail.com">email</a></p>
+    <section id="top" class="intro" aria-labelledby="intro-title">
+      <div class="intro-text">
+        <p class="cmd">whoami</p>
+        <h1 id="intro-title">Sree Sankaran Chackoth</h1>
+        <p>Applied AI and ML engineer and forward-deployed engineer (FDE), based in Ontario, Canada.</p>
+        <p>Most of my work starts with a business problem and a pile of data. I work with the people who have the problem to pin down what they need to decide or automate, then do the rest: clean the data, build the model or agent, check that it actually helps, and ship it in a form they can use.</p>
+        <p>So far that's meant immigration forecasts built from 2M+ records, a malware classifier that sorts 10k+ files an hour, and an ETL that saved an estimated 40 hours a month of manual QA. Right now I'm leading an applied AI project with an industry partner at Lambton College.</p>
+        <p class="links"><a href="/resume.pdf" target="_blank" rel="noreferrer">resume.pdf</a> <a href="https://github.com/just-sree" target="_blank" rel="noreferrer">github</a> <a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">linkedin</a> <a href="mailto:sreechackoth@gmail.com">email</a></p>
+      </div>
+      <figure class="portrait" tabindex="0" aria-label="Photo of Sree. Hover, focus or tap to switch between ASCII and the photo.">
+        <figcaption class="portrait-bar"><span># sree.jpg</span><span class="dim">hover</span></figcaption>
+        <div class="portrait-frame"><pre aria-hidden="true"></pre><img src="/headshot.jpg" alt="Sree Sankaran Chackoth" width="600" height="600" decoding="async"></div>
+      </figure>
     </section>
 
     <section id="work" aria-labelledby="work-title">
