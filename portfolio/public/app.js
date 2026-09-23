@@ -219,14 +219,3 @@ input.addEventListener('input', () => { input.style.height = 'auto'; input.style
 $('#clear-chat').addEventListener('click', () => { if (!requestPending) { messages.replaceChildren(); history = []; input.focus(); } });
 $('#year').textContent = new Date().getFullYear();
 
-const header = $('.site-header');
-const onScroll = () => header.classList.toggle('scrolled', scrollY > 8);
-addEventListener('scroll', onScroll, { passive: true });
-onScroll();
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-  document.documentElement.classList.add('motion');
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
-  }, { rootMargin: '0px 0px -10% 0px' });
-  $$('.reveal').forEach((section) => observer.observe(section));
-}

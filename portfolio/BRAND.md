@@ -1,19 +1,23 @@
-# Sree — minimal edition
+# Sree — terminal edition
 
-One page with editorial accents. Warm paper (#F7F5F0), near-black ink (#1B1A17), and one vermilion accent (#D9481C) for italic highlights, metrics, and the current-role marker. A dark palette follows `prefers-color-scheme`.
+The page reads like a shell session: each section starts with a command (`whoami`, `ls projects/`, `cat experience.log`, `./contact`) and its output follows.
 
-## Elements
+## Colour
 
-A faint dot grid and two soft colour glows behind the hero; a pill status badge with a pulsing dot; a stats strip; numbered section heads; project cards with a headline metric, tech chips, and a hover lift; a vertical timeline for experience and education; an inverted contact card.
-
-## Mark
-
-`public/mark.svg`: a plain S in a rounded ink square. Used in the header and as the favicon.
+Near-black background (#0D0F0D), soft grey text (#D6D9D2), dim grey (#7C8379) for secondary text and comments. Green (#86D96B) for prompts, links and dates; amber (#E5B567) for project names. Dark only.
 
 ## Type
 
-Inter for text, Instrument Serif italic for accent words and numbers, JetBrains Mono for labels, loaded from Google Fonts with system fallbacks.
+JetBrains Mono for everything, from Google Fonts with system monospace fallbacks. Hierarchy comes from colour and weight, not size.
 
-## Motion
+## Shapes and motion
 
-Sections fade up once as they enter the viewport, cards lift on hover, and the status dot pulses. All of it is off under reduced motion, and the page is complete without JavaScript.
+No cards, shadows, gradients or rounded pills. Hairline rules and left borders only. The one animation is the blinking cursor at the end of the page, which stops under reduced motion.
+
+## Mark
+
+`public/mark.svg`: a green `>_` prompt on a dark square, used as the favicon.
+
+## Copy
+
+Plain first person. Say what was built and what the numbers were, including the unflattering ones. No slogans, no taglines, no em-dash asides.
