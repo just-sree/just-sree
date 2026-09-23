@@ -87,6 +87,12 @@ A Gradio app. Give it a photo and it finds the objects with DETR, writes a short
 - **Algonquin College**: graduate certificates in AI Software Development (2024) and BI Systems Infrastructure (2025)
 - **Presidency University**: B.Tech in Electronics and Communication Engineering (2022)
 
-**Tools:** Python, PyTorch, TensorFlow, scikit-learn, XGBoost, Prophet, Hugging Face, OpenCV, LangGraph, LangChain, Microsoft Foundry, RAG, MCP, FastAPI, AWS, Docker, MLflow, SQL, Power BI
+## Stack
+
+- **ML:** PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, Prophet, MLflow
+- **LLMs and agents:** LangGraph, LangChain, Microsoft Foundry, Microsoft Agent Framework, RAG, MCP, Pydantic
+- **Vision:** OpenCV, YOLO, OCR, Hugging Face, Gradio
+- **Data:** Python, pandas, SQL, Power BI
+- **Cloud and ops:** AWS, Azure, Docker, Lightning AI, FastAPI
 
 Email is the best way to reach me: [sreechackoth@gmail.com](mailto:sreechackoth@gmail.com)

@@ -73,6 +73,7 @@ h3 { font-size: 15px; font-weight: 600; }
 .toggle::before { content: "[+] "; color: var(--green); }
 .group[open] .toggle::before { content: "[-] "; }
 .group > summary:hover .toggle { color: var(--text); }
+.group + .group { margin-top: 32px; }
 
 .listing li { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 3px 0; }
 .listing button, .listing a { text-align: left; color: var(--amber); }
@@ -93,6 +94,9 @@ h3 { font-size: 15px; font-weight: 600; }
 .fold .gist { grid-column: 2; color: var(--dim); }
 .fold .more { margin: 6px 0 4px calc(170px + 16px); padding: 0 0 0 4ch; color: var(--dim); }
 
+.tools { display: grid; grid-template-columns: 170px 1fr; gap: 4px 16px; margin: 0; font-size: 13px; }
+.tools dt { color: var(--green); }
+.tools dd { margin: 0; color: var(--dim); }
 .inline { color: var(--green); }
 .inline:hover { text-decoration: underline; text-underline-offset: 3px; }
 kbd { font: 12px var(--mono); color: var(--text); border: 1px solid var(--line); padding: 0 5px; }
@@ -115,6 +119,8 @@ kbd { font: 12px var(--mono); color: var(--text); border: 1px solid var(--line);
   .projects summary h3, .gist { font-size: 14px; }
   .listing li, .log li { grid-template-columns: 1fr; gap: 0; }
   .listing li { padding: 6px 0; }
+  .tools { grid-template-columns: 1fr; gap: 0; }
+  .tools dd { margin-bottom: 8px; }
   .fold summary { grid-template-columns: 1fr; }
   .fold summary .when { grid-row: auto; }
   .fold .gist { grid-column: 1; }
