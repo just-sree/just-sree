@@ -114,10 +114,12 @@ A Gradio app. Give it a photo and it finds the objects with DETR, writes a short
 
 ## Stack
 
-- **ML:** PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, Prophet
-- **Vision:** OpenCV, YOLO, OCR, Hugging Face, Gradio
-- **LLMs and agents:** LangGraph, LangChain, Microsoft Foundry, Microsoft Agent Framework, RAG, MCP, Mistral, BERT, LLM fine-tuning, guardrails, Pydantic, n8n
-- **MLOps and cloud:** AWS (EC2, Lambda, SageMaker, CodeDeploy), Azure, Lightning AI, Docker, Kubernetes, Terraform, GitHub Actions, MLflow, FastAPI, REST APIs
-- **Data:** Python, pandas, SQL, PySpark, Databricks, Airflow, Power BI
+- **ML:** PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, Prophet, statsmodels, NumPy, Matplotlib, Seaborn
+- **Vision:** OpenCV, YOLO, OCR, Hugging Face, Gradio, Streamlit
+- **LLMs and agents:** OpenAI and Azure OpenAI APIs, LangGraph, LangChain, Microsoft Foundry, Microsoft Agent Framework, RAG, vector databases, MCP, Mistral, BERT, Transformers, PEFT and LoRA, LLM fine-tuning, LLM evaluation, guardrails, Pydantic, n8n
+- **Serving:** quantization, model serving, ONNX, TensorRT, FastAPI, REST APIs
+- **MLOps and cloud:** AWS (EC2, Lambda, SageMaker, CodeDeploy), Azure, Google Cloud, Lightning AI, Docker, Kubernetes, Terraform, GitHub Actions, MLflow, Weights & Biases
+- **Data:** Python, SQL, PostgreSQL, MySQL, pandas, PySpark, Databricks, Airflow, Snowflake, Kafka, Power BI
+- **Tools:** Git, Linux, Bash
 
 Email is the best way to reach me: [sreechackoth@gmail.com](mailto:sreechackoth@gmail.com)
