@@ -12,6 +12,8 @@ const publicFiles = new Map([
   ['/aquarium.js', ['aquarium.js', 'text/javascript; charset=utf-8']],
   ['/portrait.js', ['portrait.js', 'text/javascript; charset=utf-8']],
   ['/headshot.jpg', ['headshot.jpg', 'image/jpeg']],
+  ['/og.png', ['og.png', 'image/png']],
+  ['/shell.js', ['shell.js', 'text/javascript; charset=utf-8']],
   ['/mark.svg', ['mark.svg', 'image/svg+xml']],
   ['/resume.pdf', ['resume.pdf', 'application/pdf']],
   ['/projects.json', ['projects.json', 'application/json; charset=utf-8']],

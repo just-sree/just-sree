@@ -7,7 +7,7 @@
     "dev": "node --env-file-if-exists=.env server.mjs",
     "start": "node --env-file-if-exists=.env server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check server.mjs && node --check http-app.mjs && node --check ai-config.mjs && node --check api/agent.js && node --check api/status.js && node --check public/app.js && node --check public/aquarium.js && node --check public/portrait.js && node --check agent.mjs && node --check job-match.mjs"
+    "check": "node --check server.mjs && node --check http-app.mjs && node --check ai-config.mjs && node --check api/agent.js && node --check api/status.js && node --check public/app.js && node --check public/aquarium.js && node --check public/portrait.js && node --check public/shell.js && node --check agent.mjs && node --check job-match.mjs"
   },
   "engines": { "node": "22.x" }
 }

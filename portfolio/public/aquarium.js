@@ -177,6 +177,11 @@ document.addEventListener('click', (event) => {
   for (let i = 0; i < 3; i++) food.push({ x: event.clientX + random(-12, 12), y: event.clientY + random(-6, 6), age: 0 });
   if (!fed) { fed = true; try { localStorage.setItem('aquarium-fed', 'yes'); } catch {} showHint(); }
 });
+// The page's command line (shell.js) can feed the fish too.
+document.addEventListener('aquarium:feed', () => {
+  if (!running) return;
+  for (let i = 0; i < 6; i++) food.push({ x: random(width * 0.1, width * 0.9), y: random(80, height * 0.5), age: 0 });
+});
 reduceMotion.addEventListener('change', start);
 
 const toggle = document.getElementById('aquarium-toggle');

@@ -7,6 +7,20 @@
   <meta name="description" content="Sree Sankaran Chackoth, applied AI and ML engineer and forward-deployed engineer based in Ontario, Canada. Forecasting, agent systems and computer vision.">
   <title>Sree Chackoth</title>
   <link rel="icon" href="/mark.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://just-sree.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://just-sree.vercel.app/">
+  <meta property="og:site_name" content="just-sree">
+  <meta property="og:title" content="Sree Sankaran Chackoth · Applied AI &amp; ML engineer">
+  <meta property="og:description" content="Applied AI and ML engineer and forward-deployed engineer in Ontario, Canada. Forecasting, agent systems and computer vision, from business problem to shipped model.">
+  <meta property="og:image" content="https://just-sree.vercel.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Terminal-style card: Sree Sankaran Chackoth, applied AI and ML engineer, with a headshot.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sree Sankaran Chackoth · Applied AI &amp; ML engineer">
+  <meta name="twitter:description" content="Applied AI and ML engineer and forward-deployed engineer in Ontario, Canada. Forecasting, agent systems and computer vision, from business problem to shipped model.">
+  <meta name="twitter:image" content="https://just-sree.vercel.app/og.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap">
@@ -14,6 +28,7 @@
   <script src="/app.js" type="module"></script>
   <script src="/aquarium.js" type="module"></script>
   <script src="/portrait.js" type="module"></script>
+  <script src="/shell.js" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -170,7 +185,14 @@
       <p>Email is best: <a href="mailto:sreechackoth@gmail.com">sreechackoth@gmail.com</a></p>
       <p>There's also a small agent on this site that answers questions about my projects from my notes and resume. <button class="inline" type="button" data-agent>Try it</button> or press <kbd>Ctrl</kbd>+<kbd>K</kbd>.</p>
       <p>Hiring? The agent can also <button class="inline" type="button" data-agent data-job>check a job description against my work</button>, then turn the result into an email to me.</p>
-      <p class="cmd last"><span class="cursor" aria-hidden="true"></span></p>
+      <div class="shell" id="shell">
+        <div id="shell-output" class="shell-output" role="log" aria-live="polite" aria-label="Terminal output"></div>
+        <form id="shell-form" class="shell-line" autocomplete="off">
+          <label for="shell-input" class="ps1">$</label>
+          <input id="shell-input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="send" placeholder="type help and press enter" aria-describedby="shell-help">
+        </form>
+        <p id="shell-help" class="sr-only">A small command line for this page. Type help to list commands; anything else is sent to my agent.</p>
+      </div>
     </section>
   </main>
 
