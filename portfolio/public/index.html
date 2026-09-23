@@ -30,15 +30,16 @@
     <section id="top" aria-labelledby="intro-title">
       <p class="cmd">whoami</p>
       <h1 id="intro-title">Sree Sankaran Chackoth</h1>
-      <p>Applied AI and ML engineer, and forward-deployed engineer (FDE), based in Ontario, Canada. I work on forecasting, agent systems and computer vision, and I like working close to the people who'll use the system: cleaning their data, measuring the model properly, and getting it into a form they can run.</p>
-      <p>Right now I'm leading an applied AI project at Lambton College.</p>
+      <p>Applied AI and ML engineer and forward-deployed engineer (FDE), based in Ontario, Canada.</p>
+      <p>Most of my work starts with a business problem and a pile of data. I work with the people who have the problem to pin down what they need to decide or automate, then do the rest: clean the data, build the model or agent, check that it actually helps, and ship it in a form they can use.</p>
+      <p>So far that's meant immigration forecasts built from 2M+ records, a malware classifier that sorts 10k+ files an hour, and an ETL that saved an estimated 40 hours a month of manual QA. Right now I'm leading an applied AI project with an industry partner at Lambton College.</p>
       <p class="links"><a href="/resume.pdf" target="_blank" rel="noreferrer">resume.pdf</a> <a href="https://github.com/just-sree" target="_blank" rel="noreferrer">github</a> <a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">linkedin</a> <a href="mailto:sreechackoth@gmail.com">email</a></p>
     </section>
 
     <section id="work" aria-labelledby="work-title">
       <h2 id="work-title" class="sr-only">Selected work</h2>
       <details class="group" open>
-        <summary class="cmd">ls projects/ --featured <span class="toggle">4 projects</span></summary>
+        <summary class="cmd">ls projects/ --featured <span class="toggle">6 projects</span></summary>
         <ul class="projects">
         <li id="project-ircc">
           <details>
@@ -57,6 +58,24 @@
               <p>Team entry for the Microsoft Agents League hackathon. Each agent does one step (intake, clause extraction, grounding, risk reasoning, verification, reporting) and hands off to the next. Every risk in the report cites its clause, and high-risk items get flagged for a person to check. Synthetic contracts only.</p>
               <p class="stack">microsoft-foundry pydantic python</p>
               <button class="notes" type="button" data-project="bogdai">open notes</button>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary><h3>compliance-agent/</h3><span class="dim">agent project</span><span class="gist">Finds compliance gaps and turns them into Jira tickets.</span></summary>
+            <div class="more">
+              <p>A multi-agent RAG system in LangGraph. It retrieves the relevant regulations, reasons over how the internal process actually works, flags the gaps, and creates or updates Jira tickets, so legal requirements become engineering work.</p>
+              <p class="stack">langgraph rag multi-agent jira</p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary><h3>churn-agent/</h3><span class="dim">agent project</span><span class="gist">Predicts churn, then drafts retention actions with an LLM.</span></summary>
+            <div class="more">
+              <p>The churn model combines transaction features with BERT sentiment signals and reached 85% AUC. A LangChain agent running Mistral then turns the model's output into targeted retention actions.</p>
+              <p class="stack">langchain mistral bert</p>
             </div>
           </details>
         </li>
@@ -128,11 +147,11 @@
       </ol>
       <p class="cmd">cat stack.txt</p>
       <dl class="tools">
-        <dt>ml</dt><dd>pytorch tensorflow keras scikit-learn xgboost lightgbm prophet mlflow</dd>
-        <dt>llm &amp; agents</dt><dd>langgraph langchain microsoft-foundry microsoft-agent-framework rag mcp pydantic</dd>
+        <dt>ml</dt><dd>pytorch tensorflow keras scikit-learn xgboost lightgbm prophet</dd>
         <dt>vision</dt><dd>opencv yolo ocr hugging-face gradio</dd>
-        <dt>data</dt><dd>python pandas sql power-bi</dd>
-        <dt>cloud &amp; ops</dt><dd>aws azure docker lightning-ai fastapi</dd>
+        <dt>llm &amp; agents</dt><dd>langgraph langchain microsoft-foundry microsoft-agent-framework rag mcp mistral bert llm-fine-tuning guardrails pydantic n8n</dd>
+        <dt>mlops &amp; cloud</dt><dd>aws (ec2 lambda sagemaker codedeploy) azure lightning-ai docker kubernetes terraform github-actions mlflow fastapi rest-apis</dd>
+        <dt>data</dt><dd>python pandas sql pyspark databricks airflow power-bi</dd>
       </dl>
     </section>
 

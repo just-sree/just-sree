@@ -1,6 +1,6 @@
 <p align="center"><img src="./assets/profile-header.svg" alt="Terminal banner: $ whoami, Sree Sankaran Chackoth, applied AI and ML engineer, forward-deployed engineer, based in Ontario, Canada" width="100%" /></p>
 
-I'm Sree, an applied AI and ML engineer and forward-deployed engineer (FDE) based in Ontario, Canada. I work on forecasting, agent systems and computer vision, close to the people who'll use them. Right now I'm leading an applied AI project at Lambton College.
+I'm Sree, an applied AI and ML engineer and forward-deployed engineer (FDE) based in Ontario, Canada. Most of my work starts with a business problem and a pile of data: I work with the people who have the problem to pin down what they need, then clean the data, build the model or agent, check that it actually helps, and ship it. Right now I'm leading an applied AI project with an industry partner at Lambton College.
 
 [Portfolio](https://just-sree.vercel.app) · [Resume](https://just-sree.vercel.app/resume.pdf) · [LinkedIn](https://linkedin.com/in/sreesankaranc) · [Email](mailto:sreechackoth@gmail.com)
 
@@ -27,6 +27,22 @@ There's no public repo for this one. The details are on my [resume](https://just
 Our entry for the Microsoft Agents League hackathon (Reasoning Agents track). Six agents review a contract in turn: intake, clause extraction, grounding, risk reasoning, verification and reporting. It uses Microsoft Foundry for policy grounding and reasoning. The output is a Pydantic report with citations for each finding, flags on high-risk items for a person to review, and the full agent trace. It runs on synthetic healthcare and pharma contracts, with a local fallback so it can be demoed without cloud credentials.
 
 It was a team project, and the repo doesn't break down who did what. [Repository](https://github.com/anunjinb/bogdai-contract-risk-agent)
+
+</details>
+
+<details>
+<summary><b>Regulatory compliance agent</b> · LangGraph, RAG, Jira</summary>
+<br>
+
+A multi-agent RAG system in LangGraph. It retrieves the relevant regulations, reasons over how the internal process actually works, flags compliance gaps, and creates or updates Jira tickets, so legal requirements become engineering work.
+
+</details>
+
+<details>
+<summary><b>Churn intelligence agent</b> · BERT, LangChain, Mistral · 85% AUC</summary>
+<br>
+
+The churn model combines transaction features with BERT sentiment signals and reached 85% AUC. A LangChain agent running Mistral then turns the model's output into targeted retention actions.
 
 </details>
 
@@ -89,10 +105,10 @@ A Gradio app. Give it a photo and it finds the objects with DETR, writes a short
 
 ## Stack
 
-- **ML:** PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, Prophet, MLflow
-- **LLMs and agents:** LangGraph, LangChain, Microsoft Foundry, Microsoft Agent Framework, RAG, MCP, Pydantic
+- **ML:** PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, Prophet
 - **Vision:** OpenCV, YOLO, OCR, Hugging Face, Gradio
-- **Data:** Python, pandas, SQL, Power BI
-- **Cloud and ops:** AWS, Azure, Docker, Lightning AI, FastAPI
+- **LLMs and agents:** LangGraph, LangChain, Microsoft Foundry, Microsoft Agent Framework, RAG, MCP, Mistral, BERT, LLM fine-tuning, guardrails, Pydantic, n8n
+- **MLOps and cloud:** AWS (EC2, Lambda, SageMaker, CodeDeploy), Azure, Lightning AI, Docker, Kubernetes, Terraform, GitHub Actions, MLflow, FastAPI, REST APIs
+- **Data:** Python, pandas, SQL, PySpark, Databricks, Airflow, Power BI
 
 Email is the best way to reach me: [sreechackoth@gmail.com](mailto:sreechackoth@gmail.com)
