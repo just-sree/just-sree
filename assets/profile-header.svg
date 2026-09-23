@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="300" viewBox="0 0 1280 300" role="img" aria-labelledby="title description">
-  <title id="title">$ whoami: Sree Sankaran Chackoth, applied AI and ML engineer, forward-deployed engineer, Ottawa</title>
+  <title id="title">$ whoami: Sree Sankaran Chackoth, applied AI and ML engineer, forward-deployed engineer, based in Ontario, Canada</title>
   <desc id="description">A dark terminal banner with a green prompt, matching the portfolio site.</desc>
   <style>
     text { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
@@ -10,7 +10,7 @@
   <rect x="1" y="1" width="1278" height="298" rx="10" fill="#0D0F0D" stroke="#242A24" stroke-width="2"/>
   <text y="84" font-size="26"><tspan x="64" fill="#86D96B" font-weight="700">$</tspan><tspan x="95" fill="#D6D9D2">whoami</tspan></text>
   <text x="64" y="158" font-size="56" font-weight="700" fill="#D6D9D2">Sree Sankaran Chackoth</text>
-  <text x="64" y="210" font-size="24" fill="#7C8379">Applied AI &amp; ML engineer · forward-deployed engineer · Ottawa</text>
+  <text x="64" y="210" font-size="24" fill="#7C8379">Applied AI &amp; ML engineer · forward-deployed engineer · Ontario, Canada</text>
   <text x="64" y="262" font-size="26" font-weight="700" fill="#86D96B">$</text>
   <rect class="cursor" x="95" y="241" width="15" height="27" fill="#86D96B"/>
 </svg>
