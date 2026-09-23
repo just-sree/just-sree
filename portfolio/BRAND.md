@@ -24,7 +24,7 @@ The page ends with a working prompt (`public/shell.js`). `help` lists the comman
 
 ## Portrait
 
-`public/headshot.jpg` sits in a small terminal window beside the intro. `public/portrait.js` draws it as ASCII in the palette green by default, cropped to head and shoulders inside a circle with brightness spread evenly across the character ramp. When it scrolls into view the ASCII decodes from random characters, roughly top to bottom, then a glowing scanline wipes down to reveal the photo once and scans back. Hover, keyboard focus or a tap plays the same wipe. Under reduced motion there is no animation: ASCII by default and an instant switch to the photo. Without the photo file the window is removed.
+`public/headshot.jpg` sits in a small terminal window beside the intro. `public/portrait.js` draws it as ASCII in the palette green by default, cropped to head and shoulders inside a circle with brightness spread evenly across the character ramp. Every time it scrolls into view the ASCII decodes from random characters, roughly top to bottom, then a glowing scanline wipes down to reveal the photo and scans back. Off screen it resets, so the next visit replays it. Hover, keyboard focus or a tap plays the same wipe. Under reduced motion there is no animation: ASCII by default and an instant switch to the photo. Without the photo file the window is removed.
 
 ## Mark
 
