@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d0f0d">
-  <meta name="description" content="Sree Sankaran Chackoth, ML engineer in Ottawa. Forecasting, agent systems and computer vision.">
+  <meta name="description" content="Sree Sankaran Chackoth, applied AI and ML engineer and forward-deployed engineer in Ottawa. Forecasting, agent systems and computer vision.">
   <title>Sree Chackoth</title>
   <link rel="icon" href="/mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@
     <section id="top" aria-labelledby="intro-title">
       <p class="cmd">whoami</p>
       <h1 id="intro-title">Sree Sankaran Chackoth</h1>
-      <p>ML engineer in Ottawa. I mostly work on forecasting, agent systems and computer vision, and I like the unglamorous parts: cleaning the data, measuring the model properly, and getting it into a form someone can run.</p>
+      <p>Applied AI and ML engineer, and forward-deployed engineer (FDE), in Ottawa. I work on forecasting, agent systems and computer vision, and I like working close to the people who'll use the system: cleaning their data, measuring the model properly, and getting it into a form they can run.</p>
       <p>Right now I'm leading an applied AI project at Lambton College.</p>
       <p class="links"><a href="/resume.pdf" target="_blank" rel="noreferrer">resume.pdf</a> <a href="https://github.com/just-sree" target="_blank" rel="noreferrer">github</a> <a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">linkedin</a> <a href="mailto:sreechackoth@gmail.com">email</a></p>
     </section>
@@ -131,6 +131,7 @@
       <h2 id="contact-title" class="sr-only">Contact</h2>
       <p>Email is best: <a href="mailto:sreechackoth@gmail.com">sreechackoth@gmail.com</a></p>
       <p>There's also a small agent on this site that answers questions about my projects from my notes and resume. <button class="inline" type="button" data-agent>Try it</button> or press <kbd>Ctrl</kbd>+<kbd>K</kbd>.</p>
+      <p>Hiring? The agent can also <button class="inline" type="button" data-agent data-job>check a job description against my work</button>, then turn the result into an email to me.</p>
       <p class="cmd last"><span class="cursor" aria-hidden="true"></span></p>
     </section>
   </main>
@@ -143,12 +144,13 @@
     <div class="agent-body">
       <div class="agent-intro"><p class="agent-lede">Ask about my projects. Answers come from my project notes and resume.</p>
         <div class="audience-tabs" role="group" aria-label="Your perspective"><button class="active" data-audience="hiring" aria-pressed="true">I’m hiring</button><button data-audience="founder" aria-pressed="false">I’m a founder</button><button data-audience="technical" aria-pressed="false">Just exploring</button></div>
-        <div id="suggestions" class="suggestions"></div></div>
+        <div id="suggestions" class="suggestions"></div>
+        <button id="job-toggle" class="job-toggle" type="button">Hiring? Paste a job description and I'll check it against my work.</button></div>
       <div id="messages" class="messages" role="log" aria-label="Conversation" aria-live="polite"></div>
     </div>
-    <div class="agent-bottom"><p id="mode-disclosure">Local preview: curated answers, without a connected language model.</p>
+    <div class="agent-bottom"><p id="job-banner" class="job-banner" hidden>job description mode: paste the posting, then press send. <button id="job-cancel" type="button">cancel</button></p><p id="mode-disclosure">Local preview: curated answers, without a connected language model.</p>
       <form id="agent-form"><label class="sr-only" for="agent-input">Ask about Sree’s work</label><textarea id="agent-input" placeholder="What would you like to know?" rows="1" maxlength="2000" required></textarea><button type="submit" aria-label="Send message">↑</button></form>
-      <div class="agent-bottom-note"><span>Grounded in projects and resume.</span><button id="clear-chat">Clear chat</button></div></div>
+      <div class="agent-bottom-note"><span>Grounded in projects and resume.</span><span><button id="email-chat" type="button" disabled>Email this chat</button><button id="clear-chat">Clear chat</button></span></div></div>
   </dialog>
 </body>
 </html>

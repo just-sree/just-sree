@@ -1,6 +1,6 @@
-<p align="center"><img src="./assets/profile-header.svg" alt="Terminal banner: $ whoami, Sree Sankaran Chackoth, ML engineer in Ottawa" width="100%" /></p>
+<p align="center"><img src="./assets/profile-header.svg" alt="Terminal banner: $ whoami, Sree Sankaran Chackoth, applied AI and ML engineer, forward-deployed engineer, Ottawa" width="100%" /></p>
 
-I'm Sree, an ML engineer in Ottawa. I mostly work on forecasting, agent systems and computer vision. Right now I'm leading an applied AI project at Lambton College.
+I'm Sree, an applied AI and ML engineer and forward-deployed engineer (FDE) in Ottawa. I work on forecasting, agent systems and computer vision, close to the people who'll use them. Right now I'm leading an applied AI project at Lambton College.
 
 [Portfolio](https://just-sree.vercel.app) · [Resume](https://just-sree.vercel.app/resume.pdf) · [LinkedIn](https://linkedin.com/in/sreesankaranc) · [Email](mailto:sreechackoth@gmail.com)
 
