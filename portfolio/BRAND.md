@@ -16,7 +16,7 @@ No cards, shadows, gradients or rounded pills. Hairline rules and left borders o
 
 ## Portrait
 
-`public/headshot.jpg` sits in a small terminal window beside the intro. `public/portrait.js` draws it as ASCII in the palette green, cropped to head and shoulders inside a circle, with brightness spread evenly across the character ramp. Hover, keyboard focus or a tap fades to the photo with the same crop. Without the photo file the window is removed.
+`public/headshot.jpg` sits in a small terminal window beside the intro, cropped to head and shoulders inside a circle. Hover, keyboard focus or a tap fades to an ASCII version in the palette green, drawn by `public/portrait.js` with the same crop and brightness spread evenly across the character ramp. Without the photo file the window is removed.
 
 ## Mark
 
