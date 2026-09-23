@@ -15,6 +15,8 @@ export const resume = {
   additionalProjects: [
     'BogdAI: Microsoft Agents League Hackathon 2026 team prototype for synthetic contract risk analysis.',
     'Customer churn: predictive analytics and a proposed RAG workflow for retention actions.',
+    'AI for Regulatory Compliance: LangGraph multi-agent RAG system that retrieves regulatory evidence, reasons over internal processes, detects compliance gaps, and creates or updates Jira tickets.',
+    'Customer Churn Intelligence Agent: churn model combining transaction features with BERT sentiment signals (85% AUC), plus a LangChain agent with Mistral that generates targeted retention actions.',
   ],
   skills: ['Python', 'PyTorch', 'TensorFlow/Keras', 'scikit-learn', 'OpenCV', 'YOLO', 'OCR', 'LightGBM', 'XGBoost', 'LangGraph', 'LangChain', 'Microsoft Foundry', 'Microsoft Agent Framework', 'RAG', 'MCP', 'Hugging Face', 'Mistral', 'BERT', 'LLM fine-tuning/pre-training', 'guardrails', 'n8n automation', 'Lightning AI', 'AWS (EC2, Lambda, SageMaker, CodeDeploy)', 'Docker', 'Kubernetes', 'GitHub Actions', 'Terraform', 'MLflow', 'REST APIs', 'SQL', 'PySpark', 'Databricks', 'Airflow', 'Power BI'],
   education: ['Algonquin College: BI Systems Infrastructure, 2025; AI Software Development, 2024.', 'Presidency University: B.Tech Electronics & Communication Engineering, 2022.'],

@@ -39,7 +39,7 @@
     <section id="work" aria-labelledby="work-title">
       <h2 id="work-title" class="sr-only">Selected work</h2>
       <details class="group" open>
-        <summary class="cmd">ls projects/ --featured <span class="toggle">4 projects</span></summary>
+        <summary class="cmd">ls projects/ --featured <span class="toggle">6 projects</span></summary>
         <ul class="projects">
         <li id="project-ircc">
           <details>
@@ -58,6 +58,24 @@
               <p>Team entry for the Microsoft Agents League hackathon. Each agent does one step (intake, clause extraction, grounding, risk reasoning, verification, reporting) and hands off to the next. Every risk in the report cites its clause, and high-risk items get flagged for a person to check. Synthetic contracts only.</p>
               <p class="stack">microsoft-foundry pydantic python</p>
               <button class="notes" type="button" data-project="bogdai">open notes</button>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary><h3>compliance-agent/</h3><span class="dim">agent project</span><span class="gist">Finds compliance gaps and turns them into Jira tickets.</span></summary>
+            <div class="more">
+              <p>A multi-agent RAG system in LangGraph. It retrieves the relevant regulations, reasons over how the internal process actually works, flags the gaps, and creates or updates Jira tickets, so legal requirements become engineering work.</p>
+              <p class="stack">langgraph rag multi-agent jira</p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary><h3>churn-agent/</h3><span class="dim">agent project</span><span class="gist">Predicts churn, then drafts retention actions with an LLM.</span></summary>
+            <div class="more">
+              <p>The churn model combines transaction features with BERT sentiment signals and reached 85% AUC. A LangChain agent running Mistral then turns the model's output into targeted retention actions.</p>
+              <p class="stack">langchain mistral bert</p>
             </div>
           </details>
         </li>

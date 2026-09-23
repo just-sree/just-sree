@@ -31,6 +31,22 @@ It was a team project, and the repo doesn't break down who did what. [Repository
 </details>
 
 <details>
+<summary><b>Regulatory compliance agent</b> · LangGraph, RAG, Jira</summary>
+<br>
+
+A multi-agent RAG system in LangGraph. It retrieves the relevant regulations, reasons over how the internal process actually works, flags compliance gaps, and creates or updates Jira tickets, so legal requirements become engineering work.
+
+</details>
+
+<details>
+<summary><b>Churn intelligence agent</b> · BERT, LangChain, Mistral · 85% AUC</summary>
+<br>
+
+The churn model combines transaction features with BERT sentiment signals and reached 85% AUC. A LangChain agent running Mistral then turns the model's output into targeted retention actions.
+
+</details>
+
+<details>
 <summary><b>CSE threat classifier</b> · capstone · 8M+ records, Windows CLI</summary>
 <br>
 
