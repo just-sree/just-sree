@@ -286,6 +286,27 @@ $('#clear-chat').addEventListener('click', () => { if (!requestPending) { messag
 $('#year').textContent = new Date().getFullYear();
 
 
+// Light or dark theme. /theme.js applies a saved choice before paint; this keeps
+// the footer button and browser colour in sync and tells the aquarium to repaint.
+const themeButton = document.getElementById('theme-toggle');
+const themeColor = document.querySelector('meta[name="theme-color"]');
+const currentTheme = () => (document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
+function syncTheme() {
+  const theme = currentTheme();
+  if (themeButton) themeButton.textContent = `theme: ${theme}`;
+  themeColor?.setAttribute('content', getComputedStyle(document.documentElement).getPropertyValue('--bg').trim());
+}
+function setTheme(theme) {
+  if (theme === 'light') document.documentElement.dataset.theme = 'light';
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem('theme', theme); } catch {}
+  syncTheme();
+  document.dispatchEvent(new CustomEvent('theme:change', { detail: { theme } }));
+}
+themeButton?.addEventListener('click', () => setTheme(currentTheme() === 'light' ? 'dark' : 'light'));
+document.addEventListener('theme:set', (event) => setTheme(event.detail?.theme === 'light' ? 'light' : 'dark'));
+syncTheme();
+
 // Printing shows everything: open collapsed sections, then restore them afterwards.
 let closedForPrint = [];
 addEventListener('beforeprint', () => {

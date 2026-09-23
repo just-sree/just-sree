@@ -6,8 +6,10 @@ canvas.setAttribute('aria-hidden', 'true');
 document.body.prepend(canvas);
 const ctx = canvas.getContext('2d');
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const css = getComputedStyle(document.documentElement);
-const palette = ['--green', '--green', '--amber', '--dim'].map((name) => css.getPropertyValue(name).trim());
+const tones = ['--green', '--green', '--amber', '--dim'];
+let palette = [];
+const readPalette = () => { const css = getComputedStyle(document.documentElement); palette = tones.map((name) => css.getPropertyValue(name).trim()); };
+readPalette();
 const font = 14;
 const line = 16;
 // Fish are drawn larger than the bubbles and seaweed.
@@ -55,7 +57,7 @@ function spawnFish(anywhere) {
     x: anywhere ? random(0, width) : (dir > 0 ? -80 : width + 20),
     y: random(80, height - 90),
     phase: random(0, Math.PI * 2),
-    color: palette[Math.floor(Math.random() * palette.length)],
+    tone: Math.floor(Math.random() * tones.length),
   };
 }
 function resize() {
@@ -146,7 +148,7 @@ function draw(time) {
   for (const p of food) { ctx.fillStyle = palette[2]; ctx.fillText('.', p.x, p.y); }
   ctx.font = `${fishFont}px "JetBrains Mono", ui-monospace, monospace`;
   for (const f of fish) {
-    ctx.fillStyle = f.color;
+    ctx.fillStyle = palette[f.tone];
     const rows = f.dir > 0 ? f.shape.r : f.shape.l;
     ctx.globalAlpha = behindText(f.x, Math.max(...rows.map((row) => row.length)) * charWidth) ? 0.11 : 0.34;
     rows.forEach((row, i) => ctx.fillText(row, f.x, f.y + i * fishLine));
@@ -177,6 +179,7 @@ function start() {
 }
 
 addEventListener('resize', () => { resize(); if (!running && enabled) draw(0); });
+document.addEventListener('theme:change', () => { readPalette(); if (!running && enabled) draw(0); });
 addEventListener('pointermove', (event) => { pointer = { x: event.clientX, y: event.clientY }; }, { passive: true });
 document.addEventListener('pointerleave', () => { pointer = { x: -1e3, y: -1e3 }; });
 // Clicking empty space (not a link, button or text selection) drops food.

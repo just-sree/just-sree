@@ -14,6 +14,7 @@ const publicFiles = new Map([
   ['/headshot.jpg', ['headshot.jpg', 'image/jpeg']],
   ['/og.png', ['og.png', 'image/png']],
   ['/shell.js', ['shell.js', 'text/javascript; charset=utf-8']],
+  ['/theme.js', ['theme.js', 'text/javascript; charset=utf-8']],
   ['/mark.svg', ['mark.svg', 'image/svg+xml']],
   ['/resume.pdf', ['resume.pdf', 'application/pdf']],
   ['/projects.json', ['projects.json', 'application/json; charset=utf-8']],
