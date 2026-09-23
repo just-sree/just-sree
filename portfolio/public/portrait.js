@@ -64,6 +64,6 @@ if (figure) {
   const label = figure.querySelector('.reveal');
   figure.addEventListener('click', () => {
     const showing = figure.classList.toggle('show-photo');
-    if (label) label.textContent = showing ? 'tap for ascii' : 'tap to reveal';
+    if (label) label.textContent = showing ? 'tap for ascii' : 'hover or tap to reveal';
   });
 }
