@@ -16,6 +16,6 @@ export const resume = {
     'BogdAI: Microsoft Agents League Hackathon 2026 team prototype for synthetic contract risk analysis.',
     'Customer churn: predictive analytics and a proposed RAG workflow for retention actions.',
   ],
-  skills: ['Python', 'PyTorch', 'TensorFlow/Keras', 'OpenCV', 'YOLO', 'OCR', 'LangGraph', 'LangChain', 'Microsoft Foundry', 'Microsoft Agent Framework', 'RAG', 'MCP', 'AWS', 'Lightning AI', 'Docker', 'SQL', 'MLflow'],
+  skills: ['Python', 'PyTorch', 'TensorFlow/Keras', 'scikit-learn', 'OpenCV', 'YOLO', 'OCR', 'LightGBM', 'XGBoost', 'LangGraph', 'LangChain', 'Microsoft Foundry', 'Microsoft Agent Framework', 'RAG', 'MCP', 'Hugging Face', 'Mistral', 'BERT', 'LLM fine-tuning/pre-training', 'guardrails', 'n8n automation', 'Lightning AI', 'AWS (EC2, Lambda, SageMaker, CodeDeploy)', 'Docker', 'Kubernetes', 'GitHub Actions', 'Terraform', 'MLflow', 'REST APIs', 'SQL', 'PySpark', 'Databricks', 'Airflow', 'Power BI'],
   education: ['Algonquin College: BI Systems Infrastructure, 2025; AI Software Development, 2024.', 'Presidency University: B.Tech Electronics & Communication Engineering, 2022.'],
 };

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { validateInput } from '../agent.mjs';
 import { matchJob } from '../job-match.mjs';
 
-const posting = 'Applied ML Engineer. Requirements: Python, time-series forecasting, LLM agents, Docker, Kubernetes.';
+const posting = 'Applied ML Engineer. Requirements: Python, time-series forecasting, LLM agents, Docker, Kafka.';
 const reply = (body) => ({ ok: true, json: async () => ({ status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify(body) }] }] }) });
 
 test('job postings get a longer limit, and only the job-match task is accepted', () => {
@@ -21,7 +21,7 @@ test('preview match rates skills from approved facts and reports gaps without ca
   assert.equal(byName.Python.strength, 'strong');
   assert.equal(byName['Time-series forecasting'].source, 'ircc');
   assert.equal(byName.Docker.strength, 'partial');
-  assert.deepEqual(byName.Kubernetes, { requirement: 'Kubernetes', strength: 'none', evidence: 'Not in the portfolio notes. Ask Sree directly.', source: null });
+  assert.deepEqual(byName.Kafka, { requirement: 'Kafka', strength: 'none', evidence: 'Not in the portfolio notes. Ask Sree directly.', source: null });
   assert.equal(result.match.items.at(-1).strength, 'none');
   const empty = await matchJob('Great team, free snacks.', {});
   assert.equal(empty.match.items.length, 0);

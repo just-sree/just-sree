@@ -89,10 +89,10 @@ A Gradio app. Give it a photo and it finds the objects with DETR, writes a short
 
 ## Stack
 
-- **ML:** PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, Prophet, MLflow
-- **LLMs and agents:** LangGraph, LangChain, Microsoft Foundry, Microsoft Agent Framework, RAG, MCP, Pydantic
+- **ML:** PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, Prophet
 - **Vision:** OpenCV, YOLO, OCR, Hugging Face, Gradio
-- **Data:** Python, pandas, SQL, Power BI
-- **Cloud and ops:** AWS, Azure, Docker, Lightning AI, FastAPI
+- **LLMs and agents:** LangGraph, LangChain, Microsoft Foundry, Microsoft Agent Framework, RAG, MCP, Mistral, BERT, LLM fine-tuning, guardrails, Pydantic, n8n
+- **MLOps and cloud:** AWS (EC2, Lambda, SageMaker, CodeDeploy), Azure, Lightning AI, Docker, Kubernetes, Terraform, GitHub Actions, MLflow, FastAPI, REST APIs
+- **Data:** Python, pandas, SQL, PySpark, Databricks, Airflow, Power BI
 
 Email is the best way to reach me: [sreechackoth@gmail.com](mailto:sreechackoth@gmail.com)
