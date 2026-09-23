@@ -94,7 +94,7 @@ A Gradio app. Give it a photo and it finds the objects with DETR, writes a short
 
 - **AI Research Technician / AI Specialist**, Lambton College × EventLinx.com (Feb 2026 to now): leading a project with an industry partner. Model development, synthetic training data, benchmarking, error analysis and GPU inference on Lightning AI.
 - **AI Research Assistant**, Algonquin College Applied Research (Apr to Dec 2025): research proposals for Horizon Europe-aligned AI work, which led to an initial $150K funding commitment.
-- **Co-founder, AI Lead**, Paresium (ongoing): a startup I co-founded, where I lead the AI work.
+- **Co-founder, AI Lead**, [Paresium](https://paresium.com) (ongoing): a startup I co-founded, where I lead the AI work.
 - **Python Application Developer**, Infidata Technologies (Mar to Jun 2022): an event-driven ETL on AWS Lambda and RDS that refreshed data hourly and saved an estimated 40 hours a month of manual QA.
 
 ## Education
