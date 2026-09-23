@@ -70,12 +70,14 @@
             </div>
           </details>
         </li>
-        <li>
+        <li id="project-churn">
           <details>
             <summary><h3>churn-agent/</h3><span class="dim">agent project</span><span class="gist">Predicts churn, then drafts retention actions with an LLM.</span></summary>
             <div class="more">
               <p>The churn model combines transaction features with BERT sentiment signals and reached 85% AUC. A LangChain agent running Mistral then turns the model's output into targeted retention actions.</p>
-              <p class="stack">langchain mistral bert</p>
+              <p>It grew out of an earlier churn study that proposed a RAG workflow for retention; that study is the linked repository.</p>
+              <p class="stack">langchain mistral bert xgboost</p>
+              <button class="notes" type="button" data-project="churn">open notes</button>
             </div>
           </details>
         </li>
@@ -105,11 +107,10 @@
     <section aria-labelledby="more-title">
       <h2 id="more-title" class="sr-only">Other projects</h2>
       <details class="group">
-        <summary class="cmd">ls projects/ --other <span class="toggle">12 more</span></summary>
+        <summary class="cmd">ls projects/ --other <span class="toggle">11 more</span></summary>
         <ul class="listing">
           <li id="project-voice"><button type="button" data-project="voice">text-to-audio</button><span class="dim"># summarise a document, then read it aloud</span></li>
           <li id="project-docs"><button type="button" data-project="docs">code-doc-generator</button><span class="dim"># LLM-written docs for source code</span></li>
-          <li id="project-churn"><button type="button" data-project="churn">churn-retention</button><span class="dim"># churn model plus a RAG idea for follow-up</span></li>
           <li id="project-border"><button type="button" data-project="border">border-traffic</button><span class="dim"># unusual traveller volumes at ports of entry</span></li>
           <li id="project-crypto"><button type="button" data-project="crypto">crypto-forecast</button><span class="dim"># Prophet on price history</span></li>
           <li id="project-property"><button type="button" data-project="property">house-prices</button><span class="dim"># random forest regression</span></li>

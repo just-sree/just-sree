@@ -76,17 +76,19 @@
     "sourceLabel": "Explore the repository"
   },
   "churn": {
-    "name": "Customer churn and retention",
-    "title": "Customer churn and retention",
-    "summary": "A customer-churn study combining predictive analytics with a proposed retrieval-augmented workflow for personalised retention strategies.",
+    "name": "Customer churn agent",
+    "title": "Customer churn agent",
+    "summary": "A churn model that combines transaction features with BERT sentiment signals (85% AUC), plus a LangChain agent running Mistral that turns its output into targeted retention actions.",
     "group": "Predictive systems",
     "skills": [
-      "XGBoost",
-      "NLP",
-      "RAG"
+      "BERT",
+      "LangChain",
+      "Mistral",
+      "XGBoost"
     ],
     "url": "https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A",
-    "sourceLabel": "Explore the repository"
+    "sourceLabel": "Explore the repository",
+    "limits": "It grew out of an earlier churn study that proposed a retrieval-augmented retention workflow. The linked repository holds that earlier study; the agent version is described on the resume."
   },
   "border": {
     "name": "Border traffic anomaly detection",

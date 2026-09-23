@@ -42,7 +42,7 @@ A multi-agent RAG system in LangGraph. It retrieves the relevant regulations, re
 <summary><b>Churn intelligence agent</b> · BERT, LangChain, Mistral · 85% AUC</summary>
 <br>
 
-The churn model combines transaction features with BERT sentiment signals and reached 85% AUC. A LangChain agent running Mistral then turns the model's output into targeted retention actions.
+The churn model combines transaction features with BERT sentiment signals and reached 85% AUC. A LangChain agent running Mistral then turns the model's output into targeted retention actions. It grew out of an earlier churn study that proposed a RAG workflow for retention. [Repository (earlier study)](https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A)
 
 </details>
 
@@ -63,12 +63,11 @@ A Gradio app. Give it a photo and it finds the objects with DETR, writes a short
 </details>
 
 <details>
-<summary><b>12 more projects</b> · smaller tools, models and studies</summary>
+<summary><b>11 more projects</b> · smaller tools, models and studies</summary>
 <br>
 
 - [Text-to-audio summariser](https://github.com/just-sree/AI-text-to-voice-summary-converter): summarises a document with an LLM, then reads the summary aloud
 - [Code documentation generator](https://github.com/just-sree/ai-code-doc-generator): uses a language model to write docs for source code
-- [Customer churn and retention](https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A): a churn model, plus a proposed RAG workflow for retention suggestions
 - [Border traffic anomaly detection](https://github.com/just-sree/Advanced-Anomaly-Detection-in-Canadian-Border-Traffic): spotting unusual traveller volumes at Canadian ports of entry
 - [Crypto price forecasting](https://github.com/just-sree/CryptoForecasts): Prophet on historical crypto prices
 - [Real estate price prediction](https://github.com/just-sree/Real-Estate-Price-Prediction-using-Random-Forest): random forest regression on property features
