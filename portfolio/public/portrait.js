@@ -1,4 +1,4 @@
-// Shows the headshot, and an ASCII version in the terminal palette on hover, focus or tap.
+// Draws the headshot as ASCII in the terminal palette. Hover, focus or tap shows the photo.
 const figure = document.querySelector('.portrait');
 if (figure) {
   const img = figure.querySelector('img');
@@ -60,6 +60,10 @@ if (figure) {
     // No photo uploaded: leave the layout as plain text.
     img.addEventListener('error', () => figure.remove());
   }
-  // Tap on touch screens (no hover) switches between the photo and the ASCII.
-  figure.addEventListener('click', () => figure.classList.toggle('show-ascii'));
+  // Tap on touch screens (no hover) switches between the ASCII and the photo.
+  const label = figure.querySelector('.reveal');
+  figure.addEventListener('click', () => {
+    const showing = figure.classList.toggle('show-photo');
+    if (label) label.textContent = showing ? 'tap for ascii' : 'hover or tap to reveal';
+  });
 }
