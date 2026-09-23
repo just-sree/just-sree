@@ -95,12 +95,12 @@ renderSuggestions('hiring');
 fetch('/api/status').then((response) => response.json()).then(({ mode, provider }) => {
   if (mode === 'unavailable') throw new Error('Agent configuration unavailable.');
   const providerName = provider === 'azure' ? 'Azure AI Foundry' : 'OpenAI';
-  $('#agent-mode').textContent = mode === 'live' ? providerName.toUpperCase() + ' · PROJECT-GROUNDED' : 'PREVIEW · CURATED GUIDE';
+  $('#agent-mode').textContent = mode === 'live' ? providerName.toLowerCase() + ' · answers from my notes' : 'preview · written answers';
   $('#mode-disclosure').textContent = mode === 'live'
     ? 'AI can make mistakes. Check linked project sources. Chat messages are sent to ' + providerName + ' to generate replies; resume and brief actions run locally.'
-    : 'Preview: curated answers, without a connected language model.';
+    : 'Preview: answers are written in advance from my notes. No language model is connected.';
 }).catch(() => {
-  $('#agent-mode').textContent = 'CONNECTION UNAVAILABLE';
+  $('#agent-mode').textContent = 'connection unavailable';
   $('#mode-disclosure').textContent = 'The agent server is unavailable. You can still explore the projects.';
 });
 

@@ -42,7 +42,7 @@ test('preview does not call a provider and preserves project limitations', async
 test('unknown preview requests do not invent facts', async () => {
   const result = await generateReply('What was the revenue impact at his last employer?', []);
   assert.equal(result.project, null);
-  assert.match(result.answer, /curated portfolio guide/);
+  assert.match(result.answer, /not in my notes/);
 });
 
 test('live request keeps credentials on the server, opts out of storage, and validates structured output', async () => {

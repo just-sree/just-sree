@@ -46,7 +46,7 @@ test('Foundry requests use Azure key auth, deployment, structured schema and no 
       assert.equal(body.model, 'sree-agent-deployment');
       assert.equal(body.store, false);
       assert.equal(body.text.format.strict, true);
-      assert.match(body.instructions, /bold, playful/);
+      assert.match(body.instructions, /plain, short sentences/);
       return { ok: true, json: async () => ({ status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify({ answer: 'An inspectable contract pipeline.', project: 'bogdai', contact: false }) }] }] }) };
     },
   });

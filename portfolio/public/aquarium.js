@@ -45,6 +45,7 @@ document.body.append(hint);
 const showHint = () => { hint.classList.toggle('visible', running && !fed); };
 
 const random = (min, max) => min + Math.random() * (max - min);
+const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 function spawnFish(anywhere) {
   const shape = shapes[Math.floor(Math.random() * shapes.length)];
   const dir = Math.random() < 0.5 ? 1 : -1;
@@ -80,6 +81,7 @@ function update(dt, time) {
     const cx = f.x + fw / 2;
     const cy = f.y + (rows * fishLine) / 2;
     let boost = 1;
+    let targetVy = 0;
     // Chase the nearest food pellet within reach.
     let target = null;
     let best = 320;
@@ -88,10 +90,13 @@ function update(dt, time) {
       if (d < best) { best = d; target = p; }
     }
     if (target) {
-      f.dir = target.x > cx ? 1 : -1;
-      f.vy += Math.sign(target.y - cy) * 40 * dt;
+      // Only turn around when the food is clearly to one side, so a pellet
+      // straight above or below doesn't flip the fish back and forth.
+      const dx = target.x - cx;
+      if (Math.abs(dx) > 24) f.dir = Math.sign(dx);
+      targetVy = clamp((target.y - cy) * 1.5, -55, 55);
       boost = 2.2;
-      if (best < 14) {
+      if (best < 16) {
         food.splice(food.indexOf(target), 1);
         bubbles.push({ x: cx, y: cy, vy: random(20, 35), phase: random(0, 6) });
       }
@@ -99,14 +104,18 @@ function update(dt, time) {
     // Scatter from the cursor.
     const away = Math.hypot(pointer.x - cx, pointer.y - cy);
     if (away < 110) {
-      f.dir = pointer.x > cx ? -1 : 1;
-      f.vy += Math.sign(cy - pointer.y || 1) * 90 * dt;
+      const dx = cx - pointer.x;
+      if (Math.abs(dx) > 12) f.dir = Math.sign(dx);
+      targetVy = (cy < pointer.y ? -1 : 1) * 70;
       boost = 3.5;
     }
-    f.vy *= 0.94;
+    // Ease vertical speed toward its target instead of pushing at full strength,
+    // which made fish shudder as they reached a pellet's height.
+    f.vy += (targetVy - f.vy) * Math.min(1, 3 * dt);
     f.x += f.dir * f.speed * boost * dt;
     f.y += f.vy * dt + Math.sin(time / 900 + f.phase) * 0.15;
-    f.y = Math.max(60, Math.min(height - 80, f.y));
+    const clamped = clamp(f.y, 60, height - 80);
+    if (clamped !== f.y) { f.y = clamped; f.vy = 0; }
     if (f.x > width + 90 || f.x < -120) Object.assign(f, spawnFish(false));
     if (Math.random() < dt * 0.05) bubbles.push({ x: f.dir > 0 ? f.x + fw : f.x, y: f.y, vy: random(18, 32), phase: random(0, 6) });
   }

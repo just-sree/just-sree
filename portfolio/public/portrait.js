@@ -1,4 +1,6 @@
-// Draws the headshot as ASCII in the terminal palette. Hover, focus or tap shows the photo.
+// Draws the headshot as ASCII in the terminal palette. When it scrolls into view the
+// ASCII decodes from random characters, then a scanline wipes down to reveal the photo
+// once. Hover, focus or tap plays the same reveal.
 const figure = document.querySelector('.portrait');
 if (figure) {
   const img = figure.querySelector('img');
@@ -42,10 +44,51 @@ if (figure) {
       }
       text += '\n';
     }
-    pre.textContent = text;
+    finalText = text;
+    pre.textContent = animate ? blank(text) : text;
     figure.classList.add('ready');
     fit();
+    if (animate) watchForView();
   };
+
+  const animate = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let finalText = '';
+  const glyphs = '.:-=+*#%@/\\<>01';
+  const blank = (text) => text.replace(/[^\n]/g, ' ');
+  // Characters resolve from random glyphs, roughly top to bottom, like a terminal rendering.
+  const decode = () => {
+    const cells = [...finalText];
+    const row = (i) => Math.floor(i / (cols + 1));
+    const at = cells.map((_, i) => (row(i) / rows) * 0.7 + Math.random() * 0.3);
+    const start = performance.now();
+    const duration = 1100;
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      pre.textContent = cells.map((c, i) => (c === '\n' || c === ' ' || at[i] <= t ? c : glyphs[Math.floor(Math.random() * glyphs.length)])).join('');
+      if (t < 1) requestAnimationFrame(step);
+      else { pre.textContent = finalText; setTimeout(peek, 500); }
+    };
+    requestAnimationFrame(step);
+  };
+  // Show the photo once so visitors see there is one, then scan back to ASCII.
+  const peek = () => {
+    if (figure.matches(':hover') || figure.classList.contains('show-photo')) return;
+    figure.classList.add('peek');
+    setTimeout(() => figure.classList.remove('peek'), 2800);
+  };
+  const watchForView = () => {
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      observer.disconnect();
+      decode();
+    }, { threshold: 0.5 });
+    observer.observe(figure);
+  };
+  // The glowing scanline only shows while the wipe is moving.
+  figure.addEventListener('transitionrun', (event) => { if (event.propertyName === '--reveal') figure.classList.add('scanning'); });
+  const stopScan = (event) => { if (event.propertyName === '--reveal') figure.classList.remove('scanning'); };
+  figure.addEventListener('transitionend', stopScan);
+  figure.addEventListener('transitioncancel', stopScan);
   // Size the characters so the grid exactly fills the square frame.
   const fit = () => {
     const size = frame.clientWidth;
