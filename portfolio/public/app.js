@@ -286,6 +286,17 @@ $('#clear-chat').addEventListener('click', () => { if (!requestPending) { messag
 $('#year').textContent = new Date().getFullYear();
 
 
+// Printing shows everything: open collapsed sections, then restore them afterwards.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('main details:not([open])')];
+  for (const details of closedForPrint) details.open = true;
+});
+addEventListener('afterprint', () => {
+  for (const details of closedForPrint) details.open = false;
+  closedForPrint = [];
+});
+
 // Vercel Web Analytics: cookie-free page views, served from this site's own domain.
 // Loaded only on the deployed site; turn it on in the Vercel project's Analytics tab.
 if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {

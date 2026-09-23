@@ -17,6 +17,10 @@ const publicFiles = new Map([
   ['/mark.svg', ['mark.svg', 'image/svg+xml']],
   ['/resume.pdf', ['resume.pdf', 'application/pdf']],
   ['/projects.json', ['projects.json', 'application/json; charset=utf-8']],
+  ['/robots.txt', ['robots.txt', 'text/plain; charset=utf-8']],
+  ['/sitemap.xml', ['sitemap.xml', 'application/xml; charset=utf-8']],
+  ['/404.html', ['404.html', 'text/html; charset=utf-8']],
+  ...['jbm-latin', 'jbm-latin-ext', 'jbm-italic-latin', 'jbm-italic-latin-ext'].map((name) => [`/fonts/${name}.woff2`, [`fonts/${name}.woff2`, 'font/woff2']]),
 ]);
 const limits = new Map();
 const windowMs = 60000;
@@ -25,7 +29,7 @@ function sendJson(response, status, data) { response.writeHead(status, { 'Conten
 export default async function handleRequest(request, response) {
   response.setHeader('X-Content-Type-Options', 'nosniff');
   response.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'");
+  response.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'");
   const path = new URL(request.url, `http://localhost:${port}`).pathname;
   if (path === '/api/status' && request.method === 'GET') return sendJson(response, 200, getAIStatus());
   if (path === '/api/agent') {
@@ -66,7 +70,14 @@ export default async function handleRequest(request, response) {
   }
   if (!['GET', 'HEAD'].includes(request.method)) { response.setHeader('Allow', 'GET, HEAD'); return sendJson(response, 405, { error: 'Method not allowed.' }); }
   const file = publicFiles.get(path);
-  if (!file) return sendJson(response, 404, { error: 'Not found.' });
+  if (!file) {
+    // Same page Vercel serves for unknown paths.
+    if (path.startsWith('/api/')) return sendJson(response, 404, { error: 'Not found.' });
+    try {
+      response.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache' });
+      return response.end(request.method === 'HEAD' ? undefined : await readFile(new URL('./public/404.html', import.meta.url)));
+    } catch { return sendJson(response, 404, { error: 'Not found.' }); }
+  }
   try {
     const content = await readFile(new URL(`./public/${file[0]}`, import.meta.url));
     if (path === '/resume.pdf') response.setHeader('Content-Disposition', 'inline; filename="Sree-Chackoth-Resume.pdf"');
