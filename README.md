@@ -5,7 +5,7 @@
 
 I'm **Sree Sankaran Chackoth**, an applied ML and agentic AI engineer in Ottawa. I build AI systems that reason, automate, deploy, and solve real problems: computer vision and OCR pipelines, forecasting systems, and multi-agent workflows with inspectable outputs.
 
-The portfolio tells the story as you scroll. The agent answers questions about it.
+The portfolio is one quiet page. The agent answers questions about it.
 
 ## IRCC · Forecasting What Comes Next
 
@@ -15,7 +15,7 @@ A time-series forecasting pipeline for Canadian immigration planning. Python ETL
 
 The supplied resume reports **2M+ records processed** and **15+ immigration categories covered**. This was capstone work, with an emphasis on data quality, model comparison, and planning forecasts.
 
-[Follow the story ↗](https://just-sree.vercel.app/#ircc) · [Resume source ↗](https://just-sree.vercel.app/resume.pdf)
+[See the work ↗](https://just-sree.vercel.app/#work) · [Resume source ↗](https://just-sree.vercel.app/resume.pdf)
 
 ## BogdAI · Contract Risk, With Receipts
 
