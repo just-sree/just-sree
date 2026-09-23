@@ -104,6 +104,46 @@ fetch('/api/status').then((response) => response.json()).then(({ mode, provider 
   $('#mode-disclosure').textContent = 'The agent server is unavailable. You can still explore the projects.';
 });
 
+const email = 'sreechackoth@gmail.com';
+// Email hand-off: opens a draft in the visitor's own mail app. Nothing is sent from here.
+function mailto(subject, body) {
+  const make = (text) => `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+  let text = body;
+  // Keep the link under the length most mail apps accept.
+  while (make(text).length > 1900 && text.length > 200) text = text.slice(0, Math.floor(text.length * 0.9)).trimEnd() + '\n[…]';
+  return make(text);
+}
+function chatEmail() {
+  const asked = history.filter((item) => item.role === 'user').map((item) => '- ' + item.content.replace(/\s+/g, ' ').slice(0, 200));
+  return `Hi Sree,\n\nI was using the agent on your portfolio. What I asked:\n${asked.join('\n')}\n\n[Your name, what you're working on, and how to reach you]\n`;
+}
+const strengthLabel = { strong: 'shown in a project or role', partial: 'partial evidence', none: 'not in the notes' };
+function jobEmail(match) {
+  const lines = match.items.map((item) => `- ${item.requirement}: ${strengthLabel[item.strength]}`);
+  return `Hi Sree,\n\nI checked a job description${match.role ? ` (${match.role})` : ''} against your portfolio with your agent:\n\n${lines.join('\n')}\n\n[Your name, company, and a link to the role]\n`;
+}
+function emailAction(label, subject, body) {
+  const link = textElement('a', label + ' ↗', 'message-action');
+  // Build the draft on click so edits (for example to a brief) are included.
+  link.href = mailto(subject, body());
+  link.addEventListener('click', () => { link.href = mailto(subject, body()); });
+  const note = textElement('span', 'Opens a draft in your email app. Nothing is sent until you send it.', 'message-note');
+  const wrap = document.createElement('div');
+  wrap.append(link, note);
+  return wrap;
+}
+let jobMode = false;
+function setJobMode(on) {
+  jobMode = on;
+  input.maxLength = on ? 8000 : 2000;
+  input.placeholder = on ? 'Paste the job description here…' : 'What would you like to know?';
+  $('#job-banner').hidden = !on;
+  input.focus();
+}
+$('#job-toggle').addEventListener('click', () => setJobMode(true));
+$('#job-cancel').addEventListener('click', () => setJobMode(false));
+$('#email-chat').addEventListener('click', () => { if (history.length) location.href = mailto('Question from your portfolio', chatEmail()); });
+
 function openAgent(prompt) {
   if (projectDialog.open) projectDialog.close();
   if (!agentDialog.open) {
@@ -113,7 +153,7 @@ function openAgent(prompt) {
   input.focus();
   if (prompt) sendMessage(prompt);
 }
-$$('[data-agent]').forEach((button) => button.addEventListener('click', () => openAgent(button.dataset.prompt)));
+$$('[data-agent]').forEach((button) => button.addEventListener('click', () => { openAgent(button.dataset.prompt); if ('job' in button.dataset) setJobMode(true); }));
 document.addEventListener('keydown', (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
     event.preventDefault();
@@ -128,7 +168,7 @@ function addMessage(role, content) {
   return element;
 }
 function scrollChat() { const body = $('.agent-body'); body.scrollTop = body.scrollHeight; }
-async function sendMessage(raw) {
+async function sendMessage(raw, task) {
   const text = raw.trim();
   if (!text || requestPending) return;
   requestPending = true;
@@ -136,20 +176,44 @@ async function sendMessage(raw) {
   input.style.height = 'auto';
   $('#agent-form button').disabled = true;
   $('#clear-chat').disabled = true;
-  addMessage('user', text);
-  const pending = addMessage('assistant', 'Looking through the project notes…');
+  addMessage('user', task ? `Job description (${text.length.toLocaleString('en-US')} characters)\n${text.split('\n').find((line) => line.trim())?.trim().slice(0, 100) || ''}…` : text);
+  const pending = addMessage('assistant', task ? 'Checking the posting against the project notes and resume…' : 'Looking through the project notes…');
   scrollChat();
   try {
     const response = await fetch('/api/agent', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: text, history: history.slice(-10) }),
+      body: JSON.stringify({ message: text, history: history.slice(-10), ...(task ? { task } : {}) }),
       signal: AbortSignal.timeout(50000),
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'The agent could not respond. Please try again.');
     pending.remove();
     const reply = addMessage('assistant', data.answer);
-    history.push({ role: 'user', content: text }, { role: 'assistant', content: data.answer });
+    history.push({ role: 'user', content: task ? 'I pasted a job description: ' + text.slice(0, 400) + (text.length > 400 ? '…' : '') : text }, { role: 'assistant', content: data.answer });
+    if (task) setJobMode(false);
+    if (data.match?.items?.length) {
+      const legend = textElement('p', '[✓] shown in a project or role   [~] partial evidence   [ ] not in the notes', 'match-legend');
+      const list = document.createElement('ul');
+      list.className = 'match';
+      for (const item of data.match.items) {
+        const row = document.createElement('li');
+        row.className = 'match-' + item.strength;
+        const mark = textElement('span', { strong: '[✓]', partial: '[~]', none: '[ ]' }[item.strength], 'match-mark');
+        mark.setAttribute('aria-hidden', 'true');
+        row.append(mark, textElement('span', strengthLabel[item.strength] + ': ', 'sr-only'), textElement('strong', item.requirement), textElement('span', item.evidence, 'match-evidence'));
+        if (item.source === 'resume') {
+          const link = textElement('a', 'resume ↗', 'match-source');
+          link.href = '/resume.pdf'; link.target = '_blank'; link.rel = 'noreferrer';
+          row.append(link);
+        } else if (item.source && Object.hasOwn(projects, item.source)) {
+          const notes = textElement('button', 'notes ↗', 'match-source');
+          notes.addEventListener('click', () => openProject(item.source));
+          row.append(notes);
+        }
+        list.append(row);
+      }
+      reply.append(legend, list, emailAction('Email Sree this match', 'Job description check' + (data.match.role ? ': ' + data.match.role : ''), () => jobEmail(data.match)));
+    }
     if (data.resume) {
       const link = textElement('a', 'Read Sree’s resume (PDF) ↗', 'message-source');
       link.href = '/resume.pdf'; link.target = '_blank'; link.rel = 'noreferrer';
@@ -170,7 +234,7 @@ async function sendMessage(raw) {
         link.click();
         setTimeout(() => URL.revokeObjectURL(url), 1000);
       });
-      reply.append(draft, download);
+      reply.append(draft, download, emailAction('Email this brief to Sree', 'Collaboration brief', () => draft.value));
     }
     for (const id of data.sources || []) {
       if (!Object.hasOwn(projects, id)) continue;
@@ -198,27 +262,24 @@ async function sendMessage(raw) {
       source.rel = 'noreferrer';
       reply.append(source);
     }
-    if (data.contact) {
-      const contact = textElement('a', 'Email Sree ↗', 'message-source');
-      contact.href = 'mailto:sreechackoth@gmail.com';
-      reply.append(contact);
-    }
+    if (data.contact && !data.match && !data.brief) reply.append(emailAction('Email Sree about this', 'Question from your portfolio', chatEmail));
   } catch (error) {
     pending.remove();
     addMessage('assistant', error.name === 'TimeoutError' ? 'That took too long. Please try again, or use the project cards to keep exploring.' : error.message).classList.add('error-message');
   } finally {
     requestPending = false;
+    $('#email-chat').disabled = !history.length;
     $('#agent-form button').disabled = false;
     $('#clear-chat').disabled = false;
     scrollChat();
     input.focus();
   }
 }
-$('#agent-form').addEventListener('submit', (event) => { event.preventDefault(); sendMessage(input.value); });
+$('#agent-form').addEventListener('submit', (event) => { event.preventDefault(); sendMessage(input.value, jobMode ? 'job-match' : undefined); });
 input.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); sendMessage(input.value); }
+  if (event.key === 'Enter' && !event.shiftKey && !event.isComposing && !jobMode) { event.preventDefault(); sendMessage(input.value); }
 });
 input.addEventListener('input', () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 100) + 'px'; });
-$('#clear-chat').addEventListener('click', () => { if (!requestPending) { messages.replaceChildren(); history = []; input.focus(); } });
+$('#clear-chat').addEventListener('click', () => { if (!requestPending) { messages.replaceChildren(); history = []; $('#email-chat').disabled = true; setJobMode(false); } });
 $('#year').textContent = new Date().getFullYear();
 

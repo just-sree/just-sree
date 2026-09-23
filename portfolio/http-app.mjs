@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { generateReply, validateInput } from './agent.mjs';
+import { matchJob } from './job-match.mjs';
 import { getAIConfig, getAIStatus } from './ai-config.mjs';
 
 const port = Number(process.env.PORT || 4173);
@@ -55,7 +56,7 @@ export default async function handleRequest(request, response) {
     let config;
     try { config = getAIConfig(); }
     catch { return sendJson(response, 503, { error: 'The AI connection is not configured correctly. Please use the project notes or contact Sree.' }); }
-    try { return sendJson(response, 200, await generateReply(body.message, body.history, config)); }
+    try { return sendJson(response, 200, body.task === 'job-match' ? await matchJob(body.message, config) : await generateReply(body.message, body.history, config)); }
     catch (error) { return sendJson(response, 502, { error: error.name === 'TimeoutError' ? 'The AI connection timed out. Please try again.' : 'The AI connection is temporarily unavailable. Please try again shortly.' }); }
   }
   if (!['GET', 'HEAD'].includes(request.method)) { response.setHeader('Allow', 'GET, HEAD'); return sendJson(response, 405, { error: 'Method not allowed.' }); }

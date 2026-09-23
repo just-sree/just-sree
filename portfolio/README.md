@@ -31,6 +31,7 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 - `public/projects.json`: curated project evidence shared by the UI and agent.
 - `public/app.js`: navigation, architecture trace, project notes, chat, and keyboard behavior.
 - `agent.mjs`: approved knowledge, preview responses, provider integration, and response validation.
+- `job-match.mjs`: checks a pasted job description against the approved knowledge (model-backed when connected, keyword preview otherwise).
 
 `Ctrl/Cmd + K` opens the agent. Native dialogs provide keyboard focus containment and Escape dismissal. The cursor animation stops under reduced motion.
 
