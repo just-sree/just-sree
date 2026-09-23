@@ -154,6 +154,8 @@ function openAgent(prompt) {
   if (prompt) sendMessage(prompt);
 }
 $$('[data-agent]').forEach((button) => button.addEventListener('click', () => { openAgent(button.dataset.prompt); if ('job' in button.dataset) setJobMode(true); }));
+// The page's command line (shell.js) opens the agent through this event.
+document.addEventListener('agent:open', (event) => { openAgent(event.detail?.prompt); if (event.detail?.job) setJobMode(true); });
 document.addEventListener('keydown', (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
     event.preventDefault();

@@ -29,6 +29,9 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 - `ai-config.mjs`: server-only Foundry/OpenAI configuration.
 - `http-app.mjs`: shared local and Vercel request handler.
 - `public/projects.json`: curated project evidence shared by the UI and agent.
+- `public/shell.js`: the command line at the end of the page.
+- `public/aquarium.js`, `public/portrait.js`: the background aquarium and the ASCII headshot.
+- `public/og.png`: the link preview card.
 - `public/app.js`: navigation, architecture trace, project notes, chat, and keyboard behavior.
 - `agent.mjs`: approved knowledge, preview responses, provider integration, and response validation.
 - `job-match.mjs`: checks a pasted job description against the approved knowledge (model-backed when connected, keyword preview otherwise).
