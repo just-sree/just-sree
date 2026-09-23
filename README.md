@@ -1,80 +1,92 @@
-<p align="center"><img src="./assets/profile-header.svg" alt="Sree Sankaran Chackoth — I build AI systems that ship." width="100%" /></p>
+<p align="center"><img src="./assets/profile-header.svg" alt="Terminal banner: $ whoami, Sree Sankaran Chackoth, ML engineer in Ottawa" width="100%" /></p>
 
-<p align="center"><strong>Applied ML · Agentic systems · Research that ships</strong></p>
-<p align="center"><a href="https://just-sree.vercel.app">Explore my portfolio ↗</a> &nbsp; · &nbsp; <a href="https://just-sree.vercel.app/#contact">Talk to my agent ↗</a> &nbsp; · &nbsp; <a href="https://just-sree.vercel.app/resume.pdf">Resume ↗</a> &nbsp; · &nbsp; <a href="https://linkedin.com/in/sreesankaranc">LinkedIn ↗</a></p>
+I'm Sree, an ML engineer in Ottawa. I mostly work on forecasting, agent systems and computer vision. Right now I'm leading an applied AI project at Lambton College.
 
-I'm **Sree Sankaran Chackoth**, an applied ML and agentic AI engineer in Ottawa. I build AI systems that reason, automate, deploy, and solve real problems: computer vision and OCR pipelines, forecasting systems, and multi-agent workflows with inspectable outputs.
+[Portfolio](https://just-sree.vercel.app) · [Resume](https://just-sree.vercel.app/resume.pdf) · [LinkedIn](https://linkedin.com/in/sreesankaranc) · [Email](mailto:sreechackoth@gmail.com)
 
-The portfolio is one quiet page. The agent answers questions about it.
+The portfolio has a small agent that answers questions about my projects from my notes and resume.
 
-## IRCC · Forecasting What Comes Next
+## Projects
 
-**Capstone project · September 2024–April 2025**
+Click a project to expand it.
 
-A time-series forecasting pipeline for Canadian immigration planning. Python ETL prepares category-level data; **Prophet, ARIMA, and Exponential Smoothing** are evaluated across multiple forecasting horizons.
+<details>
+<summary><b>IRCC immigration forecasting</b> · capstone, 2024–25 · 2M+ records, 85%+ accuracy</summary>
+<br>
 
-The supplied resume reports **2M+ records processed** and **15+ immigration categories covered**. This was capstone work, with an emphasis on data quality, model comparison, and planning forecasts.
+I wrote the Python ETL that took 2M+ raw records down to clean time series (99.5% data quality), then compared Prophet, ARIMA and exponential smoothing across 15+ immigration categories and several forecast horizons. The best models got above 85% accuracy.
 
-[See the work ↗](https://just-sree.vercel.app/#work) · [Resume source ↗](https://just-sree.vercel.app/resume.pdf)
+There's no public repo for this one. The details are on my [resume](https://just-sree.vercel.app/resume.pdf).
 
-## BogdAI · Contract Risk, With Receipts
+</details>
 
-**Microsoft Agents League Hackathon 2026 · Team prototype · Reasoning Agents Track**
+<details>
+<summary><b>BogdAI contract risk review</b> · hackathon team entry, 2026 · six agents</summary>
+<br>
 
-A six-agent pipeline for **synthetic healthcare and pharma contracts**: intake → clause extraction → grounding → risk reasoning → verification → reporting.
+Our entry for the Microsoft Agents League hackathon (Reasoning Agents track). Six agents review a contract in turn: intake, clause extraction, grounding, risk reasoning, verification and reporting. It uses Microsoft Foundry for policy grounding and reasoning. The output is a Pydantic report with citations for each finding, flags on high-risk items for a person to review, and the full agent trace. It runs on synthetic healthcare and pharma contracts, with a local fallback so it can be demoed without cloud credentials.
 
-Microsoft Foundry supports policy grounding and reasoning. Structured Pydantic reports bring together **citations, human-review flags, and an agent trace**. A deterministic fallback supports local demonstrations. This is a team prototype; individual contributions are not separately documented here.
+It was a team project, and the repo doesn't break down who did what. [Repository](https://github.com/anunjinb/bogdai-contract-risk-agent)
 
-[Explore the repository ↗](https://github.com/anunjinb/bogdai-contract-risk-agent) · [Follow the architecture ↗](https://just-sree.vercel.app/#bogdai)
+</details>
 
-## More work
+<details>
+<summary><b>CSE threat classifier</b> · capstone · 8M+ records, Windows CLI</summary>
+<br>
 
-Learning exercises, exploratory studies, and useful tools. Each repository gives the scope of the project.
+Malware classification for CSE Canada on 8M+ records with very uneven classes. I led the team. We tried logistic regression, random forest, XGBoost and LightGBM, and the imbalance held LightGBM to 63%, which is the number we reported. It ships as a Windows CLI that handles 10k+ files an hour.
 
-### AI tools
+</details>
 
-| Project | What it explores |
-| :--- | :--- |
-| **[SceneSense · See It. Hear It.](https://github.com/just-sree/Object-Detection-using-HF)** | Object detection, bounding boxes, scene descriptions, and optional multilingual audio in a Gradio app. |
-| **[Read Less. Listen More.](https://github.com/just-sree/AI-text-to-voice-summary-converter)** | An LLM workflow that summarises raw text or documents and converts the summary into audio. |
-| **[Code, Explained.](https://github.com/just-sree/ai-code-doc-generator)** | An AI-powered code documentation generator exploring how language models can make source code easier to understand. |
+<details>
+<summary><b>SceneSense</b> · object detection, scene descriptions and audio</summary>
+<br>
 
-### Predictive systems
+A Gradio app. Give it a photo and it finds the objects with DETR, writes a short description of the scene, and can read it aloud in more than one language. [Repository](https://github.com/just-sree/Object-Detection-using-HF)
 
-| Project | What it explores |
-| :--- | :--- |
-| **[Retention Intelligence](https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A)** | A customer-churn study combining predictive analytics with a proposed retrieval-augmented workflow for personalised retention strategies. |
-| **[Border Traffic · Signals & Outliers](https://github.com/just-sree/Advanced-Anomaly-Detection-in-Canadian-Border-Traffic)** | Statistical and machine-learning approaches to detecting unusual traveller volumes at Canadian ports of entry. |
-| **[Crypto · Beyond the Price Chart](https://github.com/just-sree/CryptoForecasts)** | An exploratory time-series project using Prophet and historical cryptocurrency data to study price trends. |
-| **[Property Price Intelligence](https://github.com/just-sree/Real-Estate-Price-Prediction-using-Random-Forest)** | A random-forest regression study exploring the relationship between property features and real-estate prices. |
-| **[Admissions · A Neural Perspective](https://github.com/just-sree/Neural-Network-Predicting-Chances-of-Admission-at-UCLA-)** | A neural-network modelling exercise estimating UCLA admission chances from applicant features. |
-| **[Loan Eligibility · Model to Decision](https://github.com/just-sree/Loan-Eligibility-Model)** | A machine-learning exercise exploring loan-eligibility classification from applicant data. |
-| **[Credit Eligibility · Applied ML](https://github.com/just-sree/credit_eligibility_application)** | An application-oriented machine-learning exercise for credit-eligibility prediction. |
+</details>
 
-### Data intelligence
+<details>
+<summary><b>12 more projects</b> · smaller tools, models and studies</summary>
+<br>
 
-| Project | What it explores |
-| :--- | :--- |
-| **[Retail Intelligence · The Data Blueprint](https://github.com/just-sree/Retail-Intelligence-Architecture--A-Data-Modeling-Framework-for-Walmart-Canada)** | A dimensional-modelling framework for a Walmart Canada retail case study, spanning sales, inventory, eCommerce, real estate, and employee benefits. |
-| **[Customer Patterns · Uncovered](https://github.com/just-sree/Mall-Customer-Segmentation-Model-using-Clustering)** | A clustering study that groups mall customers by shared characteristics to explore customer segments. |
-| **[Pistachio Quality · Finding the Odd One Out](https://github.com/just-sree/Anomaly_Detection_and_Classification_for_Pistachio_Datasets)** | Anomaly-detection and classification experiments comparing differently processed pistachio datasets. |
+- [Text-to-audio summariser](https://github.com/just-sree/AI-text-to-voice-summary-converter): summarises a document with an LLM, then reads the summary aloud
+- [Code documentation generator](https://github.com/just-sree/ai-code-doc-generator): uses a language model to write docs for source code
+- [Customer churn and retention](https://github.com/just-sree/Churn-Forecasting-and-Strategic-Retention-Using-Data-Analytics---A): a churn model, plus a proposed RAG workflow for retention suggestions
+- [Border traffic anomaly detection](https://github.com/just-sree/Advanced-Anomaly-Detection-in-Canadian-Border-Traffic): spotting unusual traveller volumes at Canadian ports of entry
+- [Crypto price forecasting](https://github.com/just-sree/CryptoForecasts): Prophet on historical crypto prices
+- [Real estate price prediction](https://github.com/just-sree/Real-Estate-Price-Prediction-using-Random-Forest): random forest regression on property features
+- [UCLA admission prediction](https://github.com/just-sree/Neural-Network-Predicting-Chances-of-Admission-at-UCLA-): a neural network that estimates admission chances
+- [Loan eligibility model](https://github.com/just-sree/Loan-Eligibility-Model): a loan eligibility classifier
+- [Credit eligibility app](https://github.com/just-sree/credit_eligibility_application): credit eligibility prediction with an app around it
+- [Walmart Canada data model](https://github.com/just-sree/Retail-Intelligence-Architecture--A-Data-Modeling-Framework-for-Walmart-Canada): a dimensional model covering sales, inventory, e-commerce, real estate and employee benefits
+- [Mall customer segmentation](https://github.com/just-sree/Mall-Customer-Segmentation-Model-using-Clustering): clustering mall customers into segments
+- [Pistachio anomaly detection](https://github.com/just-sree/Anomaly_Detection_and_Classification_for_Pistachio_Datasets): anomaly detection and classification on differently processed pistachio datasets
 
-## Work in progress
+</details>
 
-| Project | Direction |
-| :--- | :--- |
-| **[OCR Proofkit](https://github.com/just-sree/ocr-proofkit)** | Quality assessment and correction for the text that OCR gets almost right. |
-| **[Quota Journal](https://github.com/just-sree/quota-journal)** | A small tool for understanding API usage, request quotas, and rate limits. |
-| **[Quantisation Demystified](https://github.com/just-sree/Quantization-Demystified)** | Exploring how smaller model representations trade precision for speed and memory. |
+<details>
+<summary><b>In progress</b> · 3 projects</summary>
+<br>
 
-## The thread through the work
+- [OCR Proofkit](https://github.com/just-sree/ocr-proofkit): checking and correcting OCR output that's almost right
+- [Quota Journal](https://github.com/just-sree/quota-journal): tracking API usage against quotas and rate limits
+- [Quantization Demystified](https://github.com/just-sree/Quantization-Demystified): how quantised models trade precision for speed and memory
 
-- **Algonquin Applied Research:** technical research, proposals, stakeholder coordination, and evaluation plans.
-- **Lambton College:** industry-partnered applied AI research: model development, synthetic data, benchmarking, error analysis, and cloud inference.
-- **Education:** Algonquin College post-graduate certificates in AI Software Development and BI Systems Infrastructure, with forecasting and classification capstones; B.Tech in Electronics & Communication Engineering, Presidency University.
+</details>
 
-**Tools I work with:** Python · PyTorch · TensorFlow · scikit-learn · Hugging Face · SQL · LangChain · Microsoft Foundry · FastAPI · Docker
+## Experience
 
----
+- **Lambton College**, applied AI (Feb 2026 to now): leading a project with an industry partner. Model development, synthetic training data, benchmarking, error analysis and GPU inference on Lightning AI.
+- **Algonquin College**, applied research (Apr to Dec 2025): research proposals for Horizon Europe-aligned AI work, which led to an initial $150K funding commitment.
+- **Paresium** (ongoing): a startup I'm building.
+- **Infidata**, Python developer (2022): an event-driven ETL on AWS Lambda and RDS that refreshed data hourly and saved an estimated 40 hours a month of manual QA.
 
-Have a role, a workflow, or a product worth building? **[Talk to my agent](https://just-sree.vercel.app/#contact)** or **[email me](mailto:sreechackoth@gmail.com)**.
+## Education
+
+- **Algonquin College**: graduate certificates in AI Software Development (2024) and BI Systems Infrastructure (2025)
+- **Presidency University**: B.Tech in Electronics and Communication Engineering (2022)
+
+**Tools:** Python, PyTorch, TensorFlow, scikit-learn, XGBoost, Prophet, Hugging Face, OpenCV, LangGraph, LangChain, Microsoft Foundry, RAG, MCP, FastAPI, AWS, Docker, MLflow, SQL, Power BI
+
+Email is the best way to reach me: [sreechackoth@gmail.com](mailto:sreechackoth@gmail.com)

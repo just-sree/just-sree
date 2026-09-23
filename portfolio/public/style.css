@@ -47,15 +47,32 @@ h3 { font-size: 15px; font-weight: 600; }
 .links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 20px !important; }
 .links a::before { content: "→ "; color: var(--dim); }
 
-.projects { display: grid; gap: 28px; }
-.projects li { padding-left: 16px; border-left: 1px solid var(--line); }
-.projects li:hover { border-left-color: var(--green); }
-.row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; font-size: 14px; }
-.row h3 button, .nolink { color: var(--amber); }
-.row h3 button:hover { text-decoration: underline; text-underline-offset: 3px; }
-.projects p { margin-top: 6px; }
+/* Featured projects collapse to one line each; [+] expands them */
+.projects { display: grid; gap: 14px; }
+.projects details { padding-left: 16px; border-left: 1px solid var(--line); }
+.projects details:hover, .projects details[open] { border-left-color: var(--green); }
+.projects summary { display: grid; grid-template-columns: 1fr auto; column-gap: 16px; align-items: baseline; cursor: pointer; list-style: none; font-size: 14px; }
+.projects summary::-webkit-details-marker { display: none; }
+.projects summary h3 { color: var(--amber); }
+.projects summary h3::before { content: "[+] "; color: var(--green); font-weight: 400; }
+.projects details[open] summary h3::before { content: "[-] "; }
+.projects summary:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+.gist { grid-column: 1 / -1; padding-left: 4ch; font-size: 15px; color: var(--text); }
+.more { padding: 10px 0 4px 4ch; }
+.more p + p { margin-top: 6px; }
 .stack { color: var(--dim); font-size: 13px; }
 .projects .stack::before { content: "deps: "; color: var(--line); }
+.notes { margin-top: 8px; color: var(--green); font-size: 14px; }
+.notes::before { content: "→ "; color: var(--dim); }
+.notes:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* The longer project list sits behind one toggle */
+.group > summary { cursor: pointer; list-style: none; }
+.group > summary::-webkit-details-marker { display: none; }
+.toggle { margin-left: 12px; color: var(--dim); }
+.toggle::before { content: "[+] "; color: var(--green); }
+.group[open] .toggle::before { content: "[-] "; }
+.group > summary:hover .toggle { color: var(--text); }
 
 .listing li { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 3px 0; }
 .listing button, .listing a { text-align: left; color: var(--amber); }
@@ -82,6 +99,9 @@ kbd { font: 12px var(--mono); color: var(--text); border: 1px solid var(--line);
   .site-header nav { gap: 12px; }
   .site-header nav a { display: none; }
   main > section:first-child { padding-top: 40px; }
+  .projects summary { grid-template-columns: 1fr; }
+  .projects summary > .dim { padding-left: 4ch; font-size: 13px; }
+  .projects summary h3, .gist { font-size: 14px; }
   .listing li, .log li { grid-template-columns: 1fr; gap: 0; }
   .listing li { padding: 6px 0; }
 }

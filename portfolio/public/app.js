@@ -184,6 +184,9 @@ async function sendMessage(raw) {
       action.addEventListener('click', () => {
         agentDialog.close();
         const target = document.getElementById(`project-${data.project}`);
+        // Projects sit in collapsed <details>; open them so the target is visible and focusable.
+        target?.closest('details')?.setAttribute('open', '');
+        target?.querySelector('details')?.setAttribute('open', '');
         target?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' });
         target?.querySelector('button')?.focus({ preventScroll: true });
         openProject(data.project);

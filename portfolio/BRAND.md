@@ -12,11 +12,11 @@ JetBrains Mono for everything, from Google Fonts with system monospace fallbacks
 
 ## Shapes and motion
 
-No cards, shadows, gradients or rounded pills. Hairline rules and left borders only. The one animation is the blinking cursor at the end of the page, which stops under reduced motion.
+No cards, shadows, gradients or rounded pills. Hairline rules and left borders only. Each featured project collapses to one line with a `[+]` toggle, and the longer project list sits behind a single toggle, so the page stays short. The one animation is the blinking cursor at the end of the page, which stops under reduced motion.
 
 ## Mark
 
-`public/mark.svg`: a green `>_` prompt on a dark square, used as the favicon.
+`public/mark.svg`: a green `>_` prompt on a dark square, used as the favicon. `assets/profile-header.svg` is the GitHub profile banner, drawn as the same terminal.
 
 ## Copy
 
