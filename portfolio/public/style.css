@@ -82,6 +82,17 @@ h3 { font-size: 15px; font-weight: 600; }
 .log .when { color: var(--green); font-size: 13px; padding-top: 1px; }
 .log p { color: var(--dim); }
 
+/* Experience entries collapse like the projects */
+.jobs li { display: block; padding: 6px 0; }
+.jobs summary { display: grid; grid-template-columns: 170px 1fr; column-gap: 16px; align-items: baseline; cursor: pointer; list-style: none; }
+.jobs summary::-webkit-details-marker { display: none; }
+.jobs summary .when { grid-row: span 2; }
+.jobs summary h3::before { content: "[+] "; color: var(--green); font-weight: 400; }
+.jobs details[open] summary h3::before { content: "[-] "; }
+.jobs summary:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+.jobs .gist { grid-column: 2; color: var(--dim); }
+.jobs .more { margin: 6px 0 4px calc(170px + 16px); padding: 0 0 0 4ch; color: var(--dim); }
+
 .inline { color: var(--green); }
 .inline:hover { text-decoration: underline; text-underline-offset: 3px; }
 kbd { font: 12px var(--mono); color: var(--text); border: 1px solid var(--line); padding: 0 5px; }
@@ -104,6 +115,10 @@ kbd { font: 12px var(--mono); color: var(--text); border: 1px solid var(--line);
   .projects summary h3, .gist { font-size: 14px; }
   .listing li, .log li { grid-template-columns: 1fr; gap: 0; }
   .listing li { padding: 6px 0; }
+  .jobs summary { grid-template-columns: 1fr; }
+  .jobs summary .when { grid-row: auto; }
+  .jobs .gist { grid-column: 1; }
+  .jobs .more { margin-left: 0; }
 }
 
 /* Dialogs, styled as terminal windows */
