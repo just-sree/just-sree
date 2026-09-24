@@ -7,6 +7,7 @@ if (figure) {
   const pre = figure.querySelector('pre');
   const frame = figure.querySelector('.portrait-frame');
   // Sparse to dense: brighter pixels get denser characters on the dark background.
+  // The light theme flips this, so the portrait never reads as a negative.
   const ramp = ' .:-=+*#%@';
   const cols = 48;
   const rows = cols / 2; // monospace cells are about twice as tall as they are wide
@@ -18,7 +19,7 @@ if (figure) {
   img.style.top = `${(-crop.y / crop.size) * 100}%`;
 
   const inside = (x, y) => Math.hypot((x + 0.5) / cols - 0.5, (y + 0.5) / rows - 0.5) < 0.49;
-  const render = () => {
+  const toAscii = () => {
     const canvas = document.createElement('canvas');
     canvas.width = cols;
     canvas.height = rows;
@@ -37,13 +38,19 @@ if (figure) {
       while (lo < hi) { const mid = (lo + hi) >> 1; if (sorted[mid] < value) lo = mid + 1; else hi = mid; }
       return lo / sorted.length;
     };
+    const onPaper = document.documentElement.dataset.theme === 'light';
     let text = '';
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
-        text += inside(x, y) ? ramp[Math.min(ramp.length - 1, Math.floor(rank(light[y * cols + x]) * ramp.length))] : ' ';
+        const r = rank(light[y * cols + x]);
+        text += inside(x, y) ? ramp[Math.min(ramp.length - 1, Math.floor((onPaper ? 1 - r : r) * ramp.length))] : ' ';
       }
       text += '\n';
     }
+    return text;
+  };
+  const render = () => {
+    const text = toAscii();
     finalText = text;
     pre.textContent = animate ? blank(text) : text;
     figure.classList.add('ready');
@@ -100,6 +107,13 @@ if (figure) {
     pre.style.lineHeight = `${size / rows}px`;
   };
   addEventListener('resize', fit);
+  // Switching theme redraws with the matching ramp and skips any decode in progress.
+  document.addEventListener('theme:change', () => {
+    if (!finalText) return;
+    runId++;
+    finalText = toAscii();
+    pre.textContent = finalText;
+  });
   if (img.complete && img.naturalWidth) render();
   else {
     img.addEventListener('load', render);

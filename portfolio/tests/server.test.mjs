@@ -19,7 +19,7 @@ test('HTTP boundary: serves only public files, rejects bad requests, and limits 
   assert.equal(resume.headers.get('Content-Type'), 'application/pdf');
   const pdf = Buffer.from(await resume.arrayBuffer());
   assert.equal(pdf.subarray(0, 5).toString(), '%PDF-');
-  for (const asset of ['/style.css', '/app.js', '/aquarium.js', '/portrait.js', '/shell.js', '/og.png', '/mark.svg', '/projects.json', '/robots.txt', '/sitemap.xml', '/fonts/jbm-latin.woff2']) assert.equal((await fetch(base + asset)).status, 200, asset);
+  for (const asset of ['/style.css', '/app.js', '/aquarium.js', '/portrait.js', '/shell.js', '/theme.js', '/og.png', '/mark.svg', '/projects.json', '/robots.txt', '/sitemap.xml', '/fonts/jbm-latin.woff2']) assert.equal((await fetch(base + asset)).status, 200, asset);
   const missing = await fetch(base + '/bamboo.js');
   assert.equal(missing.status, 404);
   assert.match(await missing.text(), /cd: no such page/);

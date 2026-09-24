@@ -109,6 +109,13 @@ if (form && input && output) {
       document.dispatchEvent(new CustomEvent('aquarium:feed'));
       line('><> dropped some food.');
     }],
+    theme: ['switch light/dark, or: theme light', (args) => {
+      const now = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+      const want = /^(light|dark)$/i.test(args) ? args.toLowerCase() : args ? null : now === 'light' ? 'dark' : 'light';
+      if (!want) return dim('usage: theme [light|dark]');
+      document.dispatchEvent(new CustomEvent('theme:set', { detail: { theme: want } }));
+      line(`theme: ${want}`);
+    }],
     clear: ['clear this output', () => output.replaceChildren()],
   };
   // Hidden commands: not in help or Tab completion, just there to be found.
@@ -178,7 +185,7 @@ if (form && input && output) {
     hello: () => line('Hi. Type help to see what this does, or just ask a question.'),
     coffee: () => line('  ( (\n   ) )\n ........\n |      |]\n \\      /\n  `----\''),
   };
-  const aliases = { 'ls projects': 'ls', 'ls projects/': 'ls', 'cat experience.log': 'experience', 'cat stack.txt': 'stack', './contact': 'contact', email: 'contact', open: 'cat', ask: 'agent', '?': 'help', writing: 'community', 'ls community': 'community', 'ls community/': 'community', 'cat certifications.txt': 'community', 'open to work': 'status', available: 'status', hire: 'status', hi: 'hello', hey: 'hello', logout: 'exit', quit: 'exit', ':q': 'exit', nvim: 'vim', vi: 'vim' };
+  const aliases = { 'ls projects': 'ls', 'ls projects/': 'ls', 'cat experience.log': 'experience', 'cat stack.txt': 'stack', './contact': 'contact', email: 'contact', open: 'cat', ask: 'agent', '?': 'help', writing: 'community', 'ls community': 'community', 'ls community/': 'community', 'cat certifications.txt': 'community', 'open to work': 'status', available: 'status', hire: 'status', hi: 'hello', hey: 'hello', logout: 'exit', quit: 'exit', ':q': 'exit', nvim: 'vim', vi: 'vim', 'light mode': 'theme light', 'dark mode': 'theme dark', lights: 'theme' };
 
   function run(raw) {
     const text = raw.trim();
