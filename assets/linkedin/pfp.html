@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LinkedIn profile photo</title>
+<style>
+  @font-face { font-family: "JetBrains Mono"; font-weight: 400 600; src: url("../../portfolio/public/fonts/jbm-latin.woff2") format("woff2"); }
+  html, body { margin: 0; }
+  body { width: 800px; height: 800px; overflow: hidden; background: #0d0f0d; position: relative; }
+  canvas, img, pre { position: absolute; }
+  /* LinkedIn shows this as a circle; the ring sits just inside that edge. */
+  .ring { position: absolute; inset: 14px; border-radius: 50%; border: 6px solid #86d96b; box-sizing: border-box; }
+  pre { inset: 0; margin: 0; display: grid; place-items: center; font: 600 13px/15px "JetBrains Mono", monospace; color: #86d96b; }
+</style>
+</head>
+<body>
+  <canvas id="c" width="800" height="800"></canvas>
+  <script>
+    // Modes: #photo (clean crop), #ring (photo on the site's dark with a thin green ring), #ascii (the site's ASCII portrait).
+    const mode = location.hash.slice(1) || 'photo';
+    const img = new Image();
+    img.src = 'headshot-src.png';
+    img.onload = () => {
+      const c = document.getElementById('c');
+      const ctx = c.getContext('2d');
+      // Head and shoulders, inside the source's own circular frame.
+      const crop = { x: 165, y: 70, size: 700 };
+      if (mode === 'photo') {
+        ctx.drawImage(img, crop.x, crop.y, crop.size, crop.size, 0, 0, 800, 800);
+        // Paint the corners (outside LinkedIn's circle) dark so the square version has no stray frame arc.
+        ctx.fillStyle = '#0d0f0d';
+        ctx.beginPath(); ctx.rect(0, 0, 800, 800); ctx.arc(400, 400, 400, 0, Math.PI * 2, true); ctx.fill();
+      } else if (mode === 'ring') {
+        ctx.save();
+        ctx.beginPath(); ctx.arc(400, 400, 366, 0, Math.PI * 2); ctx.clip();
+        ctx.drawImage(img, crop.x, crop.y, crop.size, crop.size, 34, 34, 732, 732);
+        ctx.restore();
+        document.body.insertAdjacentHTML('beforeend', '<div class="ring"></div>');
+      } else {
+        // Same approach as the site: rank brightness inside a circle, map to a ramp.
+        const cols = 88, rows = 46, ramp = ' .:-=+*#%@';
+        const t = document.createElement('canvas'); t.width = cols; t.height = rows;
+        const tc = t.getContext('2d', { willReadFrequently: true });
+        tc.drawImage(img, crop.x, crop.y, crop.size, crop.size, 0, 0, cols, rows);
+        const d = tc.getImageData(0, 0, cols, rows).data;
+        const lum = []; for (let i = 0; i < d.length; i += 4) lum.push(0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]);
+        const inside = (x, y) => Math.hypot((x + .5) / cols - .5, (y + .5) / rows - .5) < .47;
+        const sorted = lum.filter((_, i) => inside(i % cols, Math.floor(i / cols))).sort((a, b) => a - b);
+        const rank = (v) => { let lo = 0, hi = sorted.length; while (lo < hi) { const m = (lo + hi) >> 1; if (sorted[m] < v) lo = m + 1; else hi = m; } return lo / sorted.length; };
+        let text = '';
+        for (let y = 0; y < rows; y++) { for (let x = 0; x < cols; x++) text += inside(x, y) ? ramp[Math.min(9, Math.floor(rank(lum[y * cols + x]) * 10))] : ' '; text += '\n'; }
+        const pre = document.createElement('pre'); pre.textContent = text; document.body.append(pre);
+      }
+      document.body.dataset.ready = '1';
+    };
+  </script>
+</body>
+</html>

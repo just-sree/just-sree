@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LinkedIn banner</title>
+<style>
+  @font-face { font-family: "JetBrains Mono"; font-weight: 400 600; src: url("../../portfolio/public/fonts/jbm-latin.woff2") format("woff2"); }
+  :root { --bg: #0d0f0d; --text: #d6d9d2; --dim: #7c8379; --line: #242a24; --green: #86d96b; --amber: #e5b567; }
+  :root.light { --bg: #f5f4ee; --text: #1c201b; --dim: #5a6157; --line: #d3d5ca; --green: #2e6f1c; --amber: #8f5b00; }
+  html, body { margin: 0; }
+  body { width: 1584px; height: 396px; overflow: hidden; background: var(--bg); color: var(--text); font-family: "JetBrains Mono", monospace; position: relative; }
+  /* Faint scanlines, like the site's terminal. */
+  body::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, transparent 0 3px, color-mix(in srgb, var(--line) 35%, transparent) 3px 4px); pointer-events: none; }
+  .fish { position: absolute; white-space: pre; font-size: 22px; line-height: 1; }
+  .card { position: absolute; left: 640px; top: 58px; right: 64px; }
+  .host { font-size: 18px; color: var(--green); font-weight: 600; letter-spacing: .01em; }
+  .host span { color: var(--dim); font-weight: 400; }
+  .cmd { margin-top: 26px; font-size: 20px; }
+  .cmd::before { content: "$ "; color: var(--green); font-weight: 600; }
+  h1 { margin: 10px 0 0; font-size: 54px; font-weight: 600; letter-spacing: -.01em; line-height: 1.1; }
+  .role { margin-top: 14px; font-size: 22px; }
+  .what { margin-top: 8px; font-size: 18px; color: var(--dim); }
+  .url { margin-top: 26px; font-size: 20px; }
+  .url::before { content: "$ "; color: var(--green); font-weight: 600; }
+  .url b { color: var(--green); font-weight: 400; }
+  .cursor { display: inline-block; width: .6em; height: 1.05em; vertical-align: text-bottom; background: var(--green); margin-left: 4px; }
+  .rule { position: absolute; left: 600px; top: 58px; bottom: 58px; border-left: 1px solid var(--line); }
+</style>
+</head>
+<body>
+  <!-- Aquarium on the left. LinkedIn puts the profile photo over the bottom-left, so nothing important lives there. -->
+  <div class="fish" style="left:70px;top:48px;color:var(--green);opacity:.55">&gt;&lt;(((º&gt;</div>
+  <div class="fish" style="left:300px;top:92px;color:var(--amber);opacity:.45">&lt;º)))&gt;&lt;</div>
+  <div class="fish" style="left:180px;top:150px;color:var(--dim);opacity:.6">&gt;&lt;&gt;</div>
+  <div class="fish" style="left:420px;top:190px;color:var(--green);opacity:.4">&lt;°}}&gt;&lt;</div>
+  <div class="fish" style="left:60px;top:250px;color:var(--amber);opacity:.35">&gt;&lt;{{°&gt;</div>
+  <div class="fish" style="left:470px;top:300px;color:var(--dim);opacity:.5">&lt;&gt;&lt;</div>
+  <div class="fish" style="left:255px;top:40px;color:var(--dim);opacity:.45;font-size:16px">o</div>
+  <div class="fish" style="left:262px;top:14px;color:var(--dim);opacity:.35;font-size:14px">°</div>
+  <div class="fish" style="left:520px;top:140px;color:var(--dim);opacity:.4;font-size:16px">o</div>
+  <div class="fish" style="left:514px;top:112px;color:var(--dim);opacity:.3;font-size:14px">°</div>
+  <div class="rule"></div>
+  <div class="card">
+    <div class="host">just-sree<span>:~</span></div>
+    <div class="cmd">whoami</div>
+    <h1>Sree Sankaran Chackoth</h1>
+    <div class="role">Applied AI &amp; ML engineer · forward-deployed engineer</div>
+    <div class="what">forecasting · agents · computer vision · business problem → shipped model</div>
+    <div class="url">open <b>just-sree.vercel.app</b><span class="cursor"></span></div>
+  </div>
+  <script>if (location.hash === '#light') document.documentElement.classList.add('light');</script>
+</body>
+</html>
