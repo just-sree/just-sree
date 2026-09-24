@@ -1,6 +1,6 @@
 <p align="center"><img src="./assets/profile-header.svg" alt="Terminal banner: $ whoami, Sree Sankaran Chackoth, applied AI and ML engineer, forward-deployed engineer, based in Ontario, Canada" width="100%" /></p>
 
-I'm Sree, an applied AI and ML engineer and forward-deployed engineer (FDE) based in Ontario, Canada. Most of my work starts with a business problem and a pile of data: I work with the people who have the problem to pin down what they need, then clean the data, build the model or agent, check that it actually helps, and ship it. Right now I'm at Lambton College building the computer vision pipeline that reads venue maps for EventLinx, and I'm co-founder and AI lead at [Paresium](https://paresium.com).
+I'm Sree, an applied AI and ML engineer and forward-deployed engineer (FDE) based in Ontario, Canada. Most of my work starts with a business problem and a pile of data: I work with the people who have the problem to pin down what they need, then clean the data, build the model or agent, check that it actually helps, and ship it. Right now I'm an AI Research Technician, working between academic research and industry partners: scoping applied AI projects, building the models, and helping write the proposals that fund them.
 
 **Open to applied AI, ML and FDE roles**: remote, hybrid or on-site in Ontario.
 
