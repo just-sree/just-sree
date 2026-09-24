@@ -36,6 +36,27 @@
     "url": "https://github.com/anunjinb/bogdai-contract-risk-agent",
     "sourceLabel": "Explore the repository"
   },
+  "governed-ai": {
+    "name": "Governed AI Reliability",
+    "title": "Policy boundaries, reproducible evidence, durable workflows.",
+    "summary": "An anonymized case-study draft about policy constraints, escalation behavior, reproducible defect investigation, and durable workflow design. Personal contributions require owner review.",
+    "problem": "An AI workflow can produce a plausible answer while crossing a policy boundary, losing an escalation, or repeating a defect. Reliability requires explicit decisions, inspectable evidence, and a workflow that survives handoffs.",
+    "architecture": ["Policy constraints", "Proceed / block / escalate", "Reproducible investigation", "Regression evidence", "Durable handoff"],
+    "decision": "Describe permitted actions and stop conditions before execution. Keep prohibited actions blocked; send ambiguous or insufficiently supported cases to a human reviewer with the reason and minimum necessary context. Preserve a reproducible investigation and an explicit resume condition.",
+    "policy": "Illustrative design: encode action scope, required evidence, and approval conditions as testable constraints. Distinguish permitted actions, prohibited actions, and decisions that require review. An escalation does not itself grant permission.",
+    "escalation": "Illustrative design: pause the affected action, record the trigger, and assign a reviewer with expected versus observed behavior and a clear decision request. Missing acknowledgement remains pending. Resume only after a recorded decision and a fresh policy check; retries must not bypass the gate.",
+    "investigation": "Illustrative investigation: an ambiguous request should pause for review, but a retry proceeds without a decision. Reproduce with synthetic inputs, fixed preconditions, configuration and policy versions, exact steps, and a sanitized trace. Repeat runs to record variability; distinguish observations from hypotheses. Minimize the failing case, isolate one variable at a time, and test the proposed fix against both the failure and allowed behavior.",
+    "workflow": "Illustrative design: maintain a versioned playbook with entry criteria, decision rules, ownership, evidence requirements, and closure criteria. Save the pending decision and completion state across handoffs or interruptions. Make retries safe to repeat, prevent duplicate side effects, and turn each confirmed defect into a regression scenario.",
+    "contributions": [
+      "Review required — proposed personal contribution: I translated policy requirements into explicit constraints and boundary scenarios.",
+      "Review required — proposed personal contribution: I investigated escalation behavior and clarified when a workflow must pause, hand off, and resume.",
+      "Review required — proposed personal contribution: I built reproducible defect reports using minimal examples, expected versus observed behavior, and regression checks.",
+      "Review required — proposed personal contribution: I designed durable workflow guidance that preserves decisions, evidence, and ownership across handoffs."
+    ],
+    "evidence": "Drafted from the owner's requested themes. The design and defect example are illustrative abstractions, not published incident records or verified implementation evidence. No private logs, screenshots, source links, or identifying details are included.",
+    "outcome": "Intended value: a reviewer can understand why an action paused, another investigator can rerun a defect, and a later maintainer can continue the workflow. No measured reliability improvement, deployment status, or business outcome is claimed.",
+    "limits": "Owner review required: confirm or revise each personal-contribution statement, distinguish individual work from team work, and confirm which illustrative practices reflect completed work. Scope, artifacts, and outcomes have not been independently verified."
+  },
   "vision": {
     "name": "SceneSense",
     "title": "SceneSense",

@@ -35,8 +35,8 @@ test('preview does not call a provider and preserves project limitations', async
   assert.match(result.answer, /synthetic/);
   assert.match(result.answer, /team/);
   const quality = await generateReply('How does he approach reliability?', []);
-  assert.equal(quality.project, 'bogdai');
-  assert.match(quality.answer, /synthetic/);
+  assert.equal(quality.project, 'governed-ai');
+  assert.match(quality.answer, /Review required/);
 });
 
 test('unknown preview requests do not invent facts', async () => {

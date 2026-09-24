@@ -50,22 +50,34 @@ async function openProject(id) {
     flow.className = 'detail-flow';
     (project.architecture || []).forEach((name, index) => flow.append(textElement('span', `${index + 1}. ${name}`)));
     detail.append(flow);
-    for (const [label, key] of [['The problem', 'problem'], ['The engineering decision', 'decision'], ['Evidence & source', 'evidence'], ['Scope & status', 'limits']]) {
+    for (const [label, key] of [['The problem', 'problem'], ['The engineering decision', 'decision'], ['Policy constraints', 'policy'], ['Escalation behavior', 'escalation'], ['Reproducible defect investigation', 'investigation'], ['Durable workflow design', 'workflow'], ['Intended value', 'outcome'], ['Evidence & source', 'evidence'], ['Scope & status', 'limits']]) {
       const section = document.createElement('section');
       section.className = 'detail-section';
       if (!project[key]) continue;
       section.append(textElement('h3', label), textElement('p', project[key]));
       detail.append(section);
     }
+    if (project.contributions?.length) {
+      const section = document.createElement('section');
+      section.className = 'detail-section contribution-review';
+      section.append(textElement('h3', 'Personal contributions — owner review required'));
+      const list = document.createElement('ul');
+      project.contributions.forEach((claim) => list.append(textElement('li', claim)));
+      section.append(list);
+      detail.append(section);
+    }
     const actions = document.createElement('div');
     actions.className = 'detail-actions';
-    const source = textElement('a', (project.sourceLabel || 'Explore the source') + ' ↗', 'button button-dark');
-    source.href = project.url;
-    source.target = '_blank';
-    source.rel = 'noreferrer';
+    if (project.url) {
+      const source = textElement('a', (project.sourceLabel || 'Explore the source') + ' ↗', 'button button-dark');
+      source.href = project.url;
+      source.target = '_blank';
+      source.rel = 'noreferrer';
+      actions.append(source);
+    }
     const ask = textElement('button', 'Ask my agent about this ↗', 'text-link');
     ask.addEventListener('click', () => openAgent(`Explain the engineering decisions in ${project.name}.`));
-    actions.append(source, ask);
+    actions.append(ask);
     detail.append(actions);
   } catch {
     detail.replaceChildren(textElement('h2', 'Project notes unavailable'), textElement('p', 'Please reload the page to try again.'));
@@ -76,7 +88,7 @@ $$('[data-project]').forEach((button) => button.addEventListener('click', () => 
 const prompts = {
   hiring: ['Where is Sree strongest as an engineer?', 'Compare IRCC and BogdAI.', 'Is the latest resume available?'],
   founder: ['What could Sree help a startup build?', 'Help me draft a collaboration brief.', 'What is currently in development?'],
-  technical: ['Walk me through the IRCC forecasting pipeline.', 'Explain BogdAI’s six-agent pipeline.', 'How does SceneSense turn images into audio?'],
+  technical: ['Walk me through the IRCC forecasting pipeline.', 'Explain BogdAI’s six-agent pipeline.', 'Explain Governed AI Reliability.'],
 };
 function renderSuggestions(audience) {
   $('#suggestions').replaceChildren();
@@ -239,7 +251,7 @@ async function sendMessage(raw, task) {
       reply.append(draft, download, emailAction('Email this brief to Sree', 'Collaboration brief', () => draft.value));
     }
     for (const id of data.sources || []) {
-      if (!Object.hasOwn(projects, id)) continue;
+      if (!Object.hasOwn(projects, id) || !projects[id].url) continue;
       const source = textElement('a', projects[id].name + ' source ↗', 'message-source');
       source.href = projects[id].url; source.target = '_blank'; source.rel = 'noreferrer';
       reply.append(source);
@@ -258,11 +270,13 @@ async function sendMessage(raw, task) {
         openProject(data.project);
       });
       reply.append(action);
-      const source = textElement('a', `Source: ${project.name} ↗`, 'message-source');
-      source.href = project.url;
-      source.target = '_blank';
-      source.rel = 'noreferrer';
-      reply.append(source);
+      if (project.url) {
+        const source = textElement('a', `Source: ${project.name} ↗`, 'message-source');
+        source.href = project.url;
+        source.target = '_blank';
+        source.rel = 'noreferrer';
+        reply.append(source);
+      }
     }
     if (data.contact && !data.match && !data.brief) reply.append(emailAction('Email Sree about this', 'Question from your portfolio', chatEmail));
   } catch (error) {

@@ -44,6 +44,8 @@ Vercel deployment is configured in `vercel.json` with two Node function entries 
 
 ## Content provenance
 
+The Governed AI Reliability case study is an anonymized draft based only on the owner's requested themes. Its technical examples are illustrative; no private source material was imported. Review the four proposed personal contributions in `public/projects.json` and the matching section in `public/index.html` before treating them as approved claims. Confirm individual versus team scope and which practices reflect completed work. There are no source links or measured outcome claims for this draft. The project dialog and agent context retain the review status.
+
 The September 2026 content pass uses the owner's approved project list, public GitHub metadata and selected READMEs, the supplied resume for the IRCC capstone and career details, and the BogdAI README for the Microsoft Agents League Hackathon 2026 pipeline. The border-traffic anomaly study is a separate supporting project; it is not used as a source for the IRCC capstone.
 
 All figures on the page come from the supplied resume and the approved project list. `public/projects.json` is the approved catalogue shared with the agent. `scope.mjs` intercepts excluded topics before provider calls and checks responses; no excluded project details are part of the knowledge context.

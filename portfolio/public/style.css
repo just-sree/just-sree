@@ -65,6 +65,10 @@ main p + p { margin-top: 12px; }
 * + .cmd { margin-top: 32px !important; }
 h1 { font-size: clamp(22px, 4vw, 30px); font-weight: 600; line-height: 1.25; margin-bottom: 16px; }
 h3 { font-size: 15px; font-weight: 600; }
+.governance-study h4 { margin: 24px 0 8px; font-size: 14px; color: var(--text); }
+.contribution-review { border-left: 2px solid var(--amber); padding-left: 14px; }
+.contribution-review strong { color: var(--amber); }
+.contribution-review li + li { margin-top: 14px; }
 /* Intro with the headshot, drawn as ASCII until hovered (portrait.js) */
 .intro { display: grid; grid-template-columns: 1fr auto; column-gap: 32px; align-items: start; }
 .portrait { display: none; margin: 8px 0 0; width: 222px; border: 1px solid var(--line); background: var(--panel); cursor: pointer; }

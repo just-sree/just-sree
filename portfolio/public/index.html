@@ -48,11 +48,12 @@
     <section id="top" class="intro" aria-labelledby="intro-title">
       <div class="intro-text">
         <p class="cmd">whoami</p>
-        <h1 id="intro-title">Sree Sankaran Chackoth</h1>
-        <p>Applied AI and ML engineer and forward-deployed engineer (FDE), based in Ontario, Canada.</p>
+        <h1 id="intro-title">Hi, I’m Sree.</h1>
+        <p><strong>Most of my work starts with a business problem and a pile of data.</strong></p>
+        <p>I’m an AI Research Technician and startup founder based in Ontario, Canada. I work with people to understand what they’re trying to solve, figure out where AI can help, and take it from an early experiment to something they can use.</p>
+        <p>I enjoy moving between conversations and code: asking questions, working through messy data, building models, and getting them running in real workflows. My work spans computer vision, AI agents, and predictive modelling, but I’m interested in the whole job, including the integrations, testing, and practical tradeoffs that make a system dependable.</p>
+        <p>For me, the interesting part is seeing what happens when something I’ve built meets the people it’s meant to help, and figuring out what needs to change.</p>
         <p class="status"><span class="pulse" aria-hidden="true"></span><span>open to applied AI, ML and FDE roles</span><span class="dim">remote, hybrid or on-site in Ontario</span></p>
-        <p>Most of my work starts with a business problem and a pile of data. I work with the people who have the problem to pin down what they need to decide or automate, then do the rest: clean the data, build the model or agent, check that it actually helps, and ship it in a form they can use.</p>
-        <p>So far that's meant immigration forecasts built from 2M+ records, a malware classifier that sorts 10k+ files an hour, and an ETL that saved an estimated 40 hours a month of manual QA. Right now I'm leading an applied AI project with an industry partner at Lambton College.</p>
         <p class="links"><a href="/resume.pdf" target="_blank" rel="noreferrer">resume.pdf</a> <a href="https://github.com/just-sree" target="_blank" rel="noreferrer">github</a> <a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">linkedin</a> <a href="mailto:sreechackoth@gmail.com">email</a></p>
       </div>
       <figure class="portrait" tabindex="0" aria-label="Photo of Sree, drawn as ASCII art. Hover, focus or tap to see the photo.">
@@ -64,7 +65,7 @@
     <section id="work" aria-labelledby="work-title">
       <h2 id="work-title" class="sr-only">Selected work</h2>
       <details class="group" open>
-        <summary class="cmd">ls projects/ --featured <span class="toggle">6 projects</span></summary>
+        <summary class="cmd">ls projects/ --featured <span class="toggle">7 projects</span></summary>
         <ul class="projects">
         <li id="project-ircc">
           <details>
@@ -92,6 +93,34 @@
             <div class="more">
               <p>A multi-agent RAG system in LangGraph. It retrieves the relevant regulations, reasons over how the internal process actually works, flags the gaps, and creates or updates Jira tickets, so legal requirements become engineering work.</p>
               <p class="stack">langgraph rag multi-agent jira</p>
+            </div>
+          </details>
+        </li>
+        <li id="project-governed-ai">
+          <details id="governed-ai">
+            <summary><h3>governed-ai-reliability/</h3><span class="dim">anonymized · draft for review</span><span class="gist">Policy constraints, escalation behavior, reproducible investigations and durable workflows.</span></summary>
+            <div class="more governance-study">
+              <p><strong>Owner review required.</strong> This case-study draft uses illustrative technical practices based on the requested themes. Each proposed personal contribution below needs confirmation. No private artifacts or identifying details are included.</p>
+              <h4>The problem</h4>
+              <p>A plausible answer can still cross a policy boundary, lose an escalation or repeat a defect. Reliable behavior needs explicit decisions, inspectable evidence and a workflow that survives handoffs.</p>
+              <h4>Policy constraints</h4>
+              <p>Define permitted actions, required evidence and approval conditions before execution. Separate actions that may proceed, prohibited actions that stay blocked, and ambiguous decisions that need human review. Escalation alone grants no permission.</p>
+              <p class="contribution-review"><strong>Review required — proposed personal contribution:</strong> I translated policy requirements into explicit constraints and boundary scenarios.</p>
+              <h4>Escalation behavior</h4>
+              <p>Pause the affected action when policy is ambiguous or evidence is insufficient. Give a reviewer the trigger, minimum necessary context and a clear decision request. Missing acknowledgement stays pending. Resume only after a recorded decision and a fresh policy check.</p>
+              <p class="contribution-review"><strong>Review required — proposed personal contribution:</strong> I investigated escalation behavior and clarified when a workflow must pause, hand off, and resume.</p>
+              <h4>Reproducible defect investigation</h4>
+              <p>Reduce a report to synthetic inputs, fixed preconditions, configuration and policy versions, exact steps, and expected versus observed behavior. Repeat runs to capture variability. Separate observations from hypotheses, isolate one variable at a time, and test both the failing case and permitted behavior after a fix.</p>
+              <p class="contribution-review"><strong>Review required — proposed personal contribution:</strong> I built reproducible defect reports using minimal examples, expected versus observed behavior, and regression checks.</p>
+              <h4>Durable workflow design</h4>
+              <p>Use a versioned playbook with entry criteria, decision rules, ownership, evidence requirements and closure criteria. Preserve pending decisions and completion state through interruptions. Make retries safe to repeat without duplicate effects, and retain each confirmed defect as a regression scenario.</p>
+              <p class="contribution-review"><strong>Review required — proposed personal contribution:</strong> I designed durable workflow guidance that preserves decisions, evidence, and ownership across handoffs.</p>
+              <h4>Illustrative scenario: a retry loses the review gate</h4>
+              <p>Synthetic example, not an incident record: an ambiguous request should pause for review, but a retry continues without a decision. Replay the same request and pending state, inspect the decision path, and isolate the transition that lost the gate.</p>
+              <p><strong>Acceptance check:</strong> pending and denied decisions stay stopped across retries and restarts. An approved action resumes only after rechecking policy and produces no duplicate effects.</p>
+              <h4>Intended value and limits</h4>
+              <p>A reviewer can understand the pause, another investigator can rerun the defect, and a maintainer can continue the workflow. These are intended benefits. No measured improvement, deployment status or business outcome is claimed. Confirm individual versus team scope and which practices reflect completed work.</p>
+              <button class="notes" type="button" data-project="governed-ai">open notes</button>
             </div>
           </details>
         </li>

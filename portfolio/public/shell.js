@@ -62,7 +62,8 @@ if (form && input && output) {
       dim('Anything else is sent to my agent as a question. A few commands are hidden.');
     }],
     whoami: ['who I am', () => {
-      line('Sree Sankaran Chackoth. Applied AI and ML engineer and forward-deployed engineer, based in Ontario, Canada.');
+      line('Sree Sankaran Chackoth. AI Research Technician and startup founder, based in Ontario, Canada.');
+      line('Most of my work starts with a business problem and a pile of data.');
       scrollTo('#top');
     }],
     ls: ['list projects', () => {

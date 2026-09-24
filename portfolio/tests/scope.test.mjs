@@ -32,7 +32,7 @@ test('old excluded history is removed and excluded provider output is suppressed
 });
 
 test('all approved project names route correctly and are allowed live UI actions', async () => {
-  assert.equal(Object.keys(projects).length, 15);
+  assert.equal(Object.keys(projects).length, 16);
   assert.equal(containsExcludedTopic(JSON.stringify(projects)), false);
   for (const [id, project] of Object.entries(projects)) {
     assert.equal((await generateReply(`Explain ${project.name}`, [])).project, id);
