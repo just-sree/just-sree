@@ -53,15 +53,19 @@ export const context = {
   // Owner-supplied introduction, separate from the resume's provenance.
   approach: 'Most of Sree’s work starts with a business problem and a pile of data. He works with people to understand what they are trying to solve, identify where AI can help, and take an early experiment into a usable workflow. His work spans computer vision, AI agents, and predictive modelling, including integrations, testing, and practical tradeoffs. He enjoys moving between conversations and code, and learning what needs to change when a system meets the people it is meant to help.',
   email: 'sreechackoth@gmail.com', linkedin: 'https://linkedin.com/in/sreesankaranc',
+  booking: 'https://calendly.com/sreechackoth/intro-call-with-sree',
+  bookingInstructions: 'Visitors can use the booking link to choose an available time for an intro call. Offer the booking action by setting contact true. The agent cannot view availability or create, change, or cancel bookings.',
   projects,
   resume,
   workbench,
 };
 export const scopeReply = { answer: 'I can only talk about the work shared on this site: the featured projects, the smaller ones, experience and contact details. Which would you like?', project: null, contact: false };
+const bookingRequest = /\b(calendly|intro(?:duction)? call|booking (?:link|calendar)|(?:book|schedule|arrange)\b.{0,40}\b(?:call|meeting|appointment)|meet with sree)\b/i;
 
 export function previewReply(message, history = []) {
   const query = message.toLowerCase();
   if (containsExcludedTopic(message)) return { ...scopeReply };
+  if (bookingRequest.test(message)) return { answer: 'Use “Book an intro call with Sree” below to choose an available time on Calendly. Your booking is confirmed through Calendly; I cannot view availability or make a booking for you.', project: null, contact: true };
   if (/^(who is sree|tell me about sree|introduce sree|what is sree.s approach|how does sree approach (his )?work)[?.! ]*$/.test(query)) return { answer: `Sree is an ${context.positioning}\n\n${context.approach}`, project: null, contact: false };
   if (/\b(resume|résumé|cv)\b/.test(query)) return { answer: 'Here is Sree’s latest supplied resume. It is two pages and covers his experience, projects and skills.', project: null, contact: false, resume: true };
   if (/\b(writ\w*|blog\w*|article\w*|community|discord|hugging ?face|open.?source|certif\w*)\b/.test(query)) return { answer: 'Outside his projects, Sree writes about AI and MLOps (multi-agent workflows, model quantization and applied ML), read by 5,000+ people a month. He is an admin of an AI-careers Discord with 600+ members, contributes on GitHub and Hugging Face, and is a member of the Google Cloud Developers Community in Ottawa. Certifications: AI Applications with Azure, Generative AI with OpenAI, and DevOps Foundations.', project: null, contact: false };
@@ -90,7 +94,7 @@ export async function generateReply(message, history, { apiKey, model = 'gpt-5',
   if (containsExcludedTopic(message)) return { ...scopeReply, mode: 'preview' };
   history = history.filter(item => !containsExcludedTopic(item.content));
   // Local actions stay deterministic in both modes; no messages are sent for a draft.
-  if (!apiKey || /\b(resume|résumé|cv|brief|scope a project)\b/i.test(message)) return { ...previewReply(message, history), mode: 'preview' };
+  if (!apiKey || bookingRequest.test(message) || /\b(resume|résumé|cv|brief|scope a project)\b/i.test(message)) return { ...previewReply(message, history), mode: 'preview' };
   const response = await fetcher(endpoint, {
     method: 'POST',
     headers: { ...(provider === 'azure' ? { 'api-key': apiKey } : { Authorization: `Bearer ${apiKey}` }), 'Content-Type': 'application/json' },

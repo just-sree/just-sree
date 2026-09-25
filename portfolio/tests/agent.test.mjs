@@ -94,3 +94,13 @@ test('preview answers availability from the listed status', () => {
   assert.match(reply.answer, /open to applied AI, ML and forward-deployed engineer/);
   assert.equal(reply.contact, true);
 });
+
+test('booking requests offer a link without making a booking or calling the provider', async () => {
+  for (const message of ['Can I book a call with Sree?', 'Schedule a meeting tomorrow', 'Send the Calendly link']) {
+    const reply = await generateReply(message, [], { apiKey: 'test-only', fetcher: () => { throw new Error('Booking links do not need a provider'); } });
+    assert.equal(reply.contact, true);
+    assert.equal(reply.project, null);
+    assert.match(reply.answer, /choose an available time on Calendly/);
+    assert.match(reply.answer, /cannot view availability or make a booking/);
+  }
+});

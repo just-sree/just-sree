@@ -278,7 +278,13 @@ async function sendMessage(raw, task) {
         reply.append(source);
       }
     }
-    if (data.contact && !data.match && !data.brief) reply.append(emailAction('Email Sree about this', 'Question from your portfolio', chatEmail));
+    if (data.contact && !data.match && !data.brief) {
+      const booking = textElement('a', 'Book an intro call with Sree ↗', 'message-action');
+      booking.href = $('#booking-link').href;
+      booking.target = '_blank';
+      booking.rel = 'noreferrer';
+      reply.append(booking, emailAction('Email Sree about this', 'Question from your portfolio', chatEmail));
+    }
   } catch (error) {
     pending.remove();
     addMessage('assistant', error.name === 'TimeoutError' ? 'That took too long. Please try again, or use the project cards to keep exploring.' : error.message).classList.add('error-message');
