@@ -1,0 +1,59 @@
+<!doctype html>
+<!-- Source for portfolio/public/og.png (1200x630). Render with headless Chrome:
+     chrome --headless --hide-scrollbars --window-size=1200,630 --virtual-time-budget=4000 --screenshot=portfolio/public/og.png assets/og/og.html -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family:"Archivo"; font-weight:500 900; font-stretch:62% 125%; src:url("../../portfolio/public/fonts/archivo-latin.woff2") format("woff2"); }
+@font-face { font-family:"Instrument Sans"; font-weight:400 700; src:url("../../portfolio/public/fonts/instrument-sans-latin.woff2") format("woff2"); }
+@font-face { font-family:"Instrument Serif"; font-style:italic; src:url("../../portfolio/public/fonts/instrument-serif-italic-latin.woff2") format("woff2"); }
+@font-face { font-family:"JetBrains Mono"; font-weight:400 600; src:url("../../portfolio/public/fonts/jbm-latin.woff2") format("woff2"); }
+:root { --ink:#0c0c0e; --paper:#f3eee3; --coral:#ff5d3b; --lime:#c8f169; --mute:#93918a; }
+* { box-sizing:border-box; margin:0; }
+body { width:1200px; height:630px; overflow:hidden; background:var(--ink); color:var(--paper); font-family:"Instrument Sans",sans-serif; padding:52px 56px 48px; display:flex; flex-direction:column; justify-content:space-between; position:relative; }
+body::after { content:""; position:absolute; inset:0; opacity:.09; mix-blend-mode:overlay;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.label { font:500 15px/1.4 "JetBrains Mono",monospace; letter-spacing:.1em; text-transform:uppercase; }
+.top { display:flex; justify-content:space-between; color:var(--mute); }
+.top b { color:var(--lime); font-weight:500; }
+.top b::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--lime); margin-right:12px; }
+.name { font:900 150px/.86 "Archivo",sans-serif; font-stretch:125%; letter-spacing:-.04em; text-transform:uppercase; position:relative; }
+.row { display:flex; align-items:center; gap:.1em; white-space:nowrap; }
+.row img { width:.76em; height:.76em; border-radius:50%; object-fit:cover; flex:none; }
+.capsule { flex:1; height:.64em; border-radius:999px; background:var(--coral); color:var(--ink); display:flex; align-items:center; justify-content:space-between; padding:0 .22em 0 .26em; }
+.capsule span { font:600 19px/1.25 "Instrument Sans",sans-serif; letter-spacing:0; text-transform:none; }
+.capsule svg { width:.3em; height:.3em; }
+.badge { position:absolute; right:-6px; bottom:-.72em; width:.98em; height:.98em; }
+.badge svg { width:100%; height:100%; display:block; }
+.badge text { font:600 10.5px "JetBrains Mono",monospace; text-transform:uppercase; fill:var(--ink); }
+.core { position:absolute; inset:31%; display:grid; place-items:center; border-radius:50%; background:var(--ink); color:var(--lime); }
+.core svg { width:52%; height:52%; }
+.bottom { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; padding-right:190px; }
+h2 { font:500 40px/1.08 "Instrument Sans",sans-serif; letter-spacing:-.03em; max-width:21em; }
+h2 i { font:italic 400 1.12em "Instrument Serif",serif; letter-spacing:-.01em; color:var(--lime); }
+</style>
+</head>
+<body>
+  <p class="top label"><b>Open to applied AI, ML and forward-deployed roles</b><span>just-sree.vercel.app</span></p>
+  <h1 class="name">
+    <span class="row"><span>Sree</span><img src="../../portfolio/public/headshot.jpg" alt=""><span class="capsule"><span>Applied AI Engineer<br>Forward Deployed Engineer</span><svg viewBox="0 0 24 24"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+    <span class="row"><span id="fit">Chackoth</span></span>
+    <span class="badge">
+      <svg viewBox="0 0 132 132"><circle cx="66" cy="66" r="66" fill="var(--lime)"/><path id="ring" d="M66 66m-49 0a49 49 0 1 1 98 0a49 49 0 1 1-98 0" fill="none"/><text><textPath href="#ring" textLength="298" lengthAdjust="spacing">Build ✦ Evaluate ✦ Ship ✦ Repeat ✦</textPath></text></svg>
+      <span class="core"><svg viewBox="0 0 24 24"><path d="M12 4v15M5.5 12.5 12 19l6.5-6.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </span>
+  </h1>
+  <div class="bottom">
+    <h2>I build LLM agents and vision systems, and the <i>tests that make them safe to ship.</i></h2>
+  </div>
+<script>
+// Scale the name so "Chackoth" fills the width exactly, as on the site.
+document.fonts.ready.then(() => {
+  const name = document.querySelector('.name');
+  name.style.fontSize = '100px';
+  name.style.fontSize = 100 * name.clientWidth / document.getElementById('fit').offsetWidth * 0.998 + 'px';
+});
+</script>
+</body>
+</html>

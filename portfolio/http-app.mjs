@@ -78,7 +78,7 @@ export default async function handleRequest(request, response) {
   }
   try {
     const content = await readFile(new URL(`./public/${file[0]}`, import.meta.url));
-    if (path === '/resume.pdf') response.setHeader('Content-Disposition', 'inline; filename="Sree-Chackoth-Resume.pdf"');
+    if (path === '/resume.pdf') response.setHeader('Content-Disposition', 'attachment; filename="Sree-Chackoth_Resume.pdf"');
     response.writeHead(200, { 'Content-Type': file[1], 'Cache-Control': 'no-cache' });
     response.end(request.method === 'HEAD' ? undefined : content);
   } catch { sendJson(response, 500, { error: 'Unable to load this page.' }); }

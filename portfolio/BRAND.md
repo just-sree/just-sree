@@ -45,6 +45,10 @@ The nav and the About tile open the agent dialog (`public/app.js`). The anonymiz
 
 Plain first person. Say what was built and what the numbers were, including the unflattering ones. No slogans, no taglines, no em-dash asides. Claims must match `ai-job-search/.claude/skills/job-application-assistant/01-candidate-profile.md`.
 
+## Link preview
+
+`public/og.png` (1200×630) is rendered from `assets/og/og.html` with headless Chrome; the command is in that file. Regenerate it if the name, titles or statement change.
+
 ## Still in the old terminal style
 
-`public/og.png` (the link preview), `public/mark.svg` (the favicon) and `assets/profile-header.svg` (the GitHub banner).
+`public/mark.svg` (the favicon) and `assets/profile-header.svg` (the GitHub banner).

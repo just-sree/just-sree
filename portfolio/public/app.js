@@ -217,7 +217,7 @@ async function sendMessage(raw, task) {
         row.append(mark, textElement('span', strengthLabel[item.strength] + ': ', 'sr-only'), textElement('strong', item.requirement), textElement('span', item.evidence, 'match-evidence'));
         if (item.source === 'resume') {
           const link = textElement('a', 'resume ↗', 'match-source');
-          link.href = '/resume.pdf'; link.target = '_blank'; link.rel = 'noreferrer';
+          link.href = '/resume.pdf'; link.download = 'Sree-Chackoth_Resume.pdf';
           row.append(link);
         } else if (item.source && Object.hasOwn(projects, item.source)) {
           const notes = textElement('button', 'notes ↗', 'match-source');
@@ -230,7 +230,7 @@ async function sendMessage(raw, task) {
     }
     if (data.resume) {
       const link = textElement('a', 'Read Sree’s resume (PDF) ↗', 'message-source');
-      link.href = '/resume.pdf'; link.target = '_blank'; link.rel = 'noreferrer';
+      link.href = '/resume.pdf'; link.download = 'Sree-Chackoth_Resume.pdf';
       reply.append(link);
     }
     if (data.brief) {

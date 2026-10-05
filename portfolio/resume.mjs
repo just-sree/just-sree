@@ -1,10 +1,10 @@
-// Curated from the owner's supplied "Sree Chackoth Resume.pdf", uploaded Sep 8, 2026.
-// The PDF is served unchanged at /resume.pdf. Claims here are resume-sourced.
+// Curated from the owner's resume. The PDF at /resume.pdf is the two-page master from the
+// job-search repo, copied in by `npm run sync-resume`. Claims here are resume-sourced.
 // Experience, capstone and availability lines were corrected against the owner's current profile in Oct 2026.
 export const resume = {
   url: '/resume.pdf',
   title: 'Sree Sankaran Chackoth — Applied ML & Agentic AI Engineer',
-  supplied: '2026-09-08',
+  supplied: '2026-10-05',
   availability: 'Open to applied AI, ML and forward-deployed engineer (FDE) roles: remote anywhere in Canada, or hybrid or on-site in Ottawa. The best first step is email.',
   summary: 'Applied AI engineer: LLM agents, evaluation and computer vision. Currently the primary engineer on an industry partner’s AI platform at Lambton College.',
   experience: [
