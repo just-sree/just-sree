@@ -1,19 +1,19 @@
 {
   "ircc": {
-    "name": "IRCC immigration forecasting",
-    "title": "IRCC immigration forecasting",
-    "summary": "A capstone forecasting pipeline for Canadian immigration planning: Python ETL, time-series modelling, and evaluation across multiple horizons.",
-    "problem": "Planning across immigration categories means working with large datasets, changing trends, and different forecasting horizons.",
+    "name": "FutureCanada (IRCC capstone)",
+    "title": "FutureCanada (IRCC capstone)",
+    "summary": "A capstone with IRCC that forecasts immigration’s impact on Canadian housing and education by province, out to 2035. Sree was the lead contributor in a five-person team.",
+    "problem": "Planning for housing and school capacity depends on how many permanent and temporary residents arrive, and that differs by province.",
     "architecture": [
-      "Source records",
-      "Python ETL",
-      "Category time series",
-      "Model comparison",
-      "Planning forecasts"
+      "Public immigration, housing and education data",
+      "Cleaning and integration",
+      "Feature engineering",
+      "Model comparison by province",
+      "Power BI dashboard"
     ],
-    "decision": "Compare Prophet, ARIMA, and Exponential Smoothing across multiple horizons. Treat data preparation and quality as part of the forecasting system.",
-    "evidence": "The supplied resume reports 2M+ records processed and 15+ immigration categories covered during the September 2024–April 2025 capstone.",
-    "limits": "Capstone project. Scale figures are reported in the supplied resume. No public repository is linked for this capstone.",
+    "decision": "Compare Prophet, RandomForest and XGBoost for each province on a chronological holdout and pick each winner by error. Prophet won in 8 of 9 regions (Ontario R² 0.965). A pooled comparison had made RandomForest look strong, and it failed once tested province by province.",
+    "evidence": "The project repository and the team’s final report from April 2025. Sree built the Python pipeline, the forecasting models and the Power BI dashboard with what-if sliders.",
+    "limits": "Team capstone, January to April 2025, not government employment. The pipeline runs end to end but offline; it is not a production system. No public repository is linked.",
     "url": "/resume.pdf",
     "sourceLabel": "Read the resume"
   },
@@ -32,16 +32,69 @@
     ],
     "decision": "Give each agent a bounded responsibility. Microsoft Foundry supports policy grounding and reasoning; a deterministic local fallback keeps demonstrations usable without cloud credentials.",
     "evidence": "The repository documents six agent roles, structured Pydantic reports, policy citations, human-review flags for high-risk findings, and a full agent trace.",
-    "limits": "Microsoft hackathon team prototype using synthetic contracts and policies. Sree’s individual contribution is not separately documented here. It is not a validated compliance product.",
+    "limits": "Microsoft hackathon team prototype using synthetic contracts and policies. Sree wrote the backend: the orchestrator, the six agents, a seven-rule risk engine and most of the tests. A teammate built the interface. It is not a validated compliance product.",
     "url": "https://github.com/anunjinb/bogdai-contract-risk-agent",
     "sourceLabel": "Explore the repository"
+  },
+  "whatsapp": {
+    "name": "WhatsApp agent for event promoters",
+    "title": "WhatsApp agent for event promoters",
+    "summary": "A production WhatsApp agent for EventLinx. Promoters create and edit events, set ticketing and pull sales reports by chat, in English and French. Sree built it and the 45-tool MCP server behind it.",
+    "problem": "An agent that can change a company’s database must not invent values or write without approval.",
+    "architecture": [
+      "WhatsApp message",
+      "Agent",
+      "Yes or no confirmation",
+      "45-tool MCP server",
+      "PostgreSQL"
+    ],
+    "decision": "Every database change waits for the user’s yes or no, and code controls that step rather than the model. Worst-case reply time fell by about 70%, from 15–30 seconds to 4–9 seconds.",
+    "evidence": "Each release is gated by LLM-judged test conversations, a 550-case red-team bank and 2,000+ automated tests.",
+    "limits": "Client work at Lambton College × EventLinx. The code is private, so no repository is linked."
+  },
+  "seating": {
+    "name": "Seating-chart detection",
+    "title": "Seating-chart detection",
+    "summary": "A vision service for EventLinx that turns a picture of a venue’s seating chart into a structured seat map.",
+    "problem": "Seating charts arrive as images in many styles, and a seat map is only useful if the seat count is right.",
+    "architecture": [
+      "Venue chart image",
+      "Seat detection",
+      "Seat types",
+      "Structured seat map"
+    ],
+    "decision": "Sree first trained YOLO11 and a custom ResNet18 on GPUs with real and synthetic seat maps and benchmarked them on 250+ real venue maps. He then replaced them with one Azure OpenAI vision service once it measured better. A single-call design and a cheaper model were both dropped on the evidence.",
+    "evidence": "The service hit expected seat counts on all 5 benchmark venues at a median cost of $0.91 per map.",
+    "limits": "Client work at Lambton College × EventLinx. The code is private, so no repository is linked."
+  },
+  "hasten": {
+    "name": "Hasten",
+    "title": "Hasten",
+    "summary": "A phone app that captures a thought by voice or text, then sorts, ranks and plans it on the device. Sree is the sole developer.",
+    "problem": "Capturing a thought should not need an account, a network connection or any filing.",
+    "architecture": [
+      "Voice or text",
+      "On-device language engine",
+      "Classify and rank",
+      "Plan",
+      "SQLite"
+    ],
+    "decision": "Sree prototyped on Gemini, then Flutter, then a local Phi-3 server, and removed all three. The shipped engine is rule-based and runs fully on the phone.",
+    "evidence": "325 unit tests and 16 device flows, including accessibility checks and 5,000-item stress runs. Category accuracy rose from 50.85% to 77.58% after tuning; that figure is self-reported.",
+    "limits": "Personal project, built with Claude Code."
   },
   "governed-ai": {
     "name": "Governed AI Reliability",
     "title": "Policy boundaries, reproducible evidence, durable workflows.",
     "summary": "An anonymized case-study draft about policy constraints, escalation behavior, reproducible defect investigation, and durable workflow design. Personal contributions require owner review.",
     "problem": "An AI workflow can produce a plausible answer while crossing a policy boundary, losing an escalation, or repeating a defect. Reliability requires explicit decisions, inspectable evidence, and a workflow that survives handoffs.",
-    "architecture": ["Policy constraints", "Proceed / block / escalate", "Reproducible investigation", "Regression evidence", "Durable handoff"],
+    "architecture": [
+      "Policy constraints",
+      "Proceed / block / escalate",
+      "Reproducible investigation",
+      "Regression evidence",
+      "Durable handoff"
+    ],
     "decision": "Describe permitted actions and stop conditions before execution. Keep prohibited actions blocked; send ambiguous or insufficiently supported cases to a human reviewer with the reason and minimum necessary context. Preserve a reproducible investigation and an explicit resume condition.",
     "policy": "Illustrative design: encode action scope, required evidence, and approval conditions as testable constraints. Distinguish permitted actions, prohibited actions, and decisions that require review. An escalation does not itself grant permission.",
     "escalation": "Illustrative design: pause the affected action, record the trigger, and assign a reviewer with expected versus observed behavior and a clear decision request. Missing acknowledgement remains pending. Resume only after a recorded decision and a fresh policy check; retries must not bypass the gate.",

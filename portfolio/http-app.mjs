@@ -9,19 +9,16 @@ const publicFiles = new Map([
   ['/index.html', ['index.html', 'text/html; charset=utf-8']],
   ['/style.css', ['style.css', 'text/css; charset=utf-8']],
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
-  ['/aquarium.js', ['aquarium.js', 'text/javascript; charset=utf-8']],
-  ['/portrait.js', ['portrait.js', 'text/javascript; charset=utf-8']],
   ['/headshot.jpg', ['headshot.jpg', 'image/jpeg']],
   ['/og.png', ['og.png', 'image/png']],
-  ['/shell.js', ['shell.js', 'text/javascript; charset=utf-8']],
-  ['/theme.js', ['theme.js', 'text/javascript; charset=utf-8']],
+  ['/site.js', ['site.js', 'text/javascript; charset=utf-8']],
   ['/mark.svg', ['mark.svg', 'image/svg+xml']],
   ['/resume.pdf', ['resume.pdf', 'application/pdf']],
   ['/projects.json', ['projects.json', 'application/json; charset=utf-8']],
   ['/robots.txt', ['robots.txt', 'text/plain; charset=utf-8']],
   ['/sitemap.xml', ['sitemap.xml', 'application/xml; charset=utf-8']],
   ['/404.html', ['404.html', 'text/html; charset=utf-8']],
-  ...['jbm-latin', 'jbm-latin-ext', 'jbm-italic-latin', 'jbm-italic-latin-ext'].map((name) => [`/fonts/${name}.woff2`, [`fonts/${name}.woff2`, 'font/woff2']]),
+  ...['jbm-latin', 'jbm-latin-ext', 'jbm-italic-latin', 'jbm-italic-latin-ext', 'archivo-latin', 'instrument-sans-latin', 'instrument-serif-italic-latin', 'fraunces-latin', 'plus-jakarta-sans-latin'].map((name) => [`/fonts/${name}.woff2`, [`fonts/${name}.woff2`, 'font/woff2']]),
 ]);
 const limits = new Map();
 const windowMs = 60000;

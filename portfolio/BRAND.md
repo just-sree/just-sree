@@ -1,35 +1,50 @@
-# Sree — terminal edition
+# Sree — studio edition
 
-The page reads like a shell session: each section starts with a command (`whoami`, `ls projects/`, `cat experience.log`, `./contact`) and its output follows.
+One page built on oversized type and colour blocking. The name fills the first screen; each featured project is a full-width colour panel.
 
 ## Colour
 
-Near-black background (#0D0F0D), soft grey text (#D6D9D2), dim grey (#7C8379) for secondary text and comments. Green (#86D96B) for prompts, links and dates; amber (#E5B567) for project names. Dark only.
+Ink (#0C0C0E) background, paper (#F3EEE3) text, muted grey (#93918A) for secondary text. Three accents used as whole blocks, not highlights: coral (#FF5D3B), electric blue (#4B4BFF) and lime (#C8F169). Dark only. A faint film grain sits over everything.
+
+The Hasten panel is the one exception: it borrows the product's own theme from hasten.bodhitattva.ai (misty blue-grey #C6CFD9, slate #354559, Fraunces headings).
 
 ## Type
 
-JetBrains Mono for everything, from Google Fonts with system monospace fallbacks. Hierarchy comes from colour and weight, not size.
+All self-hosted in `public/fonts` (SIL Open Font License).
 
-## Shapes and motion
+- Archivo, expanded and heavy, uppercase, for the name, section titles and project titles.
+- Instrument Sans for body text.
+- Instrument Serif Italic for the one emphasised phrase in a heading.
+- JetBrains Mono for small labels, dates and figure text.
+- Fraunces and Plus Jakarta Sans only inside the Hasten panel.
 
-No cards, shadows, gradients or rounded pills. Hairline rules and left borders only. Each featured project collapses to one line with a `[+]` toggle, and the longer project list sits behind a single toggle, so the page stays short. The blinking cursor and an ASCII aquarium are the only animations. The aquarium (`public/aquarium.js`) draws fish such as `><>` and `<º)))><` in the palette colours behind the page: brighter in the side margins, faint behind the text column. Fish scatter from the cursor and chase food dropped by clicking empty space; bubbles rise and seaweed sways along the bottom. It runs at about 30 fps, pauses in hidden tabs, draws a still frame under reduced motion, and can be switched off from the footer (remembered per browser). The cursor also stops under reduced motion.
+The name and the closing "Let's talk" are scaled by `site.js` to fill their container exactly.
 
-## Command line
+## Layout
 
-The page ends with a working prompt (`public/shell.js`). `help` lists the commands: `whoami`, `ls`, `cat <project>`, `experience`, `stack`, `resume`, `contact`, `agent`, `job`, `feed` and `clear`. Projects are read from the page, so the shell always matches what is listed. Up and down recall history, and Tab completes commands and project names. Anything else is sent to the agent as a question.
+- Hero: name, photo inline after "SREE", a coral capsule with both job titles, and a rotating lime badge that links to the work.
+- Selected work: five panels (WhatsApp agent, seating-chart detection, FutureCanada, Hasten, BogdAI). Each has what was built, the numbers, and what went wrong. On wide screens they stick under the nav and stack as you scroll. Below 1100px they collapse to title, summary and numbers with a button to expand; the first starts open.
+- About: a bento grid, including a tile for the site's agent.
+- Stack: two rows of pills sliding in opposite directions.
+- Experience: large rows that invert on hover.
+- Contact: a coral footer.
 
-## Link preview
+## Figures
 
-`public/og.png` (1200×630) is the card shown when the site is shared, a terminal-style summary with the headshot. It is referenced by the Open Graph and Twitter tags in `index.html`. Regenerate it if the name, title or featured projects change.
+Every figure is drawn from real numbers or is labelled as an illustration: the looping chat with its yes/no step, the reply-time bars, the seat map and its rows of squares, the forecast schematic, the Hasten voice capture, and the six BogdAI agents lighting up in order.
 
-## Portrait
+## Motion
 
-`public/headshot.jpg` sits in a small terminal window beside the intro. `public/portrait.js` draws it as ASCII in the palette green by default, cropped to head and shoulders inside a circle with brightness spread evenly across the character ramp. Every time it scrolls into view the ASCII decodes from random characters, roughly top to bottom, then a glowing scanline wipes down to reveal the photo and scans back. Off screen it resets, so the next visit replays it. Hover, keyboard focus or a tap plays the same wipe. Under reduced motion there is no animation: ASCII by default and an instant switch to the photo. Without the photo file the window is removed.
+`public/site.js` uses the browser's Web Animations API, with no library. Headings rise out of a mask, panels build their figures the first time they are on screen, numbers count up, and three figures loop. Everything is switched off under `prefers-reduced-motion`, and the page reads in full without JavaScript.
 
-## Mark
+## Agent
 
-`public/mark.svg`: a green `>_` prompt on a dark square, used as the favicon. `assets/profile-header.svg` is the GitHub profile banner, drawn as the same terminal.
+The nav and the About tile open the agent dialog (`public/app.js`). The anonymized governed-AI case study is kept in the page markup but hidden until its owner review is done.
 
 ## Copy
 
-Plain first person. Say what was built and what the numbers were, including the unflattering ones. No slogans, no taglines, no em-dash asides.
+Plain first person. Say what was built and what the numbers were, including the unflattering ones. No slogans, no taglines, no em-dash asides. Claims must match `ai-job-search/.claude/skills/job-application-assistant/01-candidate-profile.md`.
+
+## Still in the old terminal style
+
+`public/og.png` (the link preview), `public/mark.svg` (the favicon) and `assets/profile-header.svg` (the GitHub banner).

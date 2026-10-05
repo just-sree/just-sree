@@ -12,16 +12,16 @@ const onStack = (what) => `${what} on Sree's stack, but not on his resume or in 
 // Keyword check used when no model is connected. Evidence text is taken from
 // the resume and project notes only.
 const vocabulary = [
-  ['Python', /\bpython\b/, 'strong', 'Wrote the Python ETL for the IRCC forecasting capstone (2M+ records); most projects are in Python.', 'ircc'],
-  ['Time-series forecasting', /forecast|time[- ]series|prophet|arima|statsmodels/, 'strong', 'IRCC capstone: Prophet, ARIMA and exponential smoothing across 15+ categories, 85%+ accuracy.', 'ircc'],
+  ['Python', /\bpython\b/, 'strong', 'Built the Python pipeline for the FutureCanada forecasting capstone; most projects are in Python.', 'ircc'],
+  ['Time-series forecasting', /forecast|time[- ]series|prophet|arima|statsmodels/, 'strong', 'FutureCanada capstone: Prophet, RandomForest and XGBoost compared per province; Prophet won in 8 of 9 regions.', 'ircc'],
   ['Machine learning models', /machine learning|\bml\b|classif|xgboost|lightgbm|scikit|predictive model/, 'strong', 'CSE threat-classification capstone as team lead: compared four model families on 8M+ records and shipped a CLI.', 'resume'],
-  ['AI agents and LLM apps', /\bagents?\b|agentic|multi-agent|\bllms?\b|large language|generative|\bgen ?ai\b|prompt/, 'strong', 'BogdAI: six-agent contract risk pipeline on Microsoft Foundry with cited, typed reports (hackathon team prototype).', 'bogdai'],
-  ['Computer vision', /computer vision|opencv|\byolo\b|\bocr\b|object detection|\bimages?\b/, 'strong', 'Lambton College × EventLinx: seat detection, YOLO and segmentation benchmarks and OCR on venue maps; SceneSense uses DETR.', 'resume'],
+  ['AI agents and LLM apps', /\bagents?\b|agentic|multi-agent|\bllms?\b|large language|generative|\bgen ?ai\b|prompt/, 'strong', 'Built a production WhatsApp agent and its 45-tool MCP server at EventLinx. BogdAI: six-agent contract risk pipeline on Microsoft Foundry (hackathon team prototype).', 'bogdai'],
+  ['Computer vision', /computer vision|opencv|\byolo\b|\bocr\b|object detection|\bimages?\b/, 'strong', 'Lambton College × EventLinx: trained YOLO11 and a custom ResNet18 for seat detection, benchmarked on 250+ venue maps; SceneSense uses DETR.', 'resume'],
   ['Hugging Face', /hugging ?face|\btransformers\b/, 'strong', 'SceneSense runs a Hugging Face DETR model.', 'vision'],
   ['Azure and Microsoft Foundry', /\bazure\b|foundry|microsoft agent/, 'strong', 'BogdAI used Microsoft Foundry for grounding and reasoning; Microsoft Agent Framework is on the resume.', 'bogdai'],
   ['AWS', /\baws\b|amazon web services|\blambda\b|\brds\b/, 'strong', 'Infidata: event-driven ETL on AWS Lambda and RDS, deployed with CodeDeploy.', 'resume'],
-  ['Data pipelines and ETL', /\betl\b|data pipelines?|data engineering|data quality|data cleaning/, 'strong', 'IRCC ETL kept 99.5% data quality; Infidata ETL ran on AWS Lambda.', 'ircc'],
-  ['Model evaluation', /evaluat|benchmark|error analysis/, 'strong', 'Lambton College: benchmarking and error analysis on an industry-partnered project; IRCC compared models across forecast horizons.', 'resume'],
+  ['Data pipelines and ETL', /\betl\b|data pipelines?|data engineering|data quality|data cleaning/, 'strong', 'FutureCanada: cleaned and integrated public immigration, housing and education data; Infidata ETL ran on AWS Lambda.', 'ircc'],
+  ['Model evaluation', /evaluat|benchmark|error analysis/, 'strong', 'Lambton College: benchmarking and error analysis on an industry-partnered project; FutureCanada compared models per province on a chronological holdout.', 'resume'],
   ['Synthetic data', /synthetic data/, 'strong', 'Lambton College × EventLinx: synthetic-data pipeline for regular, wheelchair, reserved and hearing-accessible seating.', 'resume'],
   ['Anomaly detection', /anomal|outlier/, 'strong', 'The border traffic and pistachio projects both use anomaly detection.', 'border'],
   ['Leadership and stakeholders', /\blead|stakeholder|mentor|cross-functional/, 'strong', 'Team lead on the CSE capstone, leading the Lambton College project, and coordinated 5+ stakeholders at Algonquin.', 'resume'],
