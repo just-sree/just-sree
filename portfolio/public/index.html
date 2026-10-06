@@ -62,7 +62,7 @@
     <div class="intro">
       <h2>I build LLM agents and vision systems, and the <span class="serif">tests that make them safe to ship.</span></h2>
       <div>
-        <p>Most recently the primary engineer on a production AI platform: the agents, their tools, and the vision models behind it.</p>
+        <p>Right now I'm the primary engineer on EventLinx's AI platform, where promoters run their events by chatting with an agent I built.</p>
         <div class="cta"><a class="pill fill" href="/resume.pdf" download="Sree-Chackoth_Resume.pdf">Resume <i>↗</i></a><a class="pill" id="booking-link" href="https://calendly.com/sreechackoth/intro-call-with-sree" target="_blank" rel="noreferrer">Book an intro call <i>↗</i></a></div>
         <p class="socials"><a href="https://github.com/just-sree" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:sreechackoth@gmail.com">Email</a></p>
       </div>
@@ -85,7 +85,7 @@
         <p class="label">Production · EventLinx · 2026</p>
         <h3 class="big">WhatsApp agent for event promoters</h3>
         <p class="gist">Promoters create events, set ticketing and pull sales reports by chat, in English and French.</p>
-        <ul class="nums"><li><b>~70%</b>faster replies</li><li><b>45</b>tools</li><li><b>2,000+</b>tests</li></ul>
+        <ul class="nums"><li><b>~70%</b>faster worst-case reply</li><li><b>45</b>tools</li><li><b>2,000+</b>tests</li></ul>
         <div class="chart">
           <p class="label">Worst-case reply time</p>
           <div class="range"><span>Before</span><span class="track"><i style="left:50%;width:50%"></i></span><span>15–30 s</span></div>
@@ -122,7 +122,7 @@
         <p class="label">Production · EventLinx · 2026</p>
         <h3 class="big">Seating-chart detection</h3>
         <p class="gist">Turns a picture of a venue's seating chart into a structured seat map.</p>
-        <ul class="nums"><li><b>5 / 5</b>benchmark venues</li><li><b>$0.91</b>per map</li><li><b>250+</b>real maps</li></ul>
+        <ul class="nums"><li><b>5 / 5</b>benchmark venues</li><li><b>$0.91</b>per map</li><li><b>250+</b>real maps benchmarked</li></ul>
         <button class="toggle" aria-expanded="false" aria-controls="m2" aria-label="Show details for seating-chart detection"></button>
       </header>
       <div class="proj-more" id="m2"><div class="proj-inner">
@@ -137,8 +137,8 @@
         </div>
         <dl class="story">
           <div><dt>Built</dt><dd>Trained YOLO11 and a custom ResNet18 on GPUs with real and synthetic seat maps, benchmarked on 250+ real venue maps.</dd></div>
-          <div><dt>Then</dt><dd>Replaced all of it with one Azure OpenAI vision service once it measured better.</dd></div>
-          <div class="wrong"><dt>What went wrong</dt><dd>The first single-call design and a cheaper model both missed badly. Both were dropped on the evidence.</dd></div>
+          <div><dt>What changed</dt><dd>I replaced all of it with one Azure OpenAI vision service once it measured better.</dd></div>
+          <div class="wrong"><dt>What went wrong</dt><dd>A single-call design got 1 of 6 charts in range, and a cheaper model got 0 of 7. I dropped both.</dd></div>
         </dl>
         <ul class="tags"><li>PyTorch</li><li>YOLO11</li><li>ResNet18</li><li>SAM2</li><li>Azure OpenAI</li></ul>
       </div></div>
@@ -149,7 +149,7 @@
         <p class="label">IRCC capstone · Lead contributor · 2025</p>
         <h3 class="big">Future&shy;Canada</h3>
         <p class="gist">Forecasts immigration's impact on housing and education by province, to 2035.</p>
-        <ul class="nums"><li><b>8 / 9</b>regions won</li><li><b>0.965</b>R² Ontario</li></ul>
+        <ul class="nums"><li><b>8 / 9</b>regions where Prophet won</li><li><b>0.965</b>R² Ontario</li></ul>
         <button class="toggle" aria-expanded="false" aria-controls="m3" aria-label="Show details for FutureCanada"></button>
       </header>
       <div class="proj-more" id="m3"><div class="proj-inner">
@@ -219,7 +219,7 @@
         <p class="label">Hackathon · Team entry · 2026</p>
         <h3 class="big">BogdAI contract risk review</h3>
         <p class="gist">Six agents review a contract in turn and write a risk report where every finding cites its clause.</p>
-        <ul class="nums"><li><b>6</b>agents</li><li><b>7</b>risk rules</li><li><b>96%</b>of the backend</li></ul>
+        <ul class="nums"><li><b>6</b>agents</li><li><b>7</b>risk rules</li><li><b>96%</b>of the backend is mine</li></ul>
         <button class="toggle" aria-expanded="false" aria-controls="m5" aria-label="Show details for BogdAI"></button>
       </header>
       <div class="proj-more" id="m5"><div class="proj-inner">
@@ -251,7 +251,7 @@
     </div>
 
     <ul class="more">
-      <li><span class="label">CSE Canada capstone · Team lead</span><b>Malware classifier</b><p>LightGBM on 8M+ records under severe class imbalance, shipped as a Windows CLI.</p></li>
+      <li><span class="label">CSE Canada capstone · Team lead</span><b>Malware classifier</b><p>LightGBM on 8M+ records under severe class imbalance. It reached 63% accuracy, level with published benchmarks, and shipped as a Windows command-line tool.</p></li>
     </ul>
     <p class="all"><a class="pill" href="https://github.com/just-sree?tab=repositories" target="_blank" rel="noreferrer">Everything else on GitHub <i>↗</i></a></p>
   </section>
@@ -285,16 +285,16 @@
       <li class="hot">Machine learning</li><li>PyTorch</li><li>scikit-learn</li><li>XGBoost</li><li>Prophet</li><li>Computer vision</li><li class="hot">Shipping</li><li>Python</li><li>TypeScript</li><li>PostgreSQL</li><li>Cloudflare Workers</li><li>Azure</li><li>AWS</li><li>Docker</li>
       <li class="hot">Machine learning</li><li>PyTorch</li><li>scikit-learn</li><li>XGBoost</li><li>Prophet</li><li>Computer vision</li><li class="hot">Shipping</li><li>Python</li><li>TypeScript</li><li>PostgreSQL</li><li>Cloudflare Workers</li><li>Azure</li><li>AWS</li><li>Docker</li>
     </ul></div>
-    <p class="note">Claude Code and Cursor daily, spec first with tests. 2,000+ commits, up to 7 agents in parallel: <a href="https://paxel.ycombinator.com/results/y6rj8rqx/v3" target="_blank" rel="noreferrer">YC Paxel report</a></p>
+    <p class="note">I work in Claude Code and Cursor every day, spec first, with tests deciding what ships. 2,000+ commits, up to 7 agents in parallel. See the <a href="https://paxel.ycombinator.com/results/y6rj8rqx/v3" target="_blank" rel="noreferrer">YC Paxel report</a></p>
   </section>
 
   <section class="sec wrap" id="experience">
     <div class="sec-head"><h2 class="big">Experi<span class="serif">ence</span></h2></div>
     <ol class="xp">
-      <li><span class="label">Feb 2026 – now</span><b>AI Research Technician / AI Specialist</b><em>Lambton College × EventLinx</em><p>Primary engineer on the AI platform: agents, tools, testing and vision.</p></li>
+      <li><span class="label">Feb 2026 – now</span><b>AI Research Technician / AI Specialist</b><em>Lambton College × EventLinx</em><p>Primary engineer on EventLinx's AI platform. Built the WhatsApp agent, its 45-tool MCP server, the release testing and the seat-map vision service.</p></li>
       <li><span class="label">Apr – Dec 2025</span><b>AI Research Assistant</b><em>Algonquin College Applied Research</em><p>Led a team writing AI proposals with 5+ government stakeholders, aligned with Mitacs, NSERC ARD and Horizon Europe grants.</p></li>
       <li><span class="label">2023 – 2025</span><b>Post-graduate certificates, AI and BI</b><em>Algonquin College</em><p>AI Software Development and Business Intelligence Systems Infrastructure.</p></li>
-      <li><span class="label">Mar – Jun 2022</span><b>Python Application Developer</b><em>Infidata Technologies</em><p>ETL on AWS Lambda that saved about 40 hours a month of manual QA.</p></li>
+      <li><span class="label">Mar – Jun 2022</span><b>Python Application Developer</b><em>Infidata Technologies</em><p>Built an event-driven ETL on AWS Lambda and RDS that saved about 40 hours a month of manual QA.</p></li>
     </ol>
   </section>
   <ul hidden>
