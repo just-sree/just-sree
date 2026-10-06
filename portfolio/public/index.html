@@ -60,9 +60,9 @@
       </a>
     </h1>
     <div class="intro">
-      <h2>I build LLM agents and vision systems, and the <span class="serif">tests that make them safe to ship.</span></h2>
+      <h2>Researching, building, and <span class="serif">deploying AI</span> for real-world problems.</h2>
       <div>
-        <p>Right now I'm the primary engineer on EventLinx's AI platform, where promoters run their events by chatting with an agent I built.</p>
+        <p>Production LLM agents with human-in-the-loop guardrails, computer vision and forecasting models, and the eval suites that gate every release.</p>
         <div class="cta"><a class="pill fill" href="/resume.pdf" download="Sree-Chackoth_Resume.pdf">Resume <i>↗</i></a><a class="pill" id="booking-link" href="https://calendly.com/sreechackoth/intro-call-with-sree" target="_blank" rel="noreferrer">Book an intro call <i>↗</i></a></div>
         <p class="socials"><a href="https://github.com/just-sree" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:sreechackoth@gmail.com">Email</a></p>
       </div>
@@ -77,14 +77,14 @@
   </div>
 
   <section class="sec wrap" id="work">
-    <div class="sec-head"><h2 class="big">Selected <span class="serif">work</span></h2><p>Five projects, each with what I built, what the numbers were, and what went wrong.</p></div>
+    <div class="sec-head"><h2 class="big">Selected <span class="serif">work</span></h2><p>Five systems, each with its architecture, its measured results, and the decision or failure that shaped it.</p></div>
 
     <div class="stack">
     <article class="proj p1" id="project-whatsapp">
       <header class="proj-head">
         <p class="label">Production · EventLinx · 2026</p>
         <h3 class="big">WhatsApp agent for event promoters</h3>
-        <p class="gist">Promoters create events, set ticketing and pull sales reports by chat, in English and French.</p>
+        <p class="gist">A production conversational agent on WhatsApp. Promoters create events, configure ticketing and query sales in English and French.</p>
         <ul class="nums"><li><b>~70%</b>faster worst-case reply</li><li><b>45</b>tools</li><li><b>2,000+</b>tests</li></ul>
         <div class="chart">
           <p class="label">Worst-case reply time</p>
@@ -108,10 +108,10 @@
           </div>
         </div>
         <dl class="story">
-          <div><dt>Built</dt><dd>The agent, its memory, and the 45-tool MCP server that connects it to the company's PostgreSQL database.</dd></div>
-          <div><dt>Guardrails</dt><dd>Every database change waits for the user's yes or no. Code controls that step, not the model.</dd></div>
-          <div><dt>Testing</dt><dd>LLM-judged test conversations, a 550-case red-team bank and 2,000+ automated tests gate each release.</dd></div>
-          <div class="wrong"><dt>What went wrong</dt><dd>Live tests showed event times stored 4 to 5 hours off. I moved timezone math out of the model and into code.</dd></div>
+          <div><dt>Architecture</dt><dd>An LLM agent with tool calling and memory, backed by a 45-tool MCP server in TypeScript over the company's PostgreSQL database.</dd></div>
+          <div><dt>Guardrails</dt><dd>Human-in-the-loop by construction. Every database write blocks on an explicit user confirmation that is enforced in code, outside the model.</dd></div>
+          <div><dt>Evaluation</dt><dd>Every release is gated by LLM-judged test conversations, a 550-case red-team suite and 2,000+ automated tests in CI.</dd></div>
+          <div class="wrong"><dt>Model choice</dt><dd>Chosen by measurement, not by release date. I kept gpt-4.1-mini after an A/B run against gpt-5.4-nano: 35 of 36 eval cases passing against 25.</dd></div>
         </dl>
         <ul class="tags"><li>TypeScript</li><li>Cloudflare Workers</li><li>Azure OpenAI</li><li>PostgreSQL</li><li>MCP</li></ul>
       </div></div>
@@ -121,7 +121,7 @@
       <header class="proj-head">
         <p class="label">Production · EventLinx · 2026</p>
         <h3 class="big">Seating-chart detection</h3>
-        <p class="gist">Turns a picture of a venue's seating chart into a structured seat map.</p>
+        <p class="gist">A vision service that converts an image of a venue's seating chart into a structured, machine-readable seat map.</p>
         <ul class="nums"><li><b>5 / 5</b>benchmark venues</li><li><b>$0.91</b>per map</li><li><b>250+</b>real maps benchmarked</li></ul>
         <button class="toggle" aria-expanded="false" aria-controls="m2" aria-label="Show details for seating-chart detection"></button>
       </header>
@@ -136,9 +136,9 @@
           </div>
         </div>
         <dl class="story">
-          <div><dt>Built</dt><dd>Trained YOLO11 and a custom ResNet18 on GPUs with real and synthetic seat maps, benchmarked on 250+ real venue maps.</dd></div>
-          <div><dt>What changed</dt><dd>I replaced all of it with one Azure OpenAI vision service once it measured better.</dd></div>
-          <div class="wrong"><dt>What went wrong</dt><dd>A single-call design got 1 of 6 charts in range, and a cheaper model got 0 of 7. I dropped both.</dd></div>
+          <div><dt>Model development</dt><dd>Trained and fine-tuned YOLO11 and a custom ResNet18 CNN on GPUs with real and synthetic seat maps, benchmarked against 250+ real venue maps.</dd></div>
+          <div><dt>Architecture change</dt><dd>Replaced the trained pipeline with a single Azure OpenAI vision service once it measured better: expected seat counts on all 5 benchmark venues.</dd></div>
+          <div class="wrong"><dt>Rejected designs</dt><dd>A single-call design put 1 of 6 charts in range, and a cheaper tile model 0 of 7 against 5 of 7. Both were dropped on the evidence.</dd></div>
         </dl>
         <ul class="tags"><li>PyTorch</li><li>YOLO11</li><li>ResNet18</li><li>SAM2</li><li>Azure OpenAI</li></ul>
       </div></div>
@@ -148,7 +148,7 @@
       <header class="proj-head">
         <p class="label">IRCC capstone · Lead contributor · 2025</p>
         <h3 class="big">Future&shy;Canada</h3>
-        <p class="gist">Forecasts immigration's impact on housing and education by province, to 2035.</p>
+        <p class="gist">Per-province forecasts of immigration's impact on housing and education capacity out to 2035, built with IRCC as the capstone partner.</p>
         <ul class="nums"><li><b>8 / 9</b>regions where Prophet won</li><li><b>0.965</b>R² Ontario</li></ul>
         <button class="toggle" aria-expanded="false" aria-controls="m3" aria-label="Show details for FutureCanada"></button>
       </header>
@@ -169,11 +169,12 @@
           </div>
         </div>
         <dl class="story">
-          <div><dt>Built</dt><dd>The data pipeline, the forecasting models and the Power BI dashboard with what-if sliders.</dd></div>
-          <div><dt>Result</dt><dd>Prophet beat RandomForest and XGBoost in 8 of 9 regions on a chronological holdout.</dd></div>
-          <div class="wrong"><dt>What went wrong</dt><dd>A pooled comparison made RandomForest look strong. It failed once tested province by province.</dd></div>
+          <div><dt>Pipeline</dt><dd>Public immigration, housing and education data integrated into a 4,188 × 41 feature set of lags, rolling means and calendar terms, served through a Power BI model with what-if parameters.</dd></div>
+          <div><dt>Model selection</dt><dd>Prophet with exogenous regressors, RandomForest and XGBoost compared per province on a chronological 80/20 holdout and selected by RMSE. Prophet won 8 of 9 regions.</dd></div>
+          <div class="wrong"><dt>What went wrong</dt><dd>A pooled model made RandomForest look strong at R² 0.84. Fitted per province it lost in every region, so pooling was dropped.</dd></div>
         </dl>
         <ul class="tags"><li>Python</li><li>Prophet</li><li>XGBoost</li><li>pandas</li><li>Power BI</li></ul>
+        <p class="go"><a class="pill" href="/futurecanada-case-study.html">Read the case study <i>↗</i></a></p>
       </div></div>
     </article>
 
@@ -182,10 +183,10 @@
       <header class="proj-head">
         <p class="label">Personal · Sole developer · 2026</p>
         <h3 class="big">Hasten</h3>
-        <p class="gist">A phone app that captures a thought by voice or text, then sorts, ranks and plans it without leaving the device.</p>
+        <p class="gist">A local-first mobile app. Capture a thought by voice or text, and an on-device pipeline classifies, ranks and schedules it with no network call.</p>
         <ul class="nums"><li><b>325</b>tests</li><li><b>16</b>end-to-end flows</li><li><b>6</b>speech locales</li></ul>
         <div class="chart">
-          <p class="label">Category accuracy after tuning</p>
+          <p class="label">Category accuracy after tuning, self-reported</p>
           <div class="range"><span>Before</span><span class="track"><i style="left:0;width:50.85%"></i></span><span>50.85%</span></div>
           <div class="range now"><span>After</span><span class="track"><i style="left:0;width:77.58%"></i></span><span>77.58%</span></div>
         </div>
@@ -204,13 +205,13 @@
           </div>
         </div>
         <dl class="story">
-          <div><dt>Built</dt><dd>The whole app: capture, an on-device language engine in four languages, ranking and planning, stored in SQLite.</dd></div>
-          <div><dt>Learns</dt><dd>The classifier adjusts from the user's corrections, within set bounds.</dd></div>
-          <div><dt>Testing</dt><dd>325 unit tests and 16 device flows, including accessibility checks and 5,000-item stress runs.</dd></div>
-          <div class="wrong"><dt>What went wrong</dt><dd>I prototyped on Gemini, then Flutter, then a local Phi-3 server, and removed all three. What shipped runs fully on the phone.</dd></div>
+          <div><dt>Architecture</dt><dd>React Native on Expo with SQLite in WAL mode, on-device speech recognition in 6 locales, and a rule-based NLP engine for segmentation and entity, date and urgency extraction.</dd></div>
+          <div><dt>Classifier</dt><dd>A hybrid context classifier: weighted rules, prototype similarity and feedback from user corrections, with feedback capped per token and confidence clamped to a fixed band.</dd></div>
+          <div><dt>Verification</dt><dd>325 Jest tests and 16 Maestro device flows, including accessibility regression and seeded 5,000-item stress runs, validated on a physical device.</dd></div>
+          <div class="wrong"><dt>What went wrong</dt><dd>Three architectures were built and removed: a Gemini cloud parser, a Flutter rewrite and a self-hosted Phi-3 server. The shipped engine is deterministic and fully on-device.</dd></div>
         </dl>
         <ul class="tags"><li>React Native</li><li>Expo</li><li>SQLite</li><li>Jest</li><li>Maestro</li><li>Claude Code</li></ul>
-        <p class="go"><a class="pill" href="https://hasten.bodhitattva.ai" target="_blank" rel="noreferrer">hasten.bodhitattva.ai <i>↗</i></a></p>
+        <p class="go"><a class="pill" href="/hasten-postmortem.html">Read the postmortem <i>↗</i></a> <a class="pill" href="https://hasten.bodhitattva.ai" target="_blank" rel="noreferrer">hasten.bodhitattva.ai <i>↗</i></a></p>
       </div></div>
     </article>
 
@@ -218,7 +219,7 @@
       <header class="proj-head">
         <p class="label">Hackathon · Team entry · 2026</p>
         <h3 class="big">BogdAI contract risk review</h3>
-        <p class="gist">Six agents review a contract in turn and write a risk report where every finding cites its clause.</p>
+        <p class="gist">A six-agent pipeline that reviews a contract and returns a typed risk report in which every finding cites its source clause.</p>
         <ul class="nums"><li><b>6</b>agents</li><li><b>7</b>risk rules</li><li><b>96%</b>of the backend is mine</li></ul>
         <button class="toggle" aria-expanded="false" aria-controls="m5" aria-label="Show details for BogdAI"></button>
       </header>
@@ -239,19 +240,19 @@
           </div>
         </div>
         <dl class="story">
-          <div><dt>Built</dt><dd>The orchestrator, the six agents, and the response models a teammate built the interface on.</dd></div>
-          <div><dt>Design</dt><dd>A seven-rule risk engine is the default path. The language model adds detail to each flag and acts as the fallback.</dd></div>
-          <div><dt>Guardrails</dt><dd>Every finding cites its clause, high-risk items are flagged for a person, and the full agent trace is kept.</dd></div>
-          <div class="wrong"><dt>Limits</dt><dd>Synthetic contracts only. It was a team entry: I wrote the backend, a teammate built the interface.</dd></div>
+          <div><dt>Architecture</dt><dd>An orchestrator runs six agents in sequence, from intake to reporting. The report is validated against 9 Pydantic models, frozen as the contract for a teammate's interface.</dd></div>
+          <div><dt>Design</dt><dd>A deterministic 7-rule engine decides which flags exist. The LLM only enriches each flag in JSON mode, and degrades per call to the rule output on failure.</dd></div>
+          <div><dt>Guardrails</dt><dd>A verifier agent checks every finding for a citation and evidence, forces human review on high-risk flags and scans for unsafe-advice phrasing. The full agent trace is returned.</dd></div>
+          <div class="wrong"><dt>Limits</dt><dd>Synthetic contracts only, no evaluation of LLM output, and recall bounded by the seven rules. I wrote the backend; a teammate built the API and interface.</dd></div>
         </dl>
         <ul class="tags"><li>Microsoft Foundry</li><li>Azure OpenAI</li><li>Pydantic</li><li>pytest</li></ul>
-        <p class="go"><a class="pill" href="https://github.com/anunjinb/bogdai-contract-risk-agent" target="_blank" rel="noreferrer">View the repo on GitHub <i>↗</i></a></p>
+        <p class="go"><a class="pill" href="/bogdai-design-doc.html">Read the design doc <i>↗</i></a> <a class="pill" href="https://github.com/anunjinb/bogdai-contract-risk-agent" target="_blank" rel="noreferrer">View the repo on GitHub <i>↗</i></a></p>
       </div></div>
     </article>
     </div>
 
     <ul class="more">
-      <li><span class="label">CSE Canada capstone · Team lead</span><b>Malware classifier</b><p>LightGBM on 8M+ records under severe class imbalance. It reached 63% accuracy, level with published benchmarks, and shipped as a Windows command-line tool.</p></li>
+      <li><span class="label">CSE Canada capstone · Team lead</span><b>Malware classifier</b><p>LightGBM selected over logistic regression, random forest and XGBoost on 8M+ records under severe class imbalance. 63% accuracy, level with published benchmarks, shipped as a Windows CLI that classifies 10,000+ executables an hour.</p></li>
     </ul>
     <p class="all"><a class="pill" href="https://github.com/just-sree?tab=repositories" target="_blank" rel="noreferrer">Everything else on GitHub <i>↗</i></a></p>
   </section>
@@ -261,7 +262,7 @@
     <div class="bento">
       <div class="tile t-say">
         <h3>Most of my work starts with a business problem and <span class="serif">a pile of data.</span></h3>
-        <p>I work with people to understand what they're trying to solve, figure out where AI can help, and take it from an early experiment to something they can use.</p>
+        <p>I scope the problem with the people who own it, establish a baseline, and take the system from first experiment to production, including the integration, the evaluation and the release process.</p>
       </div>
       <div class="tile t-photo"><img src="/headshot.jpg" alt="Sree Chackoth" width="600" height="600" loading="lazy"></div>
       <div class="tile t-now"><span class="label">Now</span><div><b class="h">AI Research Technician</b><small>Lambton College × EventLinx</small></div></div>
@@ -269,7 +270,7 @@
         <svg class="dotmap" viewBox="0 0 100 60" aria-hidden="true"><g fill="var(--mute)"><circle cx="8" cy="30" r="1.6"/><circle cx="18" cy="24" r="1.6"/><circle cx="18" cy="34" r="1.6"/><circle cx="28" cy="20" r="1.6"/><circle cx="28" cy="30" r="1.6"/><circle cx="28" cy="40" r="1.6"/><circle cx="38" cy="18" r="1.6"/><circle cx="38" cy="28" r="1.6"/><circle cx="38" cy="38" r="1.6"/><circle cx="48" cy="16" r="1.6"/><circle cx="48" cy="26" r="1.6"/><circle cx="48" cy="36" r="1.6"/><circle cx="58" cy="22" r="1.6"/><circle cx="58" cy="32" r="1.6"/><circle cx="68" cy="26" r="1.6"/><circle cx="78" cy="30" r="1.6"/><circle cx="88" cy="26" r="1.6"/></g><circle cx="68" cy="38" r="3.4" fill="var(--lime)"/></svg>
       </div>
       <div class="tile t-agent">
-        <div><h3>This site has its own agent.</h3><p>It answers questions about my projects from my notes and resume. Hiring? Paste a job description and it checks the fit.</p></div>
+        <div><h3>This site has its own agent.</h3><p>Grounded in my project notes and resume, with schema-validated responses. Paste a job description and it maps each requirement to evidence, or says there is none.</p></div>
         <button class="pill" type="button" data-agent>Ask my agent <i>↗</i></button>
       </div>
     </div>
@@ -285,16 +286,16 @@
       <li class="hot">Machine learning</li><li>PyTorch</li><li>scikit-learn</li><li>XGBoost</li><li>Prophet</li><li>Computer vision</li><li class="hot">Shipping</li><li>Python</li><li>TypeScript</li><li>PostgreSQL</li><li>Cloudflare Workers</li><li>Azure</li><li>AWS</li><li>Docker</li>
       <li class="hot">Machine learning</li><li>PyTorch</li><li>scikit-learn</li><li>XGBoost</li><li>Prophet</li><li>Computer vision</li><li class="hot">Shipping</li><li>Python</li><li>TypeScript</li><li>PostgreSQL</li><li>Cloudflare Workers</li><li>Azure</li><li>AWS</li><li>Docker</li>
     </ul></div>
-    <p class="note">I work in Claude Code and Cursor every day, spec first, with tests deciding what ships. 2,000+ commits, up to 7 agents in parallel. See the <a href="https://paxel.ycombinator.com/results/y6rj8rqx/v3" target="_blank" rel="noreferrer">YC Paxel report</a></p>
+    <p class="note">Agentic development in Claude Code and Cursor, spec-first, with evals and regression tests deciding what ships. 2,000+ commits, up to 7 agents in parallel. See the <a href="https://paxel.ycombinator.com/results/y6rj8rqx/v3" target="_blank" rel="noreferrer">YC Paxel report</a></p>
   </section>
 
   <section class="sec wrap" id="experience">
     <div class="sec-head"><h2 class="big">Experi<span class="serif">ence</span></h2></div>
     <ol class="xp">
-      <li><span class="label">Feb 2026 – now</span><b>AI Research Technician / AI Specialist</b><em>Lambton College × EventLinx</em><p>Primary engineer on EventLinx's AI platform. Built the WhatsApp agent, its 45-tool MCP server, the release testing and the seat-map vision service.</p></li>
-      <li><span class="label">Apr – Dec 2025</span><b>AI Research Assistant</b><em>Algonquin College Applied Research</em><p>Led a team writing AI proposals with 5+ government stakeholders, aligned with Mitacs, NSERC ARD and Horizon Europe grants.</p></li>
+      <li><span class="label">Feb 2026 – now</span><b>AI Research Technician / AI Specialist</b><em>Lambton College × EventLinx</em><p>Primary engineer and end-to-end owner of EventLinx's AI platform: the production WhatsApp agent, a 45-tool MCP server, the release test gates and the seat-map vision service.</p></li>
+      <li><span class="label">Apr – Dec 2025</span><b>AI Research Assistant</b><em>Algonquin College Applied Research</em><p>Led a research team writing AI proposals with 5+ government stakeholders, aligned with the Mitacs, NSERC ARD and Horizon Europe grant programs.</p></li>
       <li><span class="label">2023 – 2025</span><b>Post-graduate certificates, AI and BI</b><em>Algonquin College</em><p>AI Software Development and Business Intelligence Systems Infrastructure.</p></li>
-      <li><span class="label">Mar – Jun 2022</span><b>Python Application Developer</b><em>Infidata Technologies</em><p>Built an event-driven ETL on AWS Lambda and RDS that saved about 40 hours a month of manual QA.</p></li>
+      <li><span class="label">Mar – Jun 2022</span><b>Python Application Developer</b><em>Infidata Technologies</em><p>Built an event-driven ETL pipeline on AWS Lambda and RDS with hourly refresh, removing about 40 hours a month of manual QA. Shipped 12 monthly releases by blue-green deployment with no downtime.</p></li>
     </ol>
   </section>
   <ul hidden>
@@ -333,7 +334,7 @@
   <p class="label">Contact</p>
   <h2 class="talk big" data-fit><span class="row"><span class="mask fit"><span class="rise">Let's <span class="serif">talk</span></span></span></span></h2>
   <div class="contact-row">
-    <p>Have a business problem and a pile of data? Email is best.</p>
+    <p>Hiring for applied AI, or have a system that needs to reach production? Email is best.</p>
     <div class="cta" style="margin:0"><a class="pill fill" href="mailto:sreechackoth@gmail.com">sreechackoth@gmail.com <i>↗</i></a><a class="pill" href="https://calendly.com/sreechackoth/intro-call-with-sree" target="_blank" rel="noreferrer">Book an intro call <i>↗</i></a></div>
   </div>
   <div class="foot"><span>© <span id="year">2026</span> Sree Chackoth</span><span><a href="https://github.com/just-sree" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://linkedin.com/in/sreesankaranc" target="_blank" rel="noreferrer">LinkedIn</a> · <a href="/resume.pdf" download="Sree-Chackoth_Resume.pdf">Resume</a></span><span>Ottawa, Canada</span></div>

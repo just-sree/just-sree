@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0c0e">
+  <meta name="description" content="Postmortem of Hasten, a local-first mobile app: four architectures, what was removed, and what the evidence supports.">
+  <title>Hasten postmortem · Sree Chackoth</title>
+  <link rel="icon" href="/mark.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://just-sree.vercel.app/hasten-postmortem.html">
+  <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="doc">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="mark" href="/" aria-label="Sree Chackoth, home">SC</a>
+    <nav class="menu"><a href="/#work">Work</a><a href="/#about">About</a><a href="/#contact">Contact</a><a class="agent" href="/resume.pdf" download="Sree-Chackoth_Resume.pdf">Resume</a></nav>
+  </header>
+  <main id="main">
+    <p class="label kind">Postmortem · Personal project · Feb to Mar 2026</p>
+    <h1 class="big">Hasten <span class="serif">postmortem</span></h1>
+    <p class="lede">Four architectures in one month to reach an app with no backend and no language model. This is what was built, what was removed, and what the record does and does not explain.</p>
+    <ul class="facts"><li><span class="label">Role</span><b>Sole developer</b></li><li><span class="label">Commits</span><b>157, 44 with Claude Code</b></li><li><span class="label">Tests</span><b>325 Jest, 16 device flows</b></li><li><span class="label">Shipped stack</span><b>Expo, SQLite, on-device NLP</b></li></ul>
+    <h2>Summary</h2>
+    <p>Hasten is a local-first mobile app. You capture a thought by voice or text, and an on-device pipeline segments it, extracts entities, dates and urgency, classifies it, and ranks it into a plan. Nothing leaves the phone.</p>
+    <p>The product requirement was fixed from the first week: work fully offline by default, with always-on cloud AI processing listed as a non-goal. Two of the four architectures I built violated that requirement, and both were removed.</p>
+
+    <h2>Timeline</h2>
+    <div class="scroll"><table>
+      <tr><th>Period</th><th>Architecture</th><th>Outcome</th></tr>
+      <tr><td>Feb 11 to 15</td><td>Expo and React Native with SQLite, a classifier and a scorer</td><td>Working prototype, 43 Jest tests</td></tr>
+      <tr><td>Feb 17</td><td>Vite web app parsing captures with Google Gemini structured output</td><td>Removed</td></tr>
+      <tr><td>Feb 21 to Mar 7</td><td>Flutter and Dart rewrite, about 13,000 lines and 164 tests, with offline speech-to-text</td><td>Removed</td></tr>
+      <tr><td>Mar 7</td><td>FastAPI server running a quantized Phi-3 Mini through llama.cpp for nightly batch enrichment</td><td>Built, never deployed, removed</td></tr>
+      <tr><td>Mar 11 onward</td><td>Expo SDK 55 with a rule-based engine, fully on-device</td><td>Current</td></tr>
+    </table></div>
+
+    <h2>What went wrong</h2>
+    <ul class="pts">
+      <li><b>Cloud parsing contradicted the product's own constraint.</b> The Gemini parser and the Phi-3 server both required a network path, which the offline requirement ruled out. Both were built, and both were removed.</li>
+      <li><b>The first Expo build was unstable in Expo Go.</b> Reanimated and worklets version conflicts were fixed first by pinning versions and then by removing the gesture and animation stack altogether.</li>
+      <li><b>Two framework migrations were made without a written decision.</b> The history shows the move to Flutter and the return to Expo, and records no rationale for either, so I can't cite one here.</li>
+      <li><b>The evaluation harness did not survive the last rewrite.</b> The Dart eval tools and the labelled dataset were deleted with the Flutter code, so the current tree has no evals.</li>
+    </ul>
+
+    <h2>What held across every rewrite</h2>
+    <p>The pipeline design did not change: segmentation, extraction, classification, ranking. The classifier was built in three phases and carried forward intact: weighted rule matches plus prototype-token similarity, then learning from user corrections, then a confidence-aware review screen. Feedback is capped per token and confidence is clamped to a fixed band, so a single correction has a bounded effect.</p>
+
+    <h2>Evidence</h2>
+    <p>Heuristic tuning was measured against a labelled dataset. Category accuracy rose from 50.85% to 77.58% (English 81.33%, French 68.75%), due-date recall from 70% to 100%, and people recall from 0% to 100%. The changes were word-boundary matching, a case-sensitive people pattern and the removal of ambiguous keywords.</p>
+    <p>These figures are self-reported from a commit message. Because the eval tooling was later removed, they cannot be reproduced from the current repository.</p>
+    <p>What can be verified today: 325 Jest tests (251 unit, 74 component) and 16 Maestro device flows covering smoke, review, onboarding, accessibility regression, jank, and seeded runs at 1,000 and 5,000 items. A physical-device certification run surfaced 8 failures, all fixed, including handling for a full SQLite disk.</p>
+
+    <h2>What I would change</h2>
+    <ul class="pts">
+      <li><b>Port the eval harness before the product code.</b> A rewrite that cannot be measured against the previous version is a regression risk with no detector.</li>
+      <li><b>Write a decision record for every architecture change</b>, even a three-line one, at the time of the change.</li>
+      <li><b>Run tests in CI.</b> The repository's only workflow dispatches to a separate quality repo. Type checks and the Jest suite run locally and should gate every pull request.</li>
+    </ul>
+
+    <p class="cta"><a class="pill fill" href="/#work">All projects <i>↗</i></a><a class="pill" href="mailto:sreechackoth@gmail.com">Email me about this <i>↗</i></a></p>
+  </main>
+  <footer class="wrap"><div class="foot"><span>© 2026 Sree Chackoth</span><span>Ottawa, Canada</span></div></footer>
+</body>
+</html>

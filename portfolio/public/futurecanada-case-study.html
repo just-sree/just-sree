@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0c0e">
+  <meta name="description" content="Case study of FutureCanada, an IRCC capstone forecasting immigration impact on housing and education by province, with results and limits.">
+  <title>FutureCanada case study · Sree Chackoth</title>
+  <link rel="icon" href="/mark.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://just-sree.vercel.app/futurecanada-case-study.html">
+  <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="doc">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="mark" href="/" aria-label="Sree Chackoth, home">SC</a>
+    <nav class="menu"><a href="/#work">Work</a><a href="/#about">About</a><a href="/#contact">Contact</a><a class="agent" href="/resume.pdf" download="Sree-Chackoth_Resume.pdf">Resume</a></nav>
+  </header>
+  <main id="main">
+    <p class="label kind">Case study · Capstone with IRCC · Jan to Apr 2025</p>
+    <h1 class="big">FutureCanada <span class="serif">case study</span></h1>
+    <p class="lede">Per-province forecasts of how immigration levels affect housing and education capacity in Canada, out to 2035, delivered as a what-if dashboard for planners.</p>
+    <ul class="facts"><li><span class="label">Role</span><b>Lead contributor, team of five</b></li><li><span class="label">Commits</span><b>103 of 207</b></li><li><span class="label">Result</span><b>Prophet best in 8 of 9 regions</b></li><li><span class="label">Stack</span><b>Python, Prophet, XGBoost, Power BI</b></li></ul>
+    <h2>The problem</h2>
+    <p>Immigration, Refugees and Citizenship Canada was the project partner. The question was how changes in permanent and temporary resident admissions translate into demand for housing and school capacity, province by province, over ten years.</p>
+    <p>I led the data engineering and modelling and built the Power BI dashboard. Teammates cleaned several of the source tables and documented and published the dashboard.</p>
+
+    <h2>Data</h2>
+    <p>Sources were Open Canada (population, births and deaths, permanent and temporary residents), CMHC (housing) and Statistics Canada. I integrated them into a province-by-year dataset with 9 derived migration and growth metrics covering 1991 to 2024, reconciled against the official national population series.</p>
+    <p>The housing training set runs from January 1986 to October 2024. Gaps were filled by linear interpolation with a median fallback, and features were added for calendar terms, lags of 1, 3 and 6 months across 7 series, and 3-month rolling means. The result is 4,188 rows by 41 columns.</p>
+
+    <h2>Approach</h2>
+    <p>The first pass was classical: seasonal decomposition, ADF tests, and ARIMA and auto-ARIMA baselines. The second fitted one pooled model across all provinces, where Prophet scored an R² of −0.07 and RandomForest 0.84.</p>
+    <p>The pooled result was misleading, so the final design fits each province separately. For each one, Prophet with exogenous regressors, RandomForest and XGBoost (the tree models tuned with grid search) are compared on a chronological 80/20 holdout. The winner is chosen by RMSE and refit on all of the data.</p>
+
+    <h2>Results</h2>
+    <div class="scroll"><table>
+      <tr><th>Measure</th><th>Value</th></tr>
+      <tr><td>Regions where Prophet had the lowest holdout RMSE</td><td>8 of 9 (XGBoost won Newfoundland and Labrador)</td></tr>
+      <tr><td>Prophet holdout R², households</td><td>Ontario 0.965, Quebec 0.934, British Columbia 0.882</td></tr>
+      <tr><td>Ontario holdout RMSE</td><td>31,271 for Prophet against 347,988 for RandomForest</td></tr>
+      <tr><td>Household forecast</td><td>1,296 monthly rows: 9 regions, January 2024 to December 2035</td></tr>
+      <tr><td>Education forecast</td><td>11 regions by 16 years, 2020 to 2035, across 24 measures</td></tr>
+    </table></div>
+    <p>The dashboard is a star-schema Power BI model with DAX measures and what-if parameters, so a planner can move permanent and temporary resident levels and see the effect on housing and education by province.</p>
+
+    <h2>Limits, stated plainly</h2>
+    <ul class="pts">
+      <li><b>Three provinces have negative holdout R² under Prophet:</b> Manitoba −0.34, New Brunswick −1.80, and Newfoundland and Labrador −78.5. The forecasts for those regions should not be relied on.</li>
+      <li><b>Lag and rolling features were computed across the stacked frame</b> without grouping by province, so values at province boundaries draw on a neighbouring province's rows.</li>
+      <li><b>Future exogenous regressors are held at their last observed value</b>, which understates uncertainty over a ten-year horizon.</li>
+      <li><b>The education forecasts have no holdout evaluation.</b></li>
+      <li><b>The pipeline runs end to end but offline.</b> It was never a production system, and it has no tests or continuous integration.</li>
+    </ul>
+
+    <h2>What I would do next</h2>
+    <p>Group the feature engineering by province and re-run the comparison, since the leak may be flattering or penalising the tree models. Replace the constant regressors with scenario paths. Add a holdout to the education forecasts, and report prediction intervals on the dashboard instead of point values.</p>
+
+    <p class="cta"><a class="pill fill" href="/#work">All projects <i>↗</i></a><a class="pill" href="mailto:sreechackoth@gmail.com">Email me about this <i>↗</i></a></p>
+  </main>
+  <footer class="wrap"><div class="foot"><span>© 2026 Sree Chackoth</span><span>Ottawa, Canada</span></div></footer>
+</body>
+</html>

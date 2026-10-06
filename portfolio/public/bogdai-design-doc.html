@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0c0e">
+  <meta name="description" content="Design doc for BogdAI, a six-agent contract risk pipeline: architecture, decisions and rejected alternatives, guardrails and known gaps.">
+  <title>BogdAI design doc · Sree Chackoth</title>
+  <link rel="icon" href="/mark.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://just-sree.vercel.app/bogdai-design-doc.html">
+  <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="doc">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="mark" href="/" aria-label="Sree Chackoth, home">SC</a>
+    <nav class="menu"><a href="/#work">Work</a><a href="/#about">About</a><a href="/#contact">Contact</a><a class="agent" href="/resume.pdf" download="Sree-Chackoth_Resume.pdf">Resume</a></nav>
+  </header>
+  <main id="main">
+    <p class="label kind">Design doc · Hackathon team entry · 2026</p>
+    <h1 class="big">BogdAI <span class="serif">design doc</span></h1>
+    <p class="lede">A six-agent pipeline that reviews a contract and returns a typed risk report in which every finding cites its source. The design question was how much of that to trust to a language model.</p>
+    <ul class="facts"><li><span class="label">Role</span><b>Backend, 96% of the Python source</b></li><li><span class="label">Event</span><b>Microsoft Agents League 2026</b></li><li><span class="label">Tests</span><b>45, of which 41 mine</b></li><li><span class="label">Stack</span><b>Microsoft Foundry, Pydantic</b></li></ul>
+    <h2>Context</h2>
+    <p>BogdAI was a team entry in the Reasoning Agents track of the Microsoft Agents League Hackathon. It analyses synthetic healthcare and pharma contracts against synthetic policy documents. I wrote the backend: the orchestrator, the six agents, the rule engine, the response schemas and most of the tests. A teammate built the HTTP endpoint and the interface.</p>
+
+    <h2>Goals and non-goals</h2>
+    <ul class="pts">
+      <li><b>Goal:</b> every finding is traceable to a clause and to the policy it breaches.</li>
+      <li><b>Goal:</b> the pipeline runs end to end with no cloud credentials, so tests and demos never depend on a model being reachable.</li>
+      <li><b>Non-goal:</b> a validated compliance product. All data is synthetic and the output carries a legal disclaimer.</li>
+    </ul>
+
+    <h2>Architecture</h2>
+    <p>An orchestrator runs six agents in sequence: intake, clause extraction across 10 clause categories, grounding, risk reasoning, verification, and reporting. The report is validated against 9 Pydantic models with bounded score and confidence fields.</p>
+    <p>Contract text passes through intake, clause tagging and rule matching. In Foundry mode the grounding agent selects a source document, section and quoted evidence for each matched issue, and the reasoning agent returns three observation and inference steps with a risk level and score. Verification and reporting always run locally.</p>
+
+    <h2>Decisions</h2>
+    <div class="scroll"><table>
+      <tr><th>Decision</th><th>Alternative rejected</th><th>Consequence</th></tr>
+      <tr><td>A deterministic 7-rule engine decides which flags exist. The model only enriches them.</td><td>Let the model find risks directly in the text</td><td>The flag set is bounded and testable. Recall is limited to the seven rules.</td></tr>
+      <tr><td>The deterministic path is the default. The model is optional.</td><td>A model-only pipeline</td><td>Demos and unit tests run offline. Unit tests never call Azure.</td></tr>
+      <tr><td>A frozen Pydantic contract is the integration boundary.</td><td>An evolving JSON shape</td><td>A teammate built the interface against it the next day.</td></tr>
+      <tr><td>JSON mode with per-call degradation: a failed call or invalid JSON falls back to rule output for that flag only.</td><td>Fail the whole run, or retry</td><td>One bad response cannot sink a report. There is no retry logic.</td></tr>
+      <tr><td>Grounding places all three policy documents in the prompt.</td><td>A vector index or managed knowledge source</td><td>Correct for three small documents. It would not scale past that.</td></tr>
+      <tr><td>Keyless authentication through Entra ID.</td><td>API keys in configuration</td><td>The default path needs no stored key. A teammate later added an API-key option.</td></tr>
+    </table></div>
+
+    <h2>Guardrails</h2>
+    <p>The verifier agent checks each finding for a citation, evidence, an excerpt and reasoning. It forces the human-review flag onto any high-risk finding that lacks one and scans the output for 7 unsafe-advice phrases. Ten further tests scan the data and source for patterns that look like personal data or credentials.</p>
+
+    <h2>Evaluation</h2>
+    <p>45 tests, of which 44 pass and 1 is an expected failure. On the first sample contract, Foundry mode returns 6 flags, all high, an overall rating of critical at a score of 87, with 6 citations and 0 unsupported claims. Local mode returns the same 6 flags as 4 high and 2 medium, at a score of 83.</p>
+
+    <h2>Known gaps</h2>
+    <ul class="pts">
+      <li><b>The expected failure is in my code.</b> The reasoning agent can still emit a high-risk finding without a grounded citation. The verifier catches it downstream; the reasoning step should not produce it.</li>
+      <li><b>No evaluation of model output.</b> There is no golden set and no accuracy measurement for the grounding or reasoning stages.</li>
+      <li><b>No prompt-injection testing.</b> Contract text and policy documents enter prompts unsanitised.</li>
+      <li><b>No continuous integration</b> and no retries on model calls.</li>
+    </ul>
+    <p>The source is public: <a href="https://github.com/anunjinb/bogdai-contract-risk-agent" target="_blank" rel="noreferrer">github.com/anunjinb/bogdai-contract-risk-agent</a>.</p>
+
+    <p class="cta"><a class="pill fill" href="/#work">All projects <i>↗</i></a><a class="pill" href="mailto:sreechackoth@gmail.com">Email me about this <i>↗</i></a></p>
+  </main>
+  <footer class="wrap"><div class="foot"><span>© 2026 Sree Chackoth</span><span>Ottawa, Canada</span></div></footer>
+</body>
+</html>

@@ -1,4 +1,4 @@
-<p align="center"><img src="./assets/profile-header.svg" alt="Sree Chackoth, Applied AI Engineer and Forward Deployed Engineer. I build LLM agents and vision systems, and the tests that make them safe to ship." width="100%" /></p>
+<p align="center"><img src="./assets/profile-header.svg" alt="Sree Chackoth, Applied AI Engineer and Forward Deployed Engineer. Researching, building, and deploying AI for real-world problems." width="100%" /></p>
 
 Hi, I’m Sree.
 

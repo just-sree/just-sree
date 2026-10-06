@@ -98,14 +98,14 @@ badge = ring(mono, 'BUILD ✦ EVALUATE ✦ SHIP ✦ REPEAT ✦ ', 8.4, bx, by, b
 col = right + 80
 label, _ = text(mono, 'OPEN TO APPLIED AI, ML AND FDE ROLES', 12, col + 18, 68, 0.1)
 s = 27
-l1, _ = text(sans_text, 'I build LLM agents and vision', s, col, 128, -0.03)
-l2, l2w = text(sans_text, 'systems, and the ', s, col, 128 + 34, -0.03)
-l2b, _ = text(serif, 'tests that make', s * 1.14, col + l2w, 128 + 34, -0.01)
-l3, _ = text(serif, 'them safe to ship.', s * 1.14, col, 128 + 68, -0.01)
+l1, _ = text(sans_text, 'Researching, building, and', s, col, 128, -0.03)
+l2, l2w = text(serif, 'deploying AI', s * 1.14, col, 128 + 34, -0.01)
+l2b, _ = text(sans_text, ' for real-world', s, col + l2w, 128 + 34, -0.03)
+l3, _ = text(sans_text, 'problems.', s, col, 128 + 68, -0.03)
 url, _ = text(mono, 'JUST-SREE.VERCEL.APP', 12, col, 252, 0.1)
 
 (ROOT / 'assets' / 'profile-header.svg').write_text(f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="title description">
-  <title id="title">Sree Chackoth, Applied AI Engineer and Forward Deployed Engineer. I build LLM agents and vision systems, and the tests that make them safe to ship.</title>
+  <title id="title">Sree Chackoth, Applied AI Engineer and Forward Deployed Engineer. Researching, building, and deploying AI for real-world problems.</title>
   <desc id="description">A dark banner with the name in large type, a coral capsule holding both job titles and a rotating lime badge, matching the portfolio site.</desc>
   <style>
     .spin {{ transform-origin: {bx}px {by}px; animation: spin 18s linear infinite; }}
@@ -128,9 +128,9 @@ url, _ = text(mono, 'JUST-SREE.VERCEL.APP', 12, col, 252, 0.1)
   <path d="M{bx} {by - 9}v17m-7 -7l7 7 7 -7" fill="none" stroke="{LIME}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   <circle class="pulse" cx="{col + 5}" cy="64" r="5" fill="{LIME}"/>
   <path d="{label}" fill="{LIME}"/>
-  <path d="{l1} {l2}" fill="{PAPER}"/>
-  <path d="{l2b} {l3}" fill="{LIME}"/>
+  <path d="{l1} {l2b} {l3}" fill="{PAPER}"/>
+  <path d="{l2}" fill="{LIME}"/>
   <path d="{url}" fill="{MUTE}"/>
 </svg>
 ''', encoding='utf-8', newline='\n')
-print(f'name ends at x={right:.0f}; text column {col:.0f}..{col + max(width(sans_text, "I build LLM agents and vision", s, -0.03), l2w + width(serif, "tests that make", s * 1.14, -0.01)):.0f} of {W - pad}')
+print(f'name ends at x={right:.0f}; text column {col:.0f}..{col + max(width(sans_text, "Researching, building, and", s, -0.03), l2w + width(sans_text, " for real-world", s, -0.03)):.0f} of {W - pad}')

@@ -18,6 +18,7 @@ const publicFiles = new Map([
   ['/robots.txt', ['robots.txt', 'text/plain; charset=utf-8']],
   ['/sitemap.xml', ['sitemap.xml', 'application/xml; charset=utf-8']],
   ['/404.html', ['404.html', 'text/html; charset=utf-8']],
+  ...['hasten-postmortem', 'bogdai-design-doc', 'futurecanada-case-study'].map((name) => [`/${name}.html`, [`${name}.html`, 'text/html; charset=utf-8']]),
   ...['jbm-latin', 'jbm-latin-ext', 'jbm-italic-latin', 'jbm-italic-latin-ext', 'archivo-latin', 'instrument-sans-latin', 'instrument-serif-italic-latin', 'fraunces-latin', 'plus-jakarta-sans-latin'].map((name) => [`/fonts/${name}.woff2`, [`fonts/${name}.woff2`, 'font/woff2']]),
 ]);
 const limits = new Map();

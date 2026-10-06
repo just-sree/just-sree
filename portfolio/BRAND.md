@@ -43,7 +43,9 @@ The nav and the About tile open the agent dialog (`public/app.js`). The anonymiz
 
 ## Copy
 
-Plain first person. Say what was built and what the numbers were, including the unflattering ones. No slogans, no taglines, no em-dash asides. Claims must match `ai-job-search/.claude/skills/job-application-assistant/01-candidate-profile.md`.
+First person, in a precise engineering register, written for a senior engineer screening the site. Each project row names a mechanism and the result it produced or the failure it prevents, in at most two sentences. Use the real term where it carries meaning (human-in-the-loop, MCP server, chronological holdout). Say what the numbers were, including the unflattering ones. No slogans, no taglines, no em-dash asides. This register is for the website only; the resumes keep their own plain-language rules.
+
+EventLinx is client work: the page states only what is already published and adds no further detail about their system. Hasten, BogdAI and FutureCanada each link to a longer write-up (`hasten-postmortem.html`, `bogdai-design-doc.html`, `futurecanada-case-study.html`). Claims must match `ai-job-search/.claude/skills/job-application-assistant/01-candidate-profile.md`.
 
 ## Link preview
 
