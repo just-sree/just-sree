@@ -2,25 +2,25 @@
   "ircc": {
     "name": "FutureCanada (IRCC capstone)",
     "title": "FutureCanada (IRCC capstone)",
-    "summary": "A capstone with IRCC that forecasts immigration’s impact on Canadian housing and education by province, out to 2035. Sree was the lead contributor in a five-person team.",
-    "problem": "Planning for housing and school capacity depends on how many permanent and temporary residents arrive, and that differs by province.",
+    "summary": "Per-province forecasts of immigration’s impact on Canadian housing and education capacity out to 2035, built with IRCC as the capstone partner. Sree was the lead contributor in a five-person team and led the data engineering and modelling.",
+    "problem": "Demand for housing and school capacity depends on permanent and temporary resident admissions, and the relationship differs by province.",
     "architecture": [
-      "Public immigration, housing and education data",
+      "Open Canada, CMHC and Statistics Canada data",
       "Cleaning and integration",
-      "Feature engineering",
-      "Model comparison by province",
-      "Power BI dashboard"
+      "4,188 × 41 feature set",
+      "Per-province model selection",
+      "Power BI what-if model"
     ],
-    "decision": "Compare Prophet, RandomForest and XGBoost for each province on a chronological holdout and pick each winner by error. Prophet won in 8 of 9 regions (Ontario R² 0.965). A pooled comparison had made RandomForest look strong, and it failed once tested province by province.",
-    "evidence": "The project repository and the team’s final report from April 2025. Sree built the Python pipeline, the forecasting models and the Power BI dashboard with what-if sliders.",
-    "limits": "Team capstone, January to April 2025, not government employment. The pipeline runs end to end but offline; it is not a production system. No public repository is linked.",
-    "url": "/resume.pdf",
-    "sourceLabel": "Read the resume"
+    "decision": "Prophet with exogenous regressors, RandomForest and XGBoost were compared per province on a chronological 80/20 holdout and selected by RMSE. Prophet won 8 of 9 regions (Ontario R² 0.965). A pooled model had made RandomForest look strong at R² 0.84; fitted per province it lost in every region, so pooling was dropped.",
+    "evidence": "Holdout metrics per province and per model, and a star-schema Power BI model with DAX measures and what-if parameters for permanent and temporary resident levels. The case study on this site gives the full results.",
+    "limits": "Team capstone, January to April 2025, not government employment. Three provinces have negative holdout R² under Prophet, lag features were computed without grouping by province, and the education forecasts have no holdout. The pipeline runs end to end but offline; it is not a production system.",
+    "url": "/futurecanada-case-study.html",
+    "sourceLabel": "Read the case study"
   },
   "bogdai": {
     "name": "BogdAI contract risk review",
     "title": "BogdAI contract risk review",
-    "summary": "A Microsoft Agents League Hackathon 2026 team prototype that turns synthetic healthcare and pharma contracts into structured, cited risk reports.",
+    "summary": "A six-agent pipeline that reviews a contract and returns a typed risk report in which every finding cites its source clause. It was a team entry in the Microsoft Agents League Hackathon 2026, run on synthetic healthcare and pharma contracts.",
     "problem": "A risk label is only useful if a reviewer can trace it back to the clause and the policy behind it.",
     "architecture": [
       "Intake",
@@ -30,58 +30,60 @@
       "Verification",
       "Report"
     ],
-    "decision": "Give each agent a bounded responsibility. Microsoft Foundry supports policy grounding and reasoning; a deterministic local fallback keeps demonstrations usable without cloud credentials.",
-    "evidence": "The repository documents six agent roles, structured Pydantic reports, policy citations, human-review flags for high-risk findings, and a full agent trace.",
-    "limits": "Microsoft hackathon team prototype using synthetic contracts and policies. Sree wrote the backend: the orchestrator, the six agents, a seven-rule risk engine and most of the tests. A teammate built the interface. It is not a validated compliance product.",
+    "decision": "A deterministic 7-rule engine decides which flags exist. The LLM only enriches each flag in JSON mode, and degrades per call to the rule output on failure, so the pipeline runs end to end with no cloud credentials. The report is validated against 9 Pydantic models, frozen as the contract for a teammate’s interface.",
+    "evidence": "A verifier agent checks every finding for a citation and evidence, forces human review on high-risk flags and scans for unsafe-advice phrasing. 45 tests: 44 pass and 1 is an expected failure. The design doc on this site lists the decisions and the rejected alternatives.",
+    "limits": "Synthetic contracts and policies only, no evaluation of LLM output, no prompt-injection testing, and recall bounded by the seven rules. Sree wrote the backend: the orchestrator, the six agents, the rule engine and 41 of the 45 tests. A teammate built the API and interface. It is not a validated compliance product.",
     "url": "https://github.com/anunjinb/bogdai-contract-risk-agent",
     "sourceLabel": "Explore the repository"
   },
   "whatsapp": {
     "name": "WhatsApp agent for event promoters",
     "title": "WhatsApp agent for event promoters",
-    "summary": "A production WhatsApp agent for EventLinx. Promoters create and edit events, set ticketing and pull sales reports by chat, in English and French. Sree built it and the 45-tool MCP server behind it.",
-    "problem": "An agent that can change a company’s database must not invent values or write without approval.",
+    "summary": "A production conversational agent on WhatsApp for EventLinx. Promoters create events, configure ticketing and query sales in English and French. Sree built the agent, with tool calling and memory, and the 45-tool MCP server in TypeScript that connects it to the company’s PostgreSQL database.",
+    "problem": "An agent with write access to a production database must not invent values or commit a change the user did not approve.",
     "architecture": [
       "WhatsApp message",
-      "Agent",
-      "Yes or no confirmation",
+      "LLM agent with tool calling",
+      "Human-in-the-loop confirmation",
       "45-tool MCP server",
       "PostgreSQL"
     ],
-    "decision": "Every database change waits for the user’s yes or no, and code controls that step rather than the model. Worst-case reply time fell by about 70%, from 15–30 seconds to 4–9 seconds.",
-    "evidence": "Each release is gated by LLM-judged test conversations, a 550-case red-team bank and 2,000+ automated tests.",
-    "limits": "Client work at Lambton College × EventLinx. The code is private, so no repository is linked."
+    "decision": "Human-in-the-loop by construction: every database write blocks on an explicit user confirmation that is enforced in code, outside the model. Worst-case reply time fell by about 70%, from 15–30 seconds to 4–9 seconds. The model was chosen by measurement: gpt-4.1-mini was kept after an A/B run against gpt-5.4-nano, 35 of 36 eval cases passing against 25.",
+    "evidence": "Every release is gated by LLM-judged test conversations, a 550-case red-team suite and 2,000+ automated tests in CI.",
+    "limits": "Client work at Lambton College × EventLinx. The code is private, so no repository is linked and no further detail about the system is published."
   },
   "seating": {
     "name": "Seating-chart detection",
     "title": "Seating-chart detection",
-    "summary": "A vision service for EventLinx that turns a picture of a venue’s seating chart into a structured seat map.",
-    "problem": "Seating charts arrive as images in many styles, and a seat map is only useful if the seat count is right.",
+    "summary": "A vision service for EventLinx that converts an image of a venue’s seating chart into a structured, machine-readable seat map.",
+    "problem": "Seating charts arrive as images in many styles, and a seat map is only usable if the seat count is right.",
     "architecture": [
       "Venue chart image",
       "Seat detection",
-      "Seat types",
+      "Seat-type classification",
       "Structured seat map"
     ],
-    "decision": "Sree first trained YOLO11 and a custom ResNet18 on GPUs with real and synthetic seat maps and benchmarked them on 250+ real venue maps. He then replaced them with one Azure OpenAI vision service once it measured better. A single-call design and a cheaper model were both dropped on the evidence.",
+    "decision": "Sree trained and fine-tuned YOLO11 and a custom ResNet18 CNN on GPUs with real and synthetic seat maps, benchmarked against 250+ real venue maps. He then replaced the trained pipeline with a single Azure OpenAI vision service once it measured better. Two designs were rejected on the evidence: a single-call design put 1 of 6 charts in range, and a cheaper tile model 0 of 7 against 5 of 7.",
     "evidence": "The service hit expected seat counts on all 5 benchmark venues at a median cost of $0.91 per map.",
-    "limits": "Client work at Lambton College × EventLinx. The code is private, so no repository is linked."
+    "limits": "Client work at Lambton College × EventLinx. The code is private, so no repository is linked and no further detail about the system is published."
   },
   "hasten": {
     "name": "Hasten",
     "title": "Hasten",
-    "summary": "A phone app that captures a thought by voice or text, then sorts, ranks and plans it on the device. Sree is the sole developer.",
-    "problem": "Capturing a thought should not need an account, a network connection or any filing.",
+    "summary": "A local-first mobile app. A thought is captured by voice or text, and an on-device pipeline classifies, ranks and schedules it with no network call. Sree is the sole developer.",
+    "problem": "Capture has to work with no account, no network path and no manual filing.",
     "architecture": [
-      "Voice or text",
-      "On-device language engine",
-      "Classify and rank",
-      "Plan",
-      "SQLite"
+      "Voice or text capture",
+      "Segmentation and extraction",
+      "Hybrid context classifier",
+      "Ranking and planning",
+      "SQLite in WAL mode"
     ],
-    "decision": "Sree prototyped on Gemini, then Flutter, then a local Phi-3 server, and removed all three. The shipped engine is rule-based and runs fully on the phone.",
-    "evidence": "325 unit tests and 16 device flows, including accessibility checks and 5,000-item stress runs. Category accuracy rose from 50.85% to 77.58% after tuning; that figure is self-reported.",
-    "limits": "Personal project, built with Claude Code."
+    "decision": "React Native on Expo with on-device speech recognition in 6 locales and a rule-based NLP engine for segmentation and entity, date and urgency extraction. The classifier combines weighted rules, prototype similarity and feedback from user corrections, with feedback capped per token and confidence clamped to a fixed band. Three architectures were built and removed first: a Gemini cloud parser, a Flutter rewrite and a self-hosted Phi-3 server.",
+    "evidence": "325 Jest tests and 16 Maestro device flows, including accessibility regression and seeded 5,000-item stress runs, validated on a physical device. Category accuracy rose from 50.85% to 77.58% after tuning; that figure is self-reported and the eval tooling was later removed.",
+    "limits": "Personal project, built with Claude Code. The current repository has no evals and runs no tests in CI. The postmortem on this site covers what was removed and why the record is incomplete.",
+    "url": "/hasten-postmortem.html",
+    "sourceLabel": "Read the postmortem"
   },
   "governed-ai": {
     "name": "Governed AI Reliability",
