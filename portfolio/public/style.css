@@ -285,7 +285,8 @@ button { font:inherit; color:inherit; }
   .t-say { grid-column:1 / -1; grid-row:auto; }
   .t-photo { grid-row:span 2; min-height:260px; }
   .xp li { grid-template-columns:1fr; gap:4px; } .xp p { grid-column:1; } .xp em { text-align:left; }
-  .badge { right:0; bottom:-1.02em; width:1.25em; height:1.25em; }
+  .badge { right:0; bottom:-1.32em; width:1.25em; height:1.25em; }
+  .intro h2 { padding-right:20vw; }
   .hero { padding-bottom:14vw; }
 }
 @media (max-width:640px) {
