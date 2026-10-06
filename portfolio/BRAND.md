@@ -49,6 +49,6 @@ Plain first person. Say what was built and what the numbers were, including the 
 
 `public/og.png` (1200×630) is rendered from `assets/og/og.html` with headless Chrome; the command is in that file. Regenerate it if the name, titles or statement change.
 
-## Still in the old terminal style
+## Mark and GitHub banner
 
-`public/mark.svg` (the favicon) and `assets/profile-header.svg` (the GitHub banner).
+`public/mark.svg` is the favicon: ink "SC" on a lime circle. `assets/profile-header.svg` is the GitHub profile banner, with the name, the coral capsule and a rotating badge. Both are built by `assets/brand/make_marks.py`, which converts the lettering to outlines because neither can load the site's fonts.
